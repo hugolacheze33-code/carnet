@@ -12,11 +12,11 @@
 <style>:root{padding-top:env(safe-area-inset-top,0px)}body{margin:0}[hidden]{display:none!important}</style>
 <script>
 window.CARNET_MODE = 'pwa';
-window.CARNET_VERSION = '2026-11-02 13:32';
+window.CARNET_VERSION = '2026-11-02 14:06';
 /* Base locale : même interface que la base claude.ai, stockée sur le téléphone */
 (function(){
   const KEY = 'carnet.db';
-  const seed = {"templates":{"A":{"exercises":[{"main":true,"name":"Soulevé de terre","reps":"1×4 lourde + 2×6","scheme":[{"label":"Lourde","reps":4},{"label":"Série 2","reps":6},{"label":"Série 3","reps":6}],"sets":"3","step":2.5,"tip":"Repos de 3 à 5 min. Paumes vers toi ; prise mixte seulement sur la série lourde.","unit":"kg"},{"loadAt":12,"main":true,"name":"Tractions pronation","reps":"max −1","sets":"3","tip":"Indique le lest : 0 si tu travailles sans lest.","unit":"kg"},{"loadAt":12,"main":true,"name":"Tractions supination","reps":"max −1","sets":"2","tip":"Indique le lest : 0 si tu travailles sans lest.","unit":"kg"},{"name":"Rowing barre","reps":"6-8","sets":"2","tip":"Buste immobile, dos droit.","unit":"kg"},{"name":"Face pull","reps":"12-15","sets":"2","tip":"Protège les épaules : garde une charge légère.","unit":"kg"},{"name":"Marche du fermier","reps":"30-40 m","sets":"2","tip":"Note le poids d’une seule main. Travaille la prise et le gainage.","unit":"kg"}],"name":"Dos · tirage","order":1,"short":"A · Dos"},"B":{"exercises":[{"main":true,"name":"Développé couché","reps":"1×4 lourde + 2×6","scheme":[{"label":"Lourde","reps":4},{"label":"Série 2","reps":6},{"label":"Série 3","reps":6}],"sets":"3","step":2.5,"tip":"À faire en premier. Repos de 3 à 4 min.","unit":"kg","double":true},{"loadAt":10,"main":true,"name":"Dips","reps":"6-10","sets":"2","tip":"Indique le lest : 0 si tu travailles sans lest.","unit":"kg"},{"name":"Développé militaire haltères","reps":"8-10","sets":"2","tip":"Note le poids d’un seul haltère.","unit":"kg"},{"name":"Pallof press","reps":"10 par côté","sets":"2","tip":"Résiste à la rotation du buste.","unit":"kg"},{"name":"Planche latérale","reps":"30-45 s par côté","sets":"2","unit":"s"}],"name":"Poussée","order":2,"short":"B · Poussée"},"C":{"exercises":[{"name":"Sauts en longueur ou sur box","reps":"3 sauts","sets":"4","tip":"Après 5 à 8 min de cardio facile et de mobilité. Récupère complètement entre les séries.","unit":"cm"},{"main":true,"name":"Squat","reps":"1×4 lourde + 2×6","scheme":[{"label":"Lourde","reps":4},{"label":"Série 2","reps":6},{"label":"Série 3","reps":6}],"sets":"3","step":2.5,"tip":"Repos de 3 à 5 min.","unit":"kg"},{"name":"Développé couché léger","reps":"5","sets":"3","tip":"70 à 75 % de ta série lourde. Il doit te rester 2 à 3 répétitions possibles.","unit":"kg"},{"name":"Fentes bulgares","reps":"8-10","sets":"2","tip":"Fais toutes les répétitions d’une jambe, puis change.","unit":"kg"},{"name":"Leg curl ou Nordic curl","reps":"6-10","sets":"2","tip":"Protège l’arrière des cuisses pour la course.","unit":"kg"},{"name":"Mollets debout ou assis","reps":"10-15","sets":"3","tip":"Alterne debout et assis d’une séance à l’autre.","unit":"kg"}],"name":"Jambes · athlétisme","order":3,"short":"C · Jambes"},"D":{"exercises":[{"main":true,"name":"Distance","reps":"facile 45-70 min, ou 4×1 km / 3×8 min soutenues","sets":"1","tip":"Une seule séance soutenue par semaine, jamais la veille de la séance C.","unit":"km"},{"name":"Durée","reps":"allure où tu peux parler","sets":"1","unit":"min"}],"name":"Course","order":4,"short":"D · Course"}},"settings":{"cycle":{"start":"2026-10-05","weeks":7}}};
+  const seed = {"templates":{"A":{"exercises":[{"main":true,"name":"Soulevé de terre","reps":"1 série lourde de 4, puis 2 séries de 6","scheme":[{"label":"Lourde","reps":4},{"label":"Série 2","reps":6},{"label":"Série 3","reps":6}],"sets":"3","step":2.5,"tip":"Repos de 3 à 5 min. Les deux paumes vers toi. Prise mixte seulement sur la série lourde, en changeant de main à chaque séance.","unit":"kg"},{"loadAt":12,"main":true,"name":"Tractions pronation","reps":"max −1","sets":"3","tip":"Indique le lest : 0 si tu n’en mets pas.","unit":"kg"},{"loadAt":12,"main":true,"name":"Tractions supination","reps":"max −1","sets":"2","tip":"Indique le lest : 0 si tu n’en mets pas.","unit":"kg"},{"name":"Suspension à la barre","sets":"2","reps":"45-60 s","unit":"s","main":true,"rest":90,"tip":"Tiens jusqu’à ce que la prise soit sur le point de lâcher. Dès 60 s aux 2 séries, ajoute du lest et note-le dans la remarque."},{"name":"Rowing barre","reps":"6-8","sets":"2","tip":"Buste immobile, dos droit.","unit":"kg"},{"name":"Face pull","reps":"12-15","sets":"2","tip":"Charge légère, coudes à hauteur d’épaules.","unit":"kg"},{"name":"Marche du fermier","reps":"30-40 m","sets":"2","tip":"Note le poids d’une seule main. Dès 40 m sur les 2 séries, ajoute 2 kg par main.","unit":"kg","step":2},{"name":"Curl marteau","sets":"2","reps":"8-12","unit":"kg","step":2,"tip":"Note le poids d’un seul haltère. Coudes le long du corps."}],"name":"Dos · tirage","order":1,"short":"A · Dos"},"B":{"exercises":[{"name":"Sauts verticaux","sets":"3","reps":"3 sauts","unit":"reps","rest":60,"tip":"Après l’échauffement. Saute le plus haut possible, chaque saut à fond. Ne fais pas ces séries fatigué."},{"main":true,"name":"Développé couché","reps":"1 série lourde de 4, puis 2 séries de 6","scheme":[{"label":"Lourde","reps":4},{"label":"Série 2","reps":6},{"label":"Série 3","reps":6}],"sets":"3","step":2.5,"tip":"Premier exercice lourd de la séance. Repos de 3 à 4 min. Avant-bras à peu près verticaux quand la barre touche la poitrine.","unit":"kg","double":true},{"loadAt":10,"main":true,"name":"Dips","reps":"6-10","sets":"2","tip":"Indique le lest : 0 si tu n’en mets pas. Arrête la descente si l’avant de l’épaule te gêne.","unit":"kg"},{"name":"Extension triceps à la poulie","sets":"2","reps":"10-12","unit":"kg","tip":"Coudes immobiles, le long du corps."},{"name":"Développé militaire haltères","reps":"8-10","sets":"3","tip":"Note le poids d’un seul haltère. Fessiers serrés, sans te pencher en arrière.","unit":"kg","step":2},{"name":"Fentes marchées ou step-ups","sets":"2","reps":"8-10 par jambe","unit":"kg","step":2,"tip":"Note le poids d’un seul haltère. Buste droit, pas de grand pas forcé."},{"name":"Pallof press","reps":"10 par côté","sets":"2","tip":"Le câble tire sur le côté : ne laisse pas ton buste tourner. Fais les 10 répétitions de chaque côté.","unit":"kg"},{"name":"Planche latérale","reps":"30-45 s par côté","sets":"2","unit":"s","tip":"Corps aligné de la tête aux pieds. Fais le temps indiqué de chaque côté."}],"name":"Poussée","order":2,"short":"B · Poussée"},"C":{"exercises":[{"name":"Sauts en longueur ou sur box","reps":"3 sauts","sets":"4","tip":"Après 5 à 8 min de cardio facile et de mobilité. Récupère 1 à 2 min entre les séries. Note la distance sautée ou la hauteur de la box.","unit":"cm"},{"main":true,"name":"Squat","reps":"1 série lourde de 4, puis 2 séries de 6","scheme":[{"label":"Lourde","reps":4},{"label":"Série 2","reps":6},{"label":"Série 3","reps":6}],"sets":"3","step":2.5,"tip":"Repos de 3 à 5 min. Règle les sécurités du rack sous ta position basse.","unit":"kg"},{"name":"Développé couché pause","reps":"5","sets":"3","tip":"Charge proposée : 80 % de ta série lourde. Marque 1 seconde sur la poitrine, sans rebond. Il doit te rester au moins 3 répétitions possibles.","unit":"kg"},{"name":"Fentes bulgares","reps":"8-10 par jambe","sets":"2","tip":"Note le poids d’un seul haltère. Fais toutes les répétitions d’une jambe, puis change.","unit":"kg"},{"name":"Leg curl ou Nordic curl","reps":"6-10","sets":"2","tip":"Retour lent, en 2 à 3 secondes.","unit":"kg"},{"name":"Mollets debout ou assis","reps":"10-15","sets":"3","tip":"Une séance debout, la suivante assis. Mouvement lent, sans rebond.","unit":"kg"}],"name":"Jambes · athlétisme","order":3,"short":"C · Jambes"},"D":{"exercises":[{"main":true,"name":"Distance","reps":"Facile : 45 à 70 min. Soutenue : 4 fois 1 km, ou 3 fois 8 min.","sets":"1","tip":"Une seule course soutenue par semaine, jamais la veille de la séance C.","unit":"km"},{"name":"Durée","reps":"Temps total de la course","sets":"1","unit":"min"}],"name":"Course","order":4,"short":"D · Course"}},"settings":{"cycle":{"start":"2026-10-05","weeks":7},"program":{"version":2}}};
   let store; try { store = JSON.parse(localStorage.getItem(KEY) || 'null'); } catch (e) { store = null; }
   if (!store) store = { templates: seed.templates, settings: seed.settings, logs: {}, weights: {}, goals: {} };
   const subs = new Set();
@@ -188,6 +188,7 @@ p{margin:0}
 .lifts{display:grid;grid-template-columns:repeat(auto-fill,minmax(135px,1fr));gap:10px}
 .lift{background:var(--steel);border-radius:12px;padding:12px;display:grid;gap:4px;align-content:start;min-width:0;border-top:5px solid var(--c)}
 .lift .v{font-family:var(--display);font-weight:900;font-size:2rem;line-height:.95}
+.lift .v .small{display:block;margin-top:3px;line-height:1.2}
 .lift svg,.wchart svg{width:100%;display:block}
 .zones{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
 .zone{background:var(--steel);border-radius:10px;padding:10px;display:grid;gap:2px}
@@ -214,6 +215,8 @@ table.runs th{color:var(--dim);font-weight:500;font-size:.78rem}
 .exrow{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;align-items:center;border-top:1px solid var(--line);padding-top:10px}
 .exrow .t{display:grid;gap:2px;min-width:0}
 .exrow .t b{font-weight:600}
+.exrow .t span.main{color:var(--chalk)}
+.exrow .tools{align-self:start}
 .exrow .t span{font-size:.82rem;color:var(--dim)}
 .tools{display:flex;gap:4px}
 .tools button{width:44px;height:44px;border:0;border-radius:10px;background:var(--steel);font-size:1.05rem}
@@ -306,20 +309,84 @@ textarea{width:100%;min-height:90px;resize:vertical}
 .nav .in{grid-template-columns:repeat(6,1fr)}
 .figbox{background:var(--floor);border-radius:12px;padding:6px}
 .figbox svg{width:100%;height:auto;max-height:38vh;display:block}
-.b{stroke:var(--chalk);stroke-width:8;stroke-linecap:round}
-.b-on{stroke:var(--c,var(--ok))}
-.b-back{stroke:var(--dim);opacity:.5}
-.b-foot{stroke-width:6}
-.b-torso{stroke-width:13}
+.b{fill:var(--chalk)}
+.b-on{fill:var(--c,var(--ok))}
+.b-back{fill:var(--dim);opacity:.45}
+.b-shoe{fill:var(--dim)}
 .b-head{fill:var(--chalk)}
 .g-floor{stroke:var(--line);stroke-width:3}
-.g-plate{fill:var(--steel);fill-opacity:.85;stroke:var(--bar);stroke-width:2}
+.g-plate{fill:var(--steel);fill-opacity:.88;stroke:var(--bar);stroke-width:2}
 .g-ring{fill:none;stroke:var(--line);stroke-width:1.5}
 .g-hub{fill:var(--bar)}
 .g-box{fill:var(--steel);stroke:var(--line);stroke-width:1.5}
-.g-steel{stroke:var(--bar);stroke-width:5;stroke-linecap:round}
+.g-post{stroke:var(--bar);stroke-width:4;stroke-linecap:round}
+.g-steelfill{fill:var(--bar)}
 .g-weight{fill:var(--bar)}
-.g-cable{stroke:var(--dim);stroke-width:2;stroke-dasharray:4 3}
+.g-cable{stroke:var(--dim);stroke-width:1.6;stroke-dasharray:4 3}
+.g-guide{stroke:var(--dim);stroke-width:1.3;stroke-dasharray:2 4;stroke-linecap:round}
+.m-line{stroke:var(--warn);stroke-width:1.1}
+.m-dot{fill:var(--warn);stroke:var(--floor);stroke-width:1.2}
+.m-box{fill:var(--warn-bg);stroke:var(--warn);stroke-width:.9}
+.m-text{fill:var(--warn);font:600 7.6px var(--body)}
+.figtag{position:absolute;top:8px;left:10px;font-family:var(--display);font-weight:800;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;color:var(--dim)}
+.figbox{position:relative}
+.figtext .figwarn{list-style:none;margin:8px 0 0;padding:0;display:grid;gap:4px;color:var(--warn);font-weight:500}
+.figwarn li::before{content:"⚠ "}
+.mmap{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:12px;align-items:center}
+.mmap svg{width:100%;height:auto;display:block;max-height:300px}
+.mm{fill:var(--steel);stroke:var(--floor);stroke-width:.5}
+.mm-prim{fill:var(--c,var(--ok))}
+.mm-sec{fill:color-mix(in srgb,var(--c,var(--ok)) 42%,var(--steel))}
+.mm-skin{fill:var(--line)}
+.mm-t{fill:var(--dim);font:600 8px var(--body)}
+.mlist{display:grid;gap:10px;font-size:.88rem}
+.mlist ul{list-style:none;margin:4px 0 0;padding:0;display:grid;gap:3px}
+.mlist .k{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;background:var(--c,var(--ok))}
+.mlist .k.s{background:color-mix(in srgb,var(--c,var(--ok)) 42%,var(--steel))}
+.errs li::marker{color:var(--bad)}
+/* consignes */
+.guide{border-top:1px solid var(--line);padding:2px 0}
+.guide summary{font-weight:600;min-height:44px;display:flex;align-items:center;justify-content:space-between;gap:8px;cursor:pointer;list-style:none}
+.guide summary::-webkit-details-marker{display:none}
+.guide summary::after{content:"›";font-size:1.3rem;color:var(--dim);transition:transform .15s}
+.guide[open] summary::after{transform:rotate(90deg)}
+.guide ul{margin:0 0 10px;padding-left:18px;display:grid;gap:6px;font-size:.92rem}
+/* tuiles de bilan */
+.tiles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.tile{background:var(--steel);border-radius:12px;padding:10px 6px;text-align:center;display:grid;gap:2px;min-width:0}
+.sess .tile{background:var(--rubber)}
+.tile b{font-family:var(--display);font-weight:900;font-size:1.75rem;line-height:1}
+.tile span{font-size:.72rem;color:var(--dim)}
+.delta{color:var(--ok);font-weight:600}
+.notice{border:2px solid var(--ok);border-radius:14px;padding:14px;display:grid;gap:8px;background:var(--rubber)}
+.notice ul{margin:0;padding-left:18px;display:grid;gap:3px;font-size:.9rem}
+.alert.soft{background:var(--steel);color:var(--chalk)}
+.meta{font-size:.82rem;color:var(--dim)}
+.inforow svg{width:66px;height:58px;flex:none}
+.inforow .nm{flex:1;min-width:0}
+.toast.pr{background:var(--chalk);color:var(--ink);font-family:var(--display);font-weight:900;font-size:1.35rem;text-transform:uppercase;line-height:1.05}
+.sess.rest .toast.pr{background:var(--ink);color:var(--chalk)}
+/* matière et petits mouvements */
+body{background-image:radial-gradient(color-mix(in srgb,var(--chalk) 5%,transparent) 1px,transparent 1.4px);background-size:15px 15px}
+.card{box-shadow:inset 0 1px 0 color-mix(in srgb,var(--chalk) 5%,transparent)}
+@media (prefers-reduced-motion:no-preference){
+  button,.chip,.btn,label.btn{transition:transform .08s ease,background-color .15s ease,border-color .15s ease}
+  button:active,.btn:active{transform:scale(.97)}
+  .view.enter>*{animation:rise .24s ease-out both}
+  .stepper input.pop{animation:pop .2s ease-out}
+  .toast.pr{animation:pop .35s ease-out}
+  .m-dot{animation:beat 1s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+}
+@keyframes rise{from{opacity:.55;transform:translateY(6px)}to{opacity:1;transform:none}}
+@keyframes pop{0%{transform:scale(1)}40%{transform:scale(1.09)}100%{transform:scale(1)}}
+@keyframes beat{50%{transform:scale(1.5)}}
+/* la semaine : des disques enfilés sur une barre */
+.week{background:linear-gradient(var(--bar),var(--bar)) no-repeat 0 calc(100% - 19px)/100% 4px;row-gap:6px}
+.week button{height:auto;aspect-ratio:1;border-radius:50%;width:100%;max-width:42px;justify-self:center;background:radial-gradient(circle,var(--steel) 0 34%,transparent 36%);padding:0}
+.week button.f{background:var(--c);box-shadow:inset 0 0 0 3px color-mix(in srgb,var(--c) 68%,#000)}
+.week button.p{background:var(--rubber);border:2px dashed var(--c);color:var(--c)}
+.week button.today{box-shadow:0 0 0 2px var(--chalk)}
+.week button.f.today{box-shadow:inset 0 0 0 3px color-mix(in srgb,var(--c) 68%,#000),0 0 0 2px var(--chalk)}
 .figctl{display:grid;grid-template-columns:auto minmax(0,1fr);gap:12px;align-items:center}
 .figctl input{width:100%;padding:0;border:0;background:transparent;accent-color:var(--c,var(--chalk));height:44px}
 .figtext{background:var(--steel);border-radius:10px;padding:12px;min-height:5.4em}
@@ -421,7 +488,7 @@ const L = (() => {
   function valStep(ex) {
     const u = unitOf(ex);
     if (u === 'kg') return kind(ex) === 'pdc' ? 2.5 : (+ex.step || 2.5);
-    return { s: 5, cm: 5, km: 0.1, min: 1 }[u] || 1;
+    return { s: 5, cm: 5, km: 0.1, min: 1, reps: 1 }[u] || 1;
   }
   function defaultRest(ex) {
     if (isNum(ex.rest)) return +ex.rest;
@@ -447,7 +514,8 @@ const L = (() => {
   function missing(log, tpl, todayIso, dateIso) {
     if (!tpl || !log) return false;
     if (log.status !== 'faite' && dateIso >= todayIso) return false;
-    return (tpl.exercises || []).some(ex => { const e = log.entries?.[ex.name]; return !(e?.skipped) && !isNum(e?.val); });
+    /* Seule une séance sans aucune valeur notée compte comme à compléter : un exercice ajouté plus tard au programme ne rend pas incomplètes les anciennes séances */
+    return !Object.values(log.entries || {}).some(e => e?.skipped || isNum(e?.val));
   }
 
   /* Mesure suivie pour une séance (identique à la v4) */
@@ -474,7 +542,7 @@ const L = (() => {
       return e.sets.filter(s => s && (isNum(s.val) || isNum(s.reps))).map(s => {
         const v = isNum(s.val) ? fv(s.val) : '0';
         if (kind(ex) === 'pdc') return `${+s.val > 0 ? '+' + v + ' kg' : 'sans lest'} × ${isNum(s.reps) ? s.reps : '?'}`;
-        if (!ru) return `${v} ${u}`;
+        if (!ru) return `${v} ${u === 'reps' ? 'répétitions' : u}`;
         return `${v}${u === 'kg' ? ' kg' : ''} × ${isNum(s.reps) ? s.reps : '?'}${ru === 'm' ? ' m' : ''}`;
       }).join(' · ');
     }
@@ -544,12 +612,12 @@ const L = (() => {
     const hasVal = lastVal != null && isFinite(lastVal);
     const top = topOf(ex.reps);
     const ru = repsUnit(ex);
-    const met = unitOf(ex) === 'kg' && ru === 'reps' && top && ls.length >= nSets(ex) && ls.every(s => isNum(s.reps) && +s.reps >= top);
-    let val = hasVal ? lastVal : '';
+    const met = unitOf(ex) === 'kg' && ru && top && ls.length >= nSets(ex) && ls.every(s => isNum(s.reps) && +s.reps >= top);
+    let val = hasVal ? lastVal : (unitOf(ex) === 'reps' ? (parseInt(ex.reps, 10) || '') : '');
     let note = '';
     if (hasVal && deload && unitOf(ex) === 'kg') { val = roundTo(lastVal * 0.9, step); note = 'Semaine d’allègement : charge réduite de 10 %, moitié moins de séries.'; }
     else if (deload) note = 'Semaine d’allègement : moitié moins de séries.';
-    else if (met) { val = lastVal + step; note = `Tu as atteint le haut de ton objectif de répétitions : ajoute ${frNum(step)} kg.`; }
+    else if (met) { val = lastVal + step; note = ru === 'm' ? `Tu as tenu ${top} m à chaque série : ajoute ${frNum(step)} kg par main.` : `Tu as atteint le haut de ton objectif de répétitions : ajoute ${frNum(step)} kg.`; }
     const sets = Array.from({ length: n }, (_, j) => ({ label: `Série ${j + 1}`, val, reps: ru ? (met ? '' : (ls[j]?.reps ?? ls[ls.length - 1]?.reps ?? '')) : '' }));
     return { sets, note, kindNote: deload ? 'deload' : met ? 'up' : 'same' };
   }
@@ -578,7 +646,7 @@ const L = (() => {
 
   /* ---------- Records ---------- */
   function scoreSet(ex, s, bw) {
-    if (!s) return null;
+    if (!s || unitOf(ex) === 'reps') return null;
     const k = kind(ex), u = unitOf(ex);
     if (k === 'barre' || (u === 'kg' && repsUnit(ex) === 'reps' && k !== 'pdc')) return isNum(s.val) && isNum(s.reps) && +s.reps > 0 ? e1rm(+s.val, +s.reps) : null;
     if (k === 'pdc') return isNum(s.reps) && +s.reps > 0 ? e1rm(bw + (isNum(s.val) ? +s.val : 0), +s.reps) : null;
@@ -677,6 +745,146 @@ const L = (() => {
     return { id: 'D', type: 'facile', rotation: false };
   }
 
+  /* ---------- Consignes en clair ---------- */
+  function repsTarget(ex) {
+    const r = String(ex.reps ?? '').trim();
+    if (/max/i.test(r)) return '1 répétition de moins que ton maximum';
+    const m = r.match(/^(\d+)(?:\s*-\s*(\d+))?\s*(par .+)?$/i);
+    if (m) return `${m[1]}${m[2] ? ' à ' + m[2] : ''} répétitions${m[3] ? ' ' + m[3] : ''}`;
+    return r.replace(/(\d)\s*-\s*(\d)/g, '$1 à $2');
+  }
+  function repsPlain(ex) {
+    const u = unitOf(ex);
+    if (u === 'km' || u === 'min') return String(ex.reps ?? '');
+    if (ex.scheme?.length) {
+      const [first, ...rest] = ex.scheme.map(s => +s.reps);
+      if (!rest.length) return `1 série de ${first} répétitions`;
+      return rest.every(x => x === rest[0])
+        ? `1 série lourde de ${first}, puis ${rest.length} série${rest.length > 1 ? 's' : ''} de ${rest[0]} répétitions`
+        : `${ex.scheme.length} séries : ${[first, ...rest].join(', ')} répétitions`;
+    }
+    const n = nSets(ex), s = n > 1 ? 'séries' : 'série';
+    if (/max/i.test(String(ex.reps))) return `${n} ${s}, en t’arrêtant 1 répétition avant ton maximum`;
+    const t = repsTarget(ex);
+    return t ? `${n} ${s} de ${t}` : `${n} ${s}`;
+  }
+  /* Quand augmenter : la règle de progression de l'exercice, en une phrase */
+  function progressRule(ex) {
+    const k = kind(ex), step = frNum(valStep(ex)), ru = repsUnit(ex), top = topOf(ex.reps);
+    if (k === 'barre') return ex.double ? `Quand tout est réussi : 1 répétition de plus par série à charge égale, puis +${step} kg` : `+${step} kg quand toutes les répétitions sont réussies`;
+    if (k === 'pdc') return `+2,5 kg de lest dès ${ex.loadAt} répétitions à chaque série`;
+    if (unitOf(ex) === 'kg' && ru && top) return `+${step} kg dès ${top} ${ru === 'm' ? 'm' : 'répétitions'} à chaque série`;
+    return '';
+  }
+  /* Durée approximative : séries × (effort + repos), plus l'échauffement */
+  function estimateMinutes(tpl) {
+    let sec = 8 * 60;
+    for (const ex of tpl?.exercises || []) {
+      const u = unitOf(ex);
+      if (u === 'km' || u === 'min') return null;
+      sec += nSets(ex) * (45 + defaultRest(ex));
+      if (ex.scheme) sec += 180;   // montée en charge
+    }
+    return Math.round(sec / 300) * 5;
+  }
+  /* Bilan chiffré d'une séance : tonnage = charge × répétitions, hors poids du corps et marche du fermier */
+  function sessionStats(log, tpl) {
+    let tonnage = 0, sets = 0;
+    for (const ex of tpl?.exercises || []) {
+      const e = log?.entries?.[ex.name]; if (!e || e.skipped) continue;
+      const done = (e.sets || []).filter(s => s && (isNum(s.val) || isNum(s.reps)));
+      sets += done.length;
+      if (unitOf(ex) === 'kg' && repsUnit(ex) === 'reps' && kind(ex) !== 'pdc') for (const s of done) if (isNum(s.val) && isNum(s.reps)) tonnage += +s.val * +s.reps;
+    }
+    return { tonnage: Math.round(tonnage), sets, km: runOf(log, tpl)?.km || 0 };
+  }
+  /* Plus longue course des N derniers jours (repère de prudence, étude Frandsen 2025) */
+  function longestRun(logs, tpl, dateIso, days = 30) {
+    let best = 0;
+    for (const [k, log] of Object.entries(logs || {})) {
+      if (k >= dateIso || dayDiff(k, dateIso) > days || log.status !== 'faite' || log.templateId !== 'D') continue;
+      best = Math.max(best, runOf(log, tpl)?.km || 0);
+    }
+    return best;
+  }
+
+  /* ---------- Évolution du programme ----------
+     Appliquée une seule fois sur un téléphone déjà installé. Ne remplace jamais un texte
+     que l'utilisateur a changé : seules les anciennes valeurs connues sont mises à jour. */
+  const PROGRAM_VERSION = 2;
+  const PROG2 = {
+    rename: [['Développé couché léger', 'Développé couché pause']],
+    add: {
+      A: [['Tractions supination', { name: 'Suspension à la barre', sets: '2', reps: '45-60 s', unit: 's', main: true, rest: 90, tip: 'Tiens jusqu’à ce que la prise soit sur le point de lâcher. Dès 60 s aux 2 séries, ajoute du lest et note-le dans la remarque.' }],
+        ['Marche du fermier', { name: 'Curl marteau', sets: '2', reps: '8-12', unit: 'kg', step: 2, tip: 'Note le poids d’un seul haltère. Coudes le long du corps.' }]],
+      B: [[null, { name: 'Sauts verticaux', sets: '3', reps: '3 sauts', unit: 'reps', rest: 60, tip: 'Après l’échauffement. Saute le plus haut possible, chaque saut à fond. Ne fais pas ces séries fatigué.' }],
+        ['Dips', { name: 'Extension triceps à la poulie', sets: '2', reps: '10-12', unit: 'kg', tip: 'Coudes immobiles, le long du corps.' }],
+        ['Développé militaire haltères', { name: 'Fentes marchées ou step-ups', sets: '2', reps: '8-10 par jambe', unit: 'kg', step: 2, tip: 'Note le poids d’un seul haltère. Buste droit, pas de grand pas forcé.' }]]
+    },
+    edits: {
+      'Soulevé de terre': {
+        reps: [['1×4 lourde + 2×6'], '1 série lourde de 4, puis 2 séries de 6'],
+        tip: [['repos 3-5 min, double pronation puis mixte sur la lourde seulement', 'Repos de 3 à 5 min. Paumes vers toi ; prise mixte seulement sur la série lourde.'], 'Repos de 3 à 5 min. Les deux paumes vers toi. Prise mixte seulement sur la série lourde, en changeant de main à chaque séance.'] },
+      'Tractions pronation': { tip: [['note le lest, 0 au poids du corps', 'Indique le lest : 0 si tu travailles sans lest.'], 'Indique le lest : 0 si tu n’en mets pas.'] },
+      'Tractions supination': { tip: [['note le lest, 0 au poids du corps', 'Indique le lest : 0 si tu travailles sans lest.'], 'Indique le lest : 0 si tu n’en mets pas.'] },
+      'Rowing barre': { tip: [['seul tirage horizontal, buste stable'], 'Buste immobile, dos droit.'] },
+      'Face pull': { tip: [['prévention épaules', 'Protège les épaules : garde une charge légère.'], 'Charge légère, coudes à hauteur d’épaules.'] },
+      'Marche du fermier': {
+        step: [[undefined], 2],
+        tip: [['poids par main, grip + gainage', 'Note le poids d’une seule main. Travaille la prise et le gainage.'], 'Note le poids d’une seule main. Dès 40 m sur les 2 séries, ajoute 2 kg par main.'] },
+      'Développé couché': {
+        reps: [['1×4 lourde + 2×6'], '1 série lourde de 4, puis 2 séries de 6'],
+        tip: [['en premier, repos 3-4 min', 'À faire en premier. Repos de 3 à 4 min.'], 'Premier exercice lourd de la séance. Repos de 3 à 4 min. Avant-bras à peu près verticaux quand la barre touche la poitrine.'] },
+      'Dips': { tip: [['note le lest', 'Indique le lest : 0 si tu travailles sans lest.'], 'Indique le lest : 0 si tu n’en mets pas. Arrête la descente si l’avant de l’épaule te gêne.'] },
+      'Développé militaire haltères': {
+        sets: [['2'], '3'], step: [[undefined], 2],
+        tip: [['poids d\'un haltère', 'Note le poids d’un seul haltère.'], 'Note le poids d’un seul haltère. Fessiers serrés, sans te pencher en arrière.'] },
+      'Pallof press': {
+        tip: [['anti-rotation', 'Résiste à la rotation du buste.'], 'Le câble tire sur le côté : ne laisse pas ton buste tourner. Fais les 10 répétitions de chaque côté.'] },
+      'Planche latérale': { tip: [[undefined], 'Corps aligné de la tête aux pieds. Fais le temps indiqué de chaque côté.'] },
+      'Sauts en longueur ou sur box': {
+        tip: [['après 5-8 min de cardio facile + mobilité, récupération complète', 'Après 5 à 8 min de cardio facile et de mobilité. Récupère complètement entre les séries.'], 'Après 5 à 8 min de cardio facile et de mobilité. Récupère 1 à 2 min entre les séries. Note la distance sautée ou la hauteur de la box.'] },
+      'Squat': {
+        reps: [['1×4 lourde + 2×6'], '1 série lourde de 4, puis 2 séries de 6'],
+        tip: [['repos 3-5 min', 'Repos de 3 à 5 min.'], 'Repos de 3 à 5 min. Règle les sécurités du rack sous ta position basse.'] },
+      'Développé couché pause': {
+        tip: [['70-75 % de ta série lourde, 2-3 reps en réserve, technique', '70 à 75 % de ta série lourde. Il doit te rester 2 à 3 répétitions possibles.'], 'Charge proposée : 80 % de ta série lourde. Marque 1 seconde sur la poitrine, sans rebond. Il doit te rester au moins 3 répétitions possibles.'] },
+      'Fentes bulgares': {
+        reps: [['8-10'], '8-10 par jambe'],
+        tip: [['par jambe', 'Fais toutes les répétitions d’une jambe, puis change.'], 'Note le poids d’un seul haltère. Fais toutes les répétitions d’une jambe, puis change.'] },
+      'Leg curl ou Nordic curl': { tip: [['prévention ischios pour la course', 'Protège l’arrière des cuisses pour la course.'], 'Retour lent, en 2 à 3 secondes.'] },
+      'Mollets debout ou assis': { tip: [['alterne debout et assis', 'Alterne debout et assis d’une séance à l’autre.'], 'Une séance debout, la suivante assis. Mouvement lent, sans rebond.'] },
+      'Distance': {
+        reps: [['facile 45-70 min, ou 4×1 km / 3×8 min soutenues'], 'Facile : 45 à 70 min. Soutenue : 4 fois 1 km, ou 3 fois 8 min.'],
+        tip: [['1 seule séance soutenue par semaine, jamais la veille de C', 'Une seule séance soutenue par semaine, jamais la veille de la séance C.'], 'Une seule course soutenue par semaine, jamais la veille de la séance C.'] },
+      'Durée': { reps: [['allure où tu peux parler'], 'Temps total de la course'] }
+    }
+  };
+  function migrateProgram(templates) {
+    const out = JSON.parse(JSON.stringify(templates || {})), changes = [], renames = [];
+    const names = () => Object.values(out).flatMap(t => (t.exercises || []).map(x => x.name));
+    for (const [a, b] of PROG2.rename) for (const t of Object.values(out)) for (const ex of t.exercises || []) if (ex.name === a && !names().includes(b)) {
+      ex.name = b; renames.push([a, b]); changes.push(`${t.short || t.name} : ${a} devient ${b}`);
+    }
+    for (const [id, list] of Object.entries(PROG2.add)) {
+      const t = out[id]; if (!t) continue;
+      for (const [after, ex] of list) {
+        if (names().includes(ex.name)) continue;
+        const i = after ? t.exercises.findIndex(x => x.name === after) : -1;
+        t.exercises.splice(after && i < 0 ? t.exercises.length : i + 1, 0, JSON.parse(JSON.stringify(ex)));
+        changes.push(`${t.short || t.name} : ajout de ${ex.name}`);
+      }
+    }
+    for (const t of Object.values(out)) for (const ex of t.exercises || []) {
+      const ed = PROG2.edits[ex.name]; if (!ed) continue;
+      for (const [field, [olds, val]] of Object.entries(ed)) if (olds.includes(ex[field])) {
+        ex[field] = val;
+        if (field === 'sets') changes.push(`${t.short || t.name} : ${ex.name} passe à ${val} séries`);
+      }
+    }
+    return { templates: out, renames, changes };
+  }
+
   /* ---------- Objectifs (repris de la v4) ---------- */
   function goalMetric(ex, g) { if (!ex) return +g.target; return kind(ex) === 'barre' ? e1rm(+g.target, +g.reps || 1) : +g.target; }
   function currentFor(g, ctx) {
@@ -701,7 +909,7 @@ const L = (() => {
     const reached = k === 'poids' ? Math.abs(diff) < 0.3 : diff <= 0;
     if (reached) return { cur, target, unit, pct: 100, state: 'done', text: 'Objectif atteint. Fixe-toi la cible suivante.' };
     if (weeks <= 0) return { cur, target, unit, pct, state: 'bad', text: 'La date est passée. Mets une nouvelle date pour garder un plan.' };
-    const rate = k === 'barre' ? Math.max(cur * 0.01, 0.5) : k === 'pdc' ? 0.5 : k === 'km' ? Math.max(cur * 0.1, 0.5) : k === 'poids' ? (diff > 0 ? 0.25 : 0.5) : Math.max(Math.abs(cur) * 0.02, 0.5);
+    const rate = k === 'barre' ? Math.max(cur * 0.005, 0.25) : k === 'pdc' ? 0.25 : k === 'km' ? Math.max(cur * 0.1, 0.5) : k === 'poids' ? (diff > 0 ? 0.25 : 0.5) : Math.max(Math.abs(cur) * 0.01, 0.25);
     const need = Math.abs(diff) / eff, ratio = need / rate;
     const state = ratio <= 1 ? 'ok' : ratio <= 2 ? 'amb' : 'bad';
     const realWeeks = Math.ceil(Math.abs(diff) / rate * cw / (cw - 1));
@@ -717,7 +925,7 @@ const L = (() => {
       const every = Math.max(1, Math.round(1 / need));
       text = `Gagne 1 répétition sur ta meilleure série ${every === 1 ? 'chaque semaine' : `toutes les ${every} semaines`}. Si tu ne progresses pas deux séances de suite, ajoute une série en fin de séance.`;
     } else if (k === 'km') {
-      text = `Allonge ta sortie longue d'environ ${frNum(need)} km par semaine, à allure facile, et fais une semaine plus courte toutes les 4 semaines. Au-delà de +10 % par semaine, le risque de blessure monte.`;
+      text = `Allonge ta sortie longue d'environ ${frNum(need)} km par semaine, à allure facile, et fais une semaine plus courte toutes les 4 semaines. Évite de dépasser de plus de 10 % ta plus longue sortie des 30 derniers jours.`;
     } else if (k === 'poids') {
       text = diff > 0 ? `Vise environ +${frNum(need)} kg par semaine : un léger surplus alimentaire, 1,6 à 2 g de protéines par kg et ta progression en charge. Pèse-toi le matin à jeun et suis la moyenne sur 7 jours.`
         : `Vise environ −${frNum(need)} kg par semaine au maximum pour garder ta force : un léger déficit, beaucoup de protéines, et maintiens tes charges. Suis la moyenne sur 7 jours.`;
@@ -740,7 +948,7 @@ const L = (() => {
 
   /* ---------- Demander à Claude ---------- */
   const EX_FIELDS = ['name', 'sets', 'reps', 'unit', 'main', 'step', 'scheme', 'loadAt', 'tip', 'rest', 'double'];
-  const UNITS = ['kg', 'km', 'min', 's', 'cm'];
+  const UNITS = ['kg', 'km', 'min', 's', 'cm', 'reps'];
   function cleanExercise(x) {
     if (!x || typeof x !== 'object' || typeof x.name !== 'string' || !x.name.trim()) return null;
     const ex = { name: x.name.trim().slice(0, 80) };
@@ -818,7 +1026,7 @@ const L = (() => {
   }
   function exSummary(ex) {
     if (!ex) return '';
-    const parts = [ex.scheme ? `${ex.scheme.length} séries : ${ex.scheme.map(s => s.reps).join(', ')} répétitions` : `${ex.sets} × ${ex.reps}`];
+    const parts = [repsPlain(ex)];
     if (ex.step) parts.push(`palier ${frNum(ex.step)} kg`);
     if (ex.loadAt) parts.push(`lest à partir de ${ex.loadAt} répétitions`);
     if (ex.rest) parts.push(`repos ${fmtDur(ex.rest)}`);
@@ -881,7 +1089,7 @@ Réponds UNIQUEMENT avec un objet JSON de cette forme :
 {"op":"deplacer_exercice","seance":"C","index":4,"vers":1,"raison":"..."}
 {"op":"ajouter_objectif","objectif":{"exercise":"nom exact d'un exercice suivi ou __poids__","target":80,"reps":4,"date":"AAAA-MM-JJ"},"raison":"..."}
 {"op":"prevoir_seance","date":"AAAA-MM-JJ","seance":"D","type":"facile","raison":"..."}
-Champs d'un exercice : name, sets (texte), reps (texte), unit (kg, km, min, s, cm), main (suivi), step (palier kg), scheme (liste de {label, reps} pour les exercices à la barre), loadAt (reps avant d'ajouter du lest), tip, rest (secondes de repos), double (double progression). Les index commencent à 0 et se réfèrent aux séances types ci-dessus. Renommer un exercice garde son historique.`;
+Champs d'un exercice : name, sets (texte), reps (texte), unit (kg, km, min, s, cm, reps), main (suivi), step (palier kg), scheme (liste de {label, reps} pour les exercices à la barre), loadAt (reps avant d'ajouter du lest), tip, rest (secondes de repos), double (double progression). Les index commencent à 0 et se réfèrent aux séances types ci-dessus. Renommer un exercice garde son historique.`;
   function buildClaudePrompt(ctx, question) {
     return `${CLAUDE_FORMAT}\n\n=== MES DONNÉES ===\n${buildClaudeContext(ctx)}\n\n=== MA QUESTION ===\n${question}`;
   }
@@ -890,12 +1098,13 @@ Champs d'un exercice : name, sets (texte), reps (texte), unit (kg, km, min, s, c
     parseDur, fmtDur, fmtPace, cycleInfo, deloadStart, tplList, unitOf, exDef, kind, repsUnit, valStep, defaultRest, nSets,
     history, lastBefore, missing, metric, describe, finalize, suggest, platesPerSide, warmup, scoreSet, bestOf, newPRs, prLabel,
     runOf, riegel, paceZones, bestRunRef, runPRs, sequenceAlerts, suggestNext,goalMetric, currentFor, plan, weightStats,
+    repsTarget, repsPlain, progressRule, estimateMinutes, sessionStats, longestRun, PROGRAM_VERSION, migrateProgram,
     cleanExercise, validateChanges, applyTemplateChange, describeChange, exSummary, buildClaudeContext, buildClaudePrompt, sessionLine };
 })();
 
 
-/* Carnet de séances — fiches d'exercices et schéma animé (aucun accès au DOM).
-   Un personnage vu de profil : on donne le bassin, l'inclinaison du buste, la main et le pied,
+/* Carnet de séances — fiches d'exercices, animation et carte des muscles (aucun accès au DOM).
+   Le personnage est vu de profil : on donne le bassin, l'inclinaison du buste, la main et le pied,
    et les coudes et genoux sont calculés pour garder des os de longueur constante. */
 const EX = (() => {
   const BONE = { torso: 50, upper: 33, fore: 31, thigh: 40, shin: 40, head: 20 };
@@ -916,9 +1125,11 @@ const EX = (() => {
     const hip = p.h, shoulder = [hip[0] + BONE.torso * s, hip[1] - BONE.torso * c];
     const head = [shoulder[0] + BONE.head * s, shoulder[1] - BONE.head * c];
     const eb = p.eb ?? -1, kb = p.kb ?? 1;
-    const out = { hip, shoulder, head, hand: p.w, foot: p.f, toe: p.t || [p.f[0] + 13, p.f[1] + 6] };
+    /* front : vers l'avant du corps, perpendiculaire au buste */
+    const out = { hip, shoulder, head, hand: p.w, foot: p.f, toe: p.t || [p.f[0] + 13, p.f[1] + 6], up: [s, -c], front: p.prone ? [-c, -s] : [c, s] };
     out.elbow = joint(shoulder, p.w, BONE.upper, BONE.fore, eb);
     out.knee = joint(hip, p.f, BONE.thigh, BONE.shin, kb);
+    out.back = [(hip[0] + shoulder[0]) / 2 - c * 9, (hip[1] + shoulder[1]) / 2 - s * 9];
     if (p.w2) { out.hand2 = p.w2; out.elbow2 = joint(shoulder, p.w2, BONE.upper, BONE.fore, p.eb2 ?? eb); }
     if (p.f2) { out.foot2 = p.f2; out.toe2 = p.t2 || [p.f2[0] + 13, p.f2[1] + 6]; out.knee2 = joint(hip, p.f2, BONE.thigh, BONE.shin, p.kb2 ?? kb); }
     return out;
@@ -926,6 +1137,7 @@ const EX = (() => {
   /* Interpolation entre deux positions, nombre par nombre */
   function mix(a, b, f) {
     if (typeof a === 'number') return a + (b - a) * f;
+    if (typeof a !== 'object') return a;
     if (Array.isArray(a)) return a.map((v, i) => mix(v, b[i], f));
     const o = {};
     for (const k of Object.keys(a)) o[k] = k in b ? mix(a[k], b[k], f) : a[k];
@@ -939,220 +1151,367 @@ const EX = (() => {
     return mix(sheet.frames[i].pose, sheet.frames[i + 1].pose, ease(f));
   }
 
-  /* ---------- Dessin ---------- */
-  const line = (a, b, cls) => `<line x1="${a[0].toFixed(1)}" y1="${a[1].toFixed(1)}" x2="${b[0].toFixed(1)}" y2="${b[1].toFixed(1)}" class="${cls}"/>`;
-  function plate(c, r) {
-    return `<circle cx="${c[0].toFixed(1)}" cy="${c[1].toFixed(1)}" r="${r}" class="g-plate"/><circle cx="${c[0].toFixed(1)}" cy="${c[1].toFixed(1)}" r="${(r * .72).toFixed(1)}" class="g-ring"/><circle cx="${c[0].toFixed(1)}" cy="${c[1].toFixed(1)}" r="3" class="g-hub"/>`;
+  /* ---------- Dessin du corps ---------- */
+  const n1 = x => x.toFixed(1);
+  const circ = (c, r, cls) => `<circle cx="${n1(c[0])}" cy="${n1(c[1])}" r="${r}" class="${cls}"/>`;
+  /* Segment du corps : plus épais d'un côté que de l'autre */
+  function limb(a, b, r1, r2, cls) {
+    const dx = b[0] - a[0], dy = b[1] - a[1], d = Math.max(Math.hypot(dx, dy), 1e-6), nx = -dy / d, ny = dx / d;
+    return `<path d="M${n1(a[0] + nx * r1)} ${n1(a[1] + ny * r1)}L${n1(b[0] + nx * r2)} ${n1(b[1] + ny * r2)}L${n1(b[0] - nx * r2)} ${n1(b[1] - ny * r2)}L${n1(a[0] - nx * r1)} ${n1(a[1] - ny * r1)}Z" class="${cls}"/>` + circ(a, r1, cls) + circ(b, r2, cls);
   }
-  const rect = (x, y, w, h, cls = 'g-box') => `<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="3" class="${cls}"/>`;
+  const along = (a, b, f) => [a[0] + (b[0] - a[0]) * f, a[1] + (b[1] - a[1]) * f];
+  function leg(hip, knee, foot, toe, clsThigh, clsShin, shoe) {
+    const dir = [toe[0] - foot[0], toe[1] - foot[1]], L0 = Math.max(Math.hypot(dir[0], dir[1]), 1e-6);
+    const calf = along(knee, foot, 0.32);
+    return limb(hip, knee, 8, 5.2, clsThigh) + limb(knee, foot, 4.8, 3, clsShin) + circ([calf[0] - dir[0] / L0 * 1.3, calf[1] - dir[1] / L0 * 1.3], 4.8, clsShin) + limb(foot, toe, 3.6, 2.3, shoe);
+  }
+  function arm(shoulder, elbow, hand, clsUp, clsFore) {
+    return limb(shoulder, elbow, 5, 3.7, clsUp) + limb(elbow, hand, 3.7, 2.6, clsFore) + circ(hand, 3.3, clsFore);
+  }
+
+  /* ---------- Matériel ---------- */
+  const rect = (x, y, w, h, cls = 'g-box', rx = 3) => `<rect x="${n1(+x)}" y="${n1(+y)}" width="${w}" height="${h}" rx="${rx}" class="${cls}"/>`;
+  function plate(c, r) {
+    return circ(c, r, 'g-plate') + circ(c, +(r * .72).toFixed(1), 'g-ring') + circ(c, 3.2, 'g-hub');
+  }
   function gear(g, J) {
     const at = g.at === 'shoulder' ? J.shoulder : g.at === 'foot' ? J.foot : J.hand;
     switch (g.t) {
       case 'floor': return `<line x1="0" y1="${g.y}" x2="240" y2="${g.y}" class="g-floor"/>`;
       case 'barbell': return plate(at, g.r || 20);
-      case 'dumbbell': return rect((at[0] - 11).toFixed(1), (at[1] - 4).toFixed(1), 22, 8, 'g-weight');
-      case 'farmer': return rect((at[0] - 12).toFixed(1), (at[1] + 2).toFixed(1), 24, 14, 'g-weight');
-      case 'pullbar': return `<line x1="${g.x - 26}" y1="${g.y}" x2="${g.x + 26}" y2="${g.y}" class="g-steel"/>`;
-      case 'dipbar': return `<line x1="${g.x}" y1="${g.y}" x2="${g.x}" y2="${g.y + 110}" class="g-steel"/><line x1="${g.x - 16}" y1="${g.y}" x2="${g.x + 16}" y2="${g.y}" class="g-steel"/>`;
-      case 'bench': return rect(g.x1, g.y, g.x2 - g.x1, 8) + `<line x1="${g.x1 + 12}" y1="${g.y + 8}" x2="${g.x1 + 12}" y2="${g.floor}" class="g-steel"/><line x1="${g.x2 - 12}" y1="${g.y + 8}" x2="${g.x2 - 12}" y2="${g.floor}" class="g-steel"/>`;
+      case 'dumbbell': return rect(at[0] - 7, at[1] - 1.5, 14, 3, 'g-steelfill', 1) + rect(at[0] - 11, at[1] - 5, 5, 10, 'g-weight', 1.5) + rect(at[0] + 6, at[1] - 5, 5, 10, 'g-weight', 1.5);
+      case 'farmer': return rect(at[0] - 12, at[1] + 2, 24, 15, 'g-weight', 2) + rect(at[0] - 7, at[1] - 1, 14, 3, 'g-steelfill', 1);
+      case 'handle': return rect(at[0] - 4, at[1] - 3.5, 8, 7, 'g-weight', 2);
+      case 'pullbar': return `<line x1="${g.x}" y1="${g.y}" x2="${g.x}" y2="${g.y - 40}" class="g-post"/>` + circ([g.x, g.y], 4.5, 'g-hub');
+      case 'dipbar': return `<line x1="${g.x}" y1="${g.y}" x2="${g.x}" y2="${g.y + 110}" class="g-post"/>` + circ([g.x, g.y], 4.5, 'g-hub');
+      case 'bench': return rect(g.x1, g.y, g.x2 - g.x1, 8) + `<line x1="${g.x1 + 12}" y1="${g.y + 8}" x2="${g.x1 + 12}" y2="${g.floor}" class="g-post"/><line x1="${g.x2 - 12}" y1="${g.y + 8}" x2="${g.x2 - 12}" y2="${g.floor}" class="g-post"/>`;
       case 'box': return rect(g.x1, g.y, g.x2 - g.x1, g.floor - g.y);
-      case 'cable': return `<line x1="${g.from[0]}" y1="${g.from[1]}" x2="${at[0].toFixed(1)}" y2="${at[1].toFixed(1)}" class="g-cable"/><circle cx="${g.from[0]}" cy="${g.from[1]}" r="5" class="g-hub"/>`;
-      case 'pad': return `<circle cx="${at[0].toFixed(1)}" cy="${(at[1] - 6).toFixed(1)}" r="6" class="g-weight"/>`;
+      case 'cable': return (g.column ? rect(g.from[0] - 3, Math.min(g.from[1] - 8, 6), 9, 188 - Math.min(g.from[1] - 8, 6), 'g-box', 2) : '') + `<line x1="${g.from[0]}" y1="${g.from[1]}" x2="${n1(at[0])}" y2="${n1(at[1])}" class="g-cable"/>` + circ(g.from, 4.5, 'g-hub');
+      case 'pad': return circ([at[0], at[1] - 7], 6, 'g-weight');
+      case 'guide': return `<line x1="${g.from[0]}" y1="${g.from[1]}" x2="${g.to[0]}" y2="${g.to[1]}" class="g-guide"/>`;
     }
     return '';
   }
-  /* Personnage et matériel à l'instant t (position décimale entre les étapes) */
-  function drawFigure(sheet, t) {
+
+  /* ---------- Points d'attention affichés sur l'animation ---------- */
+  function vbOf(sheet) { return (sheet.vb || '10 0 220 205').split(' ').map(Number); }
+  function wrapLabel(text) {
+    if (text.length <= 18) return [text];
+    const w = text.split(' ');
+    let a = '', i = 0;
+    while (i < w.length && (a + ' ' + w[i]).trim().length <= Math.ceil(text.length / 2) + 2) a = (a + ' ' + w[i++]).trim();
+    return [a, w.slice(i).join(' ')].filter(Boolean);
+  }
+  function drawMarks(sheet, J, t) {
+    const i = Math.round(t), near = 1 - Math.abs(t - i) / 0.2;
+    if (near <= 0) return '';
+    const [vx, vy, vw, vh] = vbOf(sheet);
+    let o = `<g style="opacity:${Math.min(1, near * 1.6).toFixed(2)}">`;
+    for (const m of sheet.frames[i]?.warn || []) {
+      const a = J[m.at] || J.hip, lines = wrapLabel(m.t), tw = Math.max(...lines.map(x => x.length)) * 3.95 + 10, th = lines.length * 9 + 5;
+      let x = m.dx >= 0 ? a[0] + m.dx : a[0] + m.dx - tw, y = a[1] + m.dy - th / 2;
+      x = Math.max(vx + 2, Math.min(vx + vw - tw - 2, x)); y = Math.max(vy + 2, Math.min(vy + vh - th - 2, y));
+      const cx = Math.max(x, Math.min(x + tw, a[0])), cy = Math.max(y, Math.min(y + th, a[1]));
+      o += `<line x1="${n1(a[0])}" y1="${n1(a[1])}" x2="${n1(cx)}" y2="${n1(cy)}" class="m-line"/>`;
+      o += `<circle cx="${n1(a[0])}" cy="${n1(a[1])}" r="3.4" class="m-dot"/>`;
+      o += `<rect x="${n1(x)}" y="${n1(y)}" width="${n1(tw)}" height="${th}" rx="3.5" class="m-box"/>`;
+      lines.forEach((l, k) => { o += `<text x="${n1(x + tw / 2)}" y="${n1(y + 9.6 + k * 9)}" text-anchor="middle" class="m-text">${l.replace(/&/g, '&amp;').replace(/</g, '&lt;')}</text>`; });
+    }
+    return o + '</g>';
+  }
+  /* Personnage, matériel et alertes à l'instant t (position décimale entre les étapes) */
+  function drawFigure(sheet, t, opt = {}) {
     const J = joints(poseAt(sheet, t)), w = sheet.work || [];
     const c = k => w.includes(k) ? 'b b-on' : 'b';
     let o = '';
     for (const g of sheet.gear || []) if (!g.front) o += gear(g, J);
-    if (J.hand2) o += line(J.shoulder, J.elbow2, 'b b-back') + line(J.elbow2, J.hand2, 'b b-back');
-    if (J.foot2) o += line(J.hip, J.knee2, 'b b-back') + line(J.knee2, J.foot2, 'b b-back') + line(J.foot2, J.toe2, 'b b-back b-foot');
-    o += line(J.hip, J.knee, c('thigh')) + line(J.knee, J.foot, c('shin')) + line(J.foot, J.toe, 'b b-foot');
-    o += line(J.hip, J.shoulder, c('torso') + ' b-torso');
-    o += `<circle cx="${J.head[0].toFixed(1)}" cy="${J.head[1].toFixed(1)}" r="11" class="b-head"/>`;
-    o += line(J.shoulder, J.elbow, c('upper')) + line(J.elbow, J.hand, c('fore'));
+    if (J.hand2) o += arm(J.shoulder, J.elbow2, J.hand2, 'b b-back', 'b b-back');
+    if (J.foot2) o += leg(J.hip, J.knee2, J.foot2, J.toe2, 'b b-back', 'b b-back', 'b b-back');
+    o += leg(J.hip, J.knee, J.foot, J.toe, c('thigh'), c('shin'), 'b b-shoe');
+    /* buste : bassin, fessier, poitrine, épaule */
+    const f = J.front, chest = along(J.hip, J.shoulder, 0.68), glute = along(J.hip, J.shoulder, 0.02);
+    o += limb(J.hip, J.shoulder, 8.5, 9.5, c('torso'));
+    o += circ([chest[0] + f[0] * 2.6, chest[1] + f[1] * 2.6], 9.2, c('torso')) + circ([glute[0] - f[0] * 2.8, glute[1] - f[1] * 2.8], 8.2, c('torso'));
+    /* cou et tête, avec le nez pour voir où regarde le personnage */
+    o += limb(J.shoulder, J.head, 3.6, 3.6, 'b');
+    o += circ(J.head, 10, 'b b-head') + circ([J.head[0] + f[0] * 9.6, J.head[1] + f[1] * 9.6], 1.7, 'b b-head');
+    o += arm(J.shoulder, J.elbow, J.hand, c('upper'), c('fore'));
     for (const g of sheet.gear || []) if (g.front) o += gear(g, J);
+    if (opt.marks) o += drawMarks(sheet, J, t);
     return o;
   }
 
+  /* ---------- Carte des muscles : vue de face et de dos ----------
+     Les tracés sont dessinés pour une moitié du corps, puis répétés en miroir. */
+  const MUSCLE_NAMES = {
+    pec: 'Pectoraux', deltF: 'Avant des épaules', deltB: 'Arrière des épaules', bicep: 'Biceps', tricep: 'Triceps', forearm: 'Avant-bras',
+    abs: 'Abdominaux', oblique: 'Obliques', trap: 'Trapèzes', midback: 'Milieu du dos', lat: 'Grand dorsal', lower: 'Bas du dos',
+    glute: 'Fessiers', quad: 'Avant des cuisses (quadriceps)', ham: 'Arrière des cuisses (ischio-jambiers)', calf: 'Mollets', shin: 'Devant des jambes'
+  };
+  const FRONT = {
+    deltF: 'M14 29C22 29 28 34 28 44L26 51C22 47 17 43 14 39Z',
+    pec: 'M2 32L13 31C19 36 19 45 17 50C12 54 6 54 2 52Z',
+    bicep: 'M20 51L27.5 52C30 58 30 66 28 73L22 73C20 66 19 58 20 51Z',
+    forearm: 'M22 76L29 76C32 85 31 97 28 108L24 108C22 98 21 87 22 76Z',
+    abs: 'M2 55L11 55L11 91C8 96 4 98 2 98Z',
+    oblique: 'M12.5 55L18 53C18.5 65 17.5 79 15 90L12.5 90Z',
+    quad: 'M4 102L16 95C22 110 22 128 17.5 146L9 146C5 132 3 116 4 102Z',
+    shin: 'M8.5 153L16 153C18 162 16.5 173 14.5 182L10.5 182C8.5 172 7.5 162 8.5 153Z'
+  };
+  const BACK = {
+    trap: 'M1 21L5 23L16 31L9 36L1 38Z',
+    deltB: 'M14 29C22 29 28 34 28 44L26 51C22 47 17 43 15 40L10 38Z',
+    midback: 'M1 40L9 38L13 41L8 51L1 54Z',
+    lat: 'M2 56L9.5 52L15 43L19 47C20 56 17 66 11 75L2 77Z',
+    lower: 'M1 79L10 77L11 94L1 95Z',
+    tricep: 'M20 51L27.5 52C30 58 30 66 28 73L22 73C20 66 19 58 20 51Z',
+    forearm: 'M22 76L29 76C32 85 31 97 28 108L24 108C22 98 21 87 22 76Z',
+    glute: 'M1 97L13 95C19 102 19 112 14 116C8 118 2 116 1 113Z',
+    ham: 'M3 119L16 117C20 128 19 140 16 148L8 148C5 138 3 128 3 119Z',
+    calf: 'M8 153L16 153C19 162 17.5 172 14.5 181L10 181C7 172 6 162 8 153Z'
+  };
+  function muscleHalf(paths, sheet) {
+    let o = '';
+    for (const [id, d] of Object.entries(paths)) {
+      const cls = (sheet.prim || []).includes(id) ? 'mm mm-prim' : (sheet.sec || []).includes(id) ? 'mm mm-sec' : 'mm';
+      o += `<path d="${d}" class="${cls}"/>`;
+    }
+    /* mains, genoux et pieds, non musculaires ici */
+    o += '<ellipse cx="26.5" cy="115" rx="3.5" ry="6" class="mm-skin"/><ellipse cx="12.5" cy="149.5" rx="4.6" ry="2.6" class="mm-skin"/><path d="M9.5 184L15 184L18 189L8.5 189Z" class="mm-skin"/>';
+    return o;
+  }
+  function drawMuscles(sheet) {
+    const person = (paths, x) => `<g transform="translate(${x} 3)"><ellipse cx="0" cy="11" rx="8.6" ry="10.6" class="mm-skin"/><rect x="-3.6" y="20" width="7.2" height="9" rx="2" class="mm-skin"/><g>${muscleHalf(paths, sheet)}</g><g transform="scale(-1 1)">${muscleHalf(paths, sheet)}</g></g>`;
+    return person(FRONT, 36) + person(BACK, 110) + '<text x="36" y="203" text-anchor="middle" class="mm-t">De face</text><text x="110" y="203" text-anchor="middle" class="mm-t">De dos</text>';
+  }
+
   /* ---------- Fiches ---------- */
+  const W = (at, t, dx, dy) => ({ at, t, dx, dy });
   const FLOOR = { t: 'floor', y: 188 };
-  const STAND = { h: [100, 103], a: 0, w: [100, 115], f: [100, 182] };
-  const pullFrames = text => [
-    { label: 'Suspendu', text: text[0], pose: { h: [122.4, 130], a: -5, w: [120, 20], f: [124, 206] } },
-    { label: 'Tirer', text: text[1], pose: { h: [122, 104], a: -8, w: [120, 20], f: [127, 180] } },
-    { label: 'En haut', text: text[2], pose: { h: [120.7, 79], a: -10, w: [120, 20], f: [128, 154] } }
+  const pullFrames = (text, warn) => [
+    { label: 'Suspendu', text: text[0], warn: warn[0], pose: { h: [122.4, 130], a: -5, w: [120, 20], f: [124, 206] } },
+    { label: 'Tirer', text: text[1], warn: warn[1], pose: { h: [122, 104], a: -8, w: [120, 20], f: [127, 180] } },
+    { label: 'En haut', text: text[2], warn: warn[2], pose: { h: [120.7, 79], a: -10, w: [120, 20], f: [128, 154] } }
   ];
-  const benchGear = [FLOOR, { t: 'bench', x1: 62, x2: 168, y: 131, floor: 188 }, { t: 'barbell', r: 20, front: true }];
-  const benchFrames = text => [
-    { label: 'Bras tendus', text: text[0], pose: { h: [140, 124], a: -90, w: [92, 62], f: [186, 182], t: [199, 186] } },
-    { label: 'Descendre', text: text[1], pose: { h: [140, 124], a: -90, w: [100, 86], f: [186, 182], t: [199, 186] } },
-    { label: 'Sur la poitrine', text: text[2], pose: { h: [140, 124], a: -90, w: [106, 108], f: [186, 182], t: [199, 186] } }
+  const benchGear = [FLOOR, { t: 'bench', x1: 62, x2: 168, y: 133, floor: 188 }, { t: 'guide', from: [92, 62], to: [106, 108] }, { t: 'barbell', r: 20, front: true }];
+  const benchFrames = (text, warn) => [
+    { label: 'Bras tendus', text: text[0], warn: warn[0], pose: { h: [140, 124], a: -90, w: [92, 62], f: [186, 182], t: [199, 186] } },
+    { label: 'Descendre', text: text[1], warn: warn[1], pose: { h: [140, 124], a: -90, w: [100, 86], f: [186, 182], t: [199, 186] } },
+    { label: 'Sur la poitrine', text: text[2], warn: warn[2], pose: { h: [140, 124], a: -90, w: [106, 108], f: [186, 182], t: [199, 186] } }
   ];
   const BENCH_CUES = [
     'Serre et abaisse les omoplates avant de décoller la barre, et garde-les ainsi jusqu’à la fin.',
-    'Garde les fesses et les pieds en contact avec le banc et le sol. Le bas du dos peut être légèrement cambré.',
+    'Garde les fesses sur le banc et les pieds au sol. Le bas du dos peut être légèrement cambré.',
     'Coudes à environ 45 à 70° du corps : ni collés au buste, ni écartés à l’horizontale.',
-    'Bras longs : prends la barre avec l’index sur les bagues, ou un peu plus large. Tu réduis l’amplitude sans risque.'
+    'Largeur de prise : règle-la pour que tes avant-bras soient à peu près verticaux quand la barre touche la poitrine. Une prise très large réduit le trajet, mais charge davantage l’épaule.',
+    'Bras longs : le trajet est plus long, c’est normal. Les omoplates serrées et une légère cambrure le réduisent un peu.'
   ];
   const BENCH_ERR = ['Faire rebondir la barre sur la poitrine.', 'Décoller les fesses pour soulever plus lourd.', 'Laisser les épaules remonter vers les oreilles.', 'S’entraîner lourd sans pareur ni sécurités réglées.'];
 
   const SHEETS = [
-    { id: 'terre', name: 'Soulevé de terre', match: /soulev[ée] de terre/i,
-      muscles: 'Fessiers, arrière des cuisses, dos entier, avant-bras (prise).', why: 'Le mouvement le plus complet pour la force de tout le corps et pour la prise.',
-      work: ['torso', 'thigh', 'fore'], gear: [FLOOR, { t: 'barbell', r: 20, front: true }],
+    { id: 'terre', name: 'Soulevé de terre', match: /soulev[ée] de terre/i, prim: ['glute', 'ham', 'lower'], sec: ['quad', 'lat', 'trap', 'forearm'],
+      why: 'Il travaille le bas du corps, le dos et la prise avec une seule barre.',
+      work: ['torso', 'thigh', 'fore'], gear: [FLOOR, { t: 'guide', from: [106, 168], to: [106, 113] }, { t: 'barbell', r: 20, front: true }],
       frames: [
-        { label: 'Départ', text: 'La barre est au-dessus du milieu du pied, tibias près de la barre. Dos droit, poitrine ouverte, épaules juste devant la barre.', pose: { h: [66.7, 128], a: 65, w: [106, 168], f: [100, 182] } },
-        { label: 'Montée', text: 'Pousse le sol avec les jambes. La barre monte tout droit, en frôlant les tibias. Le dos garde sa forme.', pose: { h: [84, 114], a: 35, w: [106, 132], f: [100, 182] } },
-        { label: 'Debout', text: 'Debout, jambes tendues, fessiers serrés. Ne te penche pas en arrière. Pour redescendre, recule d’abord les fesses.', pose: { h: [100, 103], a: 0, w: [105, 113], f: [100, 182] } }
+        { label: 'Départ', text: 'La barre est au-dessus du milieu du pied, tibias près de la barre. Dos droit, poitrine ouverte, épaules juste devant la barre.', warn: [W('back', 'Dos droit, jamais arrondi', -4, -40), W('hand', 'Barre au-dessus du milieu du pied', 24, -14)], pose: { h: [66.7, 128], a: 65, w: [106, 168], f: [100, 182] } },
+        { label: 'Montée', text: 'Pousse le sol avec les jambes. La barre monte tout droit, en frôlant les tibias. Le dos garde sa forme.', warn: [W('hand', 'Barre collée aux jambes', 24, 2), W('hip', 'Fesses et épaules montent ensemble', -8, -28)], pose: { h: [84, 114], a: 35, w: [106, 132], f: [100, 182] } },
+        { label: 'Debout', text: 'Debout, jambes tendues, fessiers serrés. Ne te penche pas en arrière. Pour redescendre, recule d’abord les fesses.', warn: [W('back', 'Ne te penche pas en arrière', -8, -24)], pose: { h: [100, 103], a: 0, w: [105, 113], f: [100, 182] } }
       ],
-      cues: ['Avant de tirer, gaine le ventre et « enlève le mou » de la barre.', 'Garde la barre collée au corps tout du long.', 'Double pronation : les deux paumes vers toi. Prise mixte (une paume vers toi, l’autre vers l’extérieur) seulement sur la série lourde, en changeant de main d’une séance à l’autre.'],
-      errors: ['Arrondir le bas du dos.', 'Commencer par lever les fesses, barre encore au sol.', 'Tirer la barre avec les bras pliés.'] },
-    { id: 'tpro', name: 'Tractions pronation', match: /tractions? pronation/i,
-      muscles: 'Grand dorsal, biceps, avant-bras (prise).', why: 'Le meilleur exercice de tirage vertical au poids du corps.',
-      work: ['torso', 'upper', 'fore'], gear: [{ t: 'pullbar', x: 120, y: 18, front: true }], vb: '20 -25 200 250',
-      frames: pullFrames(['Paumes vers l’avant, mains un peu plus larges que les épaules. Bras presque tendus, épaules actives : ne te laisse pas pendre.', 'Abaisse d’abord les épaules, puis tire les coudes vers le bas et vers les côtés.', 'Le menton passe la barre, sans donner d’élan. Redescends lentement, en 2 secondes environ.']),
+      cues: ['Avant de tirer, gaine le ventre et tends légèrement les bras pour « enlever le mou » de la barre.', 'Garde la barre près du corps tout du long.', 'Double pronation : les deux paumes vers toi. Prise mixte (une paume vers toi, l’autre vers l’extérieur) seulement sur la série lourde, en changeant de main d’une séance à l’autre, bras bien tendus.'],
+      errors: ['Arrondir le bas du dos.', 'Lever les fesses en premier, barre encore au sol.', 'Tirer la barre avec les bras pliés.'] },
+    { id: 'tpro', name: 'Tractions pronation', match: /tractions? pronation/i, prim: ['lat'], sec: ['bicep', 'forearm', 'midback', 'deltB'],
+      why: 'Un exercice de tirage au poids du corps, pour le dos, les bras et la prise.',
+      work: ['torso', 'upper', 'fore'], gear: [{ t: 'pullbar', x: 120, y: 20 }], vb: '20 -25 200 250',
+      frames: pullFrames(['Paumes vers l’avant, mains un peu plus larges que les épaules. Bras presque tendus, épaules actives : ne te laisse pas pendre.', 'Abaisse d’abord les épaules, puis tire les coudes vers le bas et vers les côtés.', 'Le menton passe la barre, sans donner d’élan. Redescends lentement, en 2 secondes environ.'],
+        [[W('shoulder', 'Épaules actives', 22, -6)], [W('elbow', 'Coudes vers le bas', 20, 8)], [W('head', 'Menton au-dessus', 22, 0), W('knee', 'Sans élan des jambes', 20, 4)]]),
       cues: ['Serre le ventre et les fessiers pour ne pas te balancer.', '« max −1 » : arrête chaque série 1 répétition avant ton maximum.', 'Bras longs : l’amplitude est plus grande. Garde des répétitions complètes plutôt que d’en chercher plus.'],
       errors: ['Donner de l’élan avec les jambes.', 'Faire des demi-répétitions.', 'Se laisser tomber à la descente.'] },
-    { id: 'tsup', name: 'Tractions supination', match: /tractions? supination/i,
-      muscles: 'Grand dorsal et biceps, plus sollicité qu’en pronation.', why: 'Travaille le dos et les bras avec le même exercice.',
-      work: ['torso', 'upper', 'fore'], gear: [{ t: 'pullbar', x: 120, y: 18, front: true }], vb: '20 -25 200 250',
-      frames: pullFrames(['Paumes vers toi, mains écartées de la largeur des épaules. Bras presque tendus.', 'Abaisse les épaules, puis tire les coudes vers les hanches, le long du corps.', 'Le menton passe la barre, poitrine vers la barre. Redescends lentement.']),
-      cues: ['Reste gainé, sans balancer.', 'Ne bloque pas brutalement les coudes en bas : c’est là qu’ils souffrent le plus.'],
+    { id: 'tsup', name: 'Tractions supination', match: /tractions? supination/i, prim: ['lat', 'bicep'], sec: ['forearm', 'midback'],
+      why: 'Le dos et les biceps sur le même exercice : les biceps participent plus qu’en pronation.',
+      work: ['torso', 'upper', 'fore'], gear: [{ t: 'pullbar', x: 120, y: 20 }], vb: '20 -25 200 250',
+      frames: pullFrames(['Paumes vers toi, mains écartées de la largeur des épaules. Bras presque tendus.', 'Abaisse les épaules, puis tire les coudes vers les hanches, le long du corps.', 'Le menton passe la barre, poitrine vers la barre. Redescends lentement.'],
+        [[W('elbow', 'Descente contrôlée', 22, 4)], [W('elbow', 'Coudes vers les hanches', 20, 8)], [W('head', 'Menton au-dessus', 22, 0)]]),
+      cues: ['Reste gainé, sans balancer.', 'Contrôle la fin de la descente au lieu de te laisser tomber bras tendus.'],
       errors: ['Tendre les coudes d’un coup en bas.', 'Tirer avec le menton en avant.'] },
-    { id: 'row', name: 'Rowing barre', match: /rowing/i,
-      muscles: 'Milieu du dos, grand dorsal, arrière des épaules, biceps.', why: 'Équilibre tes séries de poussée et protège les épaules.',
+    { id: 'hang', name: 'Suspension à la barre', match: /suspension/i, prim: ['forearm'], sec: ['lat', 'deltB', 'abs'],
+      why: 'Elle travaille directement la prise, le point qui te limite, en tenant ton propre poids.',
+      work: ['fore'], gear: [{ t: 'pullbar', x: 120, y: 20 }], vb: '20 -25 200 250',
+      frames: [
+        { label: 'Prise', text: 'Attrape la barre, paumes vers l’avant, pieds décollés du sol. Serre fort, avec le pouce autour de la barre.', warn: [W('hand', 'Serre fort la barre', 22, 8)], pose: { h: [122.4, 130], a: -5, w: [120, 20], f: [124, 206] } },
+        { label: 'Tenir', text: 'Abaisse légèrement les épaules et tiens, le corps immobile. Arrête-toi avant que la prise lâche d’un coup.', warn: [W('shoulder', 'Épaules actives', 22, -6), W('foot', 'Sans te balancer', 18, -6)], pose: { h: [122.4, 126], a: -5, w: [120, 20], f: [124, 202] } }
+      ],
+      cues: ['Dès 60 secondes aux 2 séries, ajoute un peu de lest et repars à environ 30 secondes.', 'Si une épaule te gêne en position haute, réduis le temps ou passe à la marche du fermier.'],
+      errors: ['Se balancer pour tenir plus longtemps.', 'Lâcher brutalement : descends sur un banc ou une marche.'] },
+    { id: 'row', name: 'Rowing barre', match: /rowing/i, prim: ['lat', 'midback'], sec: ['deltB', 'bicep', 'lower', 'forearm'],
+      why: 'Il ajoute du tirage horizontal, pour équilibrer tes exercices de poussée.',
       work: ['torso', 'upper', 'fore'], gear: [FLOOR, { t: 'barbell', r: 20, front: true }],
       frames: [
-        { label: 'Penché', text: 'Genoux un peu pliés, buste penché à environ 45° ou plus, dos droit. La barre pend, bras tendus.', pose: { h: [80, 112], a: 60, w: [118, 148], f: [105, 182] } },
-        { label: 'Tirer', text: 'Tire les coudes vers l’arrière et amène la barre vers le bas du ventre.', pose: { h: [80, 112], a: 60, w: [104, 114], f: [105, 182] } }
+        { label: 'Penché', text: 'Genoux un peu pliés, buste penché à environ 45° ou plus, dos droit. La barre pend, bras tendus.', warn: [W('back', 'Dos droit', -6, -30)], pose: { h: [80, 112], a: 60, w: [118, 148], f: [105, 182] } },
+        { label: 'Tirer', text: 'Tire les coudes vers l’arrière et amène la barre vers le bas du ventre.', warn: [W('back', 'Buste immobile', -6, -30), W('elbow', 'Coudes vers l’arrière', 30, -36)], pose: { h: [80, 112], a: 60, w: [104, 114], f: [105, 182] } }
       ],
       cues: ['Le buste ne bouge pas : c’est le signe que la charge est adaptée.', 'Serre les omoplates en haut, une seconde.'],
       errors: ['Redresser le buste à chaque répétition pour lancer la barre.', 'Arrondir le dos.'] },
-    { id: 'face', name: 'Face pull', match: /face pull/i,
-      muscles: 'Arrière des épaules, trapèzes moyens, muscles qui stabilisent l’épaule.', why: 'De la prévention : il compense le développé couché et protège les épaules.',
-      work: ['upper', 'fore'], gear: [FLOOR, { t: 'cable', from: [222, 40] }],
+    { id: 'face', name: 'Face pull', match: /face pull/i, prim: ['deltB', 'midback'], sec: ['trap', 'forearm'],
+      why: 'Il travaille l’arrière des épaules, moins sollicité que l’avant quand on pousse beaucoup.',
+      work: ['upper', 'fore'], gear: [FLOOR, { t: 'cable', from: [222, 40], column: true }],
       frames: [
-        { label: 'Bras tendus', text: 'Poulie réglée à hauteur du visage, corde en main. Recule d’un pas, bras tendus vers la poulie.', pose: { h: [108, 103], a: -5, w: [158, 58], f: [112, 182], f2: [94, 181], eb: 1 } },
-        { label: 'Vers le visage', text: 'Tire la corde vers le front, coudes hauts, en écartant les mains. Marque une seconde, puis reviens doucement.', pose: { h: [108, 103], a: -5, w: [116, 32], f: [112, 182], f2: [94, 181], eb: 1 } }
+        { label: 'Bras tendus', text: 'Poulie réglée à hauteur du visage, corde en main. Recule d’un pas, bras tendus vers la poulie.', warn: [W('hand', 'Charge légère', 6, 26)], pose: { h: [108, 103], a: -5, w: [158, 58], f: [112, 182], f2: [94, 181], eb: 1 } },
+        { label: 'Vers le visage', text: 'Tire la corde vers le front, coudes hauts, en écartant les mains. Marque une seconde, puis reviens doucement.', warn: [W('elbow', 'Coudes hauts', -4, -8), W('back', 'Ne te penche pas', 26, 16)], pose: { h: [108, 103], a: -5, w: [116, 32], f: [112, 182], f2: [94, 181], eb: 1 } }
       ],
-      cues: ['Prends une charge légère : c’est un exercice de contrôle, pas de force.', 'Les coudes restent au moins à hauteur des épaules.'],
+      cues: ['Prends une charge légère : l’important est de contrôler le mouvement.', 'Les coudes restent au moins à hauteur des épaules.'],
       errors: ['Tirer trop lourd en se penchant en arrière.', 'Laisser tomber les coudes.'] },
-    { id: 'farmer', name: 'Marche du fermier', match: /fermier/i,
-      muscles: 'Avant-bras (prise), trapèzes, gainage du ventre.', why: 'Très efficace pour la prise, utile pour ton soulevé de terre et tes tractions.',
+    { id: 'farmer', name: 'Marche du fermier', match: /fermier/i, prim: ['forearm', 'trap'], sec: ['abs', 'oblique', 'lower'],
+      why: 'Elle travaille directement la prise et le gainage en marchant.',
       work: ['torso', 'fore'], gear: [FLOOR, { t: 'farmer', front: true }],
       frames: [
-        { label: 'Pas gauche', text: 'Une charge lourde dans chaque main, bras le long du corps. Note dans l’app le poids d’une seule main.', pose: { h: [108, 106], a: 0, w: [108, 118], f: [126, 182], f2: [90, 178] } },
-        { label: 'Debout', text: 'Grand, épaules basses et ventre serré, le regard devant toi.', pose: { h: [108, 104], a: 0, w: [108, 116], f: [110, 182], f2: [106, 176] } },
-        { label: 'Pas droit', text: 'Petits pas rapides et réguliers sur 30 à 40 mètres. Pose les charges en pliant les jambes.', pose: { h: [108, 106], a: 0, w: [108, 118], f: [90, 178], f2: [126, 182] } }
+        { label: 'Un pas', text: 'Une charge lourde dans chaque main, bras le long du corps. Note dans l’app le poids d’une seule main.', warn: [W('shoulder', 'Épaules basses', 24, -8)], pose: { h: [108, 106], a: 0, w: [108, 118], f: [126, 182], f2: [90, 178] } },
+        { label: 'Debout', text: 'Grand, épaules basses et ventre serré, le regard devant toi.', warn: [W('back', 'Ne penche pas sur le côté', 30, -16)], pose: { h: [108, 104], a: 0, w: [108, 116], f: [110, 182], f2: [106, 176] } },
+        { label: 'Pas suivant', text: 'Petits pas rapides et réguliers sur 30 à 40 mètres. Pose les charges en pliant les jambes.', warn: [W('hand', 'Serre fort les poignées', 24, -14)], pose: { h: [108, 106], a: 0, w: [108, 118], f: [90, 178], f2: [126, 182] } }
       ],
-      cues: ['Quand tu tiens toute la distance sur les 2 séries, augmente la charge.', 'Serre les poignées fort : la prise est le but de l’exercice.'],
+      cues: ['Quand tu tiens toute la distance sur les 2 séries, ajoute 2 kg par main.', 'Serre les poignées fort : la prise est le but de l’exercice.'],
       errors: ['Se pencher d’un côté.', 'Arrondir le dos pour soulever ou poser les charges.'] },
-    { id: 'bench', name: 'Développé couché', match: /d[ée]velopp[ée] couch[ée]$/i,
-      muscles: 'Pectoraux, avant des épaules, triceps.', why: 'Le mouvement de poussée principal de ton programme, et ton point faible à faire progresser.',
+    { id: 'hammer', name: 'Curl marteau', match: /curl marteau/i, prim: ['bicep', 'forearm'], sec: [],
+      why: 'Il travaille le biceps et le muscle de l’avant-bras qui plie le coude : utile pour la force de tirage.',
+      work: ['upper', 'fore'], gear: [FLOOR, { t: 'dumbbell', front: true }],
+      frames: [
+        { label: 'Bras tendus', text: 'Un haltère dans chaque main, paumes face à face, bras le long du corps. Note dans l’app le poids d’un seul haltère.', warn: [W('back', 'Buste immobile', 26, -8)], pose: { h: [100, 103], a: 0, w: [104, 114], f: [100, 182] } },
+        { label: 'En haut', text: 'Plie le coude pour monter l’haltère, en gardant la paume tournée vers l’intérieur. Redescends lentement.', warn: [W('elbow', 'Coude immobile', -10, 8), W('back', 'Sans élan', 28, 26)], pose: { h: [100, 103], a: 0, w: [123, 65], f: [100, 182] } }
+      ],
+      cues: ['Le coude reste le long du corps pendant tout le mouvement.', 'Dès 12 répétitions à chaque série, ajoute 2 kg.'],
+      errors: ['Balancer le buste pour lancer l’haltère.', 'Avancer le coude en haut du mouvement.'] },
+    { id: 'bench', name: 'Développé couché', match: /d[ée]velopp[ée] couch[ée]$/i, prim: ['pec'], sec: ['deltF', 'tricep'],
+      why: 'Le mouvement de poussée principal de ton programme, et ton point faible à faire progresser.',
       work: ['torso', 'upper', 'fore'], gear: benchGear,
-      frames: benchFrames(['Allongé, yeux sous la barre. Bras tendus, la barre au-dessus des épaules.', 'Descends en contrôlant, environ 2 secondes, vers le bas des pectoraux.', 'La barre touche le bas de la poitrine, puis tu pousses vers le haut et légèrement vers tes épaules.']),
+      frames: benchFrames(['Allongé, yeux sous la barre. Bras tendus, la barre au-dessus des épaules.', 'Descends en contrôlant, environ 2 secondes, vers le bas des pectoraux.', 'La barre touche le bas de la poitrine, puis tu pousses vers le haut et légèrement vers tes épaules.'],
+        [[W('shoulder', 'Omoplates serrées', -6, -30)], [W('elbow', 'Coudes ni collés, ni écartés', 16, -36)], [W('hand', 'Touche sans rebond', 28, -24), W('hip', 'Fesses sur le banc', 16, -14)]]),
       cues: BENCH_CUES, errors: BENCH_ERR },
-    { id: 'blight', name: 'Développé couché léger', match: /couch[ée] (l[ée]ger|pause)/i,
-      muscles: 'Pectoraux, avant des épaules, triceps.', why: 'Un deuxième passage par semaine sur ton point faible, sans te fatiguer : c’est de la technique.',
+    { id: 'pause', name: 'Développé couché pause', match: /couch[ée] (l[ée]ger|pause)/i, prim: ['pec'], sec: ['deltF', 'tricep'],
+      why: 'Un deuxième passage par semaine sur ton point faible, avec moins de charge et sans rebond.',
       work: ['torso', 'upper', 'fore'], gear: benchGear,
-      frames: benchFrames(['Même installation que le couché lourd. Charge : 70 à 75 % de ta série lourde.', 'Descends lentement, en restant parfaitement placé.', 'Touche le bas de la poitrine sans rebond, puis pousse. Il doit te rester 2 à 3 répétitions possibles.']),
-      cues: BENCH_CUES.slice(0, 3).concat('C’est le moment de corriger ta technique, pas de chercher un record.'), errors: BENCH_ERR.slice(0, 3) },
-    { id: 'dips', name: 'Dips', match: /dips/i,
-      muscles: 'Pectoraux bas, triceps, avant des épaules.', why: 'Renforce la fin de poussée, utile pour le couché avec des bras longs.',
+      frames: benchFrames(['Même installation que le couché lourd. Charge proposée : 80 % de ta série lourde.', 'Descends lentement, en restant bien placé.', 'Marque 1 seconde complète sur la poitrine, barre immobile, puis pousse. Il doit te rester au moins 3 répétitions possibles.'],
+        [[W('shoulder', 'Omoplates serrées', -6, -30)], [W('elbow', 'Descente lente', 16, -36)], [W('hand', 'Pause 1 s, sans rebond', 28, -24)]]),
+      cues: BENCH_CUES.slice(0, 4).concat('Compte « un » à voix basse pendant la pause : sans ça, elle devient vite trop courte.'), errors: BENCH_ERR.slice(0, 3) },
+    { id: 'dips', name: 'Dips', match: /dips/i, prim: ['pec', 'tricep'], sec: ['deltF'],
+      why: 'Ils travaillent les pectoraux et les triceps, qui terminent la poussée au développé couché.',
       work: ['torso', 'upper', 'fore'], gear: [{ t: 'dipbar', x: 112, y: 92 }],
       frames: [
-        { label: 'En haut', text: 'En appui sur les barres, bras tendus, épaules basses, buste légèrement penché vers l’avant.', pose: { h: [105, 81.5], a: 8, w: [112, 92], f: [90, 150] } },
-        { label: 'En bas', text: 'Descends en contrôlant jusqu’à ce que le haut du bras soit à peu près horizontal, puis remonte en poussant.', pose: { h: [85, 111], a: 25, w: [112, 92], f: [70, 178] } }
+        { label: 'En haut', text: 'En appui sur les barres, bras tendus, épaules basses, buste légèrement penché vers l’avant.', warn: [W('shoulder', 'Épaules basses', 22, -8)], pose: { h: [105, 81.5], a: 8, w: [112, 92], f: [90, 150] } },
+        { label: 'En bas', text: 'Descends en contrôlant jusqu’à ce que le haut du bras soit à peu près horizontal, puis remonte en poussant.', warn: [W('shoulder', 'Stop si l’épaule te gêne', 24, -12)], pose: { h: [85, 111], a: 25, w: [112, 92], f: [70, 178] } }
       ],
       cues: ['Arrête la descente si tu sens une gêne devant l’épaule.', 'Ajoute du lest seulement quand tu fais 10 répétitions à toutes les séries.'],
       errors: ['Descendre trop bas en forçant sur l’épaule.', 'Laisser les épaules monter vers les oreilles.'] },
-    { id: 'press', name: 'Développé militaire haltères', match: /militaire/i,
-      muscles: 'Épaules, triceps, haut du dos, gainage.', why: 'La poussée au-dessus de la tête, pour des épaules fortes et mobiles.',
+    { id: 'triceps', name: 'Extension triceps à la poulie', match: /triceps/i, prim: ['tricep'], sec: [],
+      why: 'Elle renforce les triceps, qui terminent la poussée au couché et aux dips.',
+      work: ['upper', 'fore'], gear: [FLOOR, { t: 'cable', from: [168, 8], column: true }, { t: 'handle', front: true }],
+      frames: [
+        { label: 'Avant-bras levés', text: 'Face à la poulie haute, buste légèrement penché, coudes le long du corps. Tiens la poignée à hauteur de poitrine.', warn: [W('elbow', 'Coudes collés au corps', -8, 8)], pose: { h: [100, 103], a: 8, w: [131, 72], f: [100, 182] } },
+        { label: 'Bras tendus', text: 'Pousse vers le bas jusqu’à tendre les bras, sans bouger les coudes. Remonte lentement.', warn: [W('elbow', 'Coudes immobiles', -8, -2), W('back', 'Buste stable', 28, -14)], pose: { h: [100, 103], a: 8, w: [106, 116], f: [100, 182] } }
+      ],
+      cues: ['Seuls les avant-bras bougent.', 'Dès 12 répétitions à chaque série, augmente la charge d’un cran.'],
+      errors: ['Se pencher sur la charge pour pousser avec le poids du corps.', 'Laisser les coudes partir vers l’avant.'] },
+    { id: 'press', name: 'Développé militaire haltères', match: /militaire/i, prim: ['deltF'], sec: ['tricep', 'trap', 'abs'],
+      why: 'La poussée au-dessus de la tête, pour des épaules plus fortes.',
       work: ['upper', 'fore'], gear: [FLOOR, { t: 'dumbbell', front: true }], vb: '20 -30 200 225',
       frames: [
-        { label: 'Aux épaules', text: 'Debout, un haltère à hauteur de chaque épaule, ventre et fessiers serrés. Note dans l’app le poids d’un seul haltère.', pose: { h: [100, 103], a: 0, w: [114, 50], f: [100, 182] } },
-        { label: 'En haut', text: 'Pousse vers le haut jusqu’à tendre les bras, haltères au-dessus des épaules. Redescends en contrôlant.', pose: { h: [100, 103], a: 0, w: [102, -8], f: [100, 182] } }
+        { label: 'Aux épaules', text: 'Debout, un haltère à hauteur de chaque épaule, ventre et fessiers serrés. Note dans l’app le poids d’un seul haltère.', warn: [W('hip', 'Fessiers serrés', 24, -8)], pose: { h: [100, 103], a: 0, w: [114, 50], f: [100, 182] } },
+        { label: 'En haut', text: 'Pousse vers le haut jusqu’à tendre les bras, haltères au-dessus des épaules. Redescends en contrôlant.', warn: [W('back', 'Ne te cambre pas', 26, -4)], pose: { h: [100, 103], a: 0, w: [102, -8], f: [100, 182] } }
       ],
       cues: ['Serre les fessiers pour ne pas cambrer le bas du dos.', 'Le buste reste droit tout du long.'],
       errors: ['Se pencher en arrière pour finir le mouvement.', 'Donner de l’élan avec les jambes.'] },
-    { id: 'pallof', name: 'Pallof press', match: /pallof/i,
-      muscles: 'Abdominaux, surtout les obliques.', why: 'Apprend à ton buste à résister à la rotation : utile pour le dos et pour la course.',
-      work: ['torso'], gear: [FLOOR, { t: 'dumbbell', front: true }],
+    { id: 'lunge', name: 'Fentes marchées ou step-ups', match: /fentes? march|step.?up/i, prim: ['quad', 'glute'], sec: ['ham', 'calf'],
+      why: 'Elles ajoutent du travail pour les cuisses et les fessiers, une jambe à la fois, sans charger lourd le dos.',
+      work: ['thigh', 'shin'], gear: [FLOOR, { t: 'dumbbell', front: true }],
       frames: [
-        { label: 'À la poitrine', text: 'Place-toi de profil à la poulie, réglée à hauteur de poitrine (ici, le câble arrive vers toi, sur le côté). Mains sur la poignée, contre le sternum.', pose: { h: [106, 112], a: 0, w: [122, 90], f: [112, 182], f2: [96, 182] } },
-        { label: 'Bras tendus', text: 'Tends les bras droit devant toi. Le câble essaie de te faire tourner : ne le laisse pas faire. Tiens 2 secondes, puis reviens.', pose: { h: [106, 112], a: 0, w: [160, 88], f: [112, 182], f2: [96, 182] } }
+        { label: 'Grand pas', text: 'Debout, un haltère dans chaque main. Fais un pas vers l’avant, buste droit. Note dans l’app le poids d’un seul haltère.', warn: [W('back', 'Buste droit', -8, -14)], pose: { h: [110, 106], a: 3, w: [113, 118], f: [134, 181], f2: [92, 182] } },
+        { label: 'En bas', text: 'Descends jusqu’à ce que le genou arrière frôle le sol, puis pousse avec le pied avant pour avancer ou remonter.', warn: [W('knee', 'Genou dans l’axe du pied', 20, -24)], pose: { h: [108, 140], a: 5, w: [112, 150], f: [140, 182], f2: [78, 180], t2: [84, 188] } }
       ],
-      cues: ['Fais 10 répétitions de chaque côté.', 'Le ventre se serre comme si on allait te donner un petit coup.'],
+      cues: ['Step-up : même principe, en montant sur un banc ou une box stable, sans pousser avec le pied resté au sol.', 'Fais le nombre de répétitions indiqué pour chaque jambe.'],
+      errors: ['Laisser le genou rentrer vers l’intérieur.', 'Faire des pas trop courts qui gênent l’équilibre.'] },
+    { id: 'pallof', name: 'Pallof press', match: /pallof/i, prim: ['oblique', 'abs'], sec: ['deltF'],
+      why: 'Il entraîne ton buste à résister à la rotation.',
+      work: ['torso'], gear: [FLOOR, { t: 'handle', front: true }],
+      frames: [
+        { label: 'À la poitrine', text: 'Place-toi de profil à la poulie, réglée à hauteur de poitrine (ici, le câble arrive vers toi, sur le côté). Mains sur la poignée, contre le sternum.', warn: [W('hip', 'Bassin de face', -8, -6)], pose: { h: [106, 112], a: 0, w: [122, 90], f: [112, 182], f2: [96, 182] } },
+        { label: 'Bras tendus', text: 'Tends les bras droit devant toi. Le câble essaie de te faire tourner : ne le laisse pas faire. Tiens 2 secondes, puis reviens.', warn: [W('back', 'Le buste ne tourne pas', -6, -24)], pose: { h: [106, 112], a: 0, w: [160, 88], f: [112, 182], f2: [96, 182] } }
+      ],
+      cues: ['Fais 10 répétitions de chaque côté.', 'Serre le ventre avant de tendre les bras.'],
       errors: ['Laisser le buste tourner vers la poulie.', 'Prendre trop lourd.'] },
-    { id: 'plank', name: 'Planche latérale', match: /planche/i,
-      muscles: 'Obliques, fessiers moyens, épaule d’appui.', why: 'Stabilise le bassin et protège le bas du dos, notamment en course.',
+    { id: 'plank', name: 'Planche latérale', match: /planche/i, prim: ['oblique'], sec: ['abs', 'glute', 'deltB'],
+      why: 'Elle travaille les muscles du côté du tronc et du bassin.',
       work: ['torso', 'thigh', 'shin'], gear: [FLOOR],
       frames: [
-        { label: 'Hanches basses', text: 'Allongé sur le côté, coude sous l’épaule, jambes l’une sur l’autre.', pose: { h: [113, 174], a: 65, w: [191, 184], f: [35, 185], t: [47, 187] } },
-        { label: 'Corps aligné', text: 'Monte les hanches jusqu’à former une ligne droite de la tête aux pieds. Tiens 30 à 45 secondes, puis change de côté.', pose: { h: [111.6, 165], a: 75, w: [191, 184], f: [35, 185], t: [47, 187] } }
+        { label: 'Hanches basses', text: 'Allongé sur le côté, coude sous l’épaule, jambes l’une sur l’autre.', warn: [W('elbow', 'Coude sous l’épaule', 8, -46)], pose: { h: [113, 174], a: 65, w: [191, 184], f: [35, 185], t: [47, 187] } },
+        { label: 'Corps aligné', text: 'Monte les hanches jusqu’à former une ligne droite de la tête aux pieds. Tiens 30 à 45 secondes, puis change de côté.', warn: [W('hip', 'Hanches hautes, corps droit', -2, -40)], pose: { h: [111.6, 165], a: 75, w: [191, 184], f: [35, 185], t: [47, 187] } }
       ],
       cues: ['Respire normalement pendant le maintien.', 'Trop difficile ? Pose le genou du bas au sol.'],
       errors: ['Laisser les hanches redescendre.', 'Placer le coude loin de l’épaule.'] },
-    { id: 'jump', name: 'Sauts en longueur ou sur box', match: /sauts?/i,
-      muscles: 'Fessiers, cuisses, mollets : toute la chaîne d’explosivité.', why: 'Développe la puissance, à faire en premier, quand tu es frais.',
+    { id: 'vjump', name: 'Sauts verticaux', match: /sauts? verticaux?/i, prim: ['quad', 'glute', 'calf'], sec: ['ham'],
+      why: 'Ils travaillent l’explosivité, la capacité à produire de la force vite.',
+      work: ['thigh', 'shin'], gear: [FLOOR], vb: '20 -30 200 225',
+      frames: [
+        { label: 'Élan', text: 'Pieds largeur de hanches. Fléchis vite les jambes, fesses en arrière, bras lancés derrière toi.', warn: [W('knee', 'Genoux dans l’axe', 24, -4)], pose: { h: [90, 130], a: 30, w: [72, 118], f: [100, 182] } },
+        { label: 'En l’air', text: 'Pousse le sol le plus fort possible et lance les bras vers le haut. Corps tendu en haut du saut.', warn: [W('hip', 'Saut à fond, sans fatigue', 26, -6)], pose: { h: [100, 70], a: 0, w: [110, -8], f: [100, 146] } },
+        { label: 'Réception', text: 'Reçois-toi sur l’avant du pied, jambes qui plient pour amortir. Reprends ta position avant le saut suivant.', warn: [W('knee', 'Atterris en souplesse', 24, -8)], pose: { h: [92, 122], a: 25, w: [125, 110], f: [100, 182] } }
+      ],
+      cues: ['Peu de sauts, mais chacun à fond : c’est la qualité qui compte.', 'Arrête si la hauteur baisse nettement ou si un genou ou un tendon te gêne.'],
+      errors: ['Enchaîner les sauts sans reprendre position.', 'Atterrir jambes tendues.'] },
+    { id: 'jump', name: 'Sauts en longueur ou sur box', match: /sauts?/i, prim: ['quad', 'glute', 'calf'], sec: ['ham'],
+      why: 'Ils développent la puissance. Ils se font en premier, quand tu es frais.',
       work: ['thigh', 'shin'], gear: [FLOOR, { t: 'box', x1: 150, x2: 205, y: 130, floor: 188 }], vb: '20 -30 200 225',
       frames: [
-        { label: 'Élan', text: 'Fléchis rapidement les jambes, fesses en arrière, bras lancés vers l’arrière.', pose: { h: [70, 134], a: 45, w: [58, 138], f: [90, 182] } },
-        { label: 'En l’air', text: 'Pousse fort dans le sol et lance les bras vers le haut.', pose: { h: [120, 76], a: 10, w: [150, -20], f: [118, 150] } },
-        { label: 'Réception', text: 'Atterris souplement, genoux pliés et bien alignés avec les pieds. Redescends en marchant.', pose: { h: [145, 82], a: 35, w: [200, 70], f: [170, 122], t: [183, 126] } }
+        { label: 'Élan', text: 'Fléchis rapidement les jambes, fesses en arrière, bras lancés vers l’arrière.', warn: [W('knee', 'Genoux dans l’axe', 14, -32)], pose: { h: [70, 134], a: 45, w: [58, 138], f: [90, 182] } },
+        { label: 'En l’air', text: 'Pousse fort dans le sol et lance les bras vers le haut.', warn: [], pose: { h: [120, 76], a: 10, w: [150, -20], f: [118, 150] } },
+        { label: 'Réception', text: 'Atterris souplement, genoux pliés et bien alignés avec les pieds. Redescends en marchant.', warn: [W('hip', 'Réception souple', -14, 2), W('foot', 'Descends en marchant', -16, 18)], pose: { h: [145, 82], a: 35, w: [200, 70], f: [170, 122], t: [183, 126] } }
       ],
       cues: ['Peu de répétitions et récupération complète : chaque saut doit être à fond.', 'Saut en longueur : même geste, mais vers l’avant, et note ta distance en centimètres.'],
       errors: ['Enchaîner les sauts fatigué.', 'Laisser les genoux rentrer vers l’intérieur à la réception.', 'Redescendre de la box en sautant.'] },
-    { id: 'squat', name: 'Squat', match: /^squat/i,
-      muscles: 'Cuisses, fessiers, gainage du dos et du ventre.', why: 'L’exercice roi pour la force des jambes.',
-      work: ['thigh', 'shin', 'torso'], gear: [FLOOR, { t: 'barbell', r: 20, at: 'shoulder' }],
+    { id: 'squat', name: 'Squat', match: /^squat/i, prim: ['quad', 'glute'], sec: ['ham', 'lower', 'abs'],
+      why: 'Le principal exercice de force pour tes jambes.',
+      work: ['thigh', 'shin', 'torso'], gear: [FLOOR, { t: 'guide', from: [105, 53], to: [105, 115] }, { t: 'barbell', r: 20, at: 'shoulder' }],
       frames: [
-        { label: 'Debout', text: 'Barre sur le haut du dos, pas sur la nuque. Pieds un peu plus larges que les hanches, pointes légèrement ouvertes. Inspire et gaine le ventre.', pose: { h: [100, 103], a: 5, w: [108, 52], f: [100, 182] } },
-        { label: 'Descente', text: 'Plie en même temps les hanches et les genoux. La barre reste au-dessus du milieu du pied.', pose: { h: [84, 128], a: 28, w: [114, 82], f: [100, 182] } },
-        { label: 'En bas', text: 'Descends au moins jusqu’à ce que le pli de la hanche passe sous le genou, si ta mobilité le permet. Puis pousse le sol pour remonter.', pose: { h: [70, 150], a: 45, w: [110, 114], f: [100, 182] } }
+        { label: 'Debout', text: 'Barre sur le haut du dos, pas sur la nuque. Pieds un peu plus larges que les hanches, pointes légèrement ouvertes. Inspire et gaine le ventre.', warn: [W('shoulder', 'Barre sur le dos, pas sur la nuque', 26, -14)], pose: { h: [100, 103], a: 5, w: [108, 52], f: [100, 182] } },
+        { label: 'Descente', text: 'Plie en même temps les hanches et les genoux. La barre reste au-dessus du milieu du pied.', warn: [W('knee', 'Genoux dans l’axe des pieds', 18, -8)], pose: { h: [84, 128], a: 28, w: [114, 82], f: [100, 182] } },
+        { label: 'En bas', text: 'Descends au moins jusqu’à ce que le pli de la hanche passe sous le genou, si ta mobilité le permet. Puis pousse le sol pour remonter.', warn: [W('foot', 'Talons au sol', 24, -18), W('back', 'Dos droit, sans s’arrondir', -6, -34)], pose: { h: [70, 150], a: 45, w: [110, 114], f: [100, 182] } }
       ],
       cues: ['Les genoux suivent la direction des pointes de pieds.', 'Les talons restent au sol.', 'Règle les sécurités du rack sous ta position basse.'],
       errors: ['Laisser les genoux rentrer vers l’intérieur.', 'Monter les fesses plus vite que les épaules.', 'Arrondir le bas du dos en bas du mouvement.'] },
-    { id: 'bulgare', name: 'Fentes bulgares', match: /bulgare/i,
-      muscles: 'Cuisses et fessiers, une jambe à la fois.', why: 'Corrige les différences entre les deux jambes et renforce sans charger lourd le dos.',
-      work: ['thigh', 'shin'], gear: [FLOOR, { t: 'bench', x1: 34, x2: 76, y: 130, floor: 188 }, { t: 'dumbbell', front: true }],
+    { id: 'bulgare', name: 'Fentes bulgares', match: /bulgare/i, prim: ['quad', 'glute'], sec: ['ham', 'calf'],
+      why: 'Elles travaillent chaque jambe séparément, sans charger lourd le dos.',
+      work: ['thigh', 'shin'], gear: [FLOOR, { t: 'bench', x1: 34, x2: 76, y: 132, floor: 188 }, { t: 'dumbbell', front: true }],
       frames: [
-        { label: 'En haut', text: 'Pied arrière posé sur un banc, pied avant assez loin devant. Un haltère dans chaque main.', pose: { h: [115, 108], a: 5, w: [119, 118], f: [140, 182], f2: [58, 126], t2: [50, 133] } },
-        { label: 'En bas', text: 'Descends tout droit jusqu’à ce que la cuisse avant soit à peu près horizontale, puis pousse avec le talon avant.', pose: { h: [100, 142], a: 15, w: [113, 155], f: [140, 182], f2: [58, 126], t2: [50, 133] } }
+        { label: 'En haut', text: 'Pied arrière posé sur un banc, pied avant assez loin devant. Un haltère dans chaque main.', warn: [W('foot', 'Pied avant assez loin', 8, -26)], pose: { h: [115, 108], a: 5, w: [119, 118], f: [140, 182], f2: [58, 126], t2: [50, 133] } },
+        { label: 'En bas', text: 'Descends tout droit jusqu’à ce que la cuisse avant soit à peu près horizontale, puis pousse avec le talon avant.', warn: [W('knee', 'Genou dans l’axe du pied', 14, -30)], pose: { h: [100, 142], a: 15, w: [113, 155], f: [140, 182], f2: [58, 126], t2: [50, 133] } }
       ],
       cues: ['Fais toutes les répétitions d’une jambe, puis change.', 'Le buste peut être légèrement penché vers l’avant.'],
       errors: ['Placer le pied avant trop près du banc.', 'Pousser avec la jambe arrière.'] },
-    { id: 'curl', name: 'Leg curl ou Nordic curl', match: /leg curl|nordic/i,
-      muscles: 'Arrière des cuisses (ischio-jambiers).', why: 'Protège des claquages, un risque fréquent en course.',
-      work: ['thigh', 'shin'], gear: [FLOOR, { t: 'bench', x1: 34, x2: 160, y: 133, floor: 188 }, { t: 'pad', at: 'foot', front: true }],
+    { id: 'curl', name: 'Leg curl ou Nordic curl', match: /leg curl|nordic/i, prim: ['ham'], sec: ['calf'],
+      why: 'Il renforce l’arrière des cuisses. Les programmes avec Nordic curl réduisent d’environ moitié les blessures à cet endroit, surtout montré dans les sports d’équipe.',
+      work: ['thigh', 'shin'], gear: [FLOOR, { t: 'bench', x1: 34, x2: 160, y: 134, floor: 188 }, { t: 'pad', at: 'foot', front: true }],
       frames: [
-        { label: 'Jambes tendues', text: 'Leg curl : allongé sur la machine, le boudin juste au-dessus des talons, genoux au bord du banc.', pose: { h: [110, 126], a: -90, w: [30, 135], f: [189, 128], t: [196, 139], kb: -1, eb: 1 } },
-        { label: 'Plier', text: 'Plie les genoux en amenant les talons vers les fesses, sans décoller le bassin. Reviens lentement, en 2 à 3 secondes.', pose: { h: [110, 126], a: -90, w: [30, 135], f: [143, 87], t: [132, 80], kb: -1, eb: 1 } }
+        { label: 'Jambes tendues', text: 'Leg curl : allongé sur la machine, le boudin juste au-dessus des talons, genoux au bord du banc.', warn: [W('hip', 'Bassin collé au banc', 4, -32)], pose: { h: [110, 126], a: -90, w: [30, 135], f: [189, 128], t: [196, 139], kb: -1, eb: 1, prone: true } },
+        { label: 'Plier', text: 'Plie les genoux en amenant les talons vers les fesses, sans décoller le bassin. Reviens lentement, en 2 à 3 secondes.', warn: [W('hip', 'Bassin collé au banc', -4, -32), W('foot', 'Retour lent', 22, -8)], pose: { h: [110, 126], a: -90, w: [30, 135], f: [143, 87], t: [132, 80], kb: -1, eb: 1, prone: true } }
       ],
       cues: ['Nordic curl, sans machine : à genoux, chevilles bloquées, descends le corps droit vers l’avant le plus lentement possible et rattrape-toi avec les mains.', 'La phase de retour lente est la plus utile.'],
       errors: ['Décoller le bassin.', 'Laisser retomber la charge.'] },
-    { id: 'calf', name: 'Mollets debout ou assis', match: /mollets?/i,
-      muscles: 'Mollets et tendon d’Achille.', why: 'Renforce ce qui encaisse les chocs en course.',
+    { id: 'calf', name: 'Mollets debout ou assis', match: /mollets?/i, prim: ['calf'], sec: [],
+      why: 'Il renforce les mollets et le tendon d’Achille, très sollicités en course.',
       work: ['shin'], gear: [FLOOR, { t: 'box', x1: 108, x2: 170, y: 176, floor: 188 }],
       frames: [
-        { label: 'Talon bas', text: 'L’avant du pied sur une marche, talon dans le vide. Laisse descendre le talon sans à-coup.', pose: { h: [99, 102], a: 0, w: [99, 114], f: [98, 180], t: [113, 175] } },
-        { label: 'Sur la pointe', text: 'Monte le plus haut possible, tiens une seconde, puis redescends lentement.', pose: { h: [104, 82], a: 0, w: [104, 94], f: [104, 160], t: [113, 175] } }
+        { label: 'Talon bas', text: 'L’avant du pied sur une marche, talon dans le vide. Laisse descendre le talon sans à-coup.', warn: [W('foot', 'Descente contrôlée', 28, -28)], pose: { h: [99, 102], a: 0, w: [99, 114], f: [98, 180], t: [113, 175] } },
+        { label: 'Sur la pointe', text: 'Monte le plus haut possible, tiens une seconde, puis redescends lentement.', warn: [W('foot', 'Sans rebond', 28, -14)], pose: { h: [104, 82], a: 0, w: [104, 94], f: [104, 160], t: [113, 175] } }
       ],
       cues: ['Alterne d’une séance à l’autre : debout (jambes tendues) et assis (genoux pliés).', 'Mouvement lent et complet, sans rebond.'],
       errors: ['Faire de petits rebonds rapides.', 'Plier et tendre les genoux pour s’aider.'] },
-    { id: 'run', name: 'Course', match: /^(distance|dur[ée]e|course)/i,
-      muscles: 'Cœur et poumons, mollets, cuisses, fessiers.', why: 'Ton travail d’endurance : une sortie facile et une séance soutenue par semaine.',
+    { id: 'run', name: 'Course', match: /^(distance|dur[ée]e|course)/i, prim: ['quad', 'calf', 'glute'], sec: ['ham', 'abs', 'shin'],
+      why: 'Ton travail d’endurance : une sortie facile et une séance soutenue par semaine.',
       work: ['thigh', 'shin'], gear: [FLOOR],
       frames: [
-        { label: 'Appui', text: 'Le pied se pose presque sous le bassin, pas loin devant. Buste grand, légèrement penché vers l’avant depuis les chevilles.', pose: { h: [110, 104], a: 6, w: [132, 90], w2: [90, 96], f: [120, 182], f2: [74, 152] } },
-        { label: 'Poussée', text: 'Pousse le sol derrière toi. Les coudes restent pliés à environ 90° et les bras balancent d’avant en arrière.', pose: { h: [114, 100], a: 6, w: [100, 100], w2: [136, 88], f: [90, 175], f2: [142, 134] } },
-        { label: 'Appui opposé', text: 'Change de jambe, sans bruit de pas lourd. Vise des pas courts et rapides plutôt que de grandes foulées.', pose: { h: [110, 104], a: 6, w: [90, 96], w2: [132, 90], f: [74, 152], f2: [120, 182] } }
+        { label: 'Appui', text: 'Le pied se pose presque sous le bassin, pas loin devant. Buste grand, légèrement penché vers l’avant depuis les chevilles.', warn: [W('foot', 'Pied sous le bassin', 26, -10)], pose: { h: [110, 104], a: 6, w: [132, 90], w2: [90, 96], f: [120, 182], f2: [74, 152] } },
+        { label: 'Poussée', text: 'Pousse le sol derrière toi. Les coudes restent pliés à environ 90° et les bras balancent d’avant en arrière.', warn: [W('shoulder', 'Épaules relâchées', 28, -14)], pose: { h: [114, 100], a: 6, w: [100, 100], w2: [136, 88], f: [90, 175], f2: [142, 134] } },
+        { label: 'Appui opposé', text: 'Change de jambe. Vise des pas courts et rapides plutôt que de grandes foulées.', warn: [W('knee', 'Pas courts et rapides', -10, -40)], pose: { h: [110, 104], a: 6, w: [90, 96], w2: [132, 90], f: [74, 152], f2: [120, 182] } }
       ],
-      cues: ['Course facile : tu peux parler en phrases complètes. C’est plus lent qu’on ne le croit, et c’est normal.', 'Course soutenue : une seule par semaine, jamais la veille de la séance C.', 'N’augmente pas ton volume de plus de 10 % environ par semaine.'],
-      errors: ['Courir toutes les sorties trop vite.', 'Poser le pied loin devant soi, jambe tendue.', 'Augmenter la distance trop vite.'] }
+      cues: ['Course facile : tu peux parler en phrases complètes. C’est plus lent qu’on ne le croit, et c’est normal.', 'Course soutenue : une seule par semaine, jamais la veille de la séance C.', 'Évite de dépasser de plus de 10 % ta plus longue sortie des 30 derniers jours : une grande étude de 2025 observe plus de blessures au-delà.'],
+      errors: ['Courir toutes les sorties trop vite.', 'Poser le pied loin devant soi, jambe tendue.', 'Faire d’un coup une sortie bien plus longue que d’habitude.'] }
   ];
   const find = name => SHEETS.find(s => s.match.test(String(name || '').trim())) || null;
 
@@ -1160,22 +1519,23 @@ const EX = (() => {
     ['Répétition (rep)', 'Un mouvement complet : par exemple, descendre puis remonter une fois.'],
     ['Série', 'Un groupe de répétitions faites d’affilée, avant de te reposer.'],
     ['Série lourde', 'La première série de tes gros exercices : la charge la plus lourde, pour peu de répétitions.'],
-    ['Max estimé (1RM)', 'La charge que tu pourrais soulever une seule fois, calculée à partir de ta meilleure série. Tu n’as jamais besoin de la tester.'],
+    ['Max estimé (1RM)', 'La charge que tu pourrais soulever une seule fois, calculée à partir de ta meilleure série avec la formule d’Epley. C’est une estimation : tu n’as jamais besoin de la tester.'],
     ['Reps en réserve', 'Le nombre de répétitions que tu pourrais encore faire en fin de série. « 2 en réserve » : tu t’arrêtes alors qu’il t’en reste 2.'],
     ['Lest', 'Le poids ajouté à ton corps, avec une ceinture ou un gilet, sur les tractions et les dips. 0 kg = sans lest.'],
     ['« max −1 »', 'Fais une répétition de moins que ton maximum sur la série.'],
+    ['Tonnage', 'Le total soulevé : charge multipliée par le nombre de répétitions, série après série.'],
     ['Cycle', 'Une période de plusieurs semaines : tu progresses, puis tu termines par une semaine d’allègement.'],
-    ['Allègement', 'Une semaine plus facile (charges réduites de 10 %, moitié moins de séries) pour récupérer et repartir plus fort.'],
+    ['Allègement', 'Une semaine plus facile (charges réduites de 10 %, moitié moins de séries) pour faire baisser la fatigue.'],
     ['Double progression', 'Tu gagnes d’abord une répétition par série à charge égale, puis tu ajoutes du poids.'],
     ['Palier', 'Le poids que tu ajoutes quand tu progresses, par exemple 2,5 kg.'],
     ['Pronation, supination', 'Pronation : paumes vers l’avant quand tu es suspendu. Supination : paumes vers toi.'],
     ['Double pronation, prise mixte', 'Au soulevé de terre. Double pronation : les deux paumes vers toi. Prise mixte : une paume vers toi, l’autre vers l’extérieur.'],
     ['Allure', 'Le temps pour courir 1 km : 5:30 /km signifie 5 min 30 s par kilomètre. Plus le chiffre est petit, plus tu vas vite.'],
     ['Course facile, course soutenue', 'Facile : tu peux parler. Soutenue : un effort que tu tiens, mais parler devient difficile (fractions de 1 km ou de 8 min).'],
-    ['Allure seuil', 'L’allure la plus rapide que tu peux garder environ 30 à 60 minutes sans t’effondrer.']
+    ['Accélérations', 'À la fin d’une sortie facile : 20 secondes rapides mais relâchées, sans aller à fond, puis 1 minute de marche ou de trot.']
   ];
 
-  return { BONE, joint, joints, mix, poseAt, drawFigure, SHEETS, find, GLOSSARY };
+  return { BONE, joint, joints, mix, poseAt, drawFigure, drawMuscles, MUSCLE_NAMES, FRONT, BACK, SHEETS, find, GLOSSARY };
 })();
 
 
@@ -1183,9 +1543,9 @@ const EX = (() => {
 <script>
 /* ======================= Données fixes ======================= */
 const PROFILE = `Profil non renseigné : complète-le dans Programme (taille, poids, niveau, objectifs, matériel).`;
-const RULES = `Séries de 6 à environ 90 % de la série lourde, 1-2 reps en réserve sur les gros exercices. Progression +2,5 kg au squat et au soulevé de terre dès que toutes les reps sont faites ; couché en double progression (1×5 + 2×7 à charge égale, puis +2,5 kg). Tractions et dips : lest dès le seuil de reps atteint partout.
+const RULES = `Séries de 6 à environ 90 % de la série lourde, 1-2 reps en réserve sur les gros exercices. Progression +2,5 kg au squat et au soulevé de terre dès que toutes les reps sont faites ; couché en double progression (1×5 + 2×7 à charge égale, puis +2,5 kg). Couché pause à 80 % de la série lourde. Tractions et dips : lest dès le seuil de reps atteint partout.
 Cycles de 7 semaines depuis le 05/10/2026, la 7e en allègement (−10 %, moitié des séries, 3-4 reps en réserve).
-À 5 séances : A, B, course facile, C, repos, course soutenue, repos. Jamais de course soutenue la veille de C, jamais A et C deux jours de suite, une seule course soutenue par semaine.`;
+À 5 séances : A, B, course facile, C, repos, course soutenue, repos. À 4 séances : A, B, C et 1 course en alternant facile et soutenue. À 3 séances : A, B, C et 20 min de course facile après B. Jamais de course soutenue la veille de C, jamais A et C deux jours de suite, une seule course soutenue par semaine.`;
 const RUN_BASE = { km: 4.23, sec: 1228 };
 /* 'claude' : page publiée sur claude.ai ; 'pwa' : web app autonome, données sur le téléphone */
 const MODE = window.CARNET_MODE === 'pwa' ? 'pwa' : 'claude';
@@ -1215,7 +1575,7 @@ const S = {
   db: null, online: 'wait', loaded: !!cache,
   tab: LS.get('tab', 'today'), sel: today(), view: null, confirm: {}, edit: null, panelMsg: '',
   run: LS.get('run', null), showRun: false,
-  chat: [], asking: null, msgs: {}, sample: undefined, downloads: undefined, sound: LS.get('sound', true)
+  chat: [], asking: null, msgs: {}, programVersion: 0, programNotice: LS.get('programNotice', null), sample: undefined, downloads: undefined, sound: LS.get('sound', true)
 };
 S.view = (() => { const d = L.parse(today()); d.setDate(1); return d; })();
 let outbox = LS.get('outbox', {});
@@ -1225,7 +1585,7 @@ const bw = () => L.weightStats(S.weights)?.last || 75;
 function saveCache(){ LS.set('cache', { templates: S.templates, logs: S.logs, weights: S.weights, goals: S.goals, cycle: S.cycle, profile: S.profile }); }
 function applyLocal(path, data){
   const [c, id] = path.split('/');
-  if (c === 'settings') { if (id === 'cycle' && data) S.cycle = { ...S.cycle, ...data }; if (id === 'profile') S.profile = data?.text || ''; return; }
+  if (c === 'settings') { if (id === 'cycle' && data) S.cycle = { ...S.cycle, ...data }; if (id === 'profile') S.profile = data?.text || ''; if (id === 'program') S.programVersion = +data?.version || 1; return; }
   if (!['templates','logs','weights','goals'].includes(c)) return;
   if (data == null) delete S[c][id]; else S[c][id] = data;
 }
@@ -1293,68 +1653,100 @@ function renderView(){
   }
   const resume = S.run && !S.showRun ? `<button class="banner" style="--c:${col(S.run.tid)}" data-a="resume"><span><span class="eyebrow" style="color:inherit">Séance en cours</span><br><b>${esc(tplName(S.run.tid))}</b></span><b>Reprendre ›</b></button>` : '';
   const upd = S.updateReady ? `<div class="alert"><span>Une nouvelle version de l’app est prête. Tes données ne changent pas.${S.run ? ' Ta séance en cours sera conservée.' : ''}</span><button data-a="reload">Mettre à jour</button></div>` : '';
+  v.classList.toggle('enter', S.lastTab !== S.tab); S.lastTab = S.tab;
   v.innerHTML = upd + resume + ({ today: viewToday, cal: viewCal, prog: viewProg, plan: viewPlan, info: viewInfo, claude: viewClaude })[S.tab]();
   if (S.tab === 'prog') afterProg();
   if (S.tab === 'info' && S.infoName && EX.find(S.infoName)) figMount(EX.find(S.infoName));
 }
 
+/* Les consignes du programme, en clair */
+const GUIDE = [
+  ['Organiser ta semaine', ['5 séances : A, B, course facile, C, repos, course soutenue, repos.', '4 séances : A, B, C et 1 course (facile une semaine, soutenue la suivante).', '3 séances : A, B, C, et 20 minutes de course facile après B.', 'À éviter : une course soutenue la veille de C, A et C deux jours de suite, plus d’une course soutenue par semaine. L’app te prévient.']],
+  ['Avant chaque séance', ['5 à 8 minutes de cardio facile, puis quelques mouvements de mobilité.', 'Sur les exercices à la barre, l’app affiche les séries d’échauffement à faire avant ta première série.']],
+  ['Choisir la bonne charge', ['Termine chaque série en pensant « je pouvais en faire encore 1 ou 2 ». Si tu peux en faire plus de 3, la charge est trop légère.', 'Tractions : arrête chaque série 1 répétition avant ton maximum.', 'Couché pause : charge volontairement plus légère, avec au moins 3 répétitions encore possibles.', 'Sur les premières séances, l’app ne connaît pas tes charges : choisis-les, elle les reprendra ensuite.']],
+  ['Quand augmenter', ['Soulevé de terre et squat : +2,5 kg dès que toutes les répétitions sont réussies.', 'Développé couché : d’abord 1 répétition de plus par série à charge égale (5, 7, 7), puis +2,5 kg et retour à 4, 6, 6.', 'Tractions et dips : +2,5 kg de lest dès que tu atteins le seuil à toutes les séries.', 'Autres exercices : 2 à 2,5 kg de plus quand tu atteins le haut de l’objectif à toutes les séries.', 'L’app te propose la charge suivante toute seule.']],
+  ['Si ça ne se passe pas comme prévu', ['Séance ratée : ne la rattrape pas, passe à la suivante.', 'Trois séances de suite sans progrès sur un exercice : retire environ 10 % de la charge et repars.', 'Mal dormi ou très fatigué : garde la charge prévue, mais arrête chaque série quand il te reste 2 répétitions possibles.', 'Douleur vive ou qui augmente pendant l’exercice : arrête cet exercice et parles-en à un professionnel de santé.']],
+  ['Semaine d’allègement', ['Toutes les 7 semaines : charges réduites de 10 %, moitié moins de séries, et arrêt quand il te reste 3 à 4 répétitions possibles.', 'L’app ajuste les charges toute seule. Si tu te sens en forme, tu peux alléger un peu moins.']],
+  ['Faire tes courses', ['Course facile : 45 à 70 minutes, à une allure où tu peux parler.', 'Une course facile sur deux : termine par 4 accélérations de 20 secondes, rapides mais relâchées, avec 1 minute de marche ou de trot entre chaque.', 'Course soutenue : 10 minutes d’échauffement, puis 4 fois 1 km (2 à 3 minutes de trot entre chaque) ou 3 fois 8 minutes (2 minutes de trot), puis 5 à 10 minutes de retour au calme.', 'Évite de dépasser de plus de 10 % ta plus longue sortie des 30 derniers jours.']]
+];
+function guideHtml(){
+  return GUIDE.map(([t, items]) => `<details class="guide"><summary>${esc(t)}</summary><ul>${items.map(x => `<li>${esc(x)}</li>`).join('')}</ul></details>`).join('');
+}
+
 /* ======================= Info : fiches et schémas animés ======================= */
-const FIG = { raf: 0, t: 0, play: true, sheet: null, dir: 1, prev: 0, idx: -1 };
+const FIG = { raf: 0, t: 0, play: true, sheet: null, dir: 1, prev: 0, idx: -1, hold: 0 };
 function figMount(sheet){
-  if (FIG.sheet !== sheet) { FIG.sheet = sheet; FIG.t = 0; FIG.dir = 1; FIG.play = !window.matchMedia?.('(prefers-reduced-motion: reduce)').matches; }
+  if (FIG.sheet !== sheet) { FIG.sheet = sheet; FIG.t = 0; FIG.dir = 1; FIG.hold = 2.2; FIG.play = !window.matchMedia?.('(prefers-reduced-motion: reduce)').matches; }
   FIG.idx = -1; figDraw(); if (FIG.play) figKick();
 }
 function figDraw(){
   const svg = $('fig'); if (!svg || !FIG.sheet) return false;
-  svg.innerHTML = EX.drawFigure(FIG.sheet, FIG.t);
+  svg.innerHTML = EX.drawFigure(FIG.sheet, FIG.t, { marks: true });
   const r = $('figrange'); if (r) r.value = FIG.t;
   const i = Math.round(FIG.t);
   if (i !== FIG.idx) {
     FIG.idx = i;
     const f = FIG.sheet.frames[i], tx = $('figtext');
-    if (tx) tx.innerHTML = '<b>' + (i + 1) + '. ' + esc(f.label) + '</b><br>' + esc(f.text);
+    if (tx) tx.innerHTML = '<b>' + (i + 1) + '. ' + esc(f.label) + '</b><br>' + esc(f.text) + (f.warn?.length ? '<ul class="figwarn">' + f.warn.map(w => '<li>' + esc(w.t) + '</li>').join('') + '</ul>' : '');
+    const tag = $('figtag'); if (tag) tag.textContent = 'Étape ' + (i + 1) + ' sur ' + FIG.sheet.frames.length;
     document.querySelectorAll('[data-a="figstep"]').forEach((b, j) => b.classList.toggle('on', j === i));
   }
   const p = $('figplay'); if (p) p.textContent = FIG.play ? 'Pause' : 'Lecture';
   return true;
 }
+/* L'animation marque un arrêt à chaque étape, le temps de lire les points d'attention */
 function figLoop(now){
   FIG.raf = 0;
-  if (!FIG.play || !figDraw()) return;
+  if (!FIG.play || !$('fig') || !FIG.sheet) return;
   const n = FIG.sheet.frames.length - 1, dt = Math.min(0.1, (now - FIG.prev) / 1000); FIG.prev = now;
-  FIG.t += FIG.dir * dt * 0.5;
-  if (FIG.t >= n) { FIG.t = n; FIG.dir = -1; } else if (FIG.t <= 0) { FIG.t = 0; FIG.dir = 1; }
+  if (FIG.hold > 0) FIG.hold -= dt;
+  else {
+    const before = FIG.t, target = FIG.dir > 0 ? Math.floor(before + 1e-6) + 1 : Math.ceil(before - 1e-6) - 1;
+    FIG.t += FIG.dir * dt * 0.62;
+    if ((FIG.dir > 0 && FIG.t >= target) || (FIG.dir < 0 && FIG.t <= target)) {
+      FIG.t = target; FIG.hold = FIG.sheet.frames[target].warn?.length ? 2.2 : 0.7;
+      if (target >= n) FIG.dir = -1; else if (target <= 0) FIG.dir = 1;
+    }
+    figDraw();
+  }
   FIG.raf = setTimeout(() => figLoop(performance.now()), 33);
 }
 function figKick(){ if (!FIG.raf) { FIG.prev = performance.now(); FIG.raf = setTimeout(() => figLoop(performance.now()), 33); } }
 document.addEventListener('input', ev => { if (ev.target.id === 'figrange') { FIG.t = +ev.target.value; FIG.play = false; figDraw(); } });
+function muscleList(ids){ return (ids || []).map(id => `<li>${esc(EX.MUSCLE_NAMES[id] || id)}</li>`).join(''); }
 function infoDetail(sheet, back){
   const def = L.tplList(S.templates).find(([, t]) => exOrder(t).some(x => EX.find(x.name) === sheet));
+  const hasGuide = (sheet.gear || []).some(g => g.t === 'guide');
+  const yt = 'https://www.youtube.com/results?search_query=' + encodeURIComponent(sheet.name.replace(' ou ', ' ') + ' technique');
   return `<section class="card info" style="--c:${col(def?.[0])}">
     <div><button class="btn sm ghost" data-a="${back}">‹ Retour</button></div>
     <h2>${esc(sheet.name)}</h2><p class="small dim">${esc(sheet.why)}</p>
-    <div class="figbox"><svg id="fig" viewBox="${sheet.vb || '10 0 220 205'}" role="img" aria-label="Schéma animé du mouvement : ${esc(sheet.name)}"></svg></div>
+    <div class="figbox"><span class="figtag" id="figtag"></span><svg id="fig" viewBox="${sheet.vb || '10 0 220 205'}" role="img" aria-label="Animation du mouvement : ${esc(sheet.name)}"></svg></div>
     <div class="figctl"><button class="btn sm" id="figplay" data-a="figplay">Pause</button><input type="range" id="figrange" min="0" max="${sheet.frames.length - 1}" step="0.01" value="0" aria-label="Avancer dans le mouvement"></div>
     <div class="chips" role="group" aria-label="Étapes du mouvement">${sheet.frames.map((f, i) => `<button class="chip" data-a="figstep" data-v="${i}">${i + 1}. ${esc(f.label)}</button>`).join('')}</div>
-    <p class="figtext" id="figtext" aria-live="polite"></p>
-    <p class="small dim">Touche une étape ou fais glisser le curseur. En couleur : les parties du corps qui travaillent le plus.</p>
+    <div class="figtext" id="figtext" aria-live="polite"></div>
+    <p class="small dim">L’animation s’arrête à chaque étape sur les points d’attention, en orange. En couleur sur le personnage : ce qui travaille le plus.${hasGuide ? ' Pointillés : trajet de la barre.' : ''}</p>
   </section>
-  <section class="card info"><h3>Muscles travaillés</h3><p>${esc(sheet.muscles)}</p>
-    <h3>Pour bien le faire</h3><ul>${sheet.cues.map(x => `<li>${esc(x)}</li>`).join('')}</ul>
-    <h3>Erreurs à éviter</h3><ul>${sheet.errors.map(x => `<li>${esc(x)}</li>`).join('')}</ul>
+  <section class="card info" style="--c:${col(def?.[0])}"><h3>Muscles ciblés</h3>
+    <div class="mmap"><svg viewBox="0 0 146 208" role="img" aria-label="Carte des muscles ciblés">${EX.drawMuscles(sheet)}</svg>
+    <div class="mlist"><div><b><span class="k"></span>Principaux</b><ul>${muscleList(sheet.prim)}</ul></div>${sheet.sec?.length ? `<div><b><span class="k s"></span>En renfort</b><ul>${muscleList(sheet.sec)}</ul></div>` : ''}</div></div>
+  </section>
+  <section class="card info"><h3>Pour bien le faire</h3><ul>${sheet.cues.map(x => `<li>${esc(x)}</li>`).join('')}</ul>
+    <h3>Erreurs à éviter</h3><ul class="errs">${sheet.errors.map(x => `<li>${esc(x)}</li>`).join('')}</ul>
+    <a class="btn sm ghost" href="${yt}" target="_blank" rel="noopener" style="text-decoration:none;display:grid;place-items:center">Voir de vraies vidéos sur YouTube</a>
     <p class="small dim">Une douleur vive ou qui augmente pendant l’exercice : arrête-le et parles-en à un professionnel de santé.</p></section>`;
 }
 function viewInfo(){
   const open = S.infoName && EX.find(S.infoName);
   if (open) return infoDetail(open, 'infoclose');
-  let h = `<section class="card"><h2>Info</h2><p class="small dim">Tu ne connais pas un exercice ? Touche son nom pour voir un schéma animé et comment bien le faire.</p></section>`;
+  let h = `<section class="card"><h2>Info</h2><p class="small dim">Touche un exercice pour voir l’animation, les points d’attention et les muscles ciblés.</p><button class="inforow" data-a="tab" data-v="plan"><span class="nm">Les consignes de ton programme</span><span aria-hidden="true">›</span></button></section>`;
   for (const [id, t] of L.tplList(S.templates)) {
     const seen = new Set(), rows = [];
     for (const x of exOrder(t)) {
       const s = EX.find(x.name);
       if (s && seen.has(s.id)) continue;
       if (s) seen.add(s.id);
-      rows.push(s ? `<button class="inforow" data-a="infoex" data-v="${esc(s.name)}"><span>${esc(s.id === 'run' ? s.name : x.name)}</span><span aria-hidden="true">›</span></button>`
+      rows.push(s ? `<button class="inforow" data-a="infoex" data-v="${esc(s.name)}"><svg viewBox="${s.vb || '10 0 220 205'}" aria-hidden="true">${EX.drawFigure(s, s.frames.length - 1)}</svg><span class="nm">${esc(s.id === 'run' ? s.name : x.name)}</span><span aria-hidden="true">›</span></button>`
         : `<p class="small dim">${esc(x.name)} : pas encore de fiche. Pose la question au coach.</p>`);
     }
     h += `<section class="card plate" style="--c:${col(id)}"><h3>${esc(t.short || id)}</h3>${rows.join('')}</section>`;
@@ -1374,14 +1766,14 @@ function lightBenchLoad(ex, date){
   if (!/couché (léger|pause)/i.test(ex.name)) return null;
   const heavy = L.history(S.logs, 'Développé couché').filter(x => x.date <= date).pop();
   const v = heavy?.e?.sets?.[0]?.val ?? heavy?.e?.val;
-  return L.isNum(v) ? L.roundTo(+v * 0.725, 2.5) : null;
+  return L.isNum(v) ? L.roundTo(+v * 0.8, 2.5) : null;
 }
 function suggestFor(ex, date){
   const c = L.cycleInfo(date, S.cycle);
   const last = lastFor(ex.name, date);
   const s = L.suggest(ex, last?.e || null, { deload: !!c?.deload });
   const light = lightBenchLoad(ex, date);
-  if (light != null) { const v = c?.deload ? L.roundTo(light * 0.9, 2.5) : light; s.sets.forEach(x => x.val = v); s.note = `Charge calculée : 72,5 % de ta dernière série lourde au développé couché${c?.deload ? ', puis 10 % de moins (semaine d’allègement)' : ''}.`; }
+  if (light != null) { const v = c?.deload ? L.roundTo(light * 0.9, 2.5) : light; s.sets.forEach(x => x.val = v); s.note = `Charge calculée : 80 % de ta dernière série lourde au développé couché${c?.deload ? ', puis 10 % de moins (semaine d’allègement)' : ''}.`; }
   return { ...s, last };
 }
 function seqAlertsAround(k){ return L.sequenceAlerts(S.logs, L.addDays(k, -8), L.addDays(k, 8)); }
@@ -1408,28 +1800,30 @@ function viewToday(){
   let h = `<div class="hero"><div class="hdate"><span class="hnum">${dd.getDate()}</span><span class="hside"><span class="hday">${DOWS[L.dow(k)]}</span><span class="hmon">${MONTHS[dd.getMonth()]}</span></span></div>
     <div class="stack"><div class="eyebrow">${c ? `Cycle ${c.cycleNo} · semaine ${c.pos} sur ${c.n}` : 'Avant le premier cycle'}</div>${cycleBlock(k)}</div></div>`;
   const wk = weekDays(k);
-  h += seqAlertHtml(L.sequenceAlerts(S.logs, wk[0], L.addDays(wk[6], 7)).filter(a => (a.next || a.date) >= k));
-  h += missingAlerts();
+  let alerts = seqAlertHtml(L.sequenceAlerts(S.logs, wk[0], L.addDays(wk[6], 7)).filter(a => (a.next || a.date) >= k));
+  if (S.programNotice?.length) h += `<div class="notice"><b>Ton programme a évolué</b><ul>${S.programNotice.map(x => `<li>${esc(x)}</li>`).join('')}</ul><p class="small dim">Ton historique est conservé. Les consignes sont dans l’onglet Programme.</p><div class="row"><button class="btn sm" data-a="noticeok">Compris</button><button class="btn sm ghost" data-a="tab" data-v="plan">Voir le programme</button></div></div>`;
+  alerts += missingAlerts();
   if (MODE === 'pwa') {
     const lx = LS.get('lastExport', null), days = lx ? L.dayDiff(lx, k) : null, n = Object.keys(S.logs).length;
-    if (n >= 3 && (days == null || days >= 14)) h += `<div class="alert"><span>${days == null ? 'Tes séances sont enregistrées uniquement sur ce téléphone.' : `Dernière sauvegarde il y a ${days} jours.`} Fais une sauvegarde pour ne rien perdre.</span><button data-a="tab" data-v="plan">Sauvegarder</button></div>`;
+    if (n >= 3 && (days == null || days >= 14)) alerts += `<div class="alert soft"><span>${days == null ? 'Tes séances sont enregistrées uniquement sur ce téléphone.' : `Dernière sauvegarde il y a ${days} jours.`} Fais une sauvegarde pour ne rien perdre.</span><button data-a="tab" data-v="plan">Sauvegarder</button></div>`;
   }
   if (log && t && log.status === 'faite') {
     h += `<section class="card plate" style="--c:${col(log.templateId)}">${cardHead(log.templateId, 'Séance faite ✓', t.name)}
-      <div class="exl">${exOrder(t).map(ex => { const d = L.describe(ex, log.entries?.[ex.name]); return `<div class="r"><b>${esc(ex.name)}</b><span class="num">${esc(d || '—')}</span></div>`; }).join('')}</div>
+      <div class="exl">${exOrder(t).map(ex => { const d = L.describe(ex, log.entries?.[ex.name]); return d ? `<div class="r"><b>${esc(ex.name)}</b><span class="num">${esc(d)}</span></div>` : ''; }).join('')}</div>
       ${feelLine(log)}
       <div class="row"><button class="btn sm ghost" data-a="enter" data-v="${k}">Modifier les charges</button></div></section>`;
   } else if (log && t) {
     h += todayCard(k, log, t);
   } else {
     const sg = L.suggestNext(S.logs, k), st = S.templates[sg.id];
-    if (st) h += `<section class="card plate" style="--c:${col(sg.id)}">${cardHead(sg.id, sg.rotation ? 'Suggestion du jour' : 'Suggestion adaptée à ta semaine', st.name + (sg.type ? ` ${sg.type}` : ''))}
+    if (st) h += `<section class="card plate" style="--c:${col(sg.id)}">${cardHead(sg.id, sg.rotation ? 'Suggestion du jour' : 'Suggestion adaptée à ta semaine', st.name + (sg.type ? ` ${sg.type}` : ''), metaOf(st))}
       <p class="small dim">${esc(hasRun(st) ? (sg.type === 'soutenue' ? 'Ta course soutenue de la semaine : 4 × 1 km ou 3 × 8 min.' : 'Sortie facile, à une allure où tu peux parler.') : (st.exercises || []).filter(x => x.main).map(x => x.name).join(' · '))}</p>
       <button class="btn main" data-a="planstart" data-v="${sg.id}" data-t="${sg.type || ''}">Démarrer ${esc(st.short || sg.id)}</button></section>`;
     h += `<section class="card"><h3>Ou choisis ta séance</h3>
       <div class="tplpick">${L.tplList(S.templates).map(([id, tp]) => `<button data-a="planday" data-v="${id}" data-d="${k}" style="--c:${col(id)}"><span class="disc sm" style="--c:${col(id)}" aria-hidden="true">${esc(id)}</span><b>${esc((tp.short || tp.name).replace(/^\w\s*·\s*/, ''))}</b><span>${esc(hasRun(tp) ? 'Facile ou soutenue' : (tp.exercises||[]).filter(x => x.main).slice(0,2).map(x=>x.name).join(', '))}</span></button>`).join('')}</div>
       <p class="small dim">Jour de repos ? Rien à faire : la journée reste vide dans le calendrier.</p></section>`;
   }
+  h += alerts;
   const done = wk.filter(d => S.logs[d]?.status === 'faite').length, planned = wk.filter(d => S.logs[d]).length;
   h += `<section class="card"><div class="between"><h3>Cette semaine</h3><span class="small dim">${done} faite${done>1?'s':''} sur ${planned} prévue${planned>1?'s':''}</span></div>${weekStrip(wk)}</section>`;
   const recent = recentPRs();
@@ -1441,25 +1835,30 @@ function todayCard(k, log, t){
   const rows = exOrder(t).map(ex => {
     if (L.unitOf(ex) === 'km' || L.unitOf(ex) === 'min') return '';
     const s = suggestFor(ex, k), first = s.sets[0];
-    const what = L.kind(ex) === 'barre' ? (L.isNum(first?.val) ? `${L.frNum(first.val)} kg × ${first.reps}` : esc(ex.scheme.map(s => s.reps).join(' / ')) + ' répétitions') : L.kind(ex) === 'pdc' ? `${s.sets.length} × ${esc(ex.reps)}${+first?.val>0?` · +${L.frNum(first.val)} kg`:''}` : `${s.sets.length} × ${esc(ex.reps)}`;
+    const what = L.kind(ex) === 'barre' ? (L.isNum(first?.val) ? `${L.frNum(first.val)} kg × ${first.reps}` : esc(ex.scheme.map(s => s.reps).join(', ')) + ' répétitions') : L.kind(ex) === 'pdc' ? `${shortReps(ex, s.sets.length)}${+first?.val>0?` · +${L.frNum(first.val)} kg`:''}` : shortReps(ex, s.sets.length);
     return `<div class="r"><b>${esc(ex.name)}</b><span>${what}${s.kindNote==='up'?' <span class="up">↑</span>':''}</span></div>`;
   }).join('');
   const isRun = exOrder(t).some(ex => L.unitOf(ex) === 'km');
   const z = L.paceZones(L.bestRunRef(S.logs, S.templates, RUN_BASE, today()));
-  const runLine = isRun ? `<div class="r"><b>Course ${esc(log.run?.type || 'facile')}</b><span class="num">${log.run?.type==='soutenue' ? `4 × 1 km à ${L.fmtPace(z.interval)} ou 3 × 8 min à ${L.fmtPace(z.tempo)}` : `45-70 min à ${L.fmtPace(z.easy[0])}-${L.fmtPace(z.easy[1])} /km`}</span></div>` : '';
+  const runLine = isRun ? `<div class="r"><b>Course ${esc(log.run?.type || 'facile')}</b><span class="num">${log.run?.type==='soutenue' ? `4 fois 1 km à ${L.fmtPace(z.interval)} /km, ou 3 fois 8 min à ${L.fmtPace(z.tempo)} /km` : `45 à 70 min à ${L.fmtPace(z.easy[0])}-${L.fmtPace(z.easy[1])} /km`}</span></div>` : '';
+  const far = isRun ? L.longestRun(S.logs, t, k) : 0;
+  const farLine = far ? `<p class="small dim">Ta plus longue sortie des 30 derniers jours : ${L.frNum(L.r1(far))} km. Essaie de rester sous ${L.frNum(L.r1(far * 1.1))} km.</p>` : '';
   return `<section class="card plate" style="--c:${col(id)}">
-    ${cardHead(id, 'Prévue aujourd’hui', t.name)}
+    ${cardHead(id, 'Prévue aujourd’hui', t.name, metaOf(t))}
     ${c?.deload ? '<p class="dlw small">Allègement : charges déjà réduites de 10 % et moitié des séries.</p>' : ''}
     ${isRun ? typeChips(k, log) : ''}
-    <div class="exl">${runLine}${rows}</div>
+    <div class="exl">${runLine}${rows}</div>${farLine}
     <button class="btn main" data-a="start" data-v="${k}">Démarrer la séance</button>
     <div class="row"><button class="btn sm ghost" data-a="goday" data-v="${k}">Changer de séance</button></div>
   </section>`;
 }
 /* En-tête de carte : la séance représentée par un disque de sa couleur */
-function cardHead(id, label, title){
-  return `<div class="chead"><span class="disc" style="--c:${col(id)}" aria-hidden="true">${esc(id)}</span><div class="stack" style="gap:4px"><div class="eyebrow" style="color:${col(id)}">${esc(label)}</div><h2>${esc(title)}</h2></div></div>`;
+function cardHead(id, label, title, meta){
+  return `<div class="chead"><span class="disc" style="--c:${col(id)}" aria-hidden="true">${esc(id)}</span><div class="stack" style="gap:4px"><div class="eyebrow" style="color:${col(id)}">${esc(label)}</div><h2>${esc(title)}</h2>${meta ? `<div class="meta">${esc(meta)}</div>` : ''}</div></div>`;
 }
+function metaOf(t){ const min = L.estimateMinutes(t), n = exOrder(t).length; return min ? `${n} exercices · environ ${min} min` : ''; }
+/* « 3 × 8 à 10 », lisible dans les listes courtes */
+function shortReps(ex, n){ return /max/i.test(String(ex.reps)) ? `${n} × (ton max − 1)` : `${n} × ${esc(String(ex.reps).replace(/(\d)\s*-\s*(\d)/g, '$1 à $2'))}`; }
 function typeChips(k, log){
   const ty = log?.run?.type || 'facile';
   return `<div class="chips" role="group" aria-label="Type de course">${['facile','soutenue'].map(x => `<button class="chip ${ty===x?'on':''}" style="--c:var(--pD)" data-a="runtype" data-v="${x}" data-d="${k}">${x}</button>`).join('')}</div>`;
@@ -1525,7 +1924,8 @@ function dayPanel(k){
   h += seqAlertHtml(L.sequenceAlerts(S.logs, L.addDays(k, -1), k).filter(a => a.date === k || a.next === k));
   if (t) {
     const done = l.status === 'faite';
-    h += `<div class="exl">${exOrder(t).map(ex => { const d = L.describe(ex, l.entries?.[ex.name]); return `<div class="r"><b>${esc(ex.name)}</b><span class="num">${esc(d || (done ? 'à noter' : ex.scheme ? ex.scheme.length + ' séries : ' + ex.scheme.map(s => s.reps).join(', ') + ' répétitions' : ex.sets + ' × ' + ex.reps))}</span></div>`; }).join('')}</div>`;
+    const anyData = Object.values(l.entries || {}).some(e => e && !e.skipped && L.isNum(e.val));
+    h += `<div class="exl">${exOrder(t).map(ex => { const d = L.describe(ex, l.entries?.[ex.name]); if (!d && done && anyData) return ''; return `<div class="r"><b>${esc(ex.name)}</b><span>${esc(d || (done ? 'à noter' : L.repsPlain(ex)))}</span></div>`; }).join('')}</div>`;
     if (l.templateId === 'D') { const r = L.runOf(l, t); if (r?.pace) h += `<p class="small">Allure <b class="num">${L.fmtPace(r.pace)} /km</b>${r.hr ? ` · fréquence cardiaque ${r.hr}` : ''}${r.treadmill ? ' · tapis' : ''}</p>`; }
     h += feelLine(l);
     h += `<div class="stack">`;
@@ -1552,22 +1952,32 @@ function spark(vals, H = 46, goal = null){
     <circle cx="${X(vals.length - 1)}" cy="${Y(vals[vals.length - 1])}" r="4" fill="currentColor"/></svg>`;
 }
 const mainLifts = () => { const out = []; L.tplList(S.templates).forEach(([id, t]) => exOrder(t).filter(ex => ex.main).forEach(ex => out.push({ id, ex }))); return out; };
+function weekTiles(){
+  let n = 0, ton = 0, km = 0;
+  for (const d of weekDays(today())) { const l = S.logs[d]; if (l?.status !== 'faite') continue; n++; const st = L.sessionStats(l, S.templates[l.templateId]); ton += st.tonnage; km += st.km; }
+  return `<div class="tiles"><div class="tile"><b>${n}</b><span>séance${n > 1 ? 's' : ''} faite${n > 1 ? 's' : ''}</span></div><div class="tile"><b>${L.frNum(L.r1(ton / 1000))} t</b><span>soulevées</span></div><div class="tile"><b>${L.frNum(L.r1(km))}</b><span>km courus</span></div></div>`;
+}
 function viewProg(){
-  const w = bw();
+  const w = bw(), todo = [];
   const lifts = mainLifts().map(({ id, ex }) => {
     const hist = L.history(S.logs, ex.name), h = hist.map(x => ({ m: L.metric(ex, x.e), e: x.e })).filter(x => x.m != null);
     const k = L.kind(ex), last = h[h.length - 1], best = L.bestOf(ex, hist, w);
     const goal = Object.values(S.goals).find(g => g.exercise === ex.name), gm = goal ? L.goalMetric(ex, goal) : null;
     const unit = k === 'barre' ? 'kg, max estimé' : k === 'pdc' ? (last?.m > 1 ? 'répétitions' : 'répétition') : L.unitOf(ex);
+    if (!last) { todo.push(ex.name); return ''; }
+    const gain = h.length > 1 ? last.m - h[0].m : 0;
     return `<div class="lift" style="--c:${col(id)}"><div class="eyebrow" style="color:${col(id)}">${esc(id)}</div><b>${esc(ex.name)}</b>
       ${last ? `<div class="v num" style="font-family:var(--display)">${L.frNum(L.r1(last.m))} <span class="small dim" style="font-family:var(--body);font-weight:500">${unit}</span></div>
       <div class="small dim">${esc(L.describe(ex, last.e))}</div>
-      ${best ? `<div class="small pr">Record · ${esc(L.prLabel(ex, best.set, best.score))}</div>` : ''}
+      ${gain > 0 ? `<div class="small delta">+${L.frNum(L.r1(gain))} depuis le ${L.fr(hist[0].date)}</div>` : ''}
+      ${best ? `<div class="small pr">Record : ${esc(L.prLabel(ex, best.set, best.score).replace(/^Max estimé : /, ''))}</div>` : ''}
       <div style="color:${col(id)}">${spark(h.map(x => x.m), 46, gm)}</div>` : `<div class="small dim">Rien de noté pour l’instant.</div>`}</div>`;
   }).join('');
-  return `<section class="card"><h2>Records et progression</h2><p class="small dim">Exercices à la barre : le chiffre est ta charge maximale estimée sur 1 répétition, calculée depuis ta meilleure série. Tractions et dips : ton meilleur nombre de répétitions. Ligne verte : ton objectif.</p><div class="lifts">${lifts || '<p class="dim">Les exercices suivis apparaîtront ici.</p>'}</div></section>
+  return `<section class="card"><h3>Cette semaine</h3>${weekTiles()}</section>
+    <section class="card"><h2>Records et progression</h2>${lifts ? `<p class="small dim">Barre : ta charge maximale estimée sur 1 répétition, calculée depuis ta meilleure série. Tractions et dips : ton meilleur nombre de répétitions. Ligne verte : ton objectif.</p><div class="lifts">${lifts}</div>` : '<p class="dim">Note ta première séance : tes courbes et tes records apparaîtront ici.</p>'}${todo.length ? `<p class="small dim">Pas encore noté : ${esc(todo.join(', '))}.</p>` : ''}</section>
     ${runCard()}
     <section class="card"><h2>Objectifs</h2>
+      <p class="small dim">Le verdict est une estimation prudente pour quelqu’un qui s’entraîne depuis plusieurs années, pas une promesse.</p>
       <form class="form" id="goalform">
         <div class="field"><label for="g-ex">Exercice</label><select id="g-ex">${mainLifts().map(({ ex }) => `<option value="${esc(ex.name)}">${esc(ex.name)}</option>`).join('')}<option value="${BW}">Poids corporel</option></select></div>
         <div class="field"><label for="g-val" id="g-val-l">Charge visée (kg)</label><input id="g-val" inputmode="decimal" required></div>
@@ -1637,13 +2047,14 @@ function weightsHtml(){
 
 /* ======================= Programme (éditeur) ======================= */
 function viewPlan(){
-  let h = `<section class="card"><h2>Programme</h2><p class="small dim">Tes séances types. Tes changements s’appliquent dès la prochaine séance. L’historique d’un exercice est conservé, même si tu le renommes.</p></section>`;
+  let h = `<section class="card"><h2>Programme</h2><p class="small dim">Touche une consigne pour l’ouvrir.</p><div>${guideHtml()}</div></section>`;
   for (const [id, t] of L.tplList(S.templates)) {
-    h += `<section class="card plate" style="--c:${col(id)}"><div class="between"><h3>${esc(id)} · ${esc(t.name)}</h3></div>`;
+    h += `<section class="card plate" style="--c:${col(id)}">${cardHead(id, 'Séance ' + id, t.name, metaOf(t))}`;
     exOrder(t).forEach((ex, i) => {
       const editing = S.edit && S.edit.tid === id && S.edit.i === i;
-      h += editing ? editSheet() : `<div class="exrow"><div class="t"><b>${esc(ex.name)}</b><span>${esc(L.exSummary(ex))} · minuteur de repos ${L.fmtDur(L.defaultRest(ex))}</span></div>
-        <div class="tools"><button data-a="exup" data-t="${id}" data-i="${i}" aria-label="Monter ${esc(ex.name)}">↑</button><button data-a="exdown" data-t="${id}" data-i="${i}" aria-label="Descendre ${esc(ex.name)}">↓</button><button data-a="exedit" data-t="${id}" data-i="${i}" aria-label="Modifier ${esc(ex.name)}">✎</button></div></div>`;
+      const rule = L.progressRule(ex), run = L.unitOf(ex) === 'km' || L.unitOf(ex) === 'min';
+      h += editing ? editSheet() : `<div class="exrow"><div class="t"><b>${esc(ex.name)}</b><span class="main">${esc(L.repsPlain(ex))}</span>${run ? '' : `<span>Minuteur de repos : ${L.fmtDur(L.defaultRest(ex))}</span>`}${rule ? `<span>${esc(rule)}</span>` : ''}${ex.tip ? `<span>${esc(ex.tip)}</span>` : ''}</div>
+        <div class="tools">${EX.find(ex.name) ? `<button data-a="infoex" data-v="${esc(ex.name)}" aria-label="Comment faire : ${esc(ex.name)}">?</button>` : ''}<button data-a="exedit" data-t="${id}" data-i="${i}" aria-label="Modifier ${esc(ex.name)}">✎</button></div></div>`;
     });
     if (S.edit && S.edit.tid === id && S.edit.i === -1) h += editSheet();
     else h += `<button class="btn sm ghost" data-a="exadd" data-t="${id}">Ajouter un exercice</button>`;
@@ -1670,7 +2081,7 @@ function editSheet(){
   return `<form class="sheet" id="exform">
     <div class="field"><label for="e-name">Nom</label><input id="e-name" value="${esc(x.name)}" required></div>
     <div class="grid2">
-      <div class="field"><label for="e-unit">Unité</label><select id="e-unit">${['kg','km','min','s','cm'].map(u => `<option ${x.unit===u?'selected':''}>${u}</option>`).join('')}</select></div>
+      <div class="field"><label for="e-unit">Unité</label><select id="e-unit">${['kg','km','min','s','cm','reps'].map(u => `<option ${x.unit===u?'selected':''}>${u}</option>`).join('')}</select></div>
       <div class="field"><label for="e-rest">Repos (secondes)</label><input id="e-rest" inputmode="numeric" value="${esc(x.rest ?? '')}" placeholder="${L.defaultRest(x)}"></div>
       <div class="field" ${isBar?'hidden':''}><label for="e-sets">Séries</label><input id="e-sets" inputmode="numeric" value="${esc(x.sets ?? '')}"></div>
       <div class="field"><label for="e-reps">Répétitions visées</label><input id="e-reps" value="${esc(x.reps ?? '')}"></div>
@@ -1684,6 +2095,7 @@ function editSheet(){
       <button type="button" class="btn sm ghost" data-a="schadd">Ajouter une série</button>
       <label class="check"><input type="checkbox" id="e-double" ${x.double?'checked':''}> Double progression : gagner 1 répétition par série avant d’ajouter du poids</label></div>` : ''}
     <div class="row"><button class="btn sm" type="submit">Enregistrer</button><button type="button" class="btn sm ghost" data-a="exclose">Annuler</button>${E.i >= 0 ? `<button type="button" class="btn sm danger" data-a="exdel">Retirer</button>` : ''}</div>
+    ${E.i >= 0 ? `<div class="row"><span class="small dim">Place dans la séance :</span><button type="button" class="btn sm ghost" data-a="exup" data-t="${E.tid}" data-i="${E.i}" aria-label="Monter">↑ Monter</button><button type="button" class="btn sm ghost" data-a="exdown" data-t="${E.tid}" data-i="${E.i}" aria-label="Descendre">↓ Descendre</button></div>` : ''}
     ${conf === 1 ? `<div class="confirm"><span>Es-tu sûr de vouloir retirer l’exercice suivant : ${esc(E.orig)} de la séance ${esc(tplName(E.tid))} ?</span><div class="row"><button type="button" class="btn sm danger" data-a="exdel2">Oui</button><button type="button" class="btn sm ghost" data-a="exnodel">Annuler</button></div></div>` : ''}
     ${conf === 2 ? `<div class="confirm"><span>Dernière confirmation : retirer définitivement ${esc(E.orig)} de ${esc(tplName(E.tid))} ? Ses séances passées restent dans l’historique.</span><div class="row"><button type="button" class="btn sm danger" data-a="exdel3">Retirer</button><button type="button" class="btn sm ghost" data-a="exnodel">Annuler</button></div></div>` : ''}
     <p class="small dim" id="estatus" role="status">${esc(E.msg || '')}</p>
@@ -1935,14 +2347,14 @@ function stepVal(f, d){
     const step = L.repsUnit(x) === 'm' ? 5 : 1, cur = L.isNum(s.reps) ? +s.reps : (s.target || (step === 5 ? 25 : (L.topOf(x.reps) || 1) - 1));
     s.reps = Math.max(0, cur + d * step);
   }
-  s.auto = false; persistRun(); renderSession();
+  s.auto = false; S.pop = f; persistRun(); renderSession(); S.pop = null;
 }
 /* Première valeur quand rien n'est encore noté pour cet exercice */
 function startVal(x){
   const u = L.unitOf(x);
   if (L.kind(x) === 'pdc') return 0;
   if (u === 'kg') return isBarbell(x) ? 20 : 10;
-  return { cm: 200, s: 30, min: 10, km: 5 }[u] ?? 0;
+  return { cm: 200, s: 30, min: 10, km: 5, reps: 3 }[u] ?? 0;
 }
 function setDone(){
   const R = S.run, t = S.templates[R.tid], xs = runExercises(t), x = xs[R.i], e = R.ex[x.name], s = e.sets[R.j];
@@ -1962,7 +2374,7 @@ function setDone(){
 function describeSet(x, s){
   if (L.kind(x) === 'pdc') return `${+s.val > 0 ? '+' + L.frNum(s.val) + ' kg' : 'sans lest'} × ${s.reps}`;
   const ru = L.repsUnit(x);
-  return ru ? `${L.frNum(s.val)}${L.unitOf(x) === 'kg' ? ' kg' : ''} × ${s.reps}${ru === 'm' ? ' m' : ''}` : `${L.frNum(s.val)} ${L.unitOf(x)}`;
+  return ru ? `${L.frNum(s.val)}${L.unitOf(x) === 'kg' ? ' kg' : ''} × ${s.reps}${ru === 'm' ? ' m' : ''}` : `${L.frNum(s.val)} ${L.unitOf(x) === 'reps' ? 'sauts' : L.unitOf(x)}`;
 }
 function platesHtml(total){
   const p = L.platesPerSide(total);
@@ -2027,22 +2439,22 @@ function renderSession(){
         <div class="clock num" id="clock" style="font-family:var(--display)">${R.restEnd > Date.now() ? L.fmtDur(Math.ceil((R.restEnd - Date.now()) / 1000)) : 'GO'}</div>
         <div class="drain"><i id="drain" style="width:${Math.max(0, Math.min(100, (R.restEnd - Date.now()) / (R.restTotal * 10)))}%"></i></div>
         <div class="rbtns"><button data-a="rplus">+30 s</button><button data-a="rskip">Passer</button></div>
-        ${R.toast ? `<div class="toast">${esc(R.toast)}</div>` : ''}
+        ${R.toast ? `<div class="toast ${/record/i.test(R.toast) ? 'pr' : ''}">${esc(R.toast)}</div>` : ''}
         <div class="push"><div class="next"><span class="eyebrow">Ensuite · ${esc(x.name)} · ${esc(s.label || 'Série ' + (R.j + 1))}</span><span class="n">${esc(describeSet(x, s))}</span>
         ${isBarbell(x) && L.isNum(s.val) && L.platesPerSide(s.val).side.length ? `<span class="small dim">Par côté : ${L.platesPerSide(s.val).side.map(L.frNum).join(' + ')}</span>` : ''}</div>
         <button class="btn main" data-a="rskip" id="restgo">Série suivante</button></div>`;
     } else {
       const total = e.sets.length, tgt = s.target ?? (k === 'barre' ? x.scheme?.[R.j]?.reps : null);
-      const tgtTxt = k === 'barre' ? `objectif ${tgt} répétitions` : /max/.test(x.reps) ? 'objectif : 1 répétition de moins que ton maximum' : `objectif ${esc(x.reps)}`;
-      const valLabel = k === 'pdc' ? 'kg de lest' : L.unitOf(x) === 'kg' ? 'kg' : ({ s: 'secondes', cm: 'cm', min: 'min' }[L.unitOf(x)] || L.unitOf(x));
+      const tgtTxt = k === 'barre' ? `objectif ${tgt} répétitions` : `objectif ${esc(L.repsTarget(x))}`;
+      const valLabel = k === 'pdc' ? 'kg de lest' : L.unitOf(x) === 'kg' ? 'kg' : ({ s: 'secondes', cm: 'cm', min: 'min', reps: 'sauts' }[L.unitOf(x)] || L.unitOf(x));
       const warm = k === 'barre' && R.j === 0 && !s.done && !R.noTimer ? L.warmup(+s.val, { fromFloor: /terre/i.test(x.name) }) : [];
       h += sessHead(R, t, `Exercice ${R.i + 1}/${xs.length}`) + `<h1>${esc(x.name)}</h1>
         <div class="settag"><span class="t">${esc(s.label || 'Série ' + (R.j + 1))}</span><span class="small dim">Série ${R.j + 1} sur ${total} · ${tgtTxt}</span></div>
         <div><button class="btn sm ghost" data-a="infoex" data-v="${esc(x.name)}">Comment faire cet exercice ?</button></div>
         ${x.tip ? `<p class="small dim">${esc(x.tip)}</p>` : ''}
         ${warm.length ? `<p class="small"><b>Échauffe-toi d’abord :</b> <span class="dim">${warm.map(w => `${L.frNum(w.val)} kg × ${w.reps}`).join(', puis ')}</span></p>` : ''}
-        <div class="stepper"><button data-a="st" data-f="val" data-d="-1" aria-label="Moins ${L.frNum(L.valStep(x))}">−</button><div class="val"><input id="in-val" inputmode="decimal" aria-label="${valLabel}" value="${L.isNum(s.val) ? L.frNum(s.val) : ''}" placeholder="—"><span class="u">${valLabel}</span></div><button data-a="st" data-f="val" data-d="1" aria-label="Plus ${L.frNum(L.valStep(x))}">+</button></div>
-        ${ru ? `<div class="stepper"><button data-a="st" data-f="reps" data-d="-1" aria-label="Moins 1">−</button><div class="val"><input id="in-reps" inputmode="numeric" aria-label="${ru === 'm' ? 'mètres' : 'répétitions'}" value="${L.isNum(s.reps) ? s.reps : ''}" placeholder="${tgt ?? '—'}"><span class="u">${ru === 'm' ? 'mètres' : 'répétitions'}</span></div><button data-a="st" data-f="reps" data-d="1" aria-label="Plus 1">+</button></div>` : ''}
+        <div class="stepper"><button data-a="st" data-f="val" data-d="-1" aria-label="Moins ${L.frNum(L.valStep(x))}">−</button><div class="val"><input id="in-val" class="${S.pop === 'val' ? 'pop' : ''}" inputmode="decimal" aria-label="${valLabel}" value="${L.isNum(s.val) ? L.frNum(s.val) : ''}" placeholder="—"><span class="u">${valLabel}</span></div><button data-a="st" data-f="val" data-d="1" aria-label="Plus ${L.frNum(L.valStep(x))}">+</button></div>
+        ${ru ? `<div class="stepper"><button data-a="st" data-f="reps" data-d="-1" aria-label="Moins 1">−</button><div class="val"><input id="in-reps" class="${S.pop === 'reps' ? 'pop' : ''}" inputmode="numeric" aria-label="${ru === 'm' ? 'mètres' : 'répétitions'}" value="${L.isNum(s.reps) ? s.reps : ''}" placeholder="${tgt ?? '—'}"><span class="u">${ru === 'm' ? 'mètres' : 'répétitions'}</span></div><button data-a="st" data-f="reps" data-d="1" aria-label="Plus 1">+</button></div>` : ''}
         ${isBarbell(x) && L.isNum(s.val) ? platesHtml(+s.val) : ''}
         ${e.sets.some(o => o.done) ? `<div class="done-sets">${e.sets.map((o, j) => `<button data-a="sset" data-v="${j}" class="${o.done ? 'ok' : ''} ${j === R.j ? 'cur' : ''}">${o.done ? '✓ ' + esc(describeSet(x, o)) : esc(o.label || 'Série ' + (j + 1))}</button>`).join('')}</div>` : ''}
         <div class="hintline">${e.last ? `<span>Dernière fois (${L.fr(e.last.date)}) : <b class="num">${esc(e.last.txt)}</b></span>` : ''}${e.note ? `<span class="${e.kindNote === 'up' ? 'up' : e.kindNote === 'deload' ? 'dlw' : ''}">${esc(e.note)}</span>` : ''}</div>
@@ -2063,12 +2475,14 @@ function runScreen(R, t){
   const d = R.runData, z = L.paceZones(L.bestRunRef(S.logs, S.templates, RUN_BASE, today()));
   const pace = d.km > 0 ? d.sec / d.km : null;
   const zone = d.type === 'soutenue' ? `Allure visée : ${L.fmtPace(z.interval)} /km sur 4 fois 1 km, ou ${L.fmtPace(z.tempo)} /km sur 3 fois 8 min` : `Allure visée : ${L.fmtPace(z.easy[0])} à ${L.fmtPace(z.easy[1])} /km, en pouvant parler`;
+  const far = L.longestRun(S.logs, t, R.date), over = far && d.km > far * 1.1;
+  const farLine = far ? `<p class="small ${over ? '' : 'dim'}" ${over ? 'style="color:var(--warn)"' : ''}>Plus longue sortie des 30 derniers jours : ${L.frNum(L.r1(far))} km. ${over ? 'Cette sortie la dépasse de plus de 10 % : va-y progressivement.' : `Reste si possible sous ${L.frNum(L.r1(far * 1.1))} km.`}</p>` : '';
   const verdict = pace && d.type !== 'soutenue' ? (pace < z.easy[0] - 5 ? '<span style="color:var(--warn)">Plus rapide que ton allure facile : ralentis la prochaine fois.</span>' : '<span class="up">Dans ton allure facile.</span>') : '';
   const m = Math.floor(d.sec / 60), s = Math.round(d.sec % 60);
   return sessHead(R, t, 'Course') + `<h1>Course ${esc(d.type)}</h1>
     <div><button class="btn sm ghost" data-a="infoex" data-v="Course">Comment bien courir ?</button></div>
     <div class="chips">${['facile','soutenue'].map(x => `<button class="chip ${d.type === x ? 'on' : ''}" data-a="rtype" data-v="${x}">${x}</button>`).join('')}<button class="chip ${d.treadmill ? 'on' : ''}" data-a="rtread">Tapis</button></div>
-    <p class="small dim">${zone}</p>
+    <p class="small dim">${zone}</p>${farLine}
     <div class="stepper"><button data-a="rst" data-f="km" data-d="-1" aria-label="Moins 0,1 km">−</button><div class="val"><input id="in-km" inputmode="decimal" aria-label="kilomètres" value="${L.frNum(d.km)}"><span class="u">km</span></div><button data-a="rst" data-f="km" data-d="1" aria-label="Plus 0,1 km">+</button></div>
     <div class="stepper"><button data-a="rst" data-f="min" data-d="-1" aria-label="Moins 1 minute">−</button><div class="val"><input id="in-dur" inputmode="numeric" aria-label="durée en minutes:secondes" value="${m}:${L.pad(s)}"><span class="u">durée (min:s)</span></div><button data-a="rst" data-f="min" data-d="1" aria-label="Plus 1 minute">+</button></div>
     <div class="between"><span class="eyebrow">Allure</span><span class="pace num" style="font-family:var(--display)">${L.fmtPace(pace)}<span class="small dim" style="font-family:var(--body)"> /km</span></span></div>
@@ -2082,11 +2496,14 @@ function endScreen(R, t){
   const runL = R.runData?.done ? `<div class="r"><b>Course</b><span class="num">${L.frNum(R.runData.km)} km · ${L.fmtDur(R.runData.sec)} · ${L.fmtPace(R.runData.sec / R.runData.km)} /km</span></div>` : '';
   const open = xs.filter(x => { const e = R.ex[x.name]; return !e.skipped && e.sets.some(s => !s.done); }).length;
   const conf = R.abandon || 0;
-  return sessHead(R, t, 'Fin de séance') + `<h1>${R.noTimer ? 'Résumé' : 'Bien joué'}</h1>
-    ${R.noTimer ? '' : `<p class="dim">${mins} min · ${esc(t.name)}</p>`}
-    ${R.toast ? `<div class="toast">${esc(R.toast)}</div>` : ''}
+  const st = L.sessionStats(logFromRun('faite'), t);
+  const prevK = Object.keys(S.logs).filter(d => d < R.date && S.logs[d].templateId === R.tid && S.logs[d].status === 'faite').sort().pop();
+  const prevTon = prevK ? L.sessionStats(S.logs[prevK], t).tonnage : 0, gain = prevTon && st.tonnage ? Math.round((st.tonnage - prevTon) / prevTon * 100) : null;
+  const tile2 = R.runData?.done ? `<div class="tile"><b>${L.frNum(R.runData.km)}</b><span>km</span></div>` : `<div class="tile"><b>${L.frNum(L.r1(st.tonnage / 1000))} t</b><span>soulevées${gain != null ? ` (${gain >= 0 ? '+' : ''}${gain} %)` : ''}</span></div>`;
+  return sessHead(R, t, 'Fin de séance') + `<h1>${R.noTimer ? 'Résumé' : 'Séance terminée'}</h1>
+    ${R.noTimer ? '' : `<div class="tiles"><div class="tile"><b>${mins}</b><span>minutes</span></div>${tile2}<div class="tile"><b>${st.sets || (R.runData?.done ? 1 : 0)}</b><span>${R.runData?.done && !st.sets ? 'course' : 'séries'}</span></div></div>`}
+    ${R.prs.length ? `<div class="toast pr">${R.prs.length > 1 ? R.prs.length + ' nouveaux records' : 'Nouveau record'}</div><div class="stack">${R.prs.map(p => `<span class="pr">${esc(p.ex)} : ${esc(p.label)}</span>`).join('')}</div>` : ''}
     <div class="exl">${runL}${lines}</div>
-    ${R.prs.length ? `<div class="stack">${R.prs.map(p => `<span class="pr">${esc(p.ex)} · ${esc(p.label)}</span>`).join('')}</div>` : ''}
     ${open ? `<p class="small" style="color:var(--warn)">${open} exercice${open > 1 ? 's' : ''} pas terminé${open > 1 ? 's' : ''}. <button class="btn sm ghost" data-a="slist">Reprendre</button></p>` : ''}
     <div class="stack"><span class="eyebrow">Difficulté de la séance</span>${scaleHtml('rpe', 1, 5, 'facile', 'à bloc')}</div>
     <div class="field"><label for="in-note">Remarque (douleur précise, difficulté, matériel…)</label><textarea id="in-note" placeholder="Genou gauche sensible en fentes, rien au squat.">${esc(R.note)}</textarea></div>
@@ -2127,8 +2544,9 @@ document.addEventListener('click', ev => {
     case 'figplay': FIG.play = !FIG.play; figDraw(); if (FIG.play) figKick(); return;
     case 'figstep': FIG.t = +v; FIG.play = false; figDraw(); return;
     case 'notdone': { S.tab = 'cal'; S.sel = v; const d = L.parse(v); S.view = new Date(d.getFullYear(), d.getMonth(), 1); S.confirm = { day: v + ':1' }; S.panelMsg = ''; renderAll(true); $('daypanel')?.scrollIntoView({ block: 'start' }); return; }
+    case 'noticeok': S.programNotice = null; LS.del('programNotice'); renderAll(true); return;
     case 'reload': persistRun(); saveCache(); location.reload(); return;
-    case 'impbak': { const raw = localStorage.getItem('carnet.db.avant-maj'); if (!raw) return; const d = JSON.parse(raw); d._name = 'copie d’avant la dernière mise à jour'; S.pendingImport = d; S.importStep = 1; renderAll(true); return; }
+    case 'impbak': { const raw = localStorage.getItem('carnet.db.avant-maj'); if (!raw) return; const d = JSON.parse(raw); d._name = 'copie d’avant la dernière mise à jour'; d.settings = { ...(d.settings || {}), program: { version: L.PROGRAM_VERSION } }; S.pendingImport = d; S.importStep = 1; renderAll(true); return; }
     case 'tab': S.tab = v; LS.set('tab', v); S.edit = null; S.confirm = {}; S.msgs = {}; S.infoName = null; renderAll(true); window.scrollTo(0, 0); return;
     case 'goday': { S.tab = 'cal'; S.sel = v; const d = L.parse(v); S.view = new Date(d.getFullYear(), d.getMonth(), 1); S.confirm = {}; S.panelMsg = ''; renderAll(true); $('daypanel')?.scrollIntoView({ block: 'start' }); return; }
     case 'sel': S.sel = v; S.confirm = {}; S.panelMsg = ''; renderAll(true); if (window.innerWidth < 700) $('daypanel')?.scrollIntoView({ behavior: 'smooth', block: 'start' }); return;
@@ -2165,7 +2583,7 @@ document.addEventListener('click', ev => {
     case 'exclose': S.edit = null; S.confirm = {}; renderAll(true); return;
     case 'exup': case 'exdown': {
       const tid = b.dataset.t, i = +b.dataset.i, xs = [...S.templates[tid].exercises], j = a === 'exup' ? i - 1 : i + 1;
-      if (j < 0 || j >= xs.length) return; [xs[i], xs[j]] = [xs[j], xs[i]]; saveTemplate(tid, xs); renderAll(true); return;
+      if (j < 0 || j >= xs.length) return; if (S.edit) S.edit.ex = readExForm(); [xs[i], xs[j]] = [xs[j], xs[i]]; saveTemplate(tid, xs); if (S.edit) S.edit.i = j; renderAll(true); return;
     }
     case 'schadd': S.edit.ex = readExForm(); S.edit.ex.scheme.push({ label: `Série ${S.edit.ex.scheme.length + 1}`, reps: 6 }); renderAll(true); return;
     case 'schdel': S.edit.ex = readExForm(); if (S.edit.ex.scheme.length > 1) S.edit.ex.scheme.splice(+b.dataset.i, 1); renderAll(true); return;
@@ -2311,7 +2729,7 @@ document.addEventListener('submit', ev => {
 function msg(id, text){ S.msgs[id] = text; const el = $(id); if (el) el.textContent = text; }
 async function exportData(){
   if (!S.downloads) { msg('xstatus', 'L’export n’est pas disponible dans cette vue. Ouvre la page depuis claude.ai.'); return; }
-  const settings = { cycle: S.cycle }; if (S.profile) settings.profile = { text: S.profile };
+  const settings = { cycle: S.cycle, program: { version: S.programVersion || 1 } }; if (S.profile) settings.profile = { text: S.profile };
   const data = JSON.stringify({ app: 'Carnet de séances', version: 5, exportedAt: new Date().toISOString(), templates: S.templates, logs: S.logs, weights: S.weights, goals: S.goals, settings }, null, 2);
   try { await S.downloads.save({ filename: `carnet-seances-${today()}.json`, data }); LS.set('lastExport', today()); msg('xstatus', 'Sauvegarde enregistrée.'); }
   catch (e) { msg('xstatus', e?.code === 'declined' ? 'Export annulé.' : 'L’export a échoué. Réessaie.'); }
@@ -2325,6 +2743,16 @@ function importConfirm(){
   if (S.importStep === 2) return `<div class="confirm"><span>Dernière confirmation : tes séances actuelles seront définitivement remplacées par ${esc(what)}.</span><div class="row"><button class="btn sm danger" data-a="imp2">Remplacer</button><button class="btn sm ghost" data-a="impx">Annuler</button></div></div>`;
   return '';
 }
+/* Applique une seule fois l'évolution du programme sur un téléphone déjà installé */
+function runMigration(){
+  if (MODE !== 'pwa' || !S.programVersion || S.programVersion >= L.PROGRAM_VERSION || !S.templates.A) return;
+  const m = L.migrateProgram(S.templates);
+  for (const [a, b] of m.renames) renameEverywhere(a, b);
+  for (const id of Object.keys(m.templates)) write('templates/' + id, m.templates[id]);
+  write('settings/program', { version: L.PROGRAM_VERSION });
+  if (m.changes.length) { S.programNotice = m.changes; LS.set('programNotice', m.changes); }
+  renderAll();
+}
 function doImport(){
   const P = S.pendingImport; if (!P) return;
   for (const c of ['templates', 'logs', 'weights', 'goals']) {
@@ -2334,8 +2762,9 @@ function doImport(){
   }
   if (P.settings?.cycle) write('settings/cycle', P.settings.cycle);
   if (P.settings?.profile) write('settings/profile', P.settings.profile);
+  write('settings/program', P.settings?.program || { version: 1 });
   S.pendingImport = null; S.importStep = 0; S.run = null; persistRun();
-  renderAll(true); msg('xstatus', 'Sauvegarde restaurée.');
+  runMigration(); renderAll(true); msg('xstatus', 'Sauvegarde restaurée.');
 }
 document.addEventListener('change', ev => {
   if (ev.target.id !== 'importfile') return;
@@ -2373,6 +2802,7 @@ renderAll(true);
   }, () => { S.online = 'wait'; renderSync(); });
   ['templates', 'logs', 'weights', 'goals'].forEach(watch);
   db.doc('settings/cycle').onSnapshot(d => { if (d.exists && !outbox['settings/cycle']) S.cycle = { ...S.cycle, ...d.data() }; saveCache(); renderAll(); }, () => {});
+  db.doc('settings/program').onSnapshot(d => { S.programVersion = d.exists ? (+d.data()?.version || 1) : 1; setTimeout(runMigration, 0); }, () => {});
   db.doc('settings/profile').onSnapshot(d => { if (!outbox['settings/profile']) S.profile = d.exists ? (d.data()?.text || '') : S.profile; saveCache(); renderAll(); }, () => {});
   flush();
 })();
