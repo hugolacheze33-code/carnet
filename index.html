@@ -12,11 +12,12 @@
 <style>:root{padding-top:env(safe-area-inset-top,0px)}body{margin:0}[hidden]{display:none!important}</style>
 <script>
 window.CARNET_MODE = 'pwa';
-window.CARNET_VERSION = '2026-11-02 14:06';
+window.CARNET_THREE_URL = 'three.min.js';
+window.CARNET_VERSION = '2026-11-04 10:28';
 /* Base locale : même interface que la base claude.ai, stockée sur le téléphone */
 (function(){
   const KEY = 'carnet.db';
-  const seed = {"templates":{"A":{"exercises":[{"main":true,"name":"Soulevé de terre","reps":"1 série lourde de 4, puis 2 séries de 6","scheme":[{"label":"Lourde","reps":4},{"label":"Série 2","reps":6},{"label":"Série 3","reps":6}],"sets":"3","step":2.5,"tip":"Repos de 3 à 5 min. Les deux paumes vers toi. Prise mixte seulement sur la série lourde, en changeant de main à chaque séance.","unit":"kg"},{"loadAt":12,"main":true,"name":"Tractions pronation","reps":"max −1","sets":"3","tip":"Indique le lest : 0 si tu n’en mets pas.","unit":"kg"},{"loadAt":12,"main":true,"name":"Tractions supination","reps":"max −1","sets":"2","tip":"Indique le lest : 0 si tu n’en mets pas.","unit":"kg"},{"name":"Suspension à la barre","sets":"2","reps":"45-60 s","unit":"s","main":true,"rest":90,"tip":"Tiens jusqu’à ce que la prise soit sur le point de lâcher. Dès 60 s aux 2 séries, ajoute du lest et note-le dans la remarque."},{"name":"Rowing barre","reps":"6-8","sets":"2","tip":"Buste immobile, dos droit.","unit":"kg"},{"name":"Face pull","reps":"12-15","sets":"2","tip":"Charge légère, coudes à hauteur d’épaules.","unit":"kg"},{"name":"Marche du fermier","reps":"30-40 m","sets":"2","tip":"Note le poids d’une seule main. Dès 40 m sur les 2 séries, ajoute 2 kg par main.","unit":"kg","step":2},{"name":"Curl marteau","sets":"2","reps":"8-12","unit":"kg","step":2,"tip":"Note le poids d’un seul haltère. Coudes le long du corps."}],"name":"Dos · tirage","order":1,"short":"A · Dos"},"B":{"exercises":[{"name":"Sauts verticaux","sets":"3","reps":"3 sauts","unit":"reps","rest":60,"tip":"Après l’échauffement. Saute le plus haut possible, chaque saut à fond. Ne fais pas ces séries fatigué."},{"main":true,"name":"Développé couché","reps":"1 série lourde de 4, puis 2 séries de 6","scheme":[{"label":"Lourde","reps":4},{"label":"Série 2","reps":6},{"label":"Série 3","reps":6}],"sets":"3","step":2.5,"tip":"Premier exercice lourd de la séance. Repos de 3 à 4 min. Avant-bras à peu près verticaux quand la barre touche la poitrine.","unit":"kg","double":true},{"loadAt":10,"main":true,"name":"Dips","reps":"6-10","sets":"2","tip":"Indique le lest : 0 si tu n’en mets pas. Arrête la descente si l’avant de l’épaule te gêne.","unit":"kg"},{"name":"Extension triceps à la poulie","sets":"2","reps":"10-12","unit":"kg","tip":"Coudes immobiles, le long du corps."},{"name":"Développé militaire haltères","reps":"8-10","sets":"3","tip":"Note le poids d’un seul haltère. Fessiers serrés, sans te pencher en arrière.","unit":"kg","step":2},{"name":"Fentes marchées ou step-ups","sets":"2","reps":"8-10 par jambe","unit":"kg","step":2,"tip":"Note le poids d’un seul haltère. Buste droit, pas de grand pas forcé."},{"name":"Pallof press","reps":"10 par côté","sets":"2","tip":"Le câble tire sur le côté : ne laisse pas ton buste tourner. Fais les 10 répétitions de chaque côté.","unit":"kg"},{"name":"Planche latérale","reps":"30-45 s par côté","sets":"2","unit":"s","tip":"Corps aligné de la tête aux pieds. Fais le temps indiqué de chaque côté."}],"name":"Poussée","order":2,"short":"B · Poussée"},"C":{"exercises":[{"name":"Sauts en longueur ou sur box","reps":"3 sauts","sets":"4","tip":"Après 5 à 8 min de cardio facile et de mobilité. Récupère 1 à 2 min entre les séries. Note la distance sautée ou la hauteur de la box.","unit":"cm"},{"main":true,"name":"Squat","reps":"1 série lourde de 4, puis 2 séries de 6","scheme":[{"label":"Lourde","reps":4},{"label":"Série 2","reps":6},{"label":"Série 3","reps":6}],"sets":"3","step":2.5,"tip":"Repos de 3 à 5 min. Règle les sécurités du rack sous ta position basse.","unit":"kg"},{"name":"Développé couché pause","reps":"5","sets":"3","tip":"Charge proposée : 80 % de ta série lourde. Marque 1 seconde sur la poitrine, sans rebond. Il doit te rester au moins 3 répétitions possibles.","unit":"kg"},{"name":"Fentes bulgares","reps":"8-10 par jambe","sets":"2","tip":"Note le poids d’un seul haltère. Fais toutes les répétitions d’une jambe, puis change.","unit":"kg"},{"name":"Leg curl ou Nordic curl","reps":"6-10","sets":"2","tip":"Retour lent, en 2 à 3 secondes.","unit":"kg"},{"name":"Mollets debout ou assis","reps":"10-15","sets":"3","tip":"Une séance debout, la suivante assis. Mouvement lent, sans rebond.","unit":"kg"}],"name":"Jambes · athlétisme","order":3,"short":"C · Jambes"},"D":{"exercises":[{"main":true,"name":"Distance","reps":"Facile : 45 à 70 min. Soutenue : 4 fois 1 km, ou 3 fois 8 min.","sets":"1","tip":"Une seule course soutenue par semaine, jamais la veille de la séance C.","unit":"km"},{"name":"Durée","reps":"Temps total de la course","sets":"1","unit":"min"}],"name":"Course","order":4,"short":"D · Course"}},"settings":{"cycle":{"start":"2026-10-05","weeks":7},"program":{"version":2}}};
+  const seed = {"templates":{"A":{"exercises":[{"main":true,"name":"Soulevé de terre","reps":"1 série lourde de 4, puis 2 séries de 6","scheme":[{"label":"Lourde","reps":4},{"label":"Série 2","reps":6},{"label":"Série 3","reps":6}],"sets":"3","step":2.5,"tip":"Repos de 3 à 5 min. Les deux paumes vers toi. Prise mixte seulement sur la série lourde, en changeant de main à chaque séance.","unit":"kg"},{"loadAt":12,"main":true,"name":"Tractions pronation","reps":"max −1","sets":"3","tip":"Mains un peu plus larges que les épaules. Coudes vers le bas et légèrement vers l’extérieur. Indique le lest : 0 si tu n’en mets pas.","unit":"kg"},{"loadAt":12,"main":true,"name":"Tractions supination","reps":"max −1","sets":"2","tip":"Indique le lest : 0 si tu n’en mets pas.","unit":"kg"},{"name":"Rowing barre","reps":"6-8","sets":"2","tip":"Buste immobile, dos droit.","unit":"kg"},{"name":"Extensions lombaires","sets":"2","reps":"10-12","unit":"kg","step":2.5,"rest":90,"tip":"Sur un banc à lombaires. Commence au poids du corps et note 0. Remonte jusqu’à l’alignement jambes-buste, pas au-delà."},{"name":"Suspension à la barre","sets":"2","reps":"45-60 s","unit":"s","main":true,"rest":90,"tip":"Tiens jusqu’à ce que la prise soit sur le point de lâcher. Dès 60 s aux 2 séries, ajoute du lest et note-le dans la remarque."},{"name":"Marche du fermier","reps":"30-40 m","sets":"2","tip":"Note le poids d’une seule main. Dès 40 m sur les 2 séries, ajoute 2 kg par main.","unit":"kg","step":2},{"name":"Curl marteau","sets":"2","reps":"8-12","unit":"kg","step":2,"tip":"Note le poids d’un seul haltère. Coudes le long du corps."}],"name":"Dos · tirage","order":1,"short":"A · Dos"},"B":{"exercises":[{"main":true,"name":"Développé couché","reps":"1 série lourde de 4, puis 2 séries de 6","scheme":[{"label":"Lourde","reps":4},{"label":"Série 2","reps":6},{"label":"Série 3","reps":6}],"sets":"3","step":2.5,"tip":"Premier exercice lourd de la séance. Repos de 3 à 4 min. Avant-bras à peu près verticaux quand la barre touche la poitrine.","unit":"kg","double":true},{"loadAt":10,"main":true,"name":"Dips","reps":"6-10","sets":"2","tip":"Indique le lest : 0 si tu n’en mets pas. Arrête la descente si l’avant de l’épaule te gêne.","unit":"kg"},{"name":"Développé militaire haltères","reps":"8-10","sets":"2","tip":"Note le poids d’un seul haltère. Fessiers serrés, sans te pencher en arrière.","unit":"kg","step":2},{"name":"Extension triceps à la poulie","sets":"2","reps":"10-12","unit":"kg","tip":"Coudes immobiles, le long du corps."},{"name":"Reverse fly","reps":"8-12","sets":"2","tip":"À la machine ou penché avec des haltères. Coudes légèrement fléchis, épaules basses. Note la charge affichée, ou le poids d’un seul haltère.","unit":"kg","step":2.5,"rest":90}],"name":"Poussée","order":2,"short":"B · Poussée"},"C":{"exercises":[{"name":"Sauts en longueur ou sur box","reps":"3 sauts","sets":"4","tip":"Après 5 à 8 min de cardio facile et de mobilité. Récupère 1 à 2 min entre les séries. Note la distance sautée ou la hauteur de la box.","unit":"cm","rest":90},{"main":true,"name":"Squat","reps":"1 série lourde de 4, puis 2 séries de 6","scheme":[{"label":"Lourde","reps":4},{"label":"Série 2","reps":6},{"label":"Série 3","reps":6}],"sets":"3","step":2.5,"tip":"Repos de 3 à 5 min. Règle les sécurités du rack sous ta position basse.","unit":"kg"},{"name":"Fentes bulgares","reps":"8-10 par jambe","sets":"3","tip":"Note le poids d’un seul haltère. Fais toutes les répétitions d’une jambe, puis change.","unit":"kg"},{"name":"Leg curl ou Nordic curl","reps":"6-10","sets":"2","tip":"Retour lent, en 2 à 3 secondes.","unit":"kg"},{"name":"Mollets debout ou assis","reps":"10-15","sets":"3","tip":"Une séance debout, la suivante assis. Mouvement lent, sans rebond.","unit":"kg"},{"name":"Développé couché pause","reps":"5","sets":"3","tip":"Rappel pour ton point faible, en fin de séance. Charge proposée : 80 % de ta série lourde. Marque 1 seconde sur la poitrine, sans rebond. Il doit te rester au moins 3 répétitions possibles.","unit":"kg"},{"name":"Planche latérale","reps":"30-45 s par côté","sets":"2","unit":"s","tip":"Corps aligné de la tête aux pieds. Fais le temps indiqué de chaque côté."}],"name":"Jambes · athlétisme","order":3,"short":"C · Jambes"},"D":{"exercises":[{"main":true,"name":"Distance","reps":"Facile : 45 à 70 min. Soutenue : 4 fois 1 km, ou 3 fois 8 min.","sets":"1","tip":"Une seule course soutenue par semaine, jamais la veille de la séance C.","unit":"km"},{"name":"Durée","reps":"Temps total de la course","sets":"1","unit":"min"}],"name":"Course","order":4,"short":"D · Course"}},"settings":{"cycle":{"start":"2026-10-05","weeks":7},"program":{"version":3}}};
   let store; try { store = JSON.parse(localStorage.getItem(KEY) || 'null'); } catch (e) { store = null; }
   if (!store) store = { templates: seed.templates, settings: seed.settings, logs: {}, weights: {}, goals: {} };
   const subs = new Set();
@@ -307,8 +308,15 @@ textarea{width:100%;min-height:90px;resize:vertical}
 .pace{font-family:var(--display);font-weight:900;font-size:3.2rem;line-height:.9}
 /* onglet Info : schéma animé */
 .nav .in{grid-template-columns:repeat(6,1fr)}
-.figbox{background:var(--floor);border-radius:12px;padding:6px}
-.figbox svg{width:100%;height:auto;max-height:38vh;display:block}
+.figbox{background:var(--floor);border-radius:12px;width:100%;aspect-ratio:1/1;max-height:60vh;overflow:hidden}
+.figbox #fig{position:absolute;inset:6px;width:calc(100% - 12px);height:calc(100% - 12px);display:block}
+.figbox canvas{position:absolute;inset:0;width:100%;height:100%;display:block;touch-action:pan-y;cursor:grab;user-select:none;-webkit-user-select:none}
+.figbox.is3d #fig{display:none}
+#figmarks{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+#figmarks .m-text{font-size:11px}
+.viewbtns{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px}
+.viewbtns .chip{min-width:0;padding-left:4px;padding-right:4px;min-height:40px;font-size:.9rem;text-align:center}
+.viewbtns[hidden]{display:none}
 .b{fill:var(--chalk)}
 .b-on{fill:var(--c,var(--ok))}
 .b-back{fill:var(--dim);opacity:.45}
@@ -328,7 +336,7 @@ textarea{width:100%;min-height:90px;resize:vertical}
 .m-dot{fill:var(--warn);stroke:var(--floor);stroke-width:1.2}
 .m-box{fill:var(--warn-bg);stroke:var(--warn);stroke-width:.9}
 .m-text{fill:var(--warn);font:600 7.6px var(--body)}
-.figtag{position:absolute;top:8px;left:10px;font-family:var(--display);font-weight:800;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;color:var(--dim)}
+.figtag{position:absolute;z-index:2;pointer-events:none;top:8px;left:10px;font-family:var(--display);font-weight:800;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;color:var(--dim)}
 .figbox{position:relative}
 .figtext .figwarn{list-style:none;margin:8px 0 0;padding:0;display:grid;gap:4px;color:var(--warn);font-weight:500}
 .figwarn li::before{content:"⚠ "}
@@ -776,22 +784,23 @@ const L = (() => {
     if (unitOf(ex) === 'kg' && ru && top) return `+${step} kg dès ${top} ${ru === 'm' ? 'm' : 'répétitions'} à chaque série`;
     return '';
   }
-  /* Durée approximative : séries × (effort + repos), plus l'échauffement */
+  /* Durée approximative : séries × (effort + repos), changement d'exercice et échauffement compris */
   function estimateMinutes(tpl) {
     let sec = 8 * 60;
     for (const ex of tpl?.exercises || []) {
       const u = unitOf(ex);
       if (u === 'km' || u === 'min') return null;
-      sec += nSets(ex) * (45 + defaultRest(ex));
+      const effort = /par (côté|jambe)/i.test(String(ex.reps)) ? 90 : 45;
+      sec += nSets(ex) * (effort + defaultRest(ex)) + 60;
       if (ex.scheme) sec += 180;   // montée en charge
     }
     return Math.round(sec / 300) * 5;
   }
   /* Bilan chiffré d'une séance : tonnage = charge × répétitions, hors poids du corps et marche du fermier */
-  function sessionStats(log, tpl) {
+  function sessionStats(log, tpl, templates) {
     let tonnage = 0, sets = 0;
-    for (const ex of tpl?.exercises || []) {
-      const e = log?.entries?.[ex.name]; if (!e || e.skipped) continue;
+    for (const { ex, e } of entryRows(log, tpl, templates)) {
+      if (!e || e.skipped) continue;
       const done = (e.sets || []).filter(s => s && (isNum(s.val) || isNum(s.reps)));
       sets += done.length;
       if (unitOf(ex) === 'kg' && repsUnit(ex) === 'reps' && kind(ex) !== 'pdc') for (const s of done) if (isNum(s.val) && isNum(s.reps)) tonnage += +s.val * +s.reps;
@@ -808,10 +817,24 @@ const L = (() => {
     return best;
   }
 
+  /* Les séances passées gardent les exercices retirés ou déplacés depuis : on les affiche quand même */
+  const RETIRED = {
+    'Sauts verticaux': { name: 'Sauts verticaux', sets: '3', reps: '3 sauts', unit: 'reps' },
+    'Fentes marchées ou step-ups': { name: 'Fentes marchées ou step-ups', sets: '2', reps: '8-10 par jambe', unit: 'kg' },
+    'Face pull': { name: 'Face pull', sets: '2', reps: '12-15', unit: 'kg' },
+    'Pallof press': { name: 'Pallof press', sets: '2', reps: '10 par côté', unit: 'kg' }
+  };
+  const exInfo = (templates, name) => exDef(templates, name)?.ex || RETIRED[name] || { name, unit: 'kg', reps: '' };
+  function entryRows(log, tpl, templates) {
+    const rows = (tpl?.exercises || []).map(ex => ({ ex, e: log?.entries?.[ex.name], planned: true })), seen = new Set(rows.map(r => r.ex.name));
+    for (const [name, e] of Object.entries(log?.entries || {})) if (!seen.has(name)) rows.push({ ex: exInfo(templates, name), e, planned: false });
+    return rows;
+  }
+
   /* ---------- Évolution du programme ----------
      Appliquée une seule fois sur un téléphone déjà installé. Ne remplace jamais un texte
      que l'utilisateur a changé : seules les anciennes valeurs connues sont mises à jour. */
-  const PROGRAM_VERSION = 2;
+  const PROGRAM_VERSION = 3;
   const PROG2 = {
     rename: [['Développé couché léger', 'Développé couché pause']],
     add: {
@@ -860,29 +883,101 @@ const L = (() => {
       'Durée': { reps: [['allure où tu peux parler'], 'Temps total de la course'] }
     }
   };
-  function migrateProgram(templates) {
-    const out = JSON.parse(JSON.stringify(templates || {})), changes = [], renames = [];
-    const names = () => Object.values(out).flatMap(t => (t.exercises || []).map(x => x.name));
-    for (const [a, b] of PROG2.rename) for (const t of Object.values(out)) for (const ex of t.exercises || []) if (ex.name === a && !names().includes(b)) {
-      ex.name = b; renames.push([a, b]); changes.push(`${t.short || t.name} : ${a} devient ${b}`);
+  /* Version 3 : séance B recentrée sur la poussée, travail du bas du dos, reverse fly à la place du Pallof press */
+  const FLY = /reverse.?fly|oiseau/i;
+  const PULL_TIPS = ['note le lest, 0 au poids du corps', 'Indique le lest : 0 si tu travailles sans lest.', 'Indique le lest : 0 si tu n’en mets pas.'];
+  const PROG3 = {
+    retire: ['Sauts verticaux', 'Fentes marchées ou step-ups', 'Face pull'],
+    move: { 'Planche latérale': 'C' },
+    add: { A: { name: 'Extensions lombaires', sets: '2', reps: '10-12', unit: 'kg', step: 2.5, rest: 90, tip: 'Sur un banc à lombaires. Commence au poids du corps et note 0. Remonte jusqu’à l’alignement jambes-buste, pas au-delà.' } },
+    order: {
+      A: ['Soulevé de terre', 'Tractions pronation', 'Tractions supination', 'Rowing barre', 'Extensions lombaires', 'Suspension à la barre', 'Marche du fermier', 'Curl marteau'],
+      B: ['Développé couché', 'Dips', 'Développé militaire haltères', 'Extension triceps à la poulie', 'Reverse fly'],
+      C: ['Sauts en longueur ou sur box', 'Squat', 'Fentes bulgares', 'Leg curl ou Nordic curl', 'Mollets debout ou assis', 'Développé couché pause', 'Planche latérale']
+    },
+    fly: {
+      reps: [['10 par côté', '10'], '8-12'], step: [[undefined], 2.5], rest: [[undefined], 90],
+      tip: [[undefined, 'anti-rotation', 'Résiste à la rotation du buste.', 'Le câble tire sur le côté : ne laisse pas ton buste tourner. Fais les 10 répétitions de chaque côté.'],
+        'À la machine ou penché avec des haltères. Coudes légèrement fléchis, épaules basses. Note la charge affichée, ou le poids d’un seul haltère.']
+    },
+    edits: {
+      'Développé militaire haltères': { sets: [['3'], '2'] },
+      'Fentes bulgares': { sets: [['2'], '3'] },
+      'Tractions pronation': { tip: [PULL_TIPS, 'Mains un peu plus larges que les épaules. Coudes vers le bas et légèrement vers l’extérieur. Indique le lest : 0 si tu n’en mets pas.'] },
+      'Sauts en longueur ou sur box': { rest: [[undefined], 90] },
+      'Développé couché pause': { tip: [['Charge proposée : 80 % de ta série lourde. Marque 1 seconde sur la poitrine, sans rebond. Il doit te rester au moins 3 répétitions possibles.'], 'Rappel pour ton point faible, en fin de séance. Charge proposée : 80 % de ta série lourde. Marque 1 seconde sur la poitrine, sans rebond. Il doit te rester au moins 3 répétitions possibles.'] }
     }
+  };
+  const editFields = (ex, ed) => { for (const [field, [olds, val]] of Object.entries(ed)) if (olds.includes(ex[field])) ex[field] = val; };
+  function step2(out, renames) {
+    const names = () => Object.values(out).flatMap(t => (t.exercises || []).map(x => x.name));
+    for (const [a, b] of PROG2.rename) for (const t of Object.values(out)) for (const ex of t.exercises || []) if (ex.name === a && !names().includes(b)) { ex.name = b; renames.push([a, b]); }
     for (const [id, list] of Object.entries(PROG2.add)) {
       const t = out[id]; if (!t) continue;
       for (const [after, ex] of list) {
         if (names().includes(ex.name)) continue;
         const i = after ? t.exercises.findIndex(x => x.name === after) : -1;
         t.exercises.splice(after && i < 0 ? t.exercises.length : i + 1, 0, JSON.parse(JSON.stringify(ex)));
-        changes.push(`${t.short || t.name} : ajout de ${ex.name}`);
       }
     }
-    for (const t of Object.values(out)) for (const ex of t.exercises || []) {
-      const ed = PROG2.edits[ex.name]; if (!ed) continue;
-      for (const [field, [olds, val]] of Object.entries(ed)) if (olds.includes(ex[field])) {
-        ex[field] = val;
-        if (field === 'sets') changes.push(`${t.short || t.name} : ${ex.name} passe à ${val} séries`);
-      }
+    for (const t of Object.values(out)) for (const ex of t.exercises || []) if (PROG2.edits[ex.name]) editFields(ex, PROG2.edits[ex.name]);
+  }
+  function step3(out, renames) {
+    const all = () => Object.values(out).flatMap(t => t.exercises || []);
+    const take = name => { for (const t of Object.values(out)) { const i = (t.exercises || []).findIndex(x => x.name === name); if (i >= 0) return t.exercises.splice(i, 1)[0]; } return null; };
+    for (const name of PROG3.retire) take(name);
+    /* Reverse fly : l'exercice déjà ajouté par l'utilisateur est conservé tel quel, sinon il prend la suite du Pallof press et son historique */
+    let fly = all().find(x => FLY.test(x.name));
+    if (fly) take('Pallof press');
+    else {
+      fly = all().find(x => x.name === 'Pallof press');
+      if (fly) { fly.name = 'Reverse fly'; renames.push(['Pallof press', 'Reverse fly']); }
     }
-    return { templates: out, renames, changes };
+    if (fly) {
+      editFields(fly, PROG3.fly);
+      const moved = take(fly.name);
+      if (out.B) out.B.exercises.push(moved);
+    }
+    for (const [name, id] of Object.entries(PROG3.move)) { if (out[id] && !out[id].exercises.some(x => x.name === name)) { const ex = take(name); if (ex) out[id].exercises.push(ex); } }
+    for (const [id, ex] of Object.entries(PROG3.add)) if (out[id] && !all().some(x => x.name === ex.name)) out[id].exercises.push(JSON.parse(JSON.stringify(ex)));
+    for (const ex of all()) if (PROG3.edits[ex.name]) editFields(ex, PROG3.edits[ex.name]);
+    /* Ordre conseillé ; les exercices ajoutés par l'utilisateur restent à la fin de la séance */
+    for (const [id, list] of Object.entries(PROG3.order)) {
+      const t = out[id]; if (!t) continue;
+      const rank = x => { const i = list.indexOf(FLY.test(x.name) ? 'Reverse fly' : x.name); return i < 0 ? list.length : i; };
+      t.exercises = t.exercises.map((x, i) => [x, i]).sort((a, b) => rank(a[0]) - rank(b[0]) || a[1] - b[1]).map(p => p[0]);
+    }
+  }
+  /* Le message affiché une fois : uniquement ce qui a réellement changé, en clair */
+  function programDiff(before, after, renames) {
+    const map = tpls => { const m = {}; for (const [id, t] of tplList(tpls)) for (const ex of t.exercises || []) m[ex.name] = { id, ex }; return m; };
+    const lab = (tpls, id) => tpls[id]?.short || tpls[id]?.name || id;
+    let oldNames = {}; for (const [a, b] of renames) oldNames[b] = oldNames[a] || a;
+    const A = map(before), B = map(after), out = [], renamedFrom = new Set(Object.values(oldNames));
+    for (const [b, a] of Object.entries(oldNames)) if (A[a] && B[b]) out.push(`${lab(after, B[b].id)} : ${a} devient ${b}`);
+    for (const [name, v] of Object.entries(B)) if (!A[name] && !oldNames[name]) out.push(`${lab(after, v.id)} : ajout de l’exercice ${name}`);
+    const gone = {};
+    for (const [name, v] of Object.entries(A)) if (!B[name] && !renamedFrom.has(name)) (gone[v.id] = gone[v.id] || []).push(name);
+    for (const [id, list] of Object.entries(gone)) out.push(`${lab(before, id)} : retrait de ${list.join(' et de ')}`);
+    for (const [name, v] of Object.entries(B)) {
+      const o = A[oldNames[name] || name]; if (!o) continue;
+      if (o.id !== v.id) out.push(`${name} passe de ${lab(before, o.id)} à ${lab(after, v.id)}`);
+      if (String(o.ex.sets) !== String(v.ex.sets)) out.push(`${lab(after, v.id)} : ${name} passe à ${v.ex.sets} séries`);
+    }
+    const reordered = [];
+    for (const [id, t] of tplList(after)) {
+      const now = (t.exercises || []).map(x => x.name).filter(n => A[oldNames[n] || n]?.id === id);
+      const was = (before[id]?.exercises || []).map(x => { const n = Object.keys(oldNames).find(k => oldNames[k] === x.name) || x.name; return n; }).filter(n => now.includes(n));
+      if (now.join('|') !== was.join('|')) reordered.push(lab(after, id));
+    }
+    if (reordered.length) out.push(`Nouvel ordre des exercices : ${reordered.join(', ')}`);
+    return out;
+  }
+  function migrateProgram(templates, from = 1) {
+    const out = JSON.parse(JSON.stringify(templates || {})), renames = [];
+    if (from < 2) step2(out, renames);
+    if (from < 3) step3(out, renames);
+    return { templates: out, renames, changes: programDiff(templates || {}, out, renames) };
   }
 
   /* ---------- Objectifs (repris de la v4) ---------- */
@@ -1051,7 +1146,7 @@ const L = (() => {
 
   function sessionLine(date, log, ctx) {
     const t = ctx.templates?.[log.templateId]; if (!t) return '';
-    const parts = (t.exercises || []).map(ex => { const d = describe(ex, log.entries?.[ex.name]); return d ? `${ex.name} ${d}` : ''; }).filter(Boolean);
+    const parts = entryRows(log, t, ctx.templates).map(({ ex, e }) => { const d = describe(ex, e); return d ? `${ex.name} ${d}` : ''; }).filter(Boolean);
     const r = log.templateId === 'D' ? runOf(log, t) : null;
     if (r?.km && r.sec) parts.push(`allure ${fmtPace(r.pace)}/km${r.type ? ' ' + r.type : ''}${r.hr ? ' FC ' + r.hr : ''}`);
     const f = log.feel || {};
@@ -1098,46 +1193,71 @@ Champs d'un exercice : name, sets (texte), reps (texte), unit (kg, km, min, s, c
     parseDur, fmtDur, fmtPace, cycleInfo, deloadStart, tplList, unitOf, exDef, kind, repsUnit, valStep, defaultRest, nSets,
     history, lastBefore, missing, metric, describe, finalize, suggest, platesPerSide, warmup, scoreSet, bestOf, newPRs, prLabel,
     runOf, riegel, paceZones, bestRunRef, runPRs, sequenceAlerts, suggestNext,goalMetric, currentFor, plan, weightStats,
-    repsTarget, repsPlain, progressRule, estimateMinutes, sessionStats, longestRun, PROGRAM_VERSION, migrateProgram,
+    repsTarget, repsPlain, progressRule, estimateMinutes, sessionStats, longestRun, PROGRAM_VERSION, migrateProgram, exInfo, entryRows,
     cleanExercise, validateChanges, applyTemplateChange, describeChange, exSummary, buildClaudeContext, buildClaudePrompt, sessionLine };
 })();
 
 
-/* Carnet de séances — fiches d'exercices, animation et carte des muscles (aucun accès au DOM).
-   Le personnage est vu de profil : on donne le bassin, l'inclinaison du buste, la main et le pied,
-   et les coudes et genoux sont calculés pour garder des os de longueur constante. */
+/* Carnet de séances — fiches d'exercices, squelette 3D, animation 2D de secours et carte des muscles (aucun accès au DOM).
+   Repère 3D : x vers l'avant, y vers le haut, z sur le côté (z > 0 : côté droit du personnage, vu de profil).
+   Les positions sont saisies en (x, y écran) comme un schéma de profil, y = 188 étant le sol.
+   Les coudes et genoux sont calculés en 3D : les os gardent leur longueur et les membres peuvent s'écarter du corps. */
 const EX = (() => {
   const BONE = { torso: 50, upper: 33, fore: 31, thigh: 40, shin: 40, head: 20 };
+  const SH = 18, HIP = 8.5, FLOOR = 188;
 
-  /* Articulation intermédiaire entre deux points (cinématique inverse à deux os).
-     side = +1 ou -1 choisit de quel côté se plie le membre. */
-  function joint(a, b, l1, l2, side) {
-    const dx = b[0] - a[0], dy = b[1] - a[1];
-    const d = Math.max(Math.hypot(dx, dy), 1e-6), r = Math.min(d, l1 + l2 - 1e-3);
-    const along = (l1 * l1 - l2 * l2 + r * r) / (2 * r);
-    const h = Math.sqrt(Math.max(0, l1 * l1 - along * along));
-    const ux = dx / d, uy = dy / d;
-    return [a[0] + ux * along + side * uy * h, a[1] + uy * along - side * ux * h];
+  const add = (a, b) => [a[0] + b[0], a[1] + b[1], a[2] + b[2]];
+  const sub = (a, b) => [a[0] - b[0], a[1] - b[1], a[2] - b[2]];
+  const mul = (a, k) => [a[0] * k, a[1] * k, a[2] * k];
+  const dot = (a, b) => a[0] * b[0] + a[1] * b[1] + a[2] * b[2];
+  const cross = (a, b) => [a[1] * b[2] - a[2] * b[1], a[2] * b[0] - a[0] * b[2], a[0] * b[1] - a[1] * b[0]];
+  const len = a => Math.hypot(a[0], a[1], a[2]);
+  const unit = a => { const l = Math.max(len(a), 1e-6); return [a[0] / l, a[1] / l, a[2] / l]; };
+  /* Vecteur unité perpendiculaire à axis, orienté vers pole */
+  function perp(axis, pole) {
+    let n = sub(pole, mul(axis, dot(pole, axis)));
+    if (len(n) < 1e-4) n = sub([0.3, -1, 0.2], mul(axis, dot([0.3, -1, 0.2], axis)));
+    return unit(n);
+  }
+  /* Articulation intermédiaire : elle se plie du côté indiqué par pole */
+  function ik(root, target, l1, l2, pole) {
+    const d = sub(target, root), dist = Math.max(len(d), 1e-6), r = Math.min(dist, l1 + l2 - 1e-3), u = mul(d, 1 / dist);
+    const along = (l1 * l1 - l2 * l2 + r * r) / (2 * r), h = Math.sqrt(Math.max(0, l1 * l1 - along * along));
+    return add(add(root, mul(u, along)), mul(perp(u, pole), h));
   }
   const rad = x => x * Math.PI / 180;
-  function joints(p) {
-    const s = Math.sin(rad(p.a)), c = Math.cos(rad(p.a));
-    const hip = p.h, shoulder = [hip[0] + BONE.torso * s, hip[1] - BONE.torso * c];
-    const head = [shoulder[0] + BONE.head * s, shoulder[1] - BONE.head * c];
-    const eb = p.eb ?? -1, kb = p.kb ?? 1;
-    /* front : vers l'avant du corps, perpendiculaire au buste */
-    const out = { hip, shoulder, head, hand: p.w, foot: p.f, toe: p.t || [p.f[0] + 13, p.f[1] + 6], up: [s, -c], front: p.prone ? [-c, -s] : [c, s] };
-    out.elbow = joint(shoulder, p.w, BONE.upper, BONE.fore, eb);
-    out.knee = joint(hip, p.f, BONE.thigh, BONE.shin, kb);
-    out.back = [(hip[0] + shoulder[0]) / 2 - c * 9, (hip[1] + shoulder[1]) / 2 - s * 9];
-    if (p.w2) { out.hand2 = p.w2; out.elbow2 = joint(shoulder, p.w2, BONE.upper, BONE.fore, p.eb2 ?? eb); }
-    if (p.f2) { out.foot2 = p.f2; out.toe2 = p.t2 || [p.f2[0] + 13, p.f2[1] + 6]; out.knee2 = joint(hip, p.f2, BONE.thigh, BONE.shin, p.kb2 ?? kb); }
-    return out;
+  const W3 = (v, z) => [v[0], FLOOR - v[1], z];
+  const mirror = v => [v[0], v[1], -v[2]];
+
+  function skeleton(p) {
+    const a = rad(p.a), yaw = rad(p.yaw || 0), U = [Math.sin(a), Math.cos(a), 0];
+    let F0 = [Math.cos(a), -Math.sin(a), 0];
+    if (p.prone) F0 = mul(F0, -1);
+    const F = add(mul(F0, Math.cos(yaw)), [0, 0, Math.sin(yaw)]), Z = sub([0, 0, Math.cos(yaw)], mul(F0, Math.sin(yaw)));
+    const H = [p.h[0], FLOOR - p.h[1], 0], Sc = add(H, mul(U, BONE.torso));
+    const lift = add(mul(U, p.su || 0), mul(F, p.sf || 0));
+    const shoulderR = add(add(Sc, mul(Z, SH)), lift), shoulderL = add(sub(Sc, mul(Z, SH)), lift);
+    const hipR = add(H, mul(Z, HIP)), hipL = sub(H, mul(Z, HIP));
+    const head = add(Sc, mul(U, BONE.head));
+    const trap = add(add(Sc, mul(U, 2)), mul(F, -7)), chest = add(sub(Sc, mul(U, 12)), mul(F, 11));
+    const wz = p.wz ?? 22, anchor = p.wOn === 'trap' ? trap : p.wOn === 'chest' ? chest : null;
+    const handR = anchor ? [anchor[0], anchor[1], wz] : W3(p.w, wz);
+    const handL = p.w2 ? W3(p.w2, -(p.wz2 ?? wz)) : mirror(handR);
+    const ep = p.ep || [-1, -0.2, 0.35], kp = p.kp || [1, 0, 0.12];
+    const elbowR = ik(shoulderR, handR, BONE.upper, BONE.fore, ep), elbowL = ik(shoulderL, handL, BONE.upper, BONE.fore, p.ep2 || mirror(ep));
+    const fz = p.fz ?? 9, footR = W3(p.f, fz), footL = p.f2 ? W3(p.f2, -(p.fz2 ?? fz)) : mirror(footR);
+    const toeR = p.t ? W3(p.t, fz + (p.tz ?? 2)) : W3([p.f[0] + 13, p.f[1] + 6], fz + (p.tz ?? 2));
+    const toeL = p.f2 || p.t2
+      ? (p.t2 ? W3(p.t2, footL[2] + (p.tz2 ?? -2)) : W3([footL[0] + 13, FLOOR - footL[1] + 6], footL[2] + (p.tz2 ?? -2)))
+      : mirror(toeR);
+    const kneeR = ik(hipR, footR, BONE.thigh, BONE.shin, kp), kneeL = ik(hipL, footL, BONE.thigh, BONE.shin, p.kp2 || mirror(kp));
+    return { U, F, Z, H, Sc, head, trap, chest, shoulderR, shoulderL, hipR, hipL, handR, handL, elbowR, elbowL, footR, footL, toeR, toeL, kneeR, kneeL,
+      ep, ep2: p.ep2 || mirror(ep), kp, kp2: p.kp2 || mirror(kp), bar: mul(add(handR, handL), 0.5), back: add(add(H, mul(U, 25)), mul(F, -9)) };
   }
   /* Interpolation entre deux positions, nombre par nombre */
   function mix(a, b, f) {
     if (typeof a === 'number') return a + (b - a) * f;
-    if (typeof a !== 'object') return a;
+    if (typeof a !== 'object' || a === null) return a;
     if (Array.isArray(a)) return a.map((v, i) => mix(v, b[i], f));
     const o = {};
     for (const k of Object.keys(a)) o[k] = k in b ? mix(a[k], b[k], f) : a[k];
@@ -1146,15 +1266,35 @@ const EX = (() => {
   const ease = f => f * f * (3 - 2 * f);
   function poseAt(sheet, t) {
     const n = sheet.frames.length, x = Math.max(0, Math.min(n - 1, t));
-    const i = Math.min(Math.floor(x), n - 2), f = x - i;
     if (n === 1) return sheet.frames[0].pose;
+    const i = Math.min(Math.floor(x), n - 2), f = x - i;
     return mix(sheet.frames[i].pose, sheet.frames[i + 1].pose, ease(f));
   }
+  const skeletonAt = (sheet, t) => skeleton(poseAt(sheet, t));
+  /* Projection de profil, pour les vignettes et si la 3D n'est pas disponible */
+  function joints(p) {
+    const S = skeleton(p), d = v => [v[0], FLOOR - v[1]];
+    return { s3: S, hip: d(S.H), shoulder: d(S.Sc), shoulderR: d(S.shoulderR), shoulderL: d(S.shoulderL), head: d(S.head), trap: d(S.trap), bar: d(S.bar), back: d(S.back),
+      hand: d(S.handR), elbow: d(S.elbowR), knee: d(S.kneeR), foot: d(S.footR), toe: d(S.toeR), hand2: d(S.handL), elbow2: d(S.elbowL), knee2: d(S.kneeL), foot2: d(S.footL), toe2: d(S.toeL),
+      front: [S.F[0], -S.F[1]] };
+  }
+  /* Zone occupée par le mouvement : sert à cadrer la caméra 3D */
+  function boundsOf(sheet) {
+    let x0 = 1e9, x1 = -1e9, y0 = 1e9, y1 = -1e9;
+    const see = (x, y) => { x0 = Math.min(x0, x); x1 = Math.max(x1, x); y0 = Math.min(y0, y); y1 = Math.max(y1, y); };
+    for (let t = 0; t <= sheet.frames.length - 1 + 1e-9; t += 0.25) {
+      const S = skeletonAt(sheet, t);
+      for (const k of ['H', 'Sc', 'head', 'handR', 'handL', 'footR', 'footL', 'toeR', 'toeL', 'kneeR', 'kneeL', 'elbowR', 'elbowL']) see(S[k][0], S[k][1]);
+      for (const g of sheet.gear || []) if (g.t === 'barbell') { const c = g.at === 'trap' ? S.trap : S.bar, r = g.r || 20; see(c[0] - r, c[1] - r); see(c[0] + r, c[1] + r); }
+    }
+    for (const g of sheet.gear || []) if (g.t === 'pullbar' || g.t === 'dipbar') see(g.x, FLOOR - g.y);
+    see(x0, Math.min(y0, 0));
+    return { cx: (x0 + x1) / 2, cy: (y0 + y1) / 2, w: x1 - x0, h: y1 - y0 };
+  }
 
-  /* ---------- Dessin du corps ---------- */
+  /* ---------- Dessin 2D ---------- */
   const n1 = x => x.toFixed(1);
   const circ = (c, r, cls) => `<circle cx="${n1(c[0])}" cy="${n1(c[1])}" r="${r}" class="${cls}"/>`;
-  /* Segment du corps : plus épais d'un côté que de l'autre */
   function limb(a, b, r1, r2, cls) {
     const dx = b[0] - a[0], dy = b[1] - a[1], d = Math.max(Math.hypot(dx, dy), 1e-6), nx = -dy / d, ny = dx / d;
     return `<path d="M${n1(a[0] + nx * r1)} ${n1(a[1] + ny * r1)}L${n1(b[0] + nx * r2)} ${n1(b[1] + ny * r2)}L${n1(b[0] - nx * r2)} ${n1(b[1] - ny * r2)}L${n1(a[0] - nx * r1)} ${n1(a[1] - ny * r1)}Z" class="${cls}"/>` + circ(a, r1, cls) + circ(b, r2, cls);
@@ -1168,14 +1308,10 @@ const EX = (() => {
   function arm(shoulder, elbow, hand, clsUp, clsFore) {
     return limb(shoulder, elbow, 5, 3.7, clsUp) + limb(elbow, hand, 3.7, 2.6, clsFore) + circ(hand, 3.3, clsFore);
   }
-
-  /* ---------- Matériel ---------- */
   const rect = (x, y, w, h, cls = 'g-box', rx = 3) => `<rect x="${n1(+x)}" y="${n1(+y)}" width="${w}" height="${h}" rx="${rx}" class="${cls}"/>`;
-  function plate(c, r) {
-    return circ(c, r, 'g-plate') + circ(c, +(r * .72).toFixed(1), 'g-ring') + circ(c, 3.2, 'g-hub');
-  }
+  const plate = (c, r) => circ(c, r, 'g-plate') + circ(c, +(r * .72).toFixed(1), 'g-ring') + circ(c, 3.2, 'g-hub');
   function gear(g, J) {
-    const at = g.at === 'shoulder' ? J.shoulder : g.at === 'foot' ? J.foot : J.hand;
+    const at = g.at === 'trap' ? J.trap : g.at === 'bar' ? J.bar : g.at === 'foot' ? J.foot : J.hand;
     switch (g.t) {
       case 'floor': return `<line x1="0" y1="${g.y}" x2="240" y2="${g.y}" class="g-floor"/>`;
       case 'barbell': return plate(at, g.r || 20);
@@ -1183,17 +1319,19 @@ const EX = (() => {
       case 'farmer': return rect(at[0] - 12, at[1] + 2, 24, 15, 'g-weight', 2) + rect(at[0] - 7, at[1] - 1, 14, 3, 'g-steelfill', 1);
       case 'handle': return rect(at[0] - 4, at[1] - 3.5, 8, 7, 'g-weight', 2);
       case 'pullbar': return `<line x1="${g.x}" y1="${g.y}" x2="${g.x}" y2="${g.y - 40}" class="g-post"/>` + circ([g.x, g.y], 4.5, 'g-hub');
-      case 'dipbar': return `<line x1="${g.x}" y1="${g.y}" x2="${g.x}" y2="${g.y + 110}" class="g-post"/>` + circ([g.x, g.y], 4.5, 'g-hub');
+      case 'dipbar': return `<line x1="${g.x}" y1="${g.y}" x2="${g.x}" y2="${g.y + 96}" class="g-post"/>` + circ([g.x, g.y], 4.5, 'g-hub');
       case 'bench': return rect(g.x1, g.y, g.x2 - g.x1, 8) + `<line x1="${g.x1 + 12}" y1="${g.y + 8}" x2="${g.x1 + 12}" y2="${g.floor}" class="g-post"/><line x1="${g.x2 - 12}" y1="${g.y + 8}" x2="${g.x2 - 12}" y2="${g.floor}" class="g-post"/>`;
       case 'box': return rect(g.x1, g.y, g.x2 - g.x1, g.floor - g.y);
-      case 'cable': return (g.column ? rect(g.from[0] - 3, Math.min(g.from[1] - 8, 6), 9, 188 - Math.min(g.from[1] - 8, 6), 'g-box', 2) : '') + `<line x1="${g.from[0]}" y1="${g.from[1]}" x2="${n1(at[0])}" y2="${n1(at[1])}" class="g-cable"/>` + circ(g.from, 4.5, 'g-hub');
+      case 'cable': return g.from[2] ? '' : (g.column ? rect(g.from[0] - 3, Math.min(g.from[1] - 8, 6), 9, 188 - Math.min(g.from[1] - 8, 6), 'g-box', 2) : '') + `<line x1="${g.from[0]}" y1="${g.from[1]}" x2="${n1(at[0])}" y2="${n1(at[1])}" class="g-cable"/>` + circ(g.from, 4.5, 'g-hub');
       case 'pad': return circ([at[0], at[1] - 7], 6, 'g-weight');
       case 'guide': return `<line x1="${g.from[0]}" y1="${g.from[1]}" x2="${g.to[0]}" y2="${g.to[1]}" class="g-guide"/>`;
+      case 'hyper': return `<line x1="${g.pad[0]}" y1="${g.pad[1]}" x2="${g.plate[0]}" y2="${g.plate[1]}" class="g-post"/>` + circ(g.pad, 6, 'g-weight') + rect(g.plate[0] - 8, g.plate[1], 18, 5, 'g-weight', 1);
+      case 'revfly': return rect(g.seat[0], g.seat[1], g.seat[2] - g.seat[0], 10) + rect(g.padX, 90, 7, 38) + `<line x1="${g.post}" y1="60" x2="${g.post}" y2="188" class="g-post"/><line x1="${(g.seat[0] + g.seat[2]) / 2}" y1="${g.seat[1] + 10}" x2="${(g.seat[0] + g.seat[2]) / 2}" y2="188" class="g-post"/>`;
     }
     return '';
   }
 
-  /* ---------- Points d'attention affichés sur l'animation ---------- */
+  /* ---------- Points d'attention ---------- */
   function vbOf(sheet) { return (sheet.vb || '10 0 220 205').split(' ').map(Number); }
   function wrapLabel(text) {
     if (text.length <= 18) return [text];
@@ -1202,6 +1340,7 @@ const EX = (() => {
     while (i < w.length && (a + ' ' + w[i]).trim().length <= Math.ceil(text.length / 2) + 2) a = (a + ' ' + w[i++]).trim();
     return [a, w.slice(i).join(' ')].filter(Boolean);
   }
+  const xmlEsc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;');
   function drawMarks(sheet, J, t) {
     const i = Math.round(t), near = 1 - Math.abs(t - i) / 0.2;
     if (near <= 0) return '';
@@ -1212,37 +1351,50 @@ const EX = (() => {
       let x = m.dx >= 0 ? a[0] + m.dx : a[0] + m.dx - tw, y = a[1] + m.dy - th / 2;
       x = Math.max(vx + 2, Math.min(vx + vw - tw - 2, x)); y = Math.max(vy + 2, Math.min(vy + vh - th - 2, y));
       const cx = Math.max(x, Math.min(x + tw, a[0])), cy = Math.max(y, Math.min(y + th, a[1]));
-      o += `<line x1="${n1(a[0])}" y1="${n1(a[1])}" x2="${n1(cx)}" y2="${n1(cy)}" class="m-line"/>`;
-      o += `<circle cx="${n1(a[0])}" cy="${n1(a[1])}" r="3.4" class="m-dot"/>`;
+      o += `<line x1="${n1(a[0])}" y1="${n1(a[1])}" x2="${n1(cx)}" y2="${n1(cy)}" class="m-line"/>` + circ(a, 3.4, 'm-dot');
       o += `<rect x="${n1(x)}" y="${n1(y)}" width="${n1(tw)}" height="${th}" rx="3.5" class="m-box"/>`;
-      lines.forEach((l, k) => { o += `<text x="${n1(x + tw / 2)}" y="${n1(y + 9.6 + k * 9)}" text-anchor="middle" class="m-text">${l.replace(/&/g, '&amp;').replace(/</g, '&lt;')}</text>`; });
+      lines.forEach((l, k) => { o += `<text x="${n1(x + tw / 2)}" y="${n1(y + 9.6 + k * 9)}" text-anchor="middle" class="m-text">${xmlEsc(l)}</text>`; });
     }
     return o + '</g>';
   }
-  /* Personnage, matériel et alertes à l'instant t (position décimale entre les étapes) */
+  /* Étiquettes en 3D : rangées à gauche et à droite du corps, quel que soit l'angle de vue */
+  function layoutMarks(items, W, H) {
+    const cols = { l: [], r: [] };
+    for (const it of items) {
+      const lines = wrapLabel(it.t), w = Math.max(...lines.map(x => x.length)) * 5.7 + 12, h = lines.length * 14 + 6;
+      cols[it.x < W / 2 ? 'l' : 'r'].push({ ...it, lines, w, h });
+    }
+    const out = [];
+    for (const side of ['l', 'r']) {
+      const c = cols[side].sort((a, b) => a.y - b.y);
+      let y = 32;
+      for (const b of c) { b.by = Math.max(y, Math.min(H - b.h - 6, b.y - b.h / 2)); y = b.by + b.h + 4; }
+      let over = c.length ? c[c.length - 1].by + c[c.length - 1].h + 6 - H : 0;
+      for (let i = c.length - 1; i >= 0 && over > 0; i--) { const lim = i ? c[i - 1].by + c[i - 1].h + 4 : 32, d = Math.min(over, c[i].by - lim); c[i].by -= d; over -= d; }
+      for (const b of c) { b.bx = side === 'l' ? 6 : W - b.w - 6; b.side = side; out.push(b); }
+    }
+    return out;
+  }
   function drawFigure(sheet, t, opt = {}) {
     const J = joints(poseAt(sheet, t)), w = sheet.work || [];
     const c = k => w.includes(k) ? 'b b-on' : 'b';
     let o = '';
     for (const g of sheet.gear || []) if (!g.front) o += gear(g, J);
-    if (J.hand2) o += arm(J.shoulder, J.elbow2, J.hand2, 'b b-back', 'b b-back');
-    if (J.foot2) o += leg(J.hip, J.knee2, J.foot2, J.toe2, 'b b-back', 'b b-back', 'b b-back');
+    o += arm(J.shoulderL, J.elbow2, J.hand2, 'b b-back', 'b b-back');
+    o += leg(J.hip, J.knee2, J.foot2, J.toe2, 'b b-back', 'b b-back', 'b b-back');
     o += leg(J.hip, J.knee, J.foot, J.toe, c('thigh'), c('shin'), 'b b-shoe');
-    /* buste : bassin, fessier, poitrine, épaule */
     const f = J.front, chest = along(J.hip, J.shoulder, 0.68), glute = along(J.hip, J.shoulder, 0.02);
     o += limb(J.hip, J.shoulder, 8.5, 9.5, c('torso'));
     o += circ([chest[0] + f[0] * 2.6, chest[1] + f[1] * 2.6], 9.2, c('torso')) + circ([glute[0] - f[0] * 2.8, glute[1] - f[1] * 2.8], 8.2, c('torso'));
-    /* cou et tête, avec le nez pour voir où regarde le personnage */
     o += limb(J.shoulder, J.head, 3.6, 3.6, 'b');
     o += circ(J.head, 10, 'b b-head') + circ([J.head[0] + f[0] * 9.6, J.head[1] + f[1] * 9.6], 1.7, 'b b-head');
-    o += arm(J.shoulder, J.elbow, J.hand, c('upper'), c('fore'));
+    o += arm(J.shoulderR, J.elbow, J.hand, c('upper'), c('fore'));
     for (const g of sheet.gear || []) if (g.front) o += gear(g, J);
     if (opt.marks) o += drawMarks(sheet, J, t);
     return o;
   }
 
-  /* ---------- Carte des muscles : vue de face et de dos ----------
-     Les tracés sont dessinés pour une moitié du corps, puis répétés en miroir. */
+  /* ---------- Carte des muscles : vue de face et de dos ---------- */
   const MUSCLE_NAMES = {
     pec: 'Pectoraux', deltF: 'Avant des épaules', deltB: 'Arrière des épaules', bicep: 'Biceps', tricep: 'Triceps', forearm: 'Avant-bras',
     abs: 'Abdominaux', oblique: 'Obliques', trap: 'Trapèzes', midback: 'Milieu du dos', lat: 'Grand dorsal', lower: 'Bas du dos',
@@ -1276,7 +1428,6 @@ const EX = (() => {
       const cls = (sheet.prim || []).includes(id) ? 'mm mm-prim' : (sheet.sec || []).includes(id) ? 'mm mm-sec' : 'mm';
       o += `<path d="${d}" class="${cls}"/>`;
     }
-    /* mains, genoux et pieds, non musculaires ici */
     o += '<ellipse cx="26.5" cy="115" rx="3.5" ry="6" class="mm-skin"/><ellipse cx="12.5" cy="149.5" rx="4.6" ry="2.6" class="mm-skin"/><path d="M9.5 184L15 184L18 189L8.5 189Z" class="mm-skin"/>';
     return o;
   }
@@ -1287,17 +1438,21 @@ const EX = (() => {
 
   /* ---------- Fiches ---------- */
   const W = (at, t, dx, dy) => ({ at, t, dx, dy });
-  const FLOOR = { t: 'floor', y: 188 };
-  const pullFrames = (text, warn) => [
-    { label: 'Suspendu', text: text[0], warn: warn[0], pose: { h: [122.4, 130], a: -5, w: [120, 20], f: [124, 206] } },
-    { label: 'Tirer', text: text[1], warn: warn[1], pose: { h: [122, 104], a: -8, w: [120, 20], f: [127, 180] } },
-    { label: 'En haut', text: text[2], warn: warn[2], pose: { h: [120.7, 79], a: -10, w: [120, 20], f: [128, 154] } }
+  const FLOORG = { t: 'floor', y: 188 };
+  const HIGH_FLOOR = { t: 'floor', y: 232 };
+  const PRONE_PULL = { wz: 28, fz: 7, ep: [0.25, -0.8, 0.8] };
+  const SUPI_PULL = { wz: 19, fz: 7, ep: [0.1, -1, 0.3] };
+  const pullFrames = (text, warn, base, top) => [
+    { label: 'Suspendu', text: text[0], warn: warn[0], pose: { h: [122.4, 130], a: -5, w: [120, 20], f: [124, 206], ...base } },
+    { label: 'Tirer', text: text[1], warn: warn[1], pose: { h: [121, 104], a: -9, w: [120, 20], f: [126, 180], ...base } },
+    { label: 'En haut', text: text[2], warn: warn[2], pose: { h: top, a: -13, w: [120, 20], f: [128, 152], ...base } }
   ];
-  const benchGear = [FLOOR, { t: 'bench', x1: 62, x2: 168, y: 133, floor: 188 }, { t: 'guide', from: [92, 62], to: [106, 108] }, { t: 'barbell', r: 20, front: true }];
+  const BENCH = { wz: 36, ep: [0.6, -0.7, 0.9], kp: [0.6, 1, 0.2], fz: 17 };
+  const benchGear = [FLOORG, { t: 'bench', x1: 62, x2: 168, y: 133, floor: 188 }, { t: 'guide', from: [92, 64], to: [106, 108] }, { t: 'barbell', r: 20, at: 'bar', front: true }];
   const benchFrames = (text, warn) => [
-    { label: 'Bras tendus', text: text[0], warn: warn[0], pose: { h: [140, 124], a: -90, w: [92, 62], f: [186, 182], t: [199, 186] } },
-    { label: 'Descendre', text: text[1], warn: warn[1], pose: { h: [140, 124], a: -90, w: [100, 86], f: [186, 182], t: [199, 186] } },
-    { label: 'Sur la poitrine', text: text[2], warn: warn[2], pose: { h: [140, 124], a: -90, w: [106, 108], f: [186, 182], t: [199, 186] } }
+    { label: 'Bras tendus', text: text[0], warn: warn[0], pose: { h: [140, 124], a: -90, w: [92, 64], f: [186, 182], t: [199, 186], ...BENCH } },
+    { label: 'Descendre', text: text[1], warn: warn[1], pose: { h: [140, 124], a: -90, w: [100, 86], f: [186, 182], t: [199, 186], ...BENCH } },
+    { label: 'Sur la poitrine', text: text[2], warn: warn[2], pose: { h: [140, 124], a: -90, w: [106, 108], f: [186, 182], t: [199, 186], ...BENCH } }
   ];
   const BENCH_CUES = [
     'Serre et abaisse les omoplates avant de décoller la barre, et garde-les ainsi jusqu’à la fin.',
@@ -1309,206 +1464,225 @@ const EX = (() => {
   const BENCH_ERR = ['Faire rebondir la barre sur la poitrine.', 'Décoller les fesses pour soulever plus lourd.', 'Laisser les épaules remonter vers les oreilles.', 'S’entraîner lourd sans pareur ni sécurités réglées.'];
 
   const SHEETS = [
-    { id: 'terre', name: 'Soulevé de terre', match: /soulev[ée] de terre/i, prim: ['glute', 'ham', 'lower'], sec: ['quad', 'lat', 'trap', 'forearm'],
+    { id: 'terre', name: 'Soulevé de terre', match: /soulev[ée] de terre/i, prim: ['glute', 'ham', 'lower'], sec: ['quad', 'lat', 'trap', 'forearm'], view: { az: 38, el: 10 },
       why: 'Il travaille le bas du corps, le dos et la prise avec une seule barre.',
-      work: ['torso', 'thigh', 'fore'], gear: [FLOOR, { t: 'guide', from: [106, 168], to: [106, 113] }, { t: 'barbell', r: 20, front: true }],
+      work: ['torso', 'thigh', 'fore'], gear: [FLOORG, { t: 'guide', from: [106, 168], to: [106, 113] }, { t: 'barbell', r: 20, at: 'bar', front: true }],
       frames: [
-        { label: 'Départ', text: 'La barre est au-dessus du milieu du pied, tibias près de la barre. Dos droit, poitrine ouverte, épaules juste devant la barre.', warn: [W('back', 'Dos droit, jamais arrondi', -4, -40), W('hand', 'Barre au-dessus du milieu du pied', 24, -14)], pose: { h: [66.7, 128], a: 65, w: [106, 168], f: [100, 182] } },
-        { label: 'Montée', text: 'Pousse le sol avec les jambes. La barre monte tout droit, en frôlant les tibias. Le dos garde sa forme.', warn: [W('hand', 'Barre collée aux jambes', 24, 2), W('hip', 'Fesses et épaules montent ensemble', -8, -28)], pose: { h: [84, 114], a: 35, w: [106, 132], f: [100, 182] } },
-        { label: 'Debout', text: 'Debout, jambes tendues, fessiers serrés. Ne te penche pas en arrière. Pour redescendre, recule d’abord les fesses.', warn: [W('back', 'Ne te penche pas en arrière', -8, -24)], pose: { h: [100, 103], a: 0, w: [105, 113], f: [100, 182] } }
+        { label: 'Départ', text: 'La barre est au-dessus du milieu du pied, tibias près de la barre. Dos droit, poitrine ouverte, épaules juste devant la barre.', warn: [W('back', 'Dos droit, jamais arrondi', -4, -40), W('hand', 'Barre au-dessus du milieu du pied', 24, -14)], pose: { h: [66.7, 128], a: 65, w: [106, 168], f: [100, 182], wz: 24, fz: 10 } },
+        { label: 'Montée', text: 'Pousse le sol avec les jambes. La barre monte tout droit, en frôlant les tibias. Le dos garde sa forme.', warn: [W('hand', 'Barre collée aux jambes', 24, 2), W('hip', 'Fesses et épaules montent ensemble', -8, -28)], pose: { h: [84, 114], a: 35, w: [106, 132], f: [100, 182], wz: 24, fz: 10 } },
+        { label: 'Debout', text: 'Debout, jambes tendues, fessiers serrés. Ne te penche pas en arrière. Pour redescendre, recule d’abord les fesses.', warn: [W('back', 'Ne te penche pas en arrière', -8, -24)], pose: { h: [100, 103], a: 0, w: [105, 113], f: [100, 182], wz: 24, fz: 10 } }
       ],
       cues: ['Avant de tirer, gaine le ventre et tends légèrement les bras pour « enlever le mou » de la barre.', 'Garde la barre près du corps tout du long.', 'Double pronation : les deux paumes vers toi. Prise mixte (une paume vers toi, l’autre vers l’extérieur) seulement sur la série lourde, en changeant de main d’une séance à l’autre, bras bien tendus.'],
       errors: ['Arrondir le bas du dos.', 'Lever les fesses en premier, barre encore au sol.', 'Tirer la barre avec les bras pliés.'] },
-    { id: 'tpro', name: 'Tractions pronation', match: /tractions? pronation/i, prim: ['lat'], sec: ['bicep', 'forearm', 'midback', 'deltB'],
+    { id: 'tpro', name: 'Tractions pronation', match: /tractions? pronation/i, prim: ['lat'], sec: ['bicep', 'forearm', 'midback', 'deltB'], view: { az: -42, el: 4 },
       why: 'Un exercice de tirage au poids du corps, pour le dos, les bras et la prise.',
-      work: ['torso', 'upper', 'fore'], gear: [{ t: 'pullbar', x: 120, y: 20 }], vb: '20 -25 200 250',
-      frames: pullFrames(['Paumes vers l’avant, mains un peu plus larges que les épaules. Bras presque tendus, épaules actives : ne te laisse pas pendre.', 'Abaisse d’abord les épaules, puis tire les coudes vers le bas et vers les côtés.', 'Le menton passe la barre, sans donner d’élan. Redescends lentement, en 2 secondes environ.'],
-        [[W('shoulder', 'Épaules actives', 22, -6)], [W('elbow', 'Coudes vers le bas', 20, 8)], [W('head', 'Menton au-dessus', 22, 0), W('knee', 'Sans élan des jambes', 20, 4)]]),
-      cues: ['Serre le ventre et les fessiers pour ne pas te balancer.', '« max −1 » : arrête chaque série 1 répétition avant ton maximum.', 'Bras longs : l’amplitude est plus grande. Garde des répétitions complètes plutôt que d’en chercher plus.'],
+      work: ['torso', 'upper', 'fore'], gear: [HIGH_FLOOR, { t: 'pullbar', x: 120, y: 20, floor: 232 }], vb: '20 -25 200 262',
+      frames: pullFrames(['Paumes vers l’avant, mains un peu plus larges que les épaules. Bras presque tendus, épaules actives : ne te laisse pas pendre.', 'Abaisse d’abord les épaules, puis tire les coudes vers le bas et légèrement sur les côtés, en direction des hanches.', 'Le menton passe la barre, poitrine vers la barre, sans donner d’élan. Redescends lentement, en 2 secondes environ.'],
+        [[W('shoulder', 'Épaules actives', 22, -6)], [W('elbow', 'Coudes vers le bas et les côtés', 20, 8)], [W('head', 'Menton au-dessus', 22, 0), W('knee', 'Sans élan des jambes', 20, 4)]], PRONE_PULL, [118.4, 77]),
+      cues: ['Serre le ventre et les fessiers pour ne pas te balancer.', '« max −1 » : arrête chaque série 1 répétition avant ton maximum.', 'Garde une largeur modérée : une prise très large place l’épaule dans une position moins favorable, et n’aide pas à faire une répétition complète.', 'Bras longs : l’amplitude est plus grande. Garde des répétitions complètes plutôt que d’en chercher plus.'],
       errors: ['Donner de l’élan avec les jambes.', 'Faire des demi-répétitions.', 'Se laisser tomber à la descente.'] },
-    { id: 'tsup', name: 'Tractions supination', match: /tractions? supination/i, prim: ['lat', 'bicep'], sec: ['forearm', 'midback'],
+    { id: 'tsup', name: 'Tractions supination', match: /tractions? supination/i, prim: ['lat', 'bicep'], sec: ['forearm', 'midback'], view: { az: 40, el: 4 },
       why: 'Le dos et les biceps sur le même exercice : les biceps participent plus qu’en pronation.',
-      work: ['torso', 'upper', 'fore'], gear: [{ t: 'pullbar', x: 120, y: 20 }], vb: '20 -25 200 250',
+      work: ['torso', 'upper', 'fore'], gear: [HIGH_FLOOR, { t: 'pullbar', x: 120, y: 20, floor: 232 }], vb: '20 -25 200 262',
       frames: pullFrames(['Paumes vers toi, mains écartées de la largeur des épaules. Bras presque tendus.', 'Abaisse les épaules, puis tire les coudes vers les hanches, le long du corps.', 'Le menton passe la barre, poitrine vers la barre. Redescends lentement.'],
-        [[W('elbow', 'Descente contrôlée', 22, 4)], [W('elbow', 'Coudes vers les hanches', 20, 8)], [W('head', 'Menton au-dessus', 22, 0)]]),
+        [[W('elbow', 'Descente contrôlée', 22, 4)], [W('elbow', 'Coudes vers les hanches', 20, 8)], [W('head', 'Menton au-dessus', 22, 0)]], SUPI_PULL, [116, 76.5]),
       cues: ['Reste gainé, sans balancer.', 'Contrôle la fin de la descente au lieu de te laisser tomber bras tendus.'],
       errors: ['Tendre les coudes d’un coup en bas.', 'Tirer avec le menton en avant.'] },
-    { id: 'hang', name: 'Suspension à la barre', match: /suspension/i, prim: ['forearm'], sec: ['lat', 'deltB', 'abs'],
+    { id: 'hang', name: 'Suspension à la barre', match: /suspension/i, prim: ['forearm'], sec: ['lat', 'deltB', 'abs'], view: { az: -42, el: 4 },
       why: 'Elle travaille directement la prise, le point qui te limite, en tenant ton propre poids.',
-      work: ['fore'], gear: [{ t: 'pullbar', x: 120, y: 20 }], vb: '20 -25 200 250',
+      work: ['fore'], gear: [HIGH_FLOOR, { t: 'pullbar', x: 120, y: 20, floor: 232 }], vb: '20 -25 200 262',
       frames: [
-        { label: 'Prise', text: 'Attrape la barre, paumes vers l’avant, pieds décollés du sol. Serre fort, avec le pouce autour de la barre.', warn: [W('hand', 'Serre fort la barre', 22, 8)], pose: { h: [122.4, 130], a: -5, w: [120, 20], f: [124, 206] } },
-        { label: 'Tenir', text: 'Abaisse légèrement les épaules et tiens, le corps immobile. Arrête-toi avant que la prise lâche d’un coup.', warn: [W('shoulder', 'Épaules actives', 22, -6), W('foot', 'Sans te balancer', 18, -6)], pose: { h: [122.4, 126], a: -5, w: [120, 20], f: [124, 202] } }
+        { label: 'Prise', text: 'Attrape la barre, paumes vers l’avant, pieds décollés du sol. Serre fort, avec le pouce autour de la barre.', warn: [W('hand', 'Serre fort la barre', 22, 8)], pose: { h: [122.4, 132], a: -5, w: [120, 20], f: [124, 208], su: 2, ...PRONE_PULL } },
+        { label: 'Tenir', text: 'Abaisse légèrement les épaules et tiens, le corps immobile. Arrête-toi avant que la prise lâche d’un coup.', warn: [W('shoulder', 'Épaules actives', 22, -6), W('foot', 'Sans te balancer', 18, -6)], pose: { h: [122.4, 126], a: -5, w: [120, 20], f: [124, 202], su: 0, ...PRONE_PULL } }
       ],
       cues: ['Dès 60 secondes aux 2 séries, ajoute un peu de lest et repars à environ 30 secondes.', 'Si une épaule te gêne en position haute, réduis le temps ou passe à la marche du fermier.'],
       errors: ['Se balancer pour tenir plus longtemps.', 'Lâcher brutalement : descends sur un banc ou une marche.'] },
-    { id: 'row', name: 'Rowing barre', match: /rowing/i, prim: ['lat', 'midback'], sec: ['deltB', 'bicep', 'lower', 'forearm'],
+    { id: 'row', name: 'Rowing barre', match: /rowing/i, prim: ['lat', 'midback'], sec: ['deltB', 'bicep', 'lower', 'forearm'], view: { az: 30, el: 12 },
       why: 'Il ajoute du tirage horizontal, pour équilibrer tes exercices de poussée.',
-      work: ['torso', 'upper', 'fore'], gear: [FLOOR, { t: 'barbell', r: 20, front: true }],
+      work: ['torso', 'upper', 'fore'], gear: [FLOORG, { t: 'barbell', r: 20, at: 'bar', front: true }],
       frames: [
-        { label: 'Penché', text: 'Genoux un peu pliés, buste penché à environ 45° ou plus, dos droit. La barre pend, bras tendus.', warn: [W('back', 'Dos droit', -6, -30)], pose: { h: [80, 112], a: 60, w: [118, 148], f: [105, 182] } },
-        { label: 'Tirer', text: 'Tire les coudes vers l’arrière et amène la barre vers le bas du ventre.', warn: [W('back', 'Buste immobile', -6, -30), W('elbow', 'Coudes vers l’arrière', 30, -36)], pose: { h: [80, 112], a: 60, w: [104, 114], f: [105, 182] } }
+        { label: 'Penché', text: 'Genoux un peu pliés, buste penché à environ 45° ou plus, dos droit. La barre pend, bras tendus.', warn: [W('back', 'Dos droit', -6, -30)], pose: { h: [80, 112], a: 60, w: [118, 148], f: [105, 182], wz: 24, fz: 11, ep: [-1, 0.25, 0.4] } },
+        { label: 'Tirer', text: 'Tire les coudes vers l’arrière et amène la barre vers le bas du ventre.', warn: [W('back', 'Buste immobile', -6, -30), W('elbow', 'Coudes vers l’arrière', 30, -36)], pose: { h: [80, 112], a: 60, w: [104, 114], f: [105, 182], wz: 24, fz: 11, ep: [-1, 0.25, 0.4] } }
       ],
       cues: ['Le buste ne bouge pas : c’est le signe que la charge est adaptée.', 'Serre les omoplates en haut, une seconde.'],
       errors: ['Redresser le buste à chaque répétition pour lancer la barre.', 'Arrondir le dos.'] },
-    { id: 'face', name: 'Face pull', match: /face pull/i, prim: ['deltB', 'midback'], sec: ['trap', 'forearm'],
-      why: 'Il travaille l’arrière des épaules, moins sollicité que l’avant quand on pousse beaucoup.',
-      work: ['upper', 'fore'], gear: [FLOOR, { t: 'cable', from: [222, 40], column: true }],
+    { id: 'lumbar', name: 'Extensions lombaires', match: /lombaire/i, prim: ['lower', 'glute'], sec: ['ham'], view: { az: 30, el: 10 },
+      why: 'Un travail direct du bas du dos. Le soulevé de terre et le squat le sollicitent surtout pour le tenir immobile ; ici, il travaille en mouvement.',
+      work: ['torso'], gear: [FLOORG, { t: 'hyper', pad: [109, 130], plate: [54, 177] }],
       frames: [
-        { label: 'Bras tendus', text: 'Poulie réglée à hauteur du visage, corde en main. Recule d’un pas, bras tendus vers la poulie.', warn: [W('hand', 'Charge légère', 6, 26)], pose: { h: [108, 103], a: -5, w: [158, 58], f: [112, 182], f2: [94, 181], eb: 1 } },
-        { label: 'Vers le visage', text: 'Tire la corde vers le front, coudes hauts, en écartant les mains. Marque une seconde, puis reviens doucement.', warn: [W('elbow', 'Coudes hauts', -4, -8), W('back', 'Ne te penche pas', 26, 16)], pose: { h: [108, 103], a: -5, w: [116, 32], f: [112, 182], f2: [94, 181], eb: 1 } }
+        { label: 'Corps aligné', text: 'Sur un banc à lombaires à 45°, l’appui juste sous le pli de la hanche, bras croisés sur la poitrine. Le corps forme une ligne droite.', warn: [W('back', 'Pas plus haut que l’alignement', 10, -46)], pose: { h: [105, 115], a: 45, wOn: 'chest', wz: -6, f: [50, 170], t: [58, 176], fz: 8, ep: [0.2, -1, 0.6] } },
+        { label: 'Descente', text: 'Descends lentement en pliant à la hanche, jusqu’à sentir l’étirement à l’arrière des cuisses. Remonte sans à-coup.', warn: [W('back', 'Mouvement lent, sans élan', -8, -30)], pose: { h: [105, 115], a: 125, wOn: 'chest', wz: -6, f: [50, 170], t: [58, 176], fz: 8, ep: [0.2, -1, 0.6] } }
+      ],
+      cues: ['Commence au poids du corps. Ajoute un disque contre la poitrine dès 12 répétitions à chaque série.', 'Pas de banc à lombaires ? Un soulevé de terre roumain léger ou un « good morning » très léger peut le remplacer.', 'Garde le cou dans le prolongement du dos.'],
+      errors: ['Monter au-delà de l’alignement en cambrant le bas du dos.', 'Donner de l’élan.', 'En faire trop lourd : c’est un complément, après ton soulevé de terre.'] },
+    { id: 'face', name: 'Face pull', match: /face pull/i, prim: ['deltB', 'midback'], sec: ['trap', 'forearm'], view: { az: -30, el: 10 },
+      why: 'Il travaille l’arrière des épaules, moins sollicité que l’avant quand on pousse beaucoup.',
+      work: ['upper', 'fore'], gear: [FLOORG, { t: 'cable', from: [222, 40, 0], column: true }],
+      frames: [
+        { label: 'Bras tendus', text: 'Poulie réglée à hauteur du visage, corde en main. Recule d’un pas, bras tendus vers la poulie.', warn: [W('hand', 'Charge légère', 6, 26)], pose: { h: [108, 103], a: -5, w: [158, 58], wz: 12, f: [112, 182], f2: [94, 181], fz: 9, ep: [-0.1, 0.7, 1] } },
+        { label: 'Vers le visage', text: 'Tire la corde vers le front, coudes hauts, en écartant les mains. Marque une seconde, puis reviens doucement.', warn: [W('elbow', 'Coudes hauts', -4, -8), W('back', 'Ne te penche pas', 26, 16)], pose: { h: [108, 103], a: -5, w: [116, 32], wz: 30, f: [112, 182], f2: [94, 181], fz: 9, ep: [-0.1, 0.7, 1] } }
       ],
       cues: ['Prends une charge légère : l’important est de contrôler le mouvement.', 'Les coudes restent au moins à hauteur des épaules.'],
       errors: ['Tirer trop lourd en se penchant en arrière.', 'Laisser tomber les coudes.'] },
-    { id: 'farmer', name: 'Marche du fermier', match: /fermier/i, prim: ['forearm', 'trap'], sec: ['abs', 'oblique', 'lower'],
+    { id: 'farmer', name: 'Marche du fermier', match: /fermier/i, prim: ['forearm', 'trap'], sec: ['abs', 'oblique', 'lower'], view: { az: 40, el: 8 },
       why: 'Elle travaille directement la prise et le gainage en marchant.',
-      work: ['torso', 'fore'], gear: [FLOOR, { t: 'farmer', front: true }],
+      work: ['torso', 'fore'], gear: [FLOORG, { t: 'farmer', front: true }],
       frames: [
-        { label: 'Un pas', text: 'Une charge lourde dans chaque main, bras le long du corps. Note dans l’app le poids d’une seule main.', warn: [W('shoulder', 'Épaules basses', 24, -8)], pose: { h: [108, 106], a: 0, w: [108, 118], f: [126, 182], f2: [90, 178] } },
-        { label: 'Debout', text: 'Grand, épaules basses et ventre serré, le regard devant toi.', warn: [W('back', 'Ne penche pas sur le côté', 30, -16)], pose: { h: [108, 104], a: 0, w: [108, 116], f: [110, 182], f2: [106, 176] } },
-        { label: 'Pas suivant', text: 'Petits pas rapides et réguliers sur 30 à 40 mètres. Pose les charges en pliant les jambes.', warn: [W('hand', 'Serre fort les poignées', 24, -14)], pose: { h: [108, 106], a: 0, w: [108, 118], f: [90, 178], f2: [126, 182] } }
+        { label: 'Un pas', text: 'Une charge lourde dans chaque main, bras le long du corps. Note dans l’app le poids d’une seule main.', warn: [W('shoulder', 'Épaules basses', 24, -8)], pose: { h: [108, 106], a: 0, w: [108, 118], wz: 26, f: [126, 182], f2: [90, 178], fz: 8 } },
+        { label: 'Debout', text: 'Grand, épaules basses et ventre serré, le regard devant toi.', warn: [W('back', 'Ne penche pas sur le côté', 30, -16)], pose: { h: [108, 104], a: 0, w: [108, 116], wz: 26, f: [110, 182], f2: [106, 176], fz: 8 } },
+        { label: 'Pas suivant', text: 'Petits pas rapides et réguliers sur 30 à 40 mètres. Pose les charges en pliant les jambes.', warn: [W('hand', 'Serre fort les poignées', 24, -14)], pose: { h: [108, 106], a: 0, w: [108, 118], wz: 26, f: [90, 178], f2: [126, 182], fz: 8 } }
       ],
       cues: ['Quand tu tiens toute la distance sur les 2 séries, ajoute 2 kg par main.', 'Serre les poignées fort : la prise est le but de l’exercice.'],
       errors: ['Se pencher d’un côté.', 'Arrondir le dos pour soulever ou poser les charges.'] },
-    { id: 'hammer', name: 'Curl marteau', match: /curl marteau/i, prim: ['bicep', 'forearm'], sec: [],
+    { id: 'hammer', name: 'Curl marteau', match: /curl marteau/i, prim: ['bicep', 'forearm'], sec: [], view: { az: 40, el: 8 },
       why: 'Il travaille le biceps et le muscle de l’avant-bras qui plie le coude : utile pour la force de tirage.',
-      work: ['upper', 'fore'], gear: [FLOOR, { t: 'dumbbell', front: true }],
+      work: ['upper', 'fore'], gear: [FLOORG, { t: 'dumbbell', dir: 'x', front: true }],
       frames: [
-        { label: 'Bras tendus', text: 'Un haltère dans chaque main, paumes face à face, bras le long du corps. Note dans l’app le poids d’un seul haltère.', warn: [W('back', 'Buste immobile', 26, -8)], pose: { h: [100, 103], a: 0, w: [104, 114], f: [100, 182] } },
-        { label: 'En haut', text: 'Plie le coude pour monter l’haltère, en gardant la paume tournée vers l’intérieur. Redescends lentement.', warn: [W('elbow', 'Coude immobile', -10, 8), W('back', 'Sans élan', 28, 26)], pose: { h: [100, 103], a: 0, w: [123, 65], f: [100, 182] } }
+        { label: 'Bras tendus', text: 'Un haltère dans chaque main, paumes face à face, bras le long du corps. Note dans l’app le poids d’un seul haltère.', warn: [W('back', 'Buste immobile', 26, -8)], pose: { h: [100, 103], a: 0, w: [101, 116], wz: 22, f: [100, 182], ep: [-1, -0.25, 0.05] } },
+        { label: 'En haut', text: 'Plie le coude pour monter l’haltère, en gardant la paume tournée vers l’intérieur. Redescends lentement.', warn: [W('elbow', 'Coude immobile', -10, 8), W('back', 'Sans élan', 28, 26)], pose: { h: [100, 103], a: 0, w: [120, 66], wz: 18, f: [100, 182], ep: [-1, -0.25, 0.05] } }
       ],
       cues: ['Le coude reste le long du corps pendant tout le mouvement.', 'Dès 12 répétitions à chaque série, ajoute 2 kg.'],
       errors: ['Balancer le buste pour lancer l’haltère.', 'Avancer le coude en haut du mouvement.'] },
-    { id: 'bench', name: 'Développé couché', match: /d[ée]velopp[ée] couch[ée]$/i, prim: ['pec'], sec: ['deltF', 'tricep'],
+    { id: 'bench', name: 'Développé couché', match: /d[ée]velopp[ée] couch[ée]$/i, prim: ['pec'], sec: ['deltF', 'tricep'], view: { az: 30, el: 26 },
       why: 'Le mouvement de poussée principal de ton programme, et ton point faible à faire progresser.',
       work: ['torso', 'upper', 'fore'], gear: benchGear,
       frames: benchFrames(['Allongé, yeux sous la barre. Bras tendus, la barre au-dessus des épaules.', 'Descends en contrôlant, environ 2 secondes, vers le bas des pectoraux.', 'La barre touche le bas de la poitrine, puis tu pousses vers le haut et légèrement vers tes épaules.'],
         [[W('shoulder', 'Omoplates serrées', -6, -30)], [W('elbow', 'Coudes ni collés, ni écartés', 16, -36)], [W('hand', 'Touche sans rebond', 28, -24), W('hip', 'Fesses sur le banc', 16, -14)]]),
       cues: BENCH_CUES, errors: BENCH_ERR },
-    { id: 'pause', name: 'Développé couché pause', match: /couch[ée] (l[ée]ger|pause)/i, prim: ['pec'], sec: ['deltF', 'tricep'],
+    { id: 'pause', name: 'Développé couché pause', match: /couch[ée] (l[ée]ger|pause)/i, prim: ['pec'], sec: ['deltF', 'tricep'], view: { az: 30, el: 26 },
       why: 'Un deuxième passage par semaine sur ton point faible, avec moins de charge et sans rebond.',
       work: ['torso', 'upper', 'fore'], gear: benchGear,
       frames: benchFrames(['Même installation que le couché lourd. Charge proposée : 80 % de ta série lourde.', 'Descends lentement, en restant bien placé.', 'Marque 1 seconde complète sur la poitrine, barre immobile, puis pousse. Il doit te rester au moins 3 répétitions possibles.'],
         [[W('shoulder', 'Omoplates serrées', -6, -30)], [W('elbow', 'Descente lente', 16, -36)], [W('hand', 'Pause 1 s, sans rebond', 28, -24)]]),
       cues: BENCH_CUES.slice(0, 4).concat('Compte « un » à voix basse pendant la pause : sans ça, elle devient vite trop courte.'), errors: BENCH_ERR.slice(0, 3) },
-    { id: 'dips', name: 'Dips', match: /dips/i, prim: ['pec', 'tricep'], sec: ['deltF'],
+    { id: 'dips', name: 'Dips', match: /dips/i, prim: ['pec', 'tricep'], sec: ['deltF'], view: { az: 28, el: 8 },
       why: 'Ils travaillent les pectoraux et les triceps, qui terminent la poussée au développé couché.',
-      work: ['torso', 'upper', 'fore'], gear: [{ t: 'dipbar', x: 112, y: 92 }],
+      work: ['torso', 'upper', 'fore'], gear: [FLOORG, { t: 'dipbar', x: 112, y: 92, z: 24 }],
       frames: [
-        { label: 'En haut', text: 'En appui sur les barres, bras tendus, épaules basses, buste légèrement penché vers l’avant.', warn: [W('shoulder', 'Épaules basses', 22, -8)], pose: { h: [105, 81.5], a: 8, w: [112, 92], f: [90, 150] } },
-        { label: 'En bas', text: 'Descends en contrôlant jusqu’à ce que le haut du bras soit à peu près horizontal, puis remonte en poussant.', warn: [W('shoulder', 'Stop si l’épaule te gêne', 24, -12)], pose: { h: [85, 111], a: 25, w: [112, 92], f: [70, 178] } }
+        { label: 'En haut', text: 'En appui sur les barres, bras tendus, épaules basses, buste légèrement penché vers l’avant.', warn: [W('shoulder', 'Épaules basses', 22, -8)], pose: { h: [105, 81.5], a: 8, w: [112, 92], wz: 24, f: [92, 150], fz: 8, ep: [-1, 0.2, 0.3] } },
+        { label: 'En bas', text: 'Descends en contrôlant jusqu’à ce que le haut du bras soit à peu près horizontal, épaules en avant des mains, puis remonte en poussant.', warn: [W('shoulder', 'Stop si l’épaule te gêne', 24, -12)], pose: { h: [115, 109], a: 25, w: [112, 92], wz: 24, f: [92, 168], fz: 8, ep: [-1, 0.2, 0.3] } }
       ],
       cues: ['Arrête la descente si tu sens une gêne devant l’épaule.', 'Ajoute du lest seulement quand tu fais 10 répétitions à toutes les séries.'],
       errors: ['Descendre trop bas en forçant sur l’épaule.', 'Laisser les épaules monter vers les oreilles.'] },
-    { id: 'triceps', name: 'Extension triceps à la poulie', match: /triceps/i, prim: ['tricep'], sec: [],
+    { id: 'triceps', name: 'Extension triceps à la poulie', match: /triceps/i, prim: ['tricep'], sec: [], view: { az: -28, el: 8 },
       why: 'Elle renforce les triceps, qui terminent la poussée au couché et aux dips.',
-      work: ['upper', 'fore'], gear: [FLOOR, { t: 'cable', from: [168, 8], column: true }, { t: 'handle', front: true }],
+      work: ['upper', 'fore'], gear: [FLOORG, { t: 'cable', from: [168, 8, 0], column: true }, { t: 'handle', front: true }],
       frames: [
-        { label: 'Avant-bras levés', text: 'Face à la poulie haute, buste légèrement penché, coudes le long du corps. Tiens la poignée à hauteur de poitrine.', warn: [W('elbow', 'Coudes collés au corps', -8, 8)], pose: { h: [100, 103], a: 8, w: [131, 72], f: [100, 182] } },
-        { label: 'Bras tendus', text: 'Pousse vers le bas jusqu’à tendre les bras, sans bouger les coudes. Remonte lentement.', warn: [W('elbow', 'Coudes immobiles', -8, -2), W('back', 'Buste stable', 28, -14)], pose: { h: [100, 103], a: 8, w: [106, 116], f: [100, 182] } }
+        { label: 'Avant-bras levés', text: 'Face à la poulie haute, buste légèrement penché, coudes le long du corps. Tiens la poignée à hauteur de poitrine.', warn: [W('elbow', 'Coudes collés au corps', -8, 8)], pose: { h: [100, 103], a: 8, w: [131, 72], wz: 8, f: [100, 182], ep: [-1, -0.2, 0.12] } },
+        { label: 'Bras tendus', text: 'Pousse vers le bas jusqu’à tendre les bras, sans bouger les coudes. Remonte lentement.', warn: [W('elbow', 'Coudes immobiles', -8, -2), W('back', 'Buste stable', 28, -14)], pose: { h: [100, 103], a: 8, w: [106, 116], wz: 8, f: [100, 182], ep: [-1, -0.2, 0.12] } }
       ],
       cues: ['Seuls les avant-bras bougent.', 'Dès 12 répétitions à chaque série, augmente la charge d’un cran.'],
       errors: ['Se pencher sur la charge pour pousser avec le poids du corps.', 'Laisser les coudes partir vers l’avant.'] },
-    { id: 'press', name: 'Développé militaire haltères', match: /militaire/i, prim: ['deltF'], sec: ['tricep', 'trap', 'abs'],
+    { id: 'press', name: 'Développé militaire haltères', match: /militaire/i, prim: ['deltF'], sec: ['tricep', 'trap', 'abs'], view: { az: 50, el: 6 },
       why: 'La poussée au-dessus de la tête, pour des épaules plus fortes.',
-      work: ['upper', 'fore'], gear: [FLOOR, { t: 'dumbbell', front: true }], vb: '20 -30 200 225',
+      work: ['upper', 'fore'], gear: [FLOORG, { t: 'dumbbell', dir: 'z', front: true }], vb: '20 -30 200 225',
       frames: [
-        { label: 'Aux épaules', text: 'Debout, un haltère à hauteur de chaque épaule, ventre et fessiers serrés. Note dans l’app le poids d’un seul haltère.', warn: [W('hip', 'Fessiers serrés', 24, -8)], pose: { h: [100, 103], a: 0, w: [114, 50], f: [100, 182] } },
-        { label: 'En haut', text: 'Pousse vers le haut jusqu’à tendre les bras, haltères au-dessus des épaules. Redescends en contrôlant.', warn: [W('back', 'Ne te cambre pas', 26, -4)], pose: { h: [100, 103], a: 0, w: [102, -8], f: [100, 182] } }
+        { label: 'Aux épaules', text: 'Debout, un haltère à hauteur de chaque épaule, ventre et fessiers serrés. Note dans l’app le poids d’un seul haltère.', warn: [W('hip', 'Fessiers serrés', 24, -8)], pose: { h: [100, 103], a: 0, w: [114, 50], wz: 30, f: [100, 182], ep: [0.15, -1, 0.7] } },
+        { label: 'En haut', text: 'Pousse vers le haut jusqu’à tendre les bras, haltères au-dessus des épaules. Redescends en contrôlant.', warn: [W('back', 'Ne te cambre pas', 26, -4)], pose: { h: [100, 103], a: 0, w: [102, -8], wz: 22, f: [100, 182], ep: [0.15, -1, 0.7] } }
       ],
       cues: ['Serre les fessiers pour ne pas cambrer le bas du dos.', 'Le buste reste droit tout du long.'],
       errors: ['Se pencher en arrière pour finir le mouvement.', 'Donner de l’élan avec les jambes.'] },
-    { id: 'lunge', name: 'Fentes marchées ou step-ups', match: /fentes? march|step.?up/i, prim: ['quad', 'glute'], sec: ['ham', 'calf'],
-      why: 'Elles ajoutent du travail pour les cuisses et les fessiers, une jambe à la fois, sans charger lourd le dos.',
-      work: ['thigh', 'shin'], gear: [FLOOR, { t: 'dumbbell', front: true }],
+    { id: 'fly', name: 'Reverse fly', match: /reverse|oiseau/i, prim: ['deltB', 'midback'], sec: ['trap'], view: { az: -130, el: 18 },
+      why: 'Il travaille l’arrière des épaules et le milieu du dos, moins sollicités que l’avant quand on pousse beaucoup.',
+      work: ['upper'], gear: [FLOORG, { t: 'revfly', seat: [80, 136, 120], padX: 112, post: 128 }, { t: 'handle', front: true }],
       frames: [
-        { label: 'Grand pas', text: 'Debout, un haltère dans chaque main. Fais un pas vers l’avant, buste droit. Note dans l’app le poids d’un seul haltère.', warn: [W('back', 'Buste droit', -8, -14)], pose: { h: [110, 106], a: 3, w: [113, 118], f: [134, 181], f2: [92, 182] } },
-        { label: 'En bas', text: 'Descends jusqu’à ce que le genou arrière frôle le sol, puis pousse avec le pied avant pour avancer ou remonter.', warn: [W('knee', 'Genou dans l’axe du pied', 20, -24)], pose: { h: [108, 140], a: 5, w: [112, 150], f: [140, 182], f2: [78, 180], t2: [84, 188] } }
+        { label: 'Bras devant', text: 'Machine : assis face à l’appui, poitrine contre le coussin, poignées à hauteur d’épaules. Coudes très légèrement fléchis.', warn: [W('shoulder', 'Épaules basses', 22, -18)], pose: { h: [100, 128], a: 0, w: [158, 80], wz: 8, f: [142, 180], t: [155, 186], fz: 14, kp: [1, 1, 0.1], ep: [-0.6, -0.5, 0.5] } },
+        { label: 'Ouvrir', text: 'Écarte les bras en arc de cercle, sans plier davantage les coudes.', warn: [W('hand', 'Arc de cercle, sans à-coup', 8, -26)], pose: { h: [100, 128], a: 0, w: [141, 80], wz: 59, f: [142, 180], t: [155, 186], fz: 14, kp: [1, 1, 0.1], ep: [-0.6, -0.5, 0.5] } },
+        { label: 'Bras écartés', text: 'Va jusqu’à ce que les bras soient à peu près dans le prolongement des épaules, marque une seconde, puis reviens lentement.', warn: [W('back', 'Poitrine contre le coussin', 16, -30)], pose: { h: [100, 128], a: 0, w: [104, 80], wz: 76, f: [142, 180], t: [155, 186], fz: 14, kp: [1, 1, 0.1], ep: [-0.6, -0.5, 0.5] } }
+      ],
+      cues: ['Sans machine : penché en avant, dos droit, un haltère léger dans chaque main, même mouvement.', 'Prends une charge que tu contrôles : si tu dois donner de l’élan, baisse.', 'Note la charge affichée à la machine, ou le poids d’un seul haltère.'],
+      errors: ['Hausser les épaules vers les oreilles.', 'Plier les coudes pour pousser avec les bras.', 'Se décoller du coussin pour lancer la charge.'] },
+    { id: 'lunge', name: 'Fentes marchées ou step-ups', match: /fentes? march|step.?up/i, prim: ['quad', 'glute'], sec: ['ham', 'calf'], view: { az: 30, el: 8 },
+      why: 'Elles ajoutent du travail pour les cuisses et les fessiers, une jambe à la fois, sans charger lourd le dos.',
+      work: ['thigh', 'shin'], gear: [FLOORG, { t: 'dumbbell', dir: 'x', front: true }],
+      frames: [
+        { label: 'Grand pas', text: 'Debout, un haltère dans chaque main. Fais un pas vers l’avant, buste droit. Note dans l’app le poids d’un seul haltère.', warn: [W('back', 'Buste droit', -8, -14)], pose: { h: [110, 106], a: 3, w: [113, 118], wz: 24, f: [134, 181], f2: [92, 182], t2: [105, 188] } },
+        { label: 'En bas', text: 'Descends jusqu’à ce que le genou arrière frôle le sol, puis pousse avec le pied avant pour avancer ou remonter.', warn: [W('knee', 'Genou dans l’axe du pied', 20, -24)], pose: { h: [108, 140], a: 5, w: [112, 150], wz: 24, f: [140, 182], f2: [78, 180], t2: [84, 188] } }
       ],
       cues: ['Step-up : même principe, en montant sur un banc ou une box stable, sans pousser avec le pied resté au sol.', 'Fais le nombre de répétitions indiqué pour chaque jambe.'],
       errors: ['Laisser le genou rentrer vers l’intérieur.', 'Faire des pas trop courts qui gênent l’équilibre.'] },
-    { id: 'pallof', name: 'Pallof press', match: /pallof/i, prim: ['oblique', 'abs'], sec: ['deltF'],
+    { id: 'pallof', name: 'Pallof press', match: /pallof/i, prim: ['oblique', 'abs'], sec: ['deltF'], view: { az: 50, el: 10 },
       why: 'Il entraîne ton buste à résister à la rotation.',
-      work: ['torso'], gear: [FLOOR, { t: 'handle', front: true }],
+      work: ['torso'], gear: [FLOORG, { t: 'cable', from: [140, 92, 95], column: true }, { t: 'handle', front: true }],
       frames: [
-        { label: 'À la poitrine', text: 'Place-toi de profil à la poulie, réglée à hauteur de poitrine (ici, le câble arrive vers toi, sur le côté). Mains sur la poignée, contre le sternum.', warn: [W('hip', 'Bassin de face', -8, -6)], pose: { h: [106, 112], a: 0, w: [122, 90], f: [112, 182], f2: [96, 182] } },
-        { label: 'Bras tendus', text: 'Tends les bras droit devant toi. Le câble essaie de te faire tourner : ne le laisse pas faire. Tiens 2 secondes, puis reviens.', warn: [W('back', 'Le buste ne tourne pas', -6, -24)], pose: { h: [106, 112], a: 0, w: [160, 88], f: [112, 182], f2: [96, 182] } }
+        { label: 'À la poitrine', text: 'Place-toi de profil à la poulie, réglée à hauteur de poitrine. Mains sur la poignée, contre le sternum.', warn: [W('hip', 'Bassin de face', -8, -6)], pose: { h: [106, 112], a: 0, w: [122, 90], wz: 3, f: [106, 182], fz: 13 } },
+        { label: 'Bras tendus', text: 'Tends les bras droit devant toi. Le câble essaie de te faire tourner : ne le laisse pas faire. Tiens 2 secondes, puis reviens.', warn: [W('back', 'Le buste ne tourne pas', -6, -24)], pose: { h: [106, 112], a: 0, w: [160, 88], wz: 3, f: [106, 182], fz: 13 } }
       ],
       cues: ['Fais 10 répétitions de chaque côté.', 'Serre le ventre avant de tendre les bras.'],
       errors: ['Laisser le buste tourner vers la poulie.', 'Prendre trop lourd.'] },
-    { id: 'plank', name: 'Planche latérale', match: /planche/i, prim: ['oblique'], sec: ['abs', 'glute', 'deltB'],
+    { id: 'plank', name: 'Planche latérale', match: /planche/i, prim: ['oblique'], sec: ['abs', 'glute', 'deltB'], view: { az: 12, el: 12 },
       why: 'Elle travaille les muscles du côté du tronc et du bassin.',
-      work: ['torso', 'thigh', 'shin'], gear: [FLOOR],
+      work: ['torso', 'thigh', 'shin'], gear: [FLOORG],
       frames: [
-        { label: 'Hanches basses', text: 'Allongé sur le côté, coude sous l’épaule, jambes l’une sur l’autre.', warn: [W('elbow', 'Coude sous l’épaule', 8, -46)], pose: { h: [113, 174], a: 65, w: [191, 184], f: [35, 185], t: [47, 187] } },
-        { label: 'Corps aligné', text: 'Monte les hanches jusqu’à former une ligne droite de la tête aux pieds. Tiens 30 à 45 secondes, puis change de côté.', warn: [W('hip', 'Hanches hautes, corps droit', -2, -40)], pose: { h: [111.6, 165], a: 75, w: [191, 184], f: [35, 185], t: [47, 187] } }
+        { label: 'Hanches basses', text: 'Allongé sur le côté, coude sous l’épaule, jambes l’une sur l’autre.', warn: [W('elbow', 'Coude sous l’épaule', 8, -46)], pose: { h: [112, 159], a: 65.8, yaw: 90, w: [112, 144], wz: 6, w2: [165, 185], wz2: -31, ep: [0, 0.8, 0.6], ep2: [0, -1, -1], f: [39, 172], f2: [39, 181], t: [39, 172], t2: [39, 181], fz: 0, fz2: 0, tz: 13, tz2: 13, kp: [0, 1, 0.1], kp2: [0, 1, 0] } },
+        { label: 'Corps aligné', text: 'Monte les hanches jusqu’à former une ligne droite de la tête aux pieds. Tiens 30 à 45 secondes, puis change de côté.', warn: [W('hip', 'Hanches hautes, corps droit', -2, -40)], pose: { h: [112, 151], a: 74, yaw: 90, w: [114, 134], wz: 6, w2: [165, 185], wz2: -31, ep: [0, 0.8, 0.6], ep2: [0, -1, -1], f: [39, 172], f2: [39, 181], t: [39, 172], t2: [39, 181], fz: 0, fz2: 0, tz: 13, tz2: 13, kp: [0, 1, 0.1], kp2: [0, 1, 0] } }
       ],
       cues: ['Respire normalement pendant le maintien.', 'Trop difficile ? Pose le genou du bas au sol.'],
       errors: ['Laisser les hanches redescendre.', 'Placer le coude loin de l’épaule.'] },
-    { id: 'vjump', name: 'Sauts verticaux', match: /sauts? verticaux?/i, prim: ['quad', 'glute', 'calf'], sec: ['ham'],
+    { id: 'vjump', name: 'Sauts verticaux', match: /sauts? verticaux?/i, prim: ['quad', 'glute', 'calf'], sec: ['ham'], view: { az: 35, el: 6 },
       why: 'Ils travaillent l’explosivité, la capacité à produire de la force vite.',
-      work: ['thigh', 'shin'], gear: [FLOOR], vb: '20 -30 200 225',
+      work: ['thigh', 'shin'], gear: [FLOORG], vb: '20 -45 200 240',
       frames: [
-        { label: 'Élan', text: 'Pieds largeur de hanches. Fléchis vite les jambes, fesses en arrière, bras lancés derrière toi.', warn: [W('knee', 'Genoux dans l’axe', 24, -4)], pose: { h: [90, 130], a: 30, w: [72, 118], f: [100, 182] } },
-        { label: 'En l’air', text: 'Pousse le sol le plus fort possible et lance les bras vers le haut. Corps tendu en haut du saut.', warn: [W('hip', 'Saut à fond, sans fatigue', 26, -6)], pose: { h: [100, 70], a: 0, w: [110, -8], f: [100, 146] } },
-        { label: 'Réception', text: 'Reçois-toi sur l’avant du pied, jambes qui plient pour amortir. Reprends ta position avant le saut suivant.', warn: [W('knee', 'Atterris en souplesse', 24, -8)], pose: { h: [92, 122], a: 25, w: [125, 110], f: [100, 182] } }
+        { label: 'Élan', text: 'Pieds largeur de hanches. Fléchis vite les jambes, fesses en arrière, bras lancés derrière toi.', warn: [W('knee', 'Genoux dans l’axe', 24, -4)], pose: { h: [90, 130], a: 30, w: [72, 118], wz: 20, f: [100, 182] } },
+        { label: 'En l’air', text: 'Pousse le sol le plus fort possible et lance les bras vers le haut. Corps tendu en haut du saut.', warn: [W('hip', 'Saut à fond, sans fatigue', 26, -6)], pose: { h: [100, 70], a: 0, w: [106, -40], wz: 20, f: [100, 146] } },
+        { label: 'Réception', text: 'Reçois-toi sur l’avant du pied, jambes qui plient pour amortir. Reprends ta position avant le saut suivant.', warn: [W('knee', 'Atterris en souplesse', 24, -8)], pose: { h: [92, 122], a: 25, w: [125, 110], wz: 20, f: [100, 182] } }
       ],
       cues: ['Peu de sauts, mais chacun à fond : c’est la qualité qui compte.', 'Arrête si la hauteur baisse nettement ou si un genou ou un tendon te gêne.'],
       errors: ['Enchaîner les sauts sans reprendre position.', 'Atterrir jambes tendues.'] },
-    { id: 'jump', name: 'Sauts en longueur ou sur box', match: /sauts?/i, prim: ['quad', 'glute', 'calf'], sec: ['ham'],
+    { id: 'jump', name: 'Sauts en longueur ou sur box', match: /sauts?/i, prim: ['quad', 'glute', 'calf'], sec: ['ham'], view: { az: 22, el: 8 },
       why: 'Ils développent la puissance. Ils se font en premier, quand tu es frais.',
-      work: ['thigh', 'shin'], gear: [FLOOR, { t: 'box', x1: 150, x2: 205, y: 130, floor: 188 }], vb: '20 -30 200 225',
+      work: ['thigh', 'shin'], gear: [FLOORG, { t: 'box', x1: 150, x2: 205, y: 130, floor: 188 }], vb: '20 -30 200 225',
       frames: [
-        { label: 'Élan', text: 'Fléchis rapidement les jambes, fesses en arrière, bras lancés vers l’arrière.', warn: [W('knee', 'Genoux dans l’axe', 14, -32)], pose: { h: [70, 134], a: 45, w: [58, 138], f: [90, 182] } },
-        { label: 'En l’air', text: 'Pousse fort dans le sol et lance les bras vers le haut.', warn: [], pose: { h: [120, 76], a: 10, w: [150, -20], f: [118, 150] } },
-        { label: 'Réception', text: 'Atterris souplement, genoux pliés et bien alignés avec les pieds. Redescends en marchant.', warn: [W('hip', 'Réception souple', -14, 2), W('foot', 'Descends en marchant', -16, 18)], pose: { h: [145, 82], a: 35, w: [200, 70], f: [170, 122], t: [183, 126] } }
+        { label: 'Élan', text: 'Fléchis rapidement les jambes, fesses en arrière, bras lancés vers l’arrière.', warn: [W('knee', 'Genoux dans l’axe', 14, -32)], pose: { h: [70, 134], a: 45, w: [58, 138], wz: 20, f: [90, 182] } },
+        { label: 'En l’air', text: 'Pousse fort dans le sol et lance les bras vers le haut.', warn: [], pose: { h: [120, 76], a: 10, w: [150, -20], wz: 20, f: [118, 150] } },
+        { label: 'Réception', text: 'Atterris souplement, genoux pliés et bien alignés avec les pieds. Redescends en marchant.', warn: [W('hip', 'Réception souple', -14, 2), W('foot', 'Descends en marchant', -16, 18)], pose: { h: [145, 84], a: 35, w: [200, 72], wz: 20, f: [170, 124], t: [183, 130] } }
       ],
       cues: ['Peu de répétitions et récupération complète : chaque saut doit être à fond.', 'Saut en longueur : même geste, mais vers l’avant, et note ta distance en centimètres.'],
       errors: ['Enchaîner les sauts fatigué.', 'Laisser les genoux rentrer vers l’intérieur à la réception.', 'Redescendre de la box en sautant.'] },
-    { id: 'squat', name: 'Squat', match: /^squat/i, prim: ['quad', 'glute'], sec: ['ham', 'lower', 'abs'],
+    { id: 'squat', name: 'Squat', match: /^squat/i, prim: ['quad', 'glute'], sec: ['ham', 'lower', 'abs'], view: { az: 35, el: 10 },
       why: 'Le principal exercice de force pour tes jambes.',
-      work: ['thigh', 'shin', 'torso'], gear: [FLOOR, { t: 'guide', from: [105, 53], to: [105, 115] }, { t: 'barbell', r: 20, at: 'shoulder' }],
+      work: ['thigh', 'shin', 'torso'], gear: [FLOORG, { t: 'guide', from: [105, 51], to: [105, 108] }, { t: 'barbell', r: 20, at: 'trap' }],
       frames: [
-        { label: 'Debout', text: 'Barre sur le haut du dos, pas sur la nuque. Pieds un peu plus larges que les hanches, pointes légèrement ouvertes. Inspire et gaine le ventre.', warn: [W('shoulder', 'Barre sur le dos, pas sur la nuque', 26, -14)], pose: { h: [100, 103], a: 5, w: [108, 52], f: [100, 182] } },
-        { label: 'Descente', text: 'Plie en même temps les hanches et les genoux. La barre reste au-dessus du milieu du pied.', warn: [W('knee', 'Genoux dans l’axe des pieds', 18, -8)], pose: { h: [84, 128], a: 28, w: [114, 82], f: [100, 182] } },
-        { label: 'En bas', text: 'Descends au moins jusqu’à ce que le pli de la hanche passe sous le genou, si ta mobilité le permet. Puis pousse le sol pour remonter.', warn: [W('foot', 'Talons au sol', 24, -18), W('back', 'Dos droit, sans s’arrondir', -6, -34)], pose: { h: [70, 150], a: 45, w: [110, 114], f: [100, 182] } }
+        { label: 'Debout', text: 'Barre sur le haut du dos, pas sur la nuque. Pieds un peu plus larges que les hanches, pointes légèrement ouvertes. Inspire et gaine le ventre.', warn: [W('shoulder', 'Barre sur le dos, pas sur la nuque', 26, -14)], pose: { h: [107, 103], a: 5, wOn: 'trap', wz: 34, f: [100, 182], fz: 14, tz: 4, kp: [1, 0, 0.25], ep: [-0.5, -1, 0.5] } },
+        { label: 'Descente', text: 'Plie en même temps les hanches et les genoux. La barre reste au-dessus du milieu du pied.', warn: [W('knee', 'Genoux dans l’axe des pieds', 18, -8)], pose: { h: [87, 128], a: 28, wOn: 'trap', wz: 34, f: [100, 182], fz: 14, tz: 4, kp: [1, 0, 0.25], ep: [-0.5, -1, 0.5] } },
+        { label: 'En bas', text: 'Descends au moins jusqu’à ce que le pli de la hanche passe sous le genou, si ta mobilité le permet. Puis pousse le sol pour remonter.', warn: [W('foot', 'Talons au sol', 24, -18), W('back', 'Dos droit, sans s’arrondir', -6, -34)], pose: { h: [73, 150], a: 45, wOn: 'trap', wz: 34, f: [100, 182], fz: 14, tz: 4, kp: [1, 0, 0.25], ep: [-0.5, -1, 0.5] } }
       ],
       cues: ['Les genoux suivent la direction des pointes de pieds.', 'Les talons restent au sol.', 'Règle les sécurités du rack sous ta position basse.'],
       errors: ['Laisser les genoux rentrer vers l’intérieur.', 'Monter les fesses plus vite que les épaules.', 'Arrondir le bas du dos en bas du mouvement.'] },
-    { id: 'bulgare', name: 'Fentes bulgares', match: /bulgare/i, prim: ['quad', 'glute'], sec: ['ham', 'calf'],
+    { id: 'bulgare', name: 'Fentes bulgares', match: /bulgare/i, prim: ['quad', 'glute'], sec: ['ham', 'calf'], view: { az: 30, el: 10 },
       why: 'Elles travaillent chaque jambe séparément, sans charger lourd le dos.',
-      work: ['thigh', 'shin'], gear: [FLOOR, { t: 'bench', x1: 34, x2: 76, y: 132, floor: 188 }, { t: 'dumbbell', front: true }],
+      work: ['thigh', 'shin'], gear: [FLOORG, { t: 'bench', x1: 34, x2: 76, y: 132, floor: 188 }, { t: 'dumbbell', dir: 'x', front: true }],
       frames: [
-        { label: 'En haut', text: 'Pied arrière posé sur un banc, pied avant assez loin devant. Un haltère dans chaque main.', warn: [W('foot', 'Pied avant assez loin', 8, -26)], pose: { h: [115, 108], a: 5, w: [119, 118], f: [140, 182], f2: [58, 126], t2: [50, 133] } },
-        { label: 'En bas', text: 'Descends tout droit jusqu’à ce que la cuisse avant soit à peu près horizontale, puis pousse avec le talon avant.', warn: [W('knee', 'Genou dans l’axe du pied', 14, -30)], pose: { h: [100, 142], a: 15, w: [113, 155], f: [140, 182], f2: [58, 126], t2: [50, 133] } }
+        { label: 'En haut', text: 'Pied arrière posé sur un banc, pied avant assez loin devant. Un haltère dans chaque main.', warn: [W('foot', 'Pied avant assez loin', 8, -26)], pose: { h: [115, 108], a: 5, w: [119, 118], wz: 24, f: [140, 182], f2: [58, 126], t2: [50, 133], kp2: [0.3, -1, 0] } },
+        { label: 'En bas', text: 'Descends tout droit jusqu’à ce que la cuisse avant soit à peu près horizontale, puis pousse avec le talon avant.', warn: [W('knee', 'Genou dans l’axe du pied', 14, -30)], pose: { h: [100, 142], a: 15, w: [113, 155], wz: 24, f: [140, 182], f2: [58, 126], t2: [50, 133], kp2: [0.3, -1, 0] } }
       ],
       cues: ['Fais toutes les répétitions d’une jambe, puis change.', 'Le buste peut être légèrement penché vers l’avant.'],
       errors: ['Placer le pied avant trop près du banc.', 'Pousser avec la jambe arrière.'] },
-    { id: 'curl', name: 'Leg curl ou Nordic curl', match: /leg curl|nordic/i, prim: ['ham'], sec: ['calf'],
+    { id: 'curl', name: 'Leg curl ou Nordic curl', match: /leg curl|nordic/i, prim: ['ham'], sec: ['calf'], view: { az: 22, el: 18 },
       why: 'Il renforce l’arrière des cuisses. Les programmes avec Nordic curl réduisent d’environ moitié les blessures à cet endroit, surtout montré dans les sports d’équipe.',
-      work: ['thigh', 'shin'], gear: [FLOOR, { t: 'bench', x1: 34, x2: 160, y: 134, floor: 188 }, { t: 'pad', at: 'foot', front: true }],
+      work: ['thigh', 'shin'], gear: [FLOORG, { t: 'bench', x1: 34, x2: 160, y: 134, floor: 188 }, { t: 'pad', at: 'foot', front: true }],
       frames: [
-        { label: 'Jambes tendues', text: 'Leg curl : allongé sur la machine, le boudin juste au-dessus des talons, genoux au bord du banc.', warn: [W('hip', 'Bassin collé au banc', 4, -32)], pose: { h: [110, 126], a: -90, w: [30, 135], f: [189, 128], t: [196, 139], kb: -1, eb: 1, prone: true } },
-        { label: 'Plier', text: 'Plie les genoux en amenant les talons vers les fesses, sans décoller le bassin. Reviens lentement, en 2 à 3 secondes.', warn: [W('hip', 'Bassin collé au banc', -4, -32), W('foot', 'Retour lent', 22, -8)], pose: { h: [110, 126], a: -90, w: [30, 135], f: [143, 87], t: [132, 80], kb: -1, eb: 1, prone: true } }
+        { label: 'Jambes tendues', text: 'Leg curl : allongé sur la machine, le boudin juste au-dessus des talons, genoux au bord du banc.', warn: [W('hip', 'Bassin collé au banc', 4, -32)], pose: { h: [110, 126], a: -90, prone: true, w: [30, 130], wz: 12, f: [189, 128], t: [196, 139], fz: 6, kp: [0, -1, 0], ep: [0, 0.2, 1] } },
+        { label: 'Plier', text: 'Plie les genoux en amenant les talons vers les fesses, sans décoller le bassin. Reviens lentement, en 2 à 3 secondes.', warn: [W('hip', 'Bassin collé au banc', -4, -32), W('foot', 'Retour lent', 22, -8)], pose: { h: [110, 126], a: -90, prone: true, w: [30, 130], wz: 12, f: [143, 87], t: [132, 80], fz: 6, kp: [0, -1, 0], ep: [0, 0.2, 1] } }
       ],
       cues: ['Nordic curl, sans machine : à genoux, chevilles bloquées, descends le corps droit vers l’avant le plus lentement possible et rattrape-toi avec les mains.', 'La phase de retour lente est la plus utile.'],
       errors: ['Décoller le bassin.', 'Laisser retomber la charge.'] },
-    { id: 'calf', name: 'Mollets debout ou assis', match: /mollets?/i, prim: ['calf'], sec: [],
+    { id: 'calf', name: 'Mollets debout ou assis', match: /mollets?/i, prim: ['calf'], sec: [], view: { az: 22, el: 6 },
       why: 'Il renforce les mollets et le tendon d’Achille, très sollicités en course.',
-      work: ['shin'], gear: [FLOOR, { t: 'box', x1: 108, x2: 170, y: 176, floor: 188 }],
+      work: ['shin'], gear: [FLOORG, { t: 'box', x1: 108, x2: 170, y: 176, floor: 188 }],
       frames: [
-        { label: 'Talon bas', text: 'L’avant du pied sur une marche, talon dans le vide. Laisse descendre le talon sans à-coup.', warn: [W('foot', 'Descente contrôlée', 28, -28)], pose: { h: [99, 102], a: 0, w: [99, 114], f: [98, 180], t: [113, 175] } },
-        { label: 'Sur la pointe', text: 'Monte le plus haut possible, tiens une seconde, puis redescends lentement.', warn: [W('foot', 'Sans rebond', 28, -14)], pose: { h: [104, 82], a: 0, w: [104, 94], f: [104, 160], t: [113, 175] } }
+        { label: 'Talon bas', text: 'L’avant du pied sur une marche, talon dans le vide. Laisse descendre le talon sans à-coup.', warn: [W('foot', 'Descente contrôlée', 28, -28)], pose: { h: [99, 102], a: 0, w: [99, 114], wz: 24, f: [98, 180], t: [113, 175] } },
+        { label: 'Sur la pointe', text: 'Monte le plus haut possible, tiens une seconde, puis redescends lentement.', warn: [W('foot', 'Sans rebond', 28, -14)], pose: { h: [104, 82], a: 0, w: [104, 94], wz: 24, f: [104, 160], t: [113, 175] } }
       ],
       cues: ['Alterne d’une séance à l’autre : debout (jambes tendues) et assis (genoux pliés).', 'Mouvement lent et complet, sans rebond.'],
       errors: ['Faire de petits rebonds rapides.', 'Plier et tendre les genoux pour s’aider.'] },
-    { id: 'run', name: 'Course', match: /^(distance|dur[ée]e|course)/i, prim: ['quad', 'calf', 'glute'], sec: ['ham', 'abs', 'shin'],
+    { id: 'run', name: 'Course', match: /^(distance|dur[ée]e|course)/i, prim: ['quad', 'calf', 'glute'], sec: ['ham', 'abs', 'shin'], view: { az: 28, el: 6 },
       why: 'Ton travail d’endurance : une sortie facile et une séance soutenue par semaine.',
-      work: ['thigh', 'shin'], gear: [FLOOR],
+      work: ['thigh', 'shin'], gear: [FLOORG],
       frames: [
-        { label: 'Appui', text: 'Le pied se pose presque sous le bassin, pas loin devant. Buste grand, légèrement penché vers l’avant depuis les chevilles.', warn: [W('foot', 'Pied sous le bassin', 26, -10)], pose: { h: [110, 104], a: 6, w: [132, 90], w2: [90, 96], f: [120, 182], f2: [74, 152] } },
-        { label: 'Poussée', text: 'Pousse le sol derrière toi. Les coudes restent pliés à environ 90° et les bras balancent d’avant en arrière.', warn: [W('shoulder', 'Épaules relâchées', 28, -14)], pose: { h: [114, 100], a: 6, w: [100, 100], w2: [136, 88], f: [90, 175], f2: [142, 134] } },
-        { label: 'Appui opposé', text: 'Change de jambe. Vise des pas courts et rapides plutôt que de grandes foulées.', warn: [W('knee', 'Pas courts et rapides', -10, -40)], pose: { h: [110, 104], a: 6, w: [90, 96], w2: [132, 90], f: [74, 152], f2: [120, 182] } }
+        { label: 'Appui', text: 'Le pied se pose presque sous le bassin, pas loin devant. Buste grand, légèrement penché vers l’avant depuis les chevilles.', warn: [W('foot', 'Pied sous le bassin', 26, -10)], pose: { h: [110, 104], a: 6, w: [132, 90], w2: [90, 96], wz: 20, ep: [-1, -0.1, 0.15], f: [120, 182], f2: [74, 152] } },
+        { label: 'Poussée', text: 'Pousse le sol derrière toi. Les coudes restent pliés à environ 90° et les bras balancent d’avant en arrière.', warn: [W('shoulder', 'Épaules relâchées', 28, -14)], pose: { h: [114, 100], a: 6, w: [100, 100], w2: [136, 88], wz: 20, ep: [-1, -0.1, 0.15], f: [90, 175], f2: [142, 134] } },
+        { label: 'Appui opposé', text: 'Change de jambe. Vise des pas courts et rapides plutôt que de grandes foulées.', warn: [W('knee', 'Pas courts et rapides', -10, -40)], pose: { h: [110, 104], a: 6, w: [90, 96], w2: [132, 90], wz: 20, ep: [-1, -0.1, 0.15], f: [74, 152], f2: [120, 182] } }
       ],
       cues: ['Course facile : tu peux parler en phrases complètes. C’est plus lent qu’on ne le croit, et c’est normal.', 'Course soutenue : une seule par semaine, jamais la veille de la séance C.', 'Évite de dépasser de plus de 10 % ta plus longue sortie des 30 derniers jours : une grande étude de 2025 observe plus de blessures au-delà.'],
       errors: ['Courir toutes les sorties trop vite.', 'Poser le pied loin devant soi, jambe tendue.', 'Faire d’un coup une sortie bien plus longue que d’habitude.'] }
@@ -1535,15 +1709,491 @@ const EX = (() => {
     ['Accélérations', 'À la fin d’une sortie facile : 20 secondes rapides mais relâchées, sans aller à fond, puis 1 minute de marche ou de trot.']
   ];
 
-  return { BONE, joint, joints, mix, poseAt, drawFigure, drawMuscles, MUSCLE_NAMES, FRONT, BACK, SHEETS, find, GLOSSARY };
+  return { BONE, SH, HIP, FLOOR, add, sub, mul, dot, cross, len, unit, perp, skeleton, skeletonAt, joints, mix, poseAt, boundsOf, drawFigure, drawMuscles, layoutMarks, wrapLabel, MUSCLE_NAMES, FRONT, BACK, SHEETS, find, GLOSSARY };
 })();
 
+
+/* Carnet de séances — personnage et matériel en 3D (Three.js, chargé seulement à l'ouverture d'une fiche).
+   Unité : environ 1 cm. Repère : x vers l'avant, y vers le haut, z sur le côté (voir exercises.js).
+   Sans WebGL ou sans Three.js, l'app garde le schéma 2D. */
+const FIG3D = (() => {
+  const THREE_URL = window.CARNET_THREE_URL || 'https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js';
+  const { add, sub, mul, dot, cross, len, unit, perp } = EX;
+  const VIEWS = { side: { az: 0, el: 6 }, front: { az: 90, el: 6 }, back: { az: -90, el: 6 } };
+  const FOV = 26, F188 = EX.FLOOR;
+  let T = null, loading = null, broken = false, R = null, scene, cam, key, headLight, root, gearG, floorM, shadowM;
+  let P = null, uSphere = null;
+  const MAT = {}, GM = {}, tapers = {};
+  let sheet = null, tNow = 0, az = 30, el = 8, tgt = [100, 85, 0], dist = 520, floorY = 0, W = 0, H = 0, box = null, marksEl = null, lastS = null;
+  let dyn = [], notes = [], viewCb = null, lostCb = null, drag = null;
+
+  const webgl = () => { try { const c = document.createElement('canvas'); return !!(window.WebGLRenderingContext && (c.getContext('webgl') || c.getContext('experimental-webgl'))); } catch (e) { return false; } };
+  function load() {
+    if (T && R) return Promise.resolve(true);
+    if (broken || !webgl()) { broken = true; return Promise.reject(new Error('3D indisponible')); }
+    if (!loading) loading = new Promise((ok, ko) => {
+      if (window.THREE) return ok(window.THREE);
+      const s = document.createElement('script'); s.src = THREE_URL; s.async = true;
+      s.onload = () => window.THREE ? ok(window.THREE) : ko(new Error('Three.js absent'));
+      s.onerror = () => ko(new Error('Three.js non chargé'));
+      document.head.appendChild(s);
+    }).then(t => { T = t; init(); return true; }).catch(e => { loading = null; throw e; });
+    return loading;
+  }
+  const ready = () => !!(T && R && !broken);
+
+  /* ---------- Scène ---------- */
+  function init() {
+    try { R = new T.WebGLRenderer({ antialias: true, alpha: true }); }
+    catch (e) { broken = true; throw e; }
+    R.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+    R.outputEncoding = T.sRGBEncoding;
+    R.shadowMap.enabled = true; R.shadowMap.type = T.PCFSoftShadowMap;
+    R.setClearColor(0x000000, 0);
+    const c = R.domElement;
+    c.addEventListener('webglcontextlost', e => { e.preventDefault(); broken = true; if (lostCb) lostCb(); });
+    c.addEventListener('pointerdown', e => { drag = { x: e.clientX, y: e.clientY, az, el }; try { c.setPointerCapture(e.pointerId); } catch (x) {} c.style.cursor = 'grabbing'; });
+    c.addEventListener('pointermove', e => {
+      if (!drag) return;
+      az = drag.az - (e.clientX - drag.x) * 0.6;
+      el = Math.max(2, Math.min(70, drag.el + (e.clientY - drag.y) * 0.35));
+      updateCam(); paintFrame(); if (viewCb) viewCb(null);
+    });
+    const stop = () => { drag = null; c.style.cursor = ''; };
+    c.addEventListener('pointerup', stop); c.addEventListener('pointercancel', stop);
+    scene = new T.Scene();
+    cam = new T.PerspectiveCamera(FOV, 1, 20, 3000);
+    scene.add(new T.HemisphereLight(0xffffff, 0x4a4f55, 0.62));
+    key = new T.DirectionalLight(0xffffff, 0.78); key.castShadow = true;
+    key.shadow.mapSize.set(1024, 1024);
+    Object.assign(key.shadow.camera, { left: -190, right: 190, top: 190, bottom: -190, near: 10, far: 900 });
+    key.shadow.bias = -0.0006;
+    scene.add(key); scene.add(key.target);
+    headLight = new T.DirectionalLight(0xffffff, 0.24); scene.add(headLight); scene.add(headLight.target);
+    root = new T.Group(); scene.add(root);
+    gearG = new T.Group(); scene.add(gearG);
+    uSphere = new T.SphereGeometry(1, 22, 16);
+    const std = o => new T.MeshStandardMaterial(o);
+    GM.steel = std({ color: 0x9aa3ab, metalness: 0.75, roughness: 0.34 });
+    GM.dark = std({ color: 0x3b4148, metalness: 0.25, roughness: 0.6 });
+    GM.pad = std({ color: 0x2c3036, metalness: 0, roughness: 0.82 });
+    GM.plate = std({ color: 0x24282d, metalness: 0.2, roughness: 0.52 });
+    GM.disc = std({ color: 0x24282d, metalness: 0.2, roughness: 0.52 });
+    GM.disc2 = std({ color: 0x3b4148, metalness: 0.25, roughness: 0.6 });
+    GM.cable = std({ color: 0xd8dade, metalness: 0.1, roughness: 0.5 });
+    GM.bead = std({ color: 0xf4b860, metalness: 0, roughness: 0.6, emissive: 0xf4b860, emissiveIntensity: 0.35 });
+    /* Sol : une tache douce qui s'efface sur les bords, et les ombres par-dessus */
+    const spot = document.createElement('canvas'); spot.width = spot.height = 256;
+    const sc = spot.getContext('2d'), grad = sc.createRadialGradient(128, 128, 20, 128, 128, 128);
+    grad.addColorStop(0, 'rgba(255,255,255,1)'); grad.addColorStop(0.55, 'rgba(255,255,255,.75)'); grad.addColorStop(1, 'rgba(255,255,255,0)');
+    sc.fillStyle = grad; sc.fillRect(0, 0, 256, 256);
+    GM.floor = new T.MeshBasicMaterial({ color: 0x24282d, map: new T.CanvasTexture(spot), transparent: true, depthWrite: false, toneMapped: false });
+    floorM = new T.Mesh(new T.PlaneGeometry(2, 2), GM.floor); floorM.rotation.x = -Math.PI / 2; scene.add(floorM);
+    shadowM = new T.Mesh(new T.PlaneGeometry(2, 2), new T.ShadowMaterial({ opacity: 0.3 })); shadowM.rotation.x = -Math.PI / 2; shadowM.receiveShadow = true; scene.add(shadowM);
+    buildBody();
+  }
+  /* Place un objet unité : X et Y sont orthonormés, Z est calculé pour rester dans un repère direct */
+  function put(m, c, X, Y, rx, ry, rz) {
+    const Z = cross(X, Y);
+    m.matrix.set(X[0] * rx, Y[0] * ry, Z[0] * rz, c[0], X[1] * rx, Y[1] * ry, Z[1] * rz, c[1], X[2] * rx, Y[2] * ry, Z[2] * rz, c[2], 0, 0, 0, 1);
+    m.matrixWorldNeedsUpdate = true;
+  }
+  function seg(m, a, b, r) {
+    const d = sub(a, b), l = Math.max(len(d), 1e-3), Y = mul(d, 1 / l);
+    put(m, mul(add(a, b), 0.5), perp(Y, [0.31, 0.21, 0.93]), Y, r, l, r);
+  }
+  /* ---------- Corps : volumes neutres et muscles colorés ---------- */
+  function buildBody() {
+    const mat = id => MAT[id] || (MAT[id] = new T.MeshStandardMaterial({ roughness: id === 'shoe' || id === 'hair' ? 0.8 : 0.56, metalness: 0.02 }));
+    const prep = m => { m.matrixAutoUpdate = false; m.frustumCulled = false; m.castShadow = true; root.add(m); return m; };
+    const sph = id => prep(new T.Mesh(uSphere, mat(id)));
+    const cyl = (ratio, id) => {
+      const g = tapers[ratio] || (tapers[ratio] = new T.CylinderGeometry(1, ratio, 1, 18, 1));
+      return prep(new T.Mesh(g, mat(id)));
+    };
+    const side = fn => ({ R: fn(), L: fn() });
+    P = {
+      pelvis: sph('base'), core: sph('base'), ribs: sph('base'), girdle: sph('base'), abs: sph('abs'), obl: side(() => sph('oblique')), pec: side(() => sph('pec')),
+      lat: side(() => sph('lat')), midback: sph('midback'), trap: sph('trap'), lower: side(() => sph('lower')), glute: side(() => sph('glute')),
+      neck: cyl(0.9, 'base'), head: sph('skin'), jaw: sph('skin'), nose: sph('skin'), hair: sph('hair'),
+      arm: side(() => ({ ball: sph('base'), deltF: sph('deltF'), deltB: sph('deltB'), up: cyl(0.76, 'base'), bicep: sph('bicep'), tricep: sph('tricep'), elbow: sph('base'), fore: cyl(0.66, 'forearm'), foreM: sph('forearm'), hand: sph('skin') })),
+      leg: side(() => ({ up: cyl(0.62, 'base'), quad: sph('quad'), ham: sph('ham'), knee: sph('base'), low: cyl(0.64, 'base'), shin: sph('shin'), calf: sph('calf'), shoe: sph('shoe'), heel: sph('shoe') }))
+    };
+  }
+  /* Le muscle du côté où le membre se replie, même quand le membre est presque tendu */
+  function foldSide(Y, other, pole) {
+    const v = sub(other, mul(Y, dot(other, Y)));
+    return unit(add(v, mul(perp(Y, pole), -0.15)));
+  }
+  function poseBody(S) {
+    const F = S.F, U = S.U, Zb = cross(F, U), O = S.H;
+    const at = (u, f, z) => add(add(add(O, mul(U, u)), mul(F, f)), mul(Zb, z));
+    const tor = (m, u, f, z, rf, ru, rz) => put(m, at(u, f, z), F, U, rf, ru, rz);
+    tor(P.pelvis, 3, -1, 0, 9.6, 9, 12.6);
+    tor(P.core, 20, 0, 0, 8.6, 17, 12);
+    tor(P.ribs, 37, 0, 0, 10.6, 15, 14.6);
+    tor(P.girdle, 47, -1, 0, 7, 5, 16.5);
+    tor(P.abs, 20, 5.6, 0, 3.6, 15, 8);
+    tor(P.midback, 41, -8.6, 0, 2.8, 7.5, 8.5);
+    tor(P.trap, 51, -5, 0, 3.8, 7.5, 12);
+    for (const [s, k] of [[1, 'R'], [-1, 'L']]) {
+      tor(P.obl[k], 20, 1.5, s * 9.4, 5.6, 13, 3.4);
+      tor(P.pec[k], 40.5, 8, s * 7.2, 3.8, 6.8, 7.6);
+      tor(P.lat[k], 31, -4.5, s * 10.8, 4.2, 14, 5.4);
+      tor(P.lower[k], 14, -7.4, s * 3.6, 3.1, 13, 3.4);
+      tor(P.glute[k], 0, -6.6, s * 5.6, 6, 7.6, 6.8);
+    }
+    const hd = S.head;
+    seg(P.neck, add(S.Sc, mul(U, 2)), add(hd, mul(U, -6)), 5);
+    put(P.head, hd, F, U, 8.8, 10.2, 7.8);
+    put(P.jaw, add(add(hd, mul(U, -5)), mul(F, 2.2)), F, U, 6, 6, 6.2);
+    put(P.nose, add(add(hd, mul(F, 8.8)), mul(U, -1.4)), F, U, 1.7, 2.2, 1.4);
+    put(P.hair, add(add(hd, mul(U, 3.6)), mul(F, -1.2)), F, U, 8.2, 7.4, 7.9);
+    const arm = (A, sh, elb, hand, pole, out) => {
+      const Y = unit(sub(elb, sh)), fY = unit(sub(hand, elb)), bic = foldSide(Y, fY, pole), front = perp(Y, add(F, mul(U, 0.4)));
+      put(A.ball, sh, F, U, 5, 5, 5);
+      const dc = add(sh, add(mul(Y, 2.5), mul(out, 1.2)));
+      put(A.deltF, add(dc, mul(front, 2.6)), front, Y, 3.8, 7, 4.6);
+      put(A.deltB, add(dc, mul(front, -2.6)), front, Y, 3.8, 7, 4.6);
+      seg(A.up, sh, elb, 4.4);
+      put(A.bicep, add(add(sh, mul(Y, 16)), mul(bic, 1.9)), bic, Y, 3.2, 11, 3.6);
+      put(A.tricep, add(add(sh, mul(Y, 15)), mul(bic, -1.9)), bic, Y, 3.2, 12.5, 3.7);
+      put(A.elbow, elb, F, U, 3.4, 3.4, 3.4);
+      seg(A.fore, elb, hand, 3.5);
+      const fx = perp(fY, bic);
+      put(A.foreM, add(elb, mul(fY, 9)), fx, fY, 3.9, 10, 3.9);
+      put(A.hand, add(hand, mul(fY, 1)), fx, fY, 2.7, 4.6, 3.4);
+    };
+    arm(P.arm.R, S.shoulderR, S.elbowR, S.handR, S.ep, S.Z);
+    arm(P.arm.L, S.shoulderL, S.elbowL, S.handL, S.ep2, mul(S.Z, -1));
+    const leg = (G, hip, knee, foot, toe, pole) => {
+      const Y = unit(sub(knee, hip)), sY = unit(sub(foot, knee)), ham = foldSide(Y, sY, pole), calf = foldSide(sY, mul(Y, -1), mul(pole, -1));
+      seg(G.up, hip, knee, 7.4);
+      put(G.quad, add(add(hip, mul(Y, 19)), mul(ham, -2.6)), ham, Y, 5, 19, 6);
+      put(G.ham, add(add(hip, mul(Y, 19)), mul(ham, 2.6)), ham, Y, 4.6, 18, 5.6);
+      put(G.knee, knee, F, U, 4.5, 4.5, 4.5);
+      seg(G.low, knee, foot, 4.2);
+      put(G.shin, add(add(knee, mul(sY, 15)), mul(calf, -1.5)), calf, sY, 2.6, 14, 3);
+      put(G.calf, add(add(knee, mul(sY, 12)), mul(calf, 2.3)), calf, sY, 3.9, 11, 4.4);
+      const heel = add(foot, mul(sY, 4.5)), axis = sub(toe, heel), L = Math.max(len(axis), 6), sole = mul(axis, 1 / L), top = perp(sole, mul(sY, -1));
+      put(G.shoe, add(add(heel, mul(axis, 0.5)), mul(top, 1.8)), top, sole, 3.2, L / 2 + 2.2, 4.2);
+      put(G.heel, add(heel, mul(top, 2.5)), top, sole, 3.1, 3.4, 3.4);
+    };
+    leg(P.leg.R, S.hipR, S.kneeR, S.footR, S.toeR, S.kp);
+    leg(P.leg.L, S.hipL, S.kneeL, S.footL, S.toeL, S.kp2);
+  }
+
+  /* ---------- Matériel ---------- */
+  const note = (x, y, z) => notes.push([x, y, z]);
+  const mesh = (geo, m, shadow = true) => { const o = new T.Mesh(geo, m); o.castShadow = shadow; o.receiveShadow = shadow; return o; };
+  function block(x0, x1, y0, y1, z0, z1, m) {
+    const o = mesh(new T.BoxGeometry(Math.abs(x1 - x0), Math.abs(y1 - y0), Math.abs(z1 - z0)), m);
+    o.position.set((x0 + x1) / 2, (y0 + y1) / 2, (z0 + z1) / 2); gearG.add(o);
+    note(x0, y0, z0); note(x1, y1, z1);
+    return o;
+  }
+  const YAXIS = () => new T.Vector3(0, 1, 0);
+  function setRod(o, a, b) {
+    const d = sub(a, b), l = Math.max(len(d), 1e-3);
+    o.quaternion.setFromUnitVectors(YAXIS(), new T.Vector3(d[0] / l, d[1] / l, d[2] / l));
+    o.position.set((a[0] + b[0]) / 2, (a[1] + b[1]) / 2, (a[2] + b[2]) / 2);
+    o.scale.set(1, l, 1);
+  }
+  function rod(a, b, r, m, sides = 14) {
+    const o = mesh(new T.CylinderGeometry(r, r, 1, sides), m); setRod(o, a, b); gearG.add(o);
+    note(a[0], a[1], a[2]); note(b[0], b[1], b[2]);
+    return o;
+  }
+  function barbell(r) {
+    const g = new T.Group(), axis = o => { o.rotation.x = Math.PI / 2; return o; };
+    const part = (rad, l, z, m, seg = 16) => { const o = axis(mesh(new T.CylinderGeometry(rad, rad, l, seg), m)); o.position.z = z; g.add(o); };
+    part(1.25, 150, 0, GM.steel);
+    for (const s of [1, -1]) {
+      part(2.1, 36, s * 86, GM.steel);
+      part(r, 3.4, s * 76, GM.disc, 44); part(r * 0.74, 2.6, s * 79.2, GM.disc2, 36); part(r * 0.5, 2.4, s * 81.7, GM.disc, 30); part(3, 2.2, s * 84, GM.steel);
+    }
+    return g;
+  }
+  function dumbbell(rHead, lHead, handle) {
+    const g = new T.Group();
+    const h = mesh(new T.CylinderGeometry(1.2, 1.2, handle, 12), GM.steel); g.add(h);
+    for (const s of [1, -1]) { const b = mesh(new T.CylinderGeometry(rHead, rHead, lHead, 8), GM.plate); b.position.y = s * (handle / 2 + lHead / 2 - 0.5); g.add(b); }
+    return g;
+  }
+  function placeWeight(g, hand, axis) {
+    g.position.set(hand[0], hand[1], hand[2]);
+    g.quaternion.setFromUnitVectors(YAXIS(), new T.Vector3(axis[0], axis[1], axis[2]));
+  }
+  function buildGear(s) {
+    while (gearG.children.length) {
+      const o = gearG.children[0]; gearG.remove(o);
+      o.traverse(n => { if (n.geometry) n.geometry.dispose(); });
+    }
+    dyn = []; notes = []; floorY = 0;
+    for (const g of s.gear || []) {
+      if (g.t === 'floor') floorY = F188 - g.y;
+    }
+    const Y = y => F188 - y;
+    for (const g of s.gear || []) {
+      switch (g.t) {
+        case 'barbell': {
+          const b = barbell(g.r || 20); gearG.add(b);
+          const pick = g.at === 'trap' ? S => S.trap : S => S.bar;
+          dyn.push(S => { const c = pick(S); b.position.set(c[0], c[1], 0); });
+          for (let t = 0; t <= s.frames.length - 1; t += 1) { const c = pick(EX.skeletonAt(s, t)); note(c[0], c[1], 100); note(c[0], c[1] + (g.r || 20), 76); }
+          break;
+        }
+        case 'dumbbell': case 'farmer': {
+          const big = g.t === 'farmer', dr = big ? dumbbell(8, 11, 13) : dumbbell(5, 6.5, 12), dl = big ? dumbbell(8, 11, 13) : dumbbell(5, 6.5, 12);
+          gearG.add(dr); gearG.add(dl);
+          const place = (w, hand, elb) => {
+            if (g.dir === 'z') return placeWeight(w, hand, [0, 0, 1]);
+            placeWeight(w, hand, unit(cross(unit(sub(hand, elb)), [0, 0, 1])));
+          };
+          dyn.push(S => { place(dr, S.handR, S.elbowR); place(dl, S.handL, S.elbowL); });
+          break;
+        }
+        case 'handle': {
+          if (s.id === 'fly') break;
+          const h = rod([0, 0, 0], [0, 0, 1], 1.1, GM.steel);
+          dyn.push(S => { const u = unit(sub(S.handR, S.handL)); setRod(h, add(S.handR, mul(u, 5)), add(S.handL, mul(u, -5))); });
+          break;
+        }
+        case 'pullbar': {
+          const y = Y(g.y), bottom = F188 - (g.floor ?? 188);
+          rod([g.x, y, -62], [g.x, y, 62], 1.6, GM.steel);
+          for (const z of [-60, 60]) { rod([g.x, y + 4, z], [g.x, bottom, z], 2.6, GM.dark); block(g.x - 16, g.x + 16, bottom, bottom + 2, z - 4, z + 4, GM.dark); }
+          break;
+        }
+        case 'dipbar': {
+          const y = Y(g.y), z = g.z || 24;
+          for (const sg of [1, -1]) {
+            rod([g.x - 42, y, sg * z], [g.x + 42, y, sg * z], 1.9, GM.steel);
+            for (const dx of [-34, 34]) rod([g.x + dx, y - 1, sg * (z + 3)], [g.x + dx, floorY, sg * (z + 3)], 2.3, GM.dark);
+          }
+          break;
+        }
+        case 'bench': {
+          const top = Y(g.y), bottom = F188 - (g.floor ?? 188);
+          block(g.x1, g.x2, top - 7, top, -14, 14, GM.pad);
+          for (const x of [g.x1 + 12, g.x2 - 12]) block(x - 2.5, x + 2.5, bottom, top - 7, -11, 11, GM.dark);
+          break;
+        }
+        case 'box': block(g.x1, g.x2, F188 - (g.floor ?? 188), Y(g.y), -30, 30, GM.pad); break;
+        case 'cable': {
+          const f = [g.from[0], Y(g.from[1]), g.from[2] || 0], sideways = !!g.from[2], top = Math.max(f[1] + 14, 168);
+          if (g.column) {
+            if (sideways) block(f[0] - 4, f[0] + 4, floorY, top, f[2] + 3, f[2] + 11, GM.dark);
+            else block(f[0] + 3, f[0] + 11, floorY, top, -4, 4, GM.dark);
+          }
+          const p = mesh(new T.SphereGeometry(3.2, 16, 12), GM.steel); p.position.set(f[0], f[1], f[2]); gearG.add(p);
+          const a = rod([0, 0, 0], [0, 1, 0], 0.5, GM.cable, 8), b = rod([0, 0, 0], [0, 1, 0], 0.5, GM.cable, 8);
+          note(f[0], f[1], f[2]);
+          dyn.push(S => { setRod(a, f, S.handR); setRod(b, f, S.handL); });
+          break;
+        }
+        case 'pad': {
+          const roller = rod([0, 0, 0], [0, 0, 1], 5, GM.pad, 20), lever = rod([0, 0, 0], [0, 1, 0], 1.3, GM.dark), lever2 = rod([0, 0, 0], [0, 1, 0], 1.3, GM.dark);
+          dyn.push(S => {
+            const d = unit(sub(S.footR, S.kneeR)), back = mul(perp(d, S.kp), -1), c = add(add(mul(add(S.footR, S.footL), 0.5), mul(back, 6.5)), mul(d, -2));
+            setRod(roller, [c[0], c[1], -15], [c[0], c[1], 15]);
+            const piv = mul(add(S.kneeR, S.kneeL), 0.5);
+            setRod(lever, [piv[0], piv[1], 15], [c[0], c[1], 15]); setRod(lever2, [piv[0], piv[1], -15], [c[0], c[1], -15]);
+          });
+          break;
+        }
+        case 'guide': {
+          const a = [g.from[0], Y(g.from[1])], b = [g.to[0], Y(g.to[1])], n = 8;
+          const geo = new T.SphereGeometry(1.1, 10, 8);
+          for (let i = 0; i <= n; i++) { const o = mesh(geo.clone(), GM.bead, false); o.position.set(a[0] + (b[0] - a[0]) * i / n, a[1] + (b[1] - a[1]) * i / n, 94); gearG.add(o); }
+          geo.dispose();
+          break;
+        }
+        case 'hyper': {
+          const px = g.pad[0], py = Y(g.pad[1]), fx = g.plate[0], fy = Y(g.plate[1]);
+          rod([px, py, -15], [px, py, 15], 6, GM.pad, 20);
+          block(fx - 11, fx + 12, fy - 2, fy + 1, -13, 13, GM.dark);
+          for (const z of [-17, 17]) {
+            rod([px, py - 6, z], [fx, fy - 1, z], 1.6, GM.dark);
+            rod([px, py - 6, z], [px + 2, floorY, z], 2, GM.dark);
+            rod([fx, fy - 1, z], [fx - 6, floorY, z], 2, GM.dark);
+          }
+          const S0 = EX.skeletonAt(s, 0), d = unit(sub(S0.footR, S0.kneeR)), back = mul(perp(d, S0.kp), -1), c = add(S0.footR, add(mul(back, 8), mul(d, -6)));
+          rod([c[0], c[1], -14], [c[0], c[1], 14], 3.8, GM.pad, 18);
+          break;
+        }
+        case 'revfly': {
+          const top = Y(g.seat[1]), mid = (g.seat[0] + g.seat[2]) / 2, py = Y(60), S0 = EX.skeletonAt(s, 0);
+          block(g.seat[0], g.seat[2], top - 7, top, -16, 16, GM.pad);
+          block(mid - 3, mid + 3, floorY, top - 7, -3, 3, GM.dark);
+          block(g.padX, g.padX + 6.5, Y(128), Y(90), -14, 14, GM.pad);
+          block(g.padX + 6.5, g.post - 3, Y(110) - 2, Y(110) + 2, -3, 3, GM.dark);
+          block(g.post - 4, g.post + 4, floorY, py + 6, -5, 5, GM.dark);
+          block(mid - 26, g.post + 16, floorY, floorY + 2, -16, 16, GM.dark);
+          const piv = sg => [S0.shoulderR[0], py, sg * S0.shoulderR[2]];
+          for (const sg of [1, -1]) rod([g.post, py, 0], piv(sg), 1.8, GM.dark);
+          const mk = () => ({ arm: rod([0, 0, 0], [0, 1, 0], 1.3, GM.steel), grip: rod([0, 0, 0], [0, 1, 0], 1.25, GM.pad, 10) });
+          const r = mk(), l = mk();
+          dyn.push(S => {
+            for (const [m, hand, sg] of [[r, S.handR, 1], [l, S.handL, -1]]) {
+              setRod(m.arm, piv(sg), [hand[0], hand[1] + 5, hand[2]]);
+              setRod(m.grip, [hand[0], hand[1] + 6, hand[2]], [hand[0], hand[1] - 6, hand[2]]);
+            }
+          });
+          break;
+        }
+      }
+    }
+    for (let t = 0; t <= s.frames.length - 1 + 1e-9; t += 0.5) {
+      const S = EX.skeletonAt(s, t);
+      for (const f of dyn) f(S);
+    }
+  }
+  /* ---------- Cadrage : tout le mouvement reste visible, sous tous les angles ---------- */
+  function frame(s) {
+    const body = [];
+    for (let t = 0; t <= s.frames.length - 1 + 1e-9; t += 0.25) {
+      const S = EX.skeletonAt(s, t);
+      for (const k of ['head', 'handR', 'handL', 'footR', 'footL', 'toeR', 'toeL', 'kneeR', 'kneeL', 'elbowR', 'elbowL', 'shoulderR', 'shoulderL', 'H']) body.push(S[k]);
+    }
+    const all = body.concat(notes);
+    const bb = (pts, i) => [Math.min(...pts.map(p => p[i])), Math.max(...pts.map(p => p[i]))];
+    const [x0, x1] = bb(body, 0), [y0, y1] = bb(body, 1);
+    const yBottom = Math.min(y0, floorY), yTop = y1 + 10;
+    tgt = [(x0 + x1) / 2, (yBottom + yTop) / 2, 0];
+    const far = (pts, k) => pts.reduce((m, p) => Math.max(m, len(sub(p, tgt)) * k), 0);
+    const radius = Math.max(far(body, 1) + 12, far(all, 1.06), 96);
+    dist = radius / Math.sin(FOV / 2 * Math.PI / 180);
+    floorM.position.set(tgt[0], floorY - 0.1, 0); floorM.scale.set(radius * 1.05, radius * 1.05, 1);
+    shadowM.position.set(tgt[0], floorY - 0.05, 0); shadowM.scale.set(radius * 1.5, radius * 1.5, 1);
+    key.position.set(tgt[0] + 110, tgt[1] + 260, 150); key.target.position.set(tgt[0], tgt[1], 0); key.target.updateMatrixWorld();
+    headLight.target.position.set(tgt[0], tgt[1], 0); headLight.target.updateMatrixWorld();
+  }
+  function updateCam() {
+    const a = az * Math.PI / 180, e = el * Math.PI / 180, d = W && H && W < H ? dist * H / W : dist;
+    cam.position.set(tgt[0] + d * Math.sin(a) * Math.cos(e), tgt[1] + d * Math.sin(e), tgt[2] + d * Math.cos(a) * Math.cos(e));
+    cam.lookAt(tgt[0], tgt[1], tgt[2]);
+    cam.updateMatrixWorld();
+    headLight.position.copy(cam.position);
+    /* Vue dans l'axe de la barre : les disques deviennent translucides pour ne pas cacher le corps */
+    const axis = Math.abs(Math.cos(a)) * Math.cos(e), op = axis > 0.8 ? Math.max(0.25, 1 - (axis - 0.8) / 0.17 * 0.75) : 1;
+    for (const m of [GM.disc, GM.disc2]) {
+      const tr = op < 1;
+      if (m.transparent !== tr) { m.transparent = tr; m.depthWrite = !tr; m.needsUpdate = true; }
+      m.opacity = op;
+    }
+  }
+  /* ---------- Couleurs : celles de la séance, et le thème clair ou sombre ---------- */
+  const cssVar = (el0, n) => getComputedStyle(el0).getPropertyValue(n).trim();
+  function toLinear(hex, fallback) {
+    const c = new T.Color();
+    try { c.set(hex || fallback); } catch (e) { c.set(fallback); }
+    return c.convertSRGBToLinear();
+  }
+  function paint(s) {
+    const scope = box || document.documentElement;
+    const chalk = cssVar(scope, '--chalk'), floor = cssVar(scope, '--floor'), ok = cssVar(scope, '--ok') || '#4cc27a';
+    let acc = cssVar(scope, '--c');
+    if (!acc || acc === chalk || !/^#/.test(acc)) acc = ok;
+    const fc = new T.Color(); try { fc.set(floor || '#111315'); } catch (e) { fc.set('#111315'); }
+    const darkTheme = (fc.r + fc.g + fc.b) / 3 < 0.5;
+    const neutral = toLinear(darkTheme ? '#a3a9b0' : '#a4a8ad', '#a3a9b0');
+    const accent = toLinear(acc, '#4cc27a');
+    for (const [id, m] of Object.entries(MAT)) {
+      m.emissive.set(0x000000); m.emissiveIntensity = 0;
+      if (id === 'skin') m.color.copy(toLinear(darkTheme ? '#b8bdc2' : '#b9bcc0', '#b8bdc2'));
+      else if (id === 'hair') m.color.copy(toLinear('#3a3f45', '#3a3f45'));
+      else if (id === 'shoe') m.color.copy(toLinear(darkTheme ? '#70777f' : '#3d4247', '#70777f'));
+      else if ((s.prim || []).includes(id)) { m.color.copy(accent); m.emissive.copy(accent); m.emissiveIntensity = 0.22; }
+      else if ((s.sec || []).includes(id)) m.color.copy(neutral).lerp(accent, 0.45);
+      else m.color.copy(neutral);
+    }
+    GM.floor.color.copy(toLinear(darkTheme ? '#2b3036' : '#d3cfc4', '#2b3036'));
+    shadowM.material.opacity = darkTheme ? 0.42 : 0.22;
+  }
+  function setSheet(s) {
+    sheet = s; paint(s); buildGear(s); frame(s);
+    const v = s.view || { az: 30, el: 8 };
+    az = v.az; el = v.el;
+    if (R.domElement) R.domElement.setAttribute('aria-label', 'Personnage en 3D : ' + s.name);
+    updateCam();
+    if (viewCb) viewCb('q');
+  }
+  /* ---------- Points d'attention : étiquettes sur le côté, reliées au corps ---------- */
+  const xml = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;');
+  const toCam = v => (v[0] - cam.position.x) ** 2 + (v[1] - cam.position.y) ** 2 + (v[2] - cam.position.z) ** 2;
+  const nearest = (a, b) => toCam(a) < toCam(b) ? a : b;
+  function anchor(S, at) {
+    switch (at) {
+      case 'hand': return nearest(S.handR, S.handL);
+      case 'elbow': return nearest(S.elbowR, S.elbowL);
+      case 'knee': return nearest(S.kneeR, S.kneeL);
+      case 'foot': return nearest(S.footR, S.footL);
+      case 'shoulder': return nearest(S.shoulderR, S.shoulderL);
+      case 'head': return S.head; case 'back': return S.back; case 'bar': return S.bar; case 'trap': return S.trap;
+      default: return S.H;
+    }
+  }
+  function project(v) {
+    const p = new T.Vector3(v[0], v[1], v[2]).project(cam);
+    return [(p.x + 1) / 2 * W, (1 - p.y) / 2 * H];
+  }
+  function drawMarks() {
+    if (!marksEl || !lastS) return;
+    const i = Math.round(tNow), near = 1 - Math.abs(tNow - i) / 0.2, warn = sheet.frames[i]?.warn || [];
+    if (near <= 0 || !warn.length) { marksEl.innerHTML = ''; return; }
+    const items = warn.map(m => { const p = project(anchor(lastS, m.at)); return { t: m.t, x: p[0], y: p[1] }; });
+    let o = `<g style="opacity:${Math.min(1, near * 1.6).toFixed(2)}">`;
+    for (const b of EX.layoutMarks(items, W, H)) {
+      const cx = Math.max(b.bx, Math.min(b.bx + b.w, b.x)), cy = Math.max(b.by, Math.min(b.by + b.h, b.y));
+      o += `<line x1="${b.x.toFixed(1)}" y1="${b.y.toFixed(1)}" x2="${cx.toFixed(1)}" y2="${cy.toFixed(1)}" class="m-line"/><circle cx="${b.x.toFixed(1)}" cy="${b.y.toFixed(1)}" r="4" class="m-dot"/>`;
+      o += `<rect x="${b.bx.toFixed(1)}" y="${b.by.toFixed(1)}" width="${b.w.toFixed(1)}" height="${b.h}" rx="5" class="m-box"/>`;
+      b.lines.forEach((l, k) => { o += `<text x="${(b.bx + b.w / 2).toFixed(1)}" y="${(b.by + 14.5 + k * 14).toFixed(1)}" text-anchor="middle" class="m-text">${xml(l)}</text>`; });
+    }
+    marksEl.setAttribute('viewBox', `0 0 ${W} ${H}`);
+    marksEl.innerHTML = o + '</g>';
+  }
+  function paintFrame() { if (R && sheet) { R.render(scene, cam); drawMarks(); } }
+
+  /* ---------- Interface pour l'app ---------- */
+  function mount(boxEl, marks) {
+    if (!ready() || !boxEl) return false;
+    box = boxEl; marksEl = marks;
+    const c = R.domElement;
+    if (c.parentNode !== boxEl) boxEl.insertBefore(c, boxEl.firstChild);
+    boxEl.classList.add('is3d');
+    return true;
+  }
+  function draw(s, t) {
+    if (!ready() || !box || !box.isConnected) return false;
+    const w = box.clientWidth, h = box.clientHeight;
+    if (!w || !h) return false;
+    const resized = w !== W || h !== H;
+    if (resized) { W = w; H = h; R.setSize(w, h, false); cam.aspect = w / h; cam.updateProjectionMatrix(); }
+    if (s !== sheet) setSheet(s); else if (resized) updateCam();
+    tNow = t;
+    lastS = EX.skeletonAt(s, t);
+    poseBody(lastS);
+    for (const f of dyn) f(lastS);
+    paintFrame();
+    return true;
+  }
+  function setView(name) {
+    if (!ready() || !sheet) return;
+    const v = name === 'q' ? (sheet.view || { az: 30, el: 8 }) : VIEWS[name];
+    if (!v) return;
+    az = v.az; el = v.el; updateCam(); paintFrame();
+    if (viewCb) viewCb(name);
+  }
+  return { load, ready, mount, draw, setView, onView: f => { viewCb = f; }, onLost: f => { lostCb = f; }, reset: () => { sheet = null; } };
+})();
 
 </script>
 <script>
 /* ======================= Données fixes ======================= */
 const PROFILE = `Profil non renseigné : complète-le dans Programme (taille, poids, niveau, objectifs, matériel).`;
 const RULES = `Séries de 6 à environ 90 % de la série lourde, 1-2 reps en réserve sur les gros exercices. Progression +2,5 kg au squat et au soulevé de terre dès que toutes les reps sont faites ; couché en double progression (1×5 + 2×7 à charge égale, puis +2,5 kg). Couché pause à 80 % de la série lourde. Tractions et dips : lest dès le seuil de reps atteint partout.
+Logique des séances : A tout le dos, B poussée seulement, C jambes puis rappel de couché et gainage. Ne remets pas d'exercices de jambes ou de gainage en B sans que je le demande.
 Cycles de 7 semaines depuis le 05/10/2026, la 7e en allègement (−10 %, moitié des séries, 3-4 reps en réserve).
 À 5 séances : A, B, course facile, C, repos, course soutenue, repos. À 4 séances : A, B, C et 1 course en alternant facile et soutenue. À 3 séances : A, B, C et 20 min de course facile après B. Jamais de course soutenue la veille de C, jamais A et C deux jours de suite, une seule course soutenue par semaine.`;
 const RUN_BASE = { km: 4.23, sec: 1228 };
@@ -1662,6 +2312,7 @@ function renderView(){
 /* Les consignes du programme, en clair */
 const GUIDE = [
   ['Organiser ta semaine', ['5 séances : A, B, course facile, C, repos, course soutenue, repos.', '4 séances : A, B, C et 1 course (facile une semaine, soutenue la suivante).', '3 séances : A, B, C, et 20 minutes de course facile après B.', 'À éviter : une course soutenue la veille de C, A et C deux jours de suite, plus d’une course soutenue par semaine. L’app te prévient.']],
+  ['La logique de chaque séance', ['A · Tirage : tout le dos. Les exercices lourds d’abord, le travail direct du bas du dos après, et la prise à la fin, parce qu’elle fatigue vite et limite les autres exercices.', 'B · Poussée : pectoraux, épaules et triceps uniquement. Le reverse fly termine la séance pour l’arrière des épaules, moins sollicité que l’avant.', 'C · Jambes : sauts d’abord quand tu es frais, puis squat et jambes. Le couché pause arrive ensuite : c’est le 2e passage de la semaine sur ton point faible, placé loin de la séance B. Le gainage finit la séance.', 'Tu peux déplacer un exercice dans Programme : l’app garde son historique.']],
   ['Avant chaque séance', ['5 à 8 minutes de cardio facile, puis quelques mouvements de mobilité.', 'Sur les exercices à la barre, l’app affiche les séries d’échauffement à faire avant ta première série.']],
   ['Choisir la bonne charge', ['Termine chaque série en pensant « je pouvais en faire encore 1 ou 2 ». Si tu peux en faire plus de 3, la charge est trop légère.', 'Tractions : arrête chaque série 1 répétition avant ton maximum.', 'Couché pause : charge volontairement plus légère, avec au moins 3 répétitions encore possibles.', 'Sur les premières séances, l’app ne connaît pas tes charges : choisis-les, elle les reprendra ensuite.']],
   ['Quand augmenter', ['Soulevé de terre et squat : +2,5 kg dès que toutes les répétitions sont réussies.', 'Développé couché : d’abord 1 répétition de plus par série à charge égale (5, 7, 7), puis +2,5 kg et retour à 4, 6, 6.', 'Tractions et dips : +2,5 kg de lest dès que tu atteins le seuil à toutes les séries.', 'Autres exercices : 2 à 2,5 kg de plus quand tu atteins le haut de l’objectif à toutes les séries.', 'L’app te propose la charge suivante toute seule.']],
@@ -1674,14 +2325,26 @@ function guideHtml(){
 }
 
 /* ======================= Info : fiches et schémas animés ======================= */
-const FIG = { raf: 0, t: 0, play: true, sheet: null, dir: 1, prev: 0, idx: -1, hold: 0 };
+const FIG = { raf: 0, t: 0, play: true, sheet: null, dir: 1, prev: 0, idx: -1, hold: 0, no3d: false };
 function figMount(sheet){
   if (FIG.sheet !== sheet) { FIG.sheet = sheet; FIG.t = 0; FIG.dir = 1; FIG.hold = 2.2; FIG.play = !window.matchMedia?.('(prefers-reduced-motion: reduce)').matches; }
-  FIG.idx = -1; figDraw(); if (FIG.play) figKick();
+  FIG.idx = -1; fig3dAttach(); figDraw(); if (FIG.play) figKick();
+  /* Le schéma 2D s'affiche tout de suite ; le personnage 3D prend le relais une fois chargé */
+  if (!FIG.no3d && !FIG3D.ready()) FIG3D.load().then(() => { fig3dAttach(); figDraw(); }).catch(() => { FIG.no3d = true; });
 }
+function fig3dAttach(){
+  const on = !FIG.no3d && FIG3D.ready() && FIG3D.mount($('figbox'), $('figmarks'));
+  const v = $('figviews'); if (v) v.hidden = !on;
+  const h = $('fighint'); if (h) h.hidden = !on;
+  return on;
+}
+function figViewMark(name){ document.querySelectorAll('[data-a="figview"]').forEach(b => b.classList.toggle('on', b.dataset.v === name)); }
+FIG3D.onView(figViewMark);
+FIG3D.onLost(() => { FIG.no3d = true; $('figbox')?.classList.remove('is3d'); const m = $('figmarks'); if (m) m.innerHTML = ''; fig3dAttach(); figDraw(); });
 function figDraw(){
   const svg = $('fig'); if (!svg || !FIG.sheet) return false;
-  svg.innerHTML = EX.drawFigure(FIG.sheet, FIG.t, { marks: true });
+  const in3d = !FIG.no3d && FIG3D.ready() && FIG3D.draw(FIG.sheet, FIG.t);
+  if (!in3d) svg.innerHTML = EX.drawFigure(FIG.sheet, FIG.t, { marks: true });
   const r = $('figrange'); if (r) r.value = FIG.t;
   const i = Math.round(FIG.t);
   if (i !== FIG.idx) {
@@ -1721,11 +2384,12 @@ function infoDetail(sheet, back){
   return `<section class="card info" style="--c:${col(def?.[0])}">
     <div><button class="btn sm ghost" data-a="${back}">‹ Retour</button></div>
     <h2>${esc(sheet.name)}</h2><p class="small dim">${esc(sheet.why)}</p>
-    <div class="figbox"><span class="figtag" id="figtag"></span><svg id="fig" viewBox="${sheet.vb || '10 0 220 205'}" role="img" aria-label="Animation du mouvement : ${esc(sheet.name)}"></svg></div>
+    <div class="figbox" id="figbox"><span class="figtag" id="figtag"></span><svg id="fig" viewBox="${sheet.vb || '10 0 220 205'}" role="img" aria-label="Animation du mouvement : ${esc(sheet.name)}"></svg><svg id="figmarks" aria-hidden="true"></svg></div>
+    <div class="chips viewbtns" id="figviews" role="group" aria-label="Angle de vue" hidden><button class="chip on" data-a="figview" data-v="q">3/4</button><button class="chip" data-a="figview" data-v="side">Côté</button><button class="chip" data-a="figview" data-v="front">Devant</button><button class="chip" data-a="figview" data-v="back">Derrière</button></div>
     <div class="figctl"><button class="btn sm" id="figplay" data-a="figplay">Pause</button><input type="range" id="figrange" min="0" max="${sheet.frames.length - 1}" step="0.01" value="0" aria-label="Avancer dans le mouvement"></div>
     <div class="chips" role="group" aria-label="Étapes du mouvement">${sheet.frames.map((f, i) => `<button class="chip" data-a="figstep" data-v="${i}">${i + 1}. ${esc(f.label)}</button>`).join('')}</div>
     <div class="figtext" id="figtext" aria-live="polite"></div>
-    <p class="small dim">L’animation s’arrête à chaque étape sur les points d’attention, en orange. En couleur sur le personnage : ce qui travaille le plus.${hasGuide ? ' Pointillés : trajet de la barre.' : ''}</p>
+    <p class="small dim"><span id="fighint" hidden>Fais glisser le personnage pour le tourner. </span>L’animation s’arrête à chaque étape sur les points d’attention, en orange. En couleur vive : les muscles principaux ; en couleur atténuée : ceux en renfort.${hasGuide ? ' Pointillés : trajet de la barre.' : ''} C’est un schéma de principe : l’angle exact dépend de ta morphologie et de ton matériel.</p>
   </section>
   <section class="card info" style="--c:${col(def?.[0])}"><h3>Muscles ciblés</h3>
     <div class="mmap"><svg viewBox="0 0 146 208" role="img" aria-label="Carte des muscles ciblés">${EX.drawMuscles(sheet)}</svg>
@@ -1809,7 +2473,7 @@ function viewToday(){
   }
   if (log && t && log.status === 'faite') {
     h += `<section class="card plate" style="--c:${col(log.templateId)}">${cardHead(log.templateId, 'Séance faite ✓', t.name)}
-      <div class="exl">${exOrder(t).map(ex => { const d = L.describe(ex, log.entries?.[ex.name]); return d ? `<div class="r"><b>${esc(ex.name)}</b><span class="num">${esc(d)}</span></div>` : ''; }).join('')}</div>
+      <div class="exl">${L.entryRows(log, t, S.templates).map(({ ex, e }) => { const d = L.describe(ex, e); return d ? `<div class="r"><b>${esc(ex.name)}</b><span class="num">${esc(d)}</span></div>` : ''; }).join('')}</div>
       ${feelLine(log)}
       <div class="row"><button class="btn sm ghost" data-a="enter" data-v="${k}">Modifier les charges</button></div></section>`;
   } else if (log && t) {
@@ -1925,7 +2589,7 @@ function dayPanel(k){
   if (t) {
     const done = l.status === 'faite';
     const anyData = Object.values(l.entries || {}).some(e => e && !e.skipped && L.isNum(e.val));
-    h += `<div class="exl">${exOrder(t).map(ex => { const d = L.describe(ex, l.entries?.[ex.name]); if (!d && done && anyData) return ''; return `<div class="r"><b>${esc(ex.name)}</b><span>${esc(d || (done ? 'à noter' : L.repsPlain(ex)))}</span></div>`; }).join('')}</div>`;
+    h += `<div class="exl">${L.entryRows(l, t, S.templates).map(({ ex, e, planned }) => { const d = L.describe(ex, e); if (!d && (!planned || (done && anyData))) return ''; return `<div class="r"><b>${esc(ex.name)}</b><span>${esc(d || (done ? 'à noter' : L.repsPlain(ex)))}</span></div>`; }).join('')}</div>`;
     if (l.templateId === 'D') { const r = L.runOf(l, t); if (r?.pace) h += `<p class="small">Allure <b class="num">${L.fmtPace(r.pace)} /km</b>${r.hr ? ` · fréquence cardiaque ${r.hr}` : ''}${r.treadmill ? ' · tapis' : ''}</p>`; }
     h += feelLine(l);
     h += `<div class="stack">`;
@@ -1954,7 +2618,7 @@ function spark(vals, H = 46, goal = null){
 const mainLifts = () => { const out = []; L.tplList(S.templates).forEach(([id, t]) => exOrder(t).filter(ex => ex.main).forEach(ex => out.push({ id, ex }))); return out; };
 function weekTiles(){
   let n = 0, ton = 0, km = 0;
-  for (const d of weekDays(today())) { const l = S.logs[d]; if (l?.status !== 'faite') continue; n++; const st = L.sessionStats(l, S.templates[l.templateId]); ton += st.tonnage; km += st.km; }
+  for (const d of weekDays(today())) { const l = S.logs[d]; if (l?.status !== 'faite') continue; n++; const st = L.sessionStats(l, S.templates[l.templateId], S.templates); ton += st.tonnage; km += st.km; }
   return `<div class="tiles"><div class="tile"><b>${n}</b><span>séance${n > 1 ? 's' : ''} faite${n > 1 ? 's' : ''}</span></div><div class="tile"><b>${L.frNum(L.r1(ton / 1000))} t</b><span>soulevées</span></div><div class="tile"><b>${L.frNum(L.r1(km))}</b><span>km courus</span></div></div>`;
 }
 function viewProg(){
@@ -2258,7 +2922,7 @@ async function keepAwake(on){
 }
 document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible' && S.run && S.showRun) { keepAwake(true); renderSession(); } });
 
-function persistRun(){ if (S.run) LS.set('run', S.run); else LS.del('run'); }
+function persistRun(){ if (S.run) LS.set('run', S.run); else { LS.del('run'); setTimeout(runMigration, 0); } }
 function runExercises(t){ return exOrder(t).filter(ex => L.unitOf(ex) !== 'km' && L.unitOf(ex) !== 'min'); }
 function hasRun(t){ return exOrder(t).some(ex => L.unitOf(ex) === 'km'); }
 /* Prépare la séance : séries proposées, ou séries déjà notées ce jour-là */
@@ -2496,9 +3160,9 @@ function endScreen(R, t){
   const runL = R.runData?.done ? `<div class="r"><b>Course</b><span class="num">${L.frNum(R.runData.km)} km · ${L.fmtDur(R.runData.sec)} · ${L.fmtPace(R.runData.sec / R.runData.km)} /km</span></div>` : '';
   const open = xs.filter(x => { const e = R.ex[x.name]; return !e.skipped && e.sets.some(s => !s.done); }).length;
   const conf = R.abandon || 0;
-  const st = L.sessionStats(logFromRun('faite'), t);
+  const st = L.sessionStats(logFromRun('faite'), t, S.templates);
   const prevK = Object.keys(S.logs).filter(d => d < R.date && S.logs[d].templateId === R.tid && S.logs[d].status === 'faite').sort().pop();
-  const prevTon = prevK ? L.sessionStats(S.logs[prevK], t).tonnage : 0, gain = prevTon && st.tonnage ? Math.round((st.tonnage - prevTon) / prevTon * 100) : null;
+  const prevTon = prevK ? L.sessionStats(S.logs[prevK], t, S.templates).tonnage : 0, gain = prevTon && st.tonnage ? Math.round((st.tonnage - prevTon) / prevTon * 100) : null;
   const tile2 = R.runData?.done ? `<div class="tile"><b>${L.frNum(R.runData.km)}</b><span>km</span></div>` : `<div class="tile"><b>${L.frNum(L.r1(st.tonnage / 1000))} t</b><span>soulevées${gain != null ? ` (${gain >= 0 ? '+' : ''}${gain} %)` : ''}</span></div>`;
   return sessHead(R, t, 'Fin de séance') + `<h1>${R.noTimer ? 'Résumé' : 'Séance terminée'}</h1>
     ${R.noTimer ? '' : `<div class="tiles"><div class="tile"><b>${mins}</b><span>minutes</span></div>${tile2}<div class="tile"><b>${st.sets || (R.runData?.done ? 1 : 0)}</b><span>${R.runData?.done && !st.sets ? 'course' : 'séries'}</span></div></div>`}
@@ -2543,6 +3207,7 @@ document.addEventListener('click', ev => {
     case 'infoclose': if (S.run && S.showRun && S.run.info) { S.run.info = null; renderSession(); $('sess').scrollTo(0, 0); } else { S.infoName = null; renderAll(true); window.scrollTo(0, 0); } return;
     case 'figplay': FIG.play = !FIG.play; figDraw(); if (FIG.play) figKick(); return;
     case 'figstep': FIG.t = +v; FIG.play = false; figDraw(); return;
+    case 'figview': FIG3D.setView(v); return;
     case 'notdone': { S.tab = 'cal'; S.sel = v; const d = L.parse(v); S.view = new Date(d.getFullYear(), d.getMonth(), 1); S.confirm = { day: v + ':1' }; S.panelMsg = ''; renderAll(true); $('daypanel')?.scrollIntoView({ block: 'start' }); return; }
     case 'noticeok': S.programNotice = null; LS.del('programNotice'); renderAll(true); return;
     case 'reload': persistRun(); saveCache(); location.reload(); return;
@@ -2745,8 +3410,9 @@ function importConfirm(){
 }
 /* Applique une seule fois l'évolution du programme sur un téléphone déjà installé */
 function runMigration(){
-  if (MODE !== 'pwa' || !S.programVersion || S.programVersion >= L.PROGRAM_VERSION || !S.templates.A) return;
-  const m = L.migrateProgram(S.templates);
+  /* Jamais pendant une séance : elle reprendra à la fin, sans changer les exercices en cours */
+  if (MODE !== 'pwa' || S.run || !S.programVersion || S.programVersion >= L.PROGRAM_VERSION || !S.templates.A) return;
+  const m = L.migrateProgram(S.templates, S.programVersion);
   for (const [a, b] of m.renames) renameEverywhere(a, b);
   for (const id of Object.keys(m.templates)) write('templates/' + id, m.templates[id]);
   write('settings/program', { version: L.PROGRAM_VERSION });
