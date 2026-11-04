@@ -13,7 +13,7 @@
 <script>
 window.CARNET_MODE = 'pwa';
 window.CARNET_THREE_URL = 'three.min.js';
-window.CARNET_VERSION = '2026-11-04 10:58';
+window.CARNET_VERSION = '2026-11-04 12:07';
 /* Base locale : même interface que la base claude.ai, stockée sur le téléphone */
 (function(){
   const KEY = 'carnet.db';
@@ -1186,24 +1186,47 @@ const L = (() => {
     return { title: c.op, before: '', after: '' };
   }
 
-  function sessionLine(date, log, ctx) {
+  function sessionLine(date, log, ctx, noteMax = 160) {
     const t = ctx.templates?.[log.templateId]; if (!t) return '';
     const parts = entryRows(log, t, ctx.templates).map(({ ex, e }) => { const d = describe(ex, e); return d ? `${ex.name} ${d}` : ''; }).filter(Boolean);
     const r = log.templateId === 'D' ? runOf(log, t) : null;
     if (r?.km && r.sec) parts.push(`allure ${fmtPace(r.pace)}/km${r.type ? ' ' + r.type : ''}${r.hr ? ' FC ' + r.hr : ''}`);
     const f = log.feel || {};
     const fl = [f.sleep && `sommeil ${f.sleep}/5`, f.energy && `énergie ${f.energy}/5`, f.pain ? `douleur ${f.pain}/5 ${(f.zones || []).join(', ')}` : '', f.rpe && `difficulté ${f.rpe}/5`].filter(Boolean).join(', ');
-    return `- ${date} ${t.short || log.templateId} (${log.status}) : ${parts.join(' ; ') || 'rien noté'}${fl ? ' | ' + fl : ''}${log.note ? ' | note : ' + log.note.slice(0, 160) : ''}`;
+    return `- ${date} ${t.short || log.templateId} (${log.status}) : ${parts.join(' ; ') || 'rien noté'}${fl ? ' | ' + fl : ''}${log.note ? ' | note : ' + log.note.slice(0, noteMax) : ''}`;
+  }
+  /* Objectifs, records et poids, en lignes de texte : communs au prompt du coach et au rapport par mail */
+  function summaryLines(ctx) {
+    const goals = Object.values(ctx.goals || {}).map(g => { const p = plan(g, ctx); return `- ${g.exercise === BW ? 'Poids corporel' : g.exercise} : ${g.target}${g.reps ? ' × ' + g.reps : ''} pour le ${g.date} (actuel ${p.cur == null ? '?' : r1(p.cur)} ${p.unit}, verdict ${p.state})`; });
+    const ws = weightStats(ctx.weights);
+    const recs = [];
+    for (const [, t] of tplList(ctx.templates)) for (const ex of t.exercises || []) if (ex.main) { const b = bestOf(ex, history(ctx.logs, ex.name), ws?.last || 75); if (b) recs.push(`- ${ex.name} : ${prLabel(ex, b.set, b.score)} le ${b.date}`); }
+    const weight = ws ? `dernier ${ws.last} kg le ${ws.lastDate}, moyenne 7 j ${r1(ws.avg7)} kg${ws.d4 != null ? `, ${ws.d4 > 0 ? '+' : ''}${r1(ws.d4)} kg sur 4 semaines` : ''}` : 'non renseigné';
+    return { goals, recs, weight };
+  }
+  /* Rapport envoyé par mail : Claude le repère grâce à ses deux marqueurs. Le second permet de voir si le mail a été coupé. */
+  const MAIL_START = 'CARNET-DONNEES', MAIL_END = 'FIN-DONNEES';
+  function buildMailReport(ctx, days = 28) {
+    const c = cycleInfo(ctx.today, ctx.cycle), since = addDays(ctx.today, -days), S0 = summaryLines(ctx);
+    const sessions = Object.keys(ctx.logs || {}).sort().filter(k => k >= since && k <= ctx.today).map(k => sessionLine(k, ctx.logs[k], ctx, 600)).filter(Boolean);
+    const prog = tplList(ctx.templates).map(([id, t]) => `- ${t.short || id} : ${(t.exercises || []).map(x => `${x.name} (${x.sets})`).join(', ')}`);
+    return [
+      `${MAIL_START} v1`,
+      `Envoyé le ${ctx.today}. ${c ? `Cycle ${c.cycleNo}, semaine ${c.pos}/${c.n}${c.deload ? ' (allègement)' : ''}.` : ''}`,
+      `SÉANCES DES ${days} DERNIERS JOURS\n${sessions.join('\n') || 'aucune séance notée'}`,
+      `RECORDS\n${S0.recs.join('\n') || 'aucun'}`,
+      `OBJECTIFS\n${S0.goals.join('\n') || 'aucun'}`,
+      `POIDS CORPOREL\n${S0.weight}`,
+      `PROGRAMME\n${prog.join('\n')}`,
+      MAIL_END
+    ].join('\n\n');
   }
   function buildClaudeContext(ctx) {
     const c = cycleInfo(ctx.today, ctx.cycle);
     const tpls = tplList(ctx.templates).map(([id, t]) => ({ seance: id, nom: t.name, exercices: (t.exercises || []).map((ex, i) => ({ index: i, ...ex })) }));
     const since = addDays(ctx.today, -56);
     const sessions = Object.keys(ctx.logs || {}).sort().filter(k => k >= since).slice(-40).map(k => sessionLine(k, ctx.logs[k], ctx)).filter(Boolean);
-    const goals = Object.values(ctx.goals || {}).map(g => { const p = plan(g, ctx); return `- ${g.exercise === BW ? 'Poids corporel' : g.exercise} : ${g.target}${g.reps ? ' × ' + g.reps : ''} pour le ${g.date} (actuel ${p.cur == null ? '?' : r1(p.cur)} ${p.unit}, verdict ${p.state})`; });
-    const ws = weightStats(ctx.weights);
-    const recs = [];
-    for (const [, t] of tplList(ctx.templates)) for (const ex of t.exercises || []) if (ex.main) { const b = bestOf(ex, history(ctx.logs, ex.name), ws?.last || 75); if (b) recs.push(`- ${ex.name} : ${prLabel(ex, b.set, b.score)} le ${b.date}`); }
+    const { goals, recs, weight } = summaryLines(ctx);
     return [
       `Date du jour : ${ctx.today}. ${c ? `Cycle ${c.cycleNo}, semaine ${c.pos}/${c.n}${c.deload ? ' (allègement)' : ''}.` : ''}`,
       `PROFIL\n${ctx.profile}`,
@@ -1212,7 +1235,7 @@ const L = (() => {
       `SÉANCES DES 8 DERNIÈRES SEMAINES\n${sessions.join('\n') || 'aucune séance notée'}`,
       `RECORDS\n${recs.join('\n') || 'aucun'}`,
       `OBJECTIFS\n${goals.join('\n') || 'aucun'}`,
-      `POIDS CORPOREL\n${ws ? `dernier ${ws.last} kg le ${ws.lastDate}, moyenne 7 j ${r1(ws.avg7)} kg${ws.d4 != null ? `, ${ws.d4 > 0 ? '+' : ''}${r1(ws.d4)} kg sur 4 semaines` : ''}` : 'non renseigné'}`
+      `POIDS CORPOREL\n${weight}`
     ].join('\n\n');
   }
   const CLAUDE_FORMAT = `Tu es mon coach. Réponds en français, tutoie-moi, sois direct et concret, et dis-moi objectivement si une idée est contraire à mon objectif.
@@ -1236,7 +1259,7 @@ Champs d'un exercice : name, sets (texte), reps (texte), unit (kg, km, min, s, c
     history, lastBefore, missing, metric, describe, finalize, suggest, platesPerSide, warmup, scoreSet, bestOf, newPRs, prLabel,
     runOf, riegel, paceZones, bestRunRef, runPRs, sequenceAlerts, suggestNext,goalMetric, currentFor, plan, weightStats,
     repsTarget, repsPlain, progressRule, estimateMinutes, sessionStats, longestRun, PROGRAM_VERSION, migrateProgram, exInfo, entryRows, repairLogs, hasData,
-    cleanExercise, validateChanges, applyTemplateChange, describeChange, exSummary, buildClaudeContext, buildClaudePrompt, sessionLine };
+    cleanExercise, validateChanges, applyTemplateChange, describeChange, exSummary, buildClaudeContext, buildClaudePrompt, buildMailReport, sessionLine };
 })();
 
 
@@ -2518,7 +2541,7 @@ function viewToday(){
     h += `<section class="card plate" style="--c:${col(log.templateId)}">${cardHead(log.templateId, 'Séance faite ✓', t.name)}
       <div class="exl">${L.entryRows(log, t, S.templates).map(({ ex, e }) => { const d = L.describe(ex, e); return d ? `<div class="r"><b>${esc(ex.name)}</b><span class="num">${esc(d)}</span></div>` : ''; }).join('')}</div>
       ${feelLine(log)}
-      <div class="row"><button class="btn sm ghost" data-a="enter" data-v="${k}">Modifier les charges</button></div></section>`;
+      <div class="row"><button class="btn sm ghost" data-a="enter" data-v="${k}">Modifier les charges</button></div>${MODE === 'pwa' ? mailBlock() : ''}</section>`;
   } else if (log && t) {
     h += todayCard(k, log, t);
   } else {
@@ -2563,6 +2586,31 @@ function todayCard(k, log, t){
 function cardHead(id, label, title, meta){
   return `<div class="chead"><span class="disc" style="--c:${col(id)}" aria-hidden="true">${esc(id)}</span><div class="stack" style="gap:4px"><div class="eyebrow" style="color:${col(id)}">${esc(label)}</div><h2>${esc(title)}</h2>${meta ? `<div class="meta">${esc(meta)}</div>` : ''}</div></div>`;
 }
+/* Envoi à Claude par mail : l'adresse reste sur le téléphone, jamais dans le code public */
+function mailBlock(){
+  const addr = LS.get('mailTo', '');
+  return `<div class="stack" style="gap:6px">${addr ? '' : '<label class="small dim" for="mailaddr">Ton adresse mail, gardée uniquement sur ce téléphone</label><input id="mailaddr" type="email" inputmode="email" autocomplete="email" autocapitalize="off" spellcheck="false" placeholder="toi@exemple.com">'}
+    <button class="btn claude wide" data-a="mailclaude">Envoyer à Claude par mail</button>
+    <p class="small dim" id="mstatus" role="status">${esc(S.msgs.mstatus || '')}</p>
+    ${addr ? `<button class="btn sm ghost" data-a="mailreset">Changer d’adresse (${esc(addr)})</button>` : ''}</div>`;
+}
+function sendMail(){
+  const input = $('mailaddr'), addr = String(input ? input.value : LS.get('mailTo', '')).trim();
+  if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(addr)) { msg('mstatus', 'Indique ton adresse mail pour continuer.'); input?.focus(); return; }
+  LS.set('mailTo', addr);
+  let text = '', url = '', days = 28;
+  /* Une adresse mailto trop longue peut être coupée : on réduit la période si besoin */
+  for (days of [28, 14, 7]) {
+    text = L.buildMailReport(ctx(), days);
+    url = 'mailto:' + encodeURI(addr) + '?subject=' + encodeURIComponent('Carnet séance ' + today()) + '&body=' + encodeURIComponent(text);
+    if (url.length <= 20000) break;
+  }
+  try { navigator.clipboard?.writeText(text)?.catch?.(() => {}); } catch {}
+  S.msgs.mstatus = `Ton application de mail s’ouvre avec tes séances des ${days} derniers jours : touche Envoyer. Si le mail est vide, colle son contenu : il est déjà copié.`;
+  renderAll(true);
+  openMailUrl(url);
+}
+function openMailUrl(url){ location.href = url; }
 function metaOf(t){ const min = L.estimateMinutes(t), n = exOrder(t).length; return min ? `${n} exercices · environ ${min} min` : ''; }
 /* « 3 × 8 à 10 », lisible dans les listes courtes */
 function shortReps(ex, n){ return /max/i.test(String(ex.reps)) ? `${n} × (ton max − 1)` : `${n} × ${esc(String(ex.reps).replace(/(\d)\s*-\s*(\d)/g, '$1 à $2'))}`; }
@@ -2774,6 +2822,7 @@ function viewPlan(){
     <section class="card"><h3>Ton profil pour le coach</h3><p class="small dim">Ce que Claude saura de toi quand tu lui poseras une question : taille, poids, niveau, objectifs, matériel. Ce texte reste sur ce téléphone jusqu’à ce que tu le copies pour Claude.</p>
       <form class="stack" id="profform"><label for="p-text" class="eyebrow">Profil</label><textarea id="p-text" style="min-height:160px">${esc(S.profile || PROFILE)}</textarea>
       <button class="btn sm" type="submit">Enregistrer</button></form><p class="small dim" id="pstatus" role="status">${esc(S.msgs.pstatus || '')}</p></section>
+    ${MODE === 'pwa' ? `<section class="card"><h3>Envoyer à Claude</h3><p class="small dim">Envoie tes séances récentes par mail : Claude les lit à sa prochaine vérification, ou tout de suite si tu le lui demandes. Ce n’est pas une sauvegarde complète.</p>${mailBlock()}</section>` : ''}
     <section class="card"><h3>Sauvegarde</h3><p class="small dim">${MODE === 'pwa' ? 'Tes données sont uniquement sur ce téléphone. Exporte-les régulièrement vers Fichiers, iCloud Drive ou ta messagerie : si tu perds le téléphone, cette sauvegarde sera ta seule copie.' : 'Télécharge toutes tes données (séances types, séances, pesées, objectifs, réglages) dans un fichier JSON.'}</p>
       <button class="btn wide" data-a="export">Exporter mes données</button><p class="small dim" id="xstatus" role="status">${esc(S.msgs.xstatus || '')}</p>
       <label class="btn wide ghost" for="importfile" style="text-align:center;display:grid;place-items:center">Restaurer une sauvegarde</label><input type="file" id="importfile" accept=".json,application/json" hidden>
@@ -3300,6 +3349,8 @@ document.addEventListener('click', ev => {
     case 'exnodel': S.confirm = {}; renderAll(true); return;
     case 'exdel3': { const xs = [...S.templates[S.edit.tid].exercises]; xs.splice(S.edit.i, 1); saveTemplate(S.edit.tid, xs); S.edit = null; S.confirm = {}; renderAll(true); return; }
     case 'export': exportData(); return;
+    case 'mailclaude': sendMail(); return;
+    case 'mailreset': LS.del('mailTo'); S.msgs.mstatus = ''; renderAll(true); return;
     /* Claude */
     case 'quick': { const ta = $('ask'); if (ta) { ta.value = v; ta.focus(); } return; }
     case 'stop': S.asking?.ctl.abort(); return;
