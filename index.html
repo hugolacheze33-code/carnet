@@ -13,7 +13,7 @@
 <script>
 window.CARNET_MODE = 'pwa';
 window.CARNET_THREE_URL = 'three.min.js';
-window.CARNET_VERSION = '2026-11-04 12:07';
+window.CARNET_VERSION = '2026-11-04 12:35';
 /* Base locale : même interface que la base claude.ai, stockée sur le téléphone */
 (function(){
   const KEY = 'carnet.db';
@@ -2822,7 +2822,7 @@ function viewPlan(){
     <section class="card"><h3>Ton profil pour le coach</h3><p class="small dim">Ce que Claude saura de toi quand tu lui poseras une question : taille, poids, niveau, objectifs, matériel. Ce texte reste sur ce téléphone jusqu’à ce que tu le copies pour Claude.</p>
       <form class="stack" id="profform"><label for="p-text" class="eyebrow">Profil</label><textarea id="p-text" style="min-height:160px">${esc(S.profile || PROFILE)}</textarea>
       <button class="btn sm" type="submit">Enregistrer</button></form><p class="small dim" id="pstatus" role="status">${esc(S.msgs.pstatus || '')}</p></section>
-    ${MODE === 'pwa' ? `<section class="card"><h3>Envoyer à Claude</h3><p class="small dim">Envoie tes séances récentes par mail : Claude les lit à sa prochaine vérification, ou tout de suite si tu le lui demandes. Ce n’est pas une sauvegarde complète.</p>${mailBlock()}</section>` : ''}
+    ${MODE === 'pwa' ? `<section class="card"><h3>Envoyer à Claude</h3><p class="small dim">Envoie tes séances récentes par mail, puis écris simplement à Claude « lis mes séances ». Ce n’est pas une sauvegarde complète.</p>${mailBlock()}</section>` : ''}
     <section class="card"><h3>Sauvegarde</h3><p class="small dim">${MODE === 'pwa' ? 'Tes données sont uniquement sur ce téléphone. Exporte-les régulièrement vers Fichiers, iCloud Drive ou ta messagerie : si tu perds le téléphone, cette sauvegarde sera ta seule copie.' : 'Télécharge toutes tes données (séances types, séances, pesées, objectifs, réglages) dans un fichier JSON.'}</p>
       <button class="btn wide" data-a="export">Exporter mes données</button><p class="small dim" id="xstatus" role="status">${esc(S.msgs.xstatus || '')}</p>
       <label class="btn wide ghost" for="importfile" style="text-align:center;display:grid;place-items:center">Restaurer une sauvegarde</label><input type="file" id="importfile" accept=".json,application/json" hidden>
