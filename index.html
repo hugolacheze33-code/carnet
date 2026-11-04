@@ -13,11 +13,11 @@
 <script>
 window.CARNET_MODE = 'pwa';
 window.CARNET_THREE_URL = 'three.min.js';
-window.CARNET_VERSION = '2026-11-04 10:43';
+window.CARNET_VERSION = '2026-11-04 10:58';
 /* Base locale : même interface que la base claude.ai, stockée sur le téléphone */
 (function(){
   const KEY = 'carnet.db';
-  const seed = {"templates":{"A":{"exercises":[{"main":true,"name":"Soulevé de terre","reps":"1 série lourde de 4, puis 2 séries de 6","scheme":[{"label":"Lourde","reps":4},{"label":"Série 2","reps":6},{"label":"Série 3","reps":6}],"sets":"3","step":2.5,"tip":"Repos de 3 à 5 min. Les deux paumes vers toi. Prise mixte seulement sur la série lourde, en changeant de main à chaque séance.","unit":"kg"},{"loadAt":12,"main":true,"name":"Tractions pronation","reps":"max −1","sets":"3","tip":"Mains un peu plus larges que les épaules. Coudes vers le bas et légèrement vers l’extérieur. Indique le lest : 0 si tu n’en mets pas.","unit":"kg"},{"loadAt":12,"main":true,"name":"Tractions supination","reps":"max −1","sets":"2","tip":"Indique le lest : 0 si tu n’en mets pas.","unit":"kg"},{"name":"Rowing barre","reps":"6-8","sets":"2","tip":"Buste immobile, dos droit.","unit":"kg"},{"name":"Face pull","reps":"12-15","sets":"2","tip":"Poulie à hauteur du visage. Tire vers le front, coudes hauts et sur les côtés. Charge légère.","unit":"kg"},{"name":"Extensions lombaires","sets":"2","reps":"10-12","unit":"kg","step":2.5,"rest":90,"tip":"Sur un banc à lombaires. Commence au poids du corps et note 0. Remonte jusqu’à l’alignement jambes-buste, pas au-delà."},{"name":"Suspension à la barre","sets":"2","reps":"45-60 s","unit":"s","main":true,"rest":90,"tip":"Tiens jusqu’à ce que la prise soit sur le point de lâcher. Dès 60 s aux 2 séries, ajoute du lest et note-le dans la remarque."},{"name":"Marche du fermier","reps":"30-40 m","sets":"2","tip":"Note le poids d’une seule main. Dès 40 m sur les 2 séries, ajoute 2 kg par main.","unit":"kg","step":2},{"name":"Curl marteau","sets":"2","reps":"8-12","unit":"kg","step":2,"tip":"Note le poids d’un seul haltère. Coudes le long du corps."}],"name":"Dos · tirage","order":1,"short":"A · Dos"},"B":{"exercises":[{"main":true,"name":"Développé couché","reps":"1 série lourde de 4, puis 2 séries de 6","scheme":[{"label":"Lourde","reps":4},{"label":"Série 2","reps":6},{"label":"Série 3","reps":6}],"sets":"3","step":2.5,"tip":"Premier exercice lourd de la séance. Repos de 3 à 4 min. Avant-bras à peu près verticaux quand la barre touche la poitrine.","unit":"kg","double":true},{"loadAt":10,"main":true,"name":"Dips","reps":"6-10","sets":"2","tip":"Indique le lest : 0 si tu n’en mets pas. Arrête la descente si l’avant de l’épaule te gêne.","unit":"kg"},{"name":"Développé militaire haltères","reps":"8-10","sets":"2","tip":"Note le poids d’un seul haltère. Fessiers serrés, sans te pencher en arrière.","unit":"kg","step":2},{"name":"Extension triceps à la poulie","sets":"2","reps":"10-12","unit":"kg","tip":"Coudes immobiles, le long du corps."},{"name":"Reverse fly","reps":"8-12","sets":"2","tip":"À la machine, poitrine contre le coussin. Coudes légèrement fléchis, épaules basses. Note la charge affichée, au total.","unit":"kg","step":2.5,"rest":90}],"name":"Poussée","order":2,"short":"B · Poussée"},"C":{"exercises":[{"name":"Sauts en longueur ou sur box","reps":"3 sauts","sets":"4","tip":"Après 5 à 8 min de cardio facile et de mobilité. Récupère 1 à 2 min entre les séries. Note la distance sautée ou la hauteur de la box.","unit":"cm","rest":90},{"main":true,"name":"Squat","reps":"1 série lourde de 4, puis 2 séries de 6","scheme":[{"label":"Lourde","reps":4},{"label":"Série 2","reps":6},{"label":"Série 3","reps":6}],"sets":"3","step":2.5,"tip":"Repos de 3 à 5 min. Règle les sécurités du rack sous ta position basse.","unit":"kg"},{"name":"Fentes bulgares","reps":"8-10 par jambe","sets":"3","tip":"Note le poids d’un seul haltère. Fais toutes les répétitions d’une jambe, puis change.","unit":"kg"},{"name":"Leg curl ou Nordic curl","reps":"6-10","sets":"2","tip":"Retour lent, en 2 à 3 secondes.","unit":"kg"},{"name":"Mollets debout ou assis","reps":"10-15","sets":"3","tip":"Une séance debout, la suivante assis. Mouvement lent, sans rebond.","unit":"kg"},{"name":"Développé couché pause","reps":"5","sets":"3","tip":"Rappel pour ton point faible, en fin de séance. Charge proposée : 80 % de ta série lourde. Marque 1 seconde sur la poitrine, sans rebond. Il doit te rester au moins 3 répétitions possibles.","unit":"kg"},{"name":"Planche latérale","reps":"30-45 s par côté","sets":"2","unit":"s","tip":"Corps aligné de la tête aux pieds. Fais le temps indiqué de chaque côté."}],"name":"Jambes · athlétisme","order":3,"short":"C · Jambes"},"D":{"exercises":[{"main":true,"name":"Distance","reps":"Facile : 45 à 70 min. Soutenue : 4 fois 1 km, ou 3 fois 8 min.","sets":"1","tip":"Une seule course soutenue par semaine, jamais la veille de la séance C.","unit":"km"},{"name":"Durée","reps":"Temps total de la course","sets":"1","unit":"min"}],"name":"Course","order":4,"short":"D · Course"}},"settings":{"cycle":{"start":"2026-10-05","weeks":7},"program":{"version":4}}};
+  const seed = {"templates":{"A":{"exercises":[{"main":true,"name":"Soulevé de terre","reps":"1 série lourde de 4, puis 2 séries de 6","scheme":[{"label":"Lourde","reps":4},{"label":"Série 2","reps":6},{"label":"Série 3","reps":6}],"sets":"3","step":2.5,"tip":"Repos de 3 à 5 min. Les deux paumes vers toi. Prise mixte seulement sur la série lourde, en changeant de main à chaque séance.","unit":"kg"},{"loadAt":12,"main":true,"name":"Tractions pronation","reps":"max −1","sets":"3","tip":"Mains un peu plus larges que les épaules. Coudes vers le bas et légèrement vers l’extérieur. Indique le lest : 0 si tu n’en mets pas.","unit":"kg"},{"loadAt":12,"main":true,"name":"Tractions supination","reps":"max −1","sets":"2","tip":"Indique le lest : 0 si tu n’en mets pas.","unit":"kg"},{"name":"Rowing barre","reps":"6-8","sets":"2","tip":"Buste immobile, dos droit.","unit":"kg"},{"name":"Face pull","reps":"12-15","sets":"2","tip":"Poulie à hauteur du visage. Tire vers le front, coudes hauts et sur les côtés. Charge légère.","unit":"kg"},{"name":"Extensions lombaires","sets":"2","reps":"10-12","unit":"kg","step":2.5,"rest":90,"tip":"Sur un banc à lombaires. Commence au poids du corps et note 0. Remonte jusqu’à l’alignement jambes-buste, pas au-delà."},{"name":"Suspension à la barre","sets":"2","reps":"45-60 s","unit":"s","main":true,"rest":90,"tip":"Tiens jusqu’à ce que la prise soit sur le point de lâcher. Dès 60 s aux 2 séries, ajoute du lest et note-le dans la remarque."},{"name":"Marche du fermier","reps":"30-40 m","sets":"2","tip":"Note le poids d’une seule main. Dès 40 m sur les 2 séries, ajoute 2 kg par main.","unit":"kg","step":2},{"name":"Curl marteau","sets":"2","reps":"8-12","unit":"kg","step":2,"tip":"Note le poids d’un seul haltère. Coudes le long du corps."}],"name":"Dos · tirage","order":1,"short":"A · Dos"},"B":{"exercises":[{"main":true,"name":"Développé couché","reps":"1 série lourde de 4, puis 2 séries de 6","scheme":[{"label":"Lourde","reps":4},{"label":"Série 2","reps":6},{"label":"Série 3","reps":6}],"sets":"3","step":2.5,"tip":"Premier exercice lourd de la séance. Repos de 3 à 4 min. Avant-bras à peu près verticaux quand la barre touche la poitrine.","unit":"kg","double":true},{"loadAt":10,"main":true,"name":"Dips","reps":"6-10","sets":"2","tip":"Indique le lest : 0 si tu n’en mets pas. Arrête la descente si l’avant de l’épaule te gêne.","unit":"kg"},{"name":"Développé militaire haltères","reps":"8-10","sets":"2","tip":"Note le poids d’un seul haltère. Fessiers serrés, sans te pencher en arrière.","unit":"kg","step":2},{"name":"Extension triceps à la poulie","sets":"2","reps":"10-12","unit":"kg","tip":"Coudes immobiles, le long du corps."},{"name":"Reverse fly","reps":"8-12","sets":"2","tip":"À la machine, poitrine contre le coussin. Coudes légèrement fléchis, épaules basses. Note la charge affichée, au total.","unit":"kg","step":2.5,"rest":90}],"name":"Poussée","order":2,"short":"B · Poussée"},"C":{"exercises":[{"name":"Sauts en longueur ou sur box","reps":"3 sauts","sets":"4","tip":"Après 5 à 8 min de cardio facile et de mobilité. Récupère 1 à 2 min entre les séries. Note la distance sautée ou la hauteur de la box.","unit":"cm","rest":90},{"main":true,"name":"Squat","reps":"1 série lourde de 4, puis 2 séries de 6","scheme":[{"label":"Lourde","reps":4},{"label":"Série 2","reps":6},{"label":"Série 3","reps":6}],"sets":"3","step":2.5,"tip":"Repos de 3 à 5 min. Règle les sécurités du rack sous ta position basse.","unit":"kg"},{"name":"Fentes bulgares","reps":"8-10 par jambe","sets":"3","tip":"Note le poids d’un seul haltère. Fais toutes les répétitions d’une jambe, puis change.","unit":"kg"},{"name":"Leg curl ou Nordic curl","reps":"6-10","sets":"2","tip":"Retour lent, en 2 à 3 secondes.","unit":"kg"},{"name":"Mollets debout ou assis","reps":"10-15","sets":"3","tip":"Une séance debout, la suivante assis. Mouvement lent, sans rebond.","unit":"kg"},{"name":"Développé couché pause","reps":"5","sets":"3","tip":"Rappel pour ton point faible, en fin de séance. Charge proposée : 80 % de ta série lourde. Marque 1 seconde sur la poitrine, sans rebond. Il doit te rester au moins 3 répétitions possibles.","unit":"kg"},{"name":"Planche latérale","reps":"30-45 s par côté","sets":"2","unit":"s","tip":"Corps aligné de la tête aux pieds. Fais le temps indiqué de chaque côté."}],"name":"Jambes · athlétisme","order":3,"short":"C · Jambes"},"D":{"exercises":[{"main":true,"name":"Distance","reps":"Facile : 45 à 70 min. Soutenue : 4 fois 1 km, ou 3 fois 8 min.","sets":"1","tip":"Une seule course soutenue par semaine, jamais la veille de la séance C.","unit":"km"},{"name":"Durée","reps":"Temps total de la course","sets":"1","unit":"min"}],"name":"Course","order":4,"short":"D · Course"}},"settings":{"cycle":{"start":"2026-10-05","weeks":7},"program":{"version":5}}};
   let store; try { store = JSON.parse(localStorage.getItem(KEY) || 'null'); } catch (e) { store = null; }
   if (!store) store = { templates: seed.templates, settings: seed.settings, logs: {}, weights: {}, goals: {} };
   const subs = new Set();
@@ -728,6 +728,7 @@ const L = (() => {
       if (!a || !b) continue;
       if (isHard(a) && b.templateId === 'C') out.push({ date: d, next: addDays(d, 1), code: 'hard-before-C', text: `Course soutenue le ${fr(d)}, la veille de la séance C : tes jambes seront fatiguées pour le squat et les sauts.` });
       const pair = [a.templateId, b.templateId].sort().join('');
+      if (a.templateId === b.templateId && a.templateId !== 'D') out.push({ date: d, next: addDays(d, 1), code: 'same-twice', text: `La séance ${a.templateId} est notée deux jours de suite, le ${fr(d)} et le ${fr(addDays(d, 1))} : vérifie qu’il ne s’agit pas d’un doublon.` });
       if (pair === 'AC') out.push({ date: d, next: addDays(d, 1), code: 'A-C', text: `A et C deux jours de suite (${fr(d)} et ${fr(addDays(d, 1))}) : le bas du dos n’a pas le temps de récupérer entre soulevé de terre et squat.` });
     }
     const weeks = {};
@@ -740,7 +741,8 @@ const L = (() => {
      en évitant les enchaînements interdits avec ce qui est déjà au calendrier */
   const NEXT = { A: ['B'], B: ['D', 'facile'], 'D:facile': ['C'], C: ['D', 'soutenue'], 'D:soutenue': ['A'] };
   function suggestNext(logs, dateIso) {
-    const prev = Object.keys(logs || {}).filter(k => k < dateIso && logs[k].status === 'faite').sort().pop();
+    /* Toute séance passée fait avancer la rotation, même sans « Terminer » : faite, on ne la refait pas ; ratée, on ne la rattrape pas. Pour l'annuler, la retirer du calendrier. */
+    const prev = Object.keys(logs || {}).filter(k => k < dateIso).sort().pop();
     const l = prev && logs[prev];
     const key = !l ? null : l.templateId === 'D' ? `D:${l.run?.type === 'soutenue' ? 'soutenue' : 'facile'}` : l.templateId;
     const first = NEXT[key] || ['A'];
@@ -834,7 +836,7 @@ const L = (() => {
   /* ---------- Évolution du programme ----------
      Appliquée une seule fois sur un téléphone déjà installé. Ne remplace jamais un texte
      que l'utilisateur a changé : seules les anciennes valeurs connues sont mises à jour. */
-  const PROGRAM_VERSION = 4;
+  const PROGRAM_VERSION = 5;
   const PROG2 = {
     rename: [['Développé couché léger', 'Développé couché pause']],
     add: {
@@ -998,6 +1000,26 @@ const L = (() => {
     if (from < 3) step3(out, renames);
     if (from < 4) step4(out, from);
     return { templates: out, renames, changes: programDiff(templates || {}, out, renames) };
+  }
+
+  /* Version 5 : réparation demandée par l'utilisateur, une seule séance B cette semaine-là, celle de la veille.
+     Rien de noté n'est perdu : les valeurs et la remarque du second jour sont reportées sur le premier s'il n'en a pas.
+     Si les deux jours ont des valeurs, rien n'est retiré : l'alerte « deux jours de suite » laisse le choix. */
+  const hasData = log => Object.values(log?.entries || {}).some(e => e && !e.skipped && (isNum(e.val) || (e.sets || []).some(s => s && (isNum(s.val) || isNum(s.reps)))));
+  function repairLogs(logs, from) {
+    const writes = {}, changes = [];
+    if (from >= 5) return { writes, changes };
+    const D1 = '2026-11-03', D2 = '2026-11-04', a = logs?.[D1], b = logs?.[D2];
+    if (a?.templateId !== 'B' || b?.templateId !== 'B') return { writes, changes };
+    const note = [a.note, b.note].filter(Boolean).join(' · ');
+    if (hasData(a) && hasData(b)) {
+      changes.push(`Deux séances B ont des charges notées, le ${fr(D1)} et le ${fr(D2)} : je n’ai rien retiré. Garde celle que tu veux dans le calendrier.`);
+      return { writes, changes };
+    }
+    writes[D1] = hasData(b) ? { ...b, date: D1, status: 'faite', note } : { ...a, status: 'faite', note };
+    writes[D2] = null;
+    changes.push(`La séance B du ${fr(D2)} était en double : elle est retirée. Ta séance reste celle du ${fr(D1)}.`);
+    return { writes, changes };
   }
 
   /* ---------- Objectifs (repris de la v4) ---------- */
@@ -1213,7 +1235,7 @@ Champs d'un exercice : name, sets (texte), reps (texte), unit (kg, km, min, s, c
     parseDur, fmtDur, fmtPace, cycleInfo, deloadStart, tplList, unitOf, exDef, kind, repsUnit, valStep, defaultRest, nSets,
     history, lastBefore, missing, metric, describe, finalize, suggest, platesPerSide, warmup, scoreSet, bestOf, newPRs, prLabel,
     runOf, riegel, paceZones, bestRunRef, runPRs, sequenceAlerts, suggestNext,goalMetric, currentFor, plan, weightStats,
-    repsTarget, repsPlain, progressRule, estimateMinutes, sessionStats, longestRun, PROGRAM_VERSION, migrateProgram, exInfo, entryRows,
+    repsTarget, repsPlain, progressRule, estimateMinutes, sessionStats, longestRun, PROGRAM_VERSION, migrateProgram, exInfo, entryRows, repairLogs, hasData,
     cleanExercise, validateChanges, applyTemplateChange, describeChange, exSummary, buildClaudeContext, buildClaudePrompt, sessionLine };
 })();
 
@@ -2476,7 +2498,7 @@ function missingAlerts(){
   return Object.keys(S.logs).filter(k => k <= today() && !(S.run && S.run.date === k) && L.missing(S.logs[k], S.templates[S.logs[k].templateId], today(), k)).sort().slice(-4)
     .map(k => `<div class="alert"><span>${esc(tplName(S.logs[k].templateId))} du ${L.fr(k)} : il manque des charges. As-tu fait cette séance ?</span><div class="row"><button data-a="enter" data-v="${k}">Oui, noter mes charges</button>${S.logs[k].status === 'faite' ? '' : `<button data-a="notdone" data-v="${k}">Non, la retirer</button>`}</div></div>`).join('');
 }
-function seqAlertHtml(list){ return list.map(a => `<div class="alert"><span>${esc(a.text)}</span><button data-a="goday" data-v="${a.date}">Voir le ${L.fr(a.date)}</button></div>`).join(''); }
+function seqAlertHtml(list){ return list.map(a => `<div class="alert"><span>${esc(a.text)}</span>${a.code === 'same-twice' ? `<button data-a="notdone" data-v="${a.next}">Retirer celle du ${L.fr(a.next)}</button>` : `<button data-a="goday" data-v="${a.date}">Voir le ${L.fr(a.date)}</button>`}</div>`).join(''); }
 
 /* ======================= Aujourd'hui ======================= */
 function viewToday(){
@@ -3430,14 +3452,35 @@ function importConfirm(){
   return '';
 }
 /* Applique une seule fois l'évolution du programme sur un téléphone déjà installé */
+/* Séance restée ouverte depuis un jour précédent, « Terminer » oublié : on la clôt avec ce qui a été noté */
+function closeForgottenRun(){
+  const R = S.run;
+  if (!R || R.date >= today() || !S.templates[R.tid] || Date.now() - (+R.startedAt || 0) < 6 * 3600 * 1000) return false;
+  const done = Object.values(R.ex || {}).some(e => e?.sets?.some(s => s.done));
+  if (done || S.logs[R.date]) {
+    const l = logFromRun(done || S.logs[R.date]?.status === 'faite' ? 'faite' : 'prévue');
+    delete l.finishedAt;
+    write('logs/' + R.date, l);
+  }
+  S.run = null; S.showRun = false; LS.del('run'); keepAwake(false); stopTicker();
+  return true;
+}
 function runMigration(){
+  if (closeForgottenRun()) renderAll(true);
+  /* Réparation de la version 5 : une séance du 04/11 ouverte sans aucune série faite ne doit pas la bloquer */
+  if (MODE === 'pwa' && S.programVersion && S.programVersion < 5 && S.run?.date === '2026-11-04' && S.run.tid === 'B' && S.logs['2026-11-03']?.templateId === 'B' && !Object.values(S.run.ex || {}).some(e => e?.sets?.some(s => s.done))) {
+    S.run = null; S.showRun = false; LS.del('run'); keepAwake(false); stopTicker();
+  }
   /* Jamais pendant une séance : elle reprendra à la fin, sans changer les exercices en cours */
   if (MODE !== 'pwa' || S.run || !S.programVersion || S.programVersion >= L.PROGRAM_VERSION || !S.templates.A) return;
   const m = L.migrateProgram(S.templates, S.programVersion);
   for (const [a, b] of m.renames) renameEverywhere(a, b);
   for (const id of Object.keys(m.templates)) write('templates/' + id, m.templates[id]);
+  const fix = L.repairLogs(S.logs, S.programVersion);
+  for (const [d, l] of Object.entries(fix.writes)) write('logs/' + d, l);
   write('settings/program', { version: L.PROGRAM_VERSION });
-  if (m.changes.length) { S.programNotice = m.changes; LS.set('programNotice', m.changes); }
+  const notice = [...m.changes, ...fix.changes];
+  if (notice.length) { S.programNotice = notice; LS.set('programNotice', notice); }
   renderAll();
 }
 function doImport(){
@@ -3473,16 +3516,17 @@ document.addEventListener('change', ev => {
    Les données restent dans carnet.db : une mise à jour n'y touche pas, et en garde une copie (carnet.db.avant-maj). */
 function autoUpdate(){
   if (!S.updateReady) return false;
-  if (S.run || S.edit || S.pendingImport || S.asking || S.tab === 'claude' || /INPUT|TEXTAREA|SELECT/.test(document.activeElement?.tagName || '')) return false;
+  if ((S.run && S.showRun) || S.edit || S.pendingImport || S.asking || S.tab === 'claude' || /INPUT|TEXTAREA|SELECT/.test(document.activeElement?.tagName || '')) return false;
   try {
     if (Date.now() - (+sessionStorage.getItem('carnet.autoReload') || 0) < 60000) return false;
     sessionStorage.setItem('carnet.autoReload', String(Date.now()));
   } catch {}
   saveCache(); location.reload(); return true;
 }
-document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible') autoUpdate(); });
+document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible') { runMigration(); autoUpdate(); } });
 window.carnetUpdateReady = () => { S.updateReady = true; if (!autoUpdate()) renderAll(); };
-if (S.run && !S.templates[S.run.tid]) { S.run = null; persistRun(); }
+/* Sans cache local, le programme n'est pas encore chargé ici : ne jamais jeter une séance en cours pour autant */
+if (S.loaded && S.run && !S.templates[S.run.tid]) { S.run = null; persistRun(); }
 renderAll(true);
 (async () => {
   const use = window.claude?.use;
