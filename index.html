@@ -13,11 +13,11 @@
 <script>
 window.CARNET_MODE = 'pwa';
 window.CARNET_THREE_URL = 'three.min.js';
-window.CARNET_VERSION = '2026-11-04 10:28';
+window.CARNET_VERSION = '2026-11-04 10:43';
 /* Base locale : même interface que la base claude.ai, stockée sur le téléphone */
 (function(){
   const KEY = 'carnet.db';
-  const seed = {"templates":{"A":{"exercises":[{"main":true,"name":"Soulevé de terre","reps":"1 série lourde de 4, puis 2 séries de 6","scheme":[{"label":"Lourde","reps":4},{"label":"Série 2","reps":6},{"label":"Série 3","reps":6}],"sets":"3","step":2.5,"tip":"Repos de 3 à 5 min. Les deux paumes vers toi. Prise mixte seulement sur la série lourde, en changeant de main à chaque séance.","unit":"kg"},{"loadAt":12,"main":true,"name":"Tractions pronation","reps":"max −1","sets":"3","tip":"Mains un peu plus larges que les épaules. Coudes vers le bas et légèrement vers l’extérieur. Indique le lest : 0 si tu n’en mets pas.","unit":"kg"},{"loadAt":12,"main":true,"name":"Tractions supination","reps":"max −1","sets":"2","tip":"Indique le lest : 0 si tu n’en mets pas.","unit":"kg"},{"name":"Rowing barre","reps":"6-8","sets":"2","tip":"Buste immobile, dos droit.","unit":"kg"},{"name":"Extensions lombaires","sets":"2","reps":"10-12","unit":"kg","step":2.5,"rest":90,"tip":"Sur un banc à lombaires. Commence au poids du corps et note 0. Remonte jusqu’à l’alignement jambes-buste, pas au-delà."},{"name":"Suspension à la barre","sets":"2","reps":"45-60 s","unit":"s","main":true,"rest":90,"tip":"Tiens jusqu’à ce que la prise soit sur le point de lâcher. Dès 60 s aux 2 séries, ajoute du lest et note-le dans la remarque."},{"name":"Marche du fermier","reps":"30-40 m","sets":"2","tip":"Note le poids d’une seule main. Dès 40 m sur les 2 séries, ajoute 2 kg par main.","unit":"kg","step":2},{"name":"Curl marteau","sets":"2","reps":"8-12","unit":"kg","step":2,"tip":"Note le poids d’un seul haltère. Coudes le long du corps."}],"name":"Dos · tirage","order":1,"short":"A · Dos"},"B":{"exercises":[{"main":true,"name":"Développé couché","reps":"1 série lourde de 4, puis 2 séries de 6","scheme":[{"label":"Lourde","reps":4},{"label":"Série 2","reps":6},{"label":"Série 3","reps":6}],"sets":"3","step":2.5,"tip":"Premier exercice lourd de la séance. Repos de 3 à 4 min. Avant-bras à peu près verticaux quand la barre touche la poitrine.","unit":"kg","double":true},{"loadAt":10,"main":true,"name":"Dips","reps":"6-10","sets":"2","tip":"Indique le lest : 0 si tu n’en mets pas. Arrête la descente si l’avant de l’épaule te gêne.","unit":"kg"},{"name":"Développé militaire haltères","reps":"8-10","sets":"2","tip":"Note le poids d’un seul haltère. Fessiers serrés, sans te pencher en arrière.","unit":"kg","step":2},{"name":"Extension triceps à la poulie","sets":"2","reps":"10-12","unit":"kg","tip":"Coudes immobiles, le long du corps."},{"name":"Reverse fly","reps":"8-12","sets":"2","tip":"À la machine ou penché avec des haltères. Coudes légèrement fléchis, épaules basses. Note la charge affichée, ou le poids d’un seul haltère.","unit":"kg","step":2.5,"rest":90}],"name":"Poussée","order":2,"short":"B · Poussée"},"C":{"exercises":[{"name":"Sauts en longueur ou sur box","reps":"3 sauts","sets":"4","tip":"Après 5 à 8 min de cardio facile et de mobilité. Récupère 1 à 2 min entre les séries. Note la distance sautée ou la hauteur de la box.","unit":"cm","rest":90},{"main":true,"name":"Squat","reps":"1 série lourde de 4, puis 2 séries de 6","scheme":[{"label":"Lourde","reps":4},{"label":"Série 2","reps":6},{"label":"Série 3","reps":6}],"sets":"3","step":2.5,"tip":"Repos de 3 à 5 min. Règle les sécurités du rack sous ta position basse.","unit":"kg"},{"name":"Fentes bulgares","reps":"8-10 par jambe","sets":"3","tip":"Note le poids d’un seul haltère. Fais toutes les répétitions d’une jambe, puis change.","unit":"kg"},{"name":"Leg curl ou Nordic curl","reps":"6-10","sets":"2","tip":"Retour lent, en 2 à 3 secondes.","unit":"kg"},{"name":"Mollets debout ou assis","reps":"10-15","sets":"3","tip":"Une séance debout, la suivante assis. Mouvement lent, sans rebond.","unit":"kg"},{"name":"Développé couché pause","reps":"5","sets":"3","tip":"Rappel pour ton point faible, en fin de séance. Charge proposée : 80 % de ta série lourde. Marque 1 seconde sur la poitrine, sans rebond. Il doit te rester au moins 3 répétitions possibles.","unit":"kg"},{"name":"Planche latérale","reps":"30-45 s par côté","sets":"2","unit":"s","tip":"Corps aligné de la tête aux pieds. Fais le temps indiqué de chaque côté."}],"name":"Jambes · athlétisme","order":3,"short":"C · Jambes"},"D":{"exercises":[{"main":true,"name":"Distance","reps":"Facile : 45 à 70 min. Soutenue : 4 fois 1 km, ou 3 fois 8 min.","sets":"1","tip":"Une seule course soutenue par semaine, jamais la veille de la séance C.","unit":"km"},{"name":"Durée","reps":"Temps total de la course","sets":"1","unit":"min"}],"name":"Course","order":4,"short":"D · Course"}},"settings":{"cycle":{"start":"2026-10-05","weeks":7},"program":{"version":3}}};
+  const seed = {"templates":{"A":{"exercises":[{"main":true,"name":"Soulevé de terre","reps":"1 série lourde de 4, puis 2 séries de 6","scheme":[{"label":"Lourde","reps":4},{"label":"Série 2","reps":6},{"label":"Série 3","reps":6}],"sets":"3","step":2.5,"tip":"Repos de 3 à 5 min. Les deux paumes vers toi. Prise mixte seulement sur la série lourde, en changeant de main à chaque séance.","unit":"kg"},{"loadAt":12,"main":true,"name":"Tractions pronation","reps":"max −1","sets":"3","tip":"Mains un peu plus larges que les épaules. Coudes vers le bas et légèrement vers l’extérieur. Indique le lest : 0 si tu n’en mets pas.","unit":"kg"},{"loadAt":12,"main":true,"name":"Tractions supination","reps":"max −1","sets":"2","tip":"Indique le lest : 0 si tu n’en mets pas.","unit":"kg"},{"name":"Rowing barre","reps":"6-8","sets":"2","tip":"Buste immobile, dos droit.","unit":"kg"},{"name":"Face pull","reps":"12-15","sets":"2","tip":"Poulie à hauteur du visage. Tire vers le front, coudes hauts et sur les côtés. Charge légère.","unit":"kg"},{"name":"Extensions lombaires","sets":"2","reps":"10-12","unit":"kg","step":2.5,"rest":90,"tip":"Sur un banc à lombaires. Commence au poids du corps et note 0. Remonte jusqu’à l’alignement jambes-buste, pas au-delà."},{"name":"Suspension à la barre","sets":"2","reps":"45-60 s","unit":"s","main":true,"rest":90,"tip":"Tiens jusqu’à ce que la prise soit sur le point de lâcher. Dès 60 s aux 2 séries, ajoute du lest et note-le dans la remarque."},{"name":"Marche du fermier","reps":"30-40 m","sets":"2","tip":"Note le poids d’une seule main. Dès 40 m sur les 2 séries, ajoute 2 kg par main.","unit":"kg","step":2},{"name":"Curl marteau","sets":"2","reps":"8-12","unit":"kg","step":2,"tip":"Note le poids d’un seul haltère. Coudes le long du corps."}],"name":"Dos · tirage","order":1,"short":"A · Dos"},"B":{"exercises":[{"main":true,"name":"Développé couché","reps":"1 série lourde de 4, puis 2 séries de 6","scheme":[{"label":"Lourde","reps":4},{"label":"Série 2","reps":6},{"label":"Série 3","reps":6}],"sets":"3","step":2.5,"tip":"Premier exercice lourd de la séance. Repos de 3 à 4 min. Avant-bras à peu près verticaux quand la barre touche la poitrine.","unit":"kg","double":true},{"loadAt":10,"main":true,"name":"Dips","reps":"6-10","sets":"2","tip":"Indique le lest : 0 si tu n’en mets pas. Arrête la descente si l’avant de l’épaule te gêne.","unit":"kg"},{"name":"Développé militaire haltères","reps":"8-10","sets":"2","tip":"Note le poids d’un seul haltère. Fessiers serrés, sans te pencher en arrière.","unit":"kg","step":2},{"name":"Extension triceps à la poulie","sets":"2","reps":"10-12","unit":"kg","tip":"Coudes immobiles, le long du corps."},{"name":"Reverse fly","reps":"8-12","sets":"2","tip":"À la machine, poitrine contre le coussin. Coudes légèrement fléchis, épaules basses. Note la charge affichée, au total.","unit":"kg","step":2.5,"rest":90}],"name":"Poussée","order":2,"short":"B · Poussée"},"C":{"exercises":[{"name":"Sauts en longueur ou sur box","reps":"3 sauts","sets":"4","tip":"Après 5 à 8 min de cardio facile et de mobilité. Récupère 1 à 2 min entre les séries. Note la distance sautée ou la hauteur de la box.","unit":"cm","rest":90},{"main":true,"name":"Squat","reps":"1 série lourde de 4, puis 2 séries de 6","scheme":[{"label":"Lourde","reps":4},{"label":"Série 2","reps":6},{"label":"Série 3","reps":6}],"sets":"3","step":2.5,"tip":"Repos de 3 à 5 min. Règle les sécurités du rack sous ta position basse.","unit":"kg"},{"name":"Fentes bulgares","reps":"8-10 par jambe","sets":"3","tip":"Note le poids d’un seul haltère. Fais toutes les répétitions d’une jambe, puis change.","unit":"kg"},{"name":"Leg curl ou Nordic curl","reps":"6-10","sets":"2","tip":"Retour lent, en 2 à 3 secondes.","unit":"kg"},{"name":"Mollets debout ou assis","reps":"10-15","sets":"3","tip":"Une séance debout, la suivante assis. Mouvement lent, sans rebond.","unit":"kg"},{"name":"Développé couché pause","reps":"5","sets":"3","tip":"Rappel pour ton point faible, en fin de séance. Charge proposée : 80 % de ta série lourde. Marque 1 seconde sur la poitrine, sans rebond. Il doit te rester au moins 3 répétitions possibles.","unit":"kg"},{"name":"Planche latérale","reps":"30-45 s par côté","sets":"2","unit":"s","tip":"Corps aligné de la tête aux pieds. Fais le temps indiqué de chaque côté."}],"name":"Jambes · athlétisme","order":3,"short":"C · Jambes"},"D":{"exercises":[{"main":true,"name":"Distance","reps":"Facile : 45 à 70 min. Soutenue : 4 fois 1 km, ou 3 fois 8 min.","sets":"1","tip":"Une seule course soutenue par semaine, jamais la veille de la séance C.","unit":"km"},{"name":"Durée","reps":"Temps total de la course","sets":"1","unit":"min"}],"name":"Course","order":4,"short":"D · Course"}},"settings":{"cycle":{"start":"2026-10-05","weeks":7},"program":{"version":4}}};
   let store; try { store = JSON.parse(localStorage.getItem(KEY) || 'null'); } catch (e) { store = null; }
   if (!store) store = { templates: seed.templates, settings: seed.settings, logs: {}, weights: {}, goals: {} };
   const subs = new Set();
@@ -834,7 +834,7 @@ const L = (() => {
   /* ---------- Évolution du programme ----------
      Appliquée une seule fois sur un téléphone déjà installé. Ne remplace jamais un texte
      que l'utilisateur a changé : seules les anciennes valeurs connues sont mises à jour. */
-  const PROGRAM_VERSION = 3;
+  const PROGRAM_VERSION = 4;
   const PROG2 = {
     rename: [['Développé couché léger', 'Développé couché pause']],
     add: {
@@ -887,11 +887,11 @@ const L = (() => {
   const FLY = /reverse.?fly|oiseau/i;
   const PULL_TIPS = ['note le lest, 0 au poids du corps', 'Indique le lest : 0 si tu travailles sans lest.', 'Indique le lest : 0 si tu n’en mets pas.'];
   const PROG3 = {
-    retire: ['Sauts verticaux', 'Fentes marchées ou step-ups', 'Face pull'],
+    retire: ['Sauts verticaux', 'Fentes marchées ou step-ups'],
     move: { 'Planche latérale': 'C' },
     add: { A: { name: 'Extensions lombaires', sets: '2', reps: '10-12', unit: 'kg', step: 2.5, rest: 90, tip: 'Sur un banc à lombaires. Commence au poids du corps et note 0. Remonte jusqu’à l’alignement jambes-buste, pas au-delà.' } },
     order: {
-      A: ['Soulevé de terre', 'Tractions pronation', 'Tractions supination', 'Rowing barre', 'Extensions lombaires', 'Suspension à la barre', 'Marche du fermier', 'Curl marteau'],
+      A: ['Soulevé de terre', 'Tractions pronation', 'Tractions supination', 'Rowing barre', 'Face pull', 'Extensions lombaires', 'Suspension à la barre', 'Marche du fermier', 'Curl marteau'],
       B: ['Développé couché', 'Dips', 'Développé militaire haltères', 'Extension triceps à la poulie', 'Reverse fly'],
       C: ['Sauts en longueur ou sur box', 'Squat', 'Fentes bulgares', 'Leg curl ou Nordic curl', 'Mollets debout ou assis', 'Développé couché pause', 'Planche latérale']
     },
@@ -948,6 +948,25 @@ const L = (() => {
       t.exercises = t.exercises.map((x, i) => [x, i]).sort((a, b) => rank(a[0]) - rank(b[0]) || a[1] - b[1]).map(p => p[0]);
     }
   }
+  /* Version 4 : le face pull revient (la version 3 l'avait retiré à tort), reverse fly fait à la machine */
+  const FACE_TIP = 'Poulie à hauteur du visage. Tire vers le front, coudes hauts et sur les côtés. Charge légère.';
+  const PROG4 = {
+    face: { name: 'Face pull', sets: '2', reps: '12-15', unit: 'kg', tip: FACE_TIP },
+    faceEdit: { tip: [['Charge légère, coudes à hauteur d’épaules.'], FACE_TIP] },
+    flyEdit: { tip: [['À la machine ou penché avec des haltères. Coudes légèrement fléchis, épaules basses. Note la charge affichée, ou le poids d’un seul haltère.'], 'À la machine, poitrine contre le coussin. Coudes légèrement fléchis, épaules basses. Note la charge affichée, au total.'] }
+  };
+  function step4(out, from) {
+    const all = () => Object.values(out).flatMap(t => t.exercises || []);
+    /* Seule la version 3 l'avait retiré : avant elle, son absence serait un choix de l'utilisateur */
+    if (from === 3 && out.A && !all().some(x => x.name === PROG4.face.name)) {
+      const i = out.A.exercises.findIndex(x => x.name === 'Rowing barre');
+      out.A.exercises.splice(i < 0 ? out.A.exercises.length : i + 1, 0, JSON.parse(JSON.stringify(PROG4.face)));
+    }
+    for (const ex of all()) {
+      if (ex.name === PROG4.face.name) editFields(ex, PROG4.faceEdit);
+      if (FLY.test(ex.name)) editFields(ex, PROG4.flyEdit);
+    }
+  }
   /* Le message affiché une fois : uniquement ce qui a réellement changé, en clair */
   function programDiff(before, after, renames) {
     const map = tpls => { const m = {}; for (const [id, t] of tplList(tpls)) for (const ex of t.exercises || []) m[ex.name] = { id, ex }; return m; };
@@ -977,6 +996,7 @@ const L = (() => {
     const out = JSON.parse(JSON.stringify(templates || {})), renames = [];
     if (from < 2) step2(out, renames);
     if (from < 3) step3(out, renames);
+    if (from < 4) step4(out, from);
     return { templates: out, renames, changes: programDiff(templates || {}, out, renames) };
   }
 
@@ -1519,10 +1539,11 @@ const EX = (() => {
       why: 'Il travaille l’arrière des épaules, moins sollicité que l’avant quand on pousse beaucoup.',
       work: ['upper', 'fore'], gear: [FLOORG, { t: 'cable', from: [222, 40, 0], column: true }],
       frames: [
-        { label: 'Bras tendus', text: 'Poulie réglée à hauteur du visage, corde en main. Recule d’un pas, bras tendus vers la poulie.', warn: [W('hand', 'Charge légère', 6, 26)], pose: { h: [108, 103], a: -5, w: [158, 58], wz: 12, f: [112, 182], f2: [94, 181], fz: 9, ep: [-0.1, 0.7, 1] } },
-        { label: 'Vers le visage', text: 'Tire la corde vers le front, coudes hauts, en écartant les mains. Marque une seconde, puis reviens doucement.', warn: [W('elbow', 'Coudes hauts', -4, -8), W('back', 'Ne te penche pas', 26, 16)], pose: { h: [108, 103], a: -5, w: [116, 32], wz: 30, f: [112, 182], f2: [94, 181], fz: 9, ep: [-0.1, 0.7, 1] } }
+        { label: 'Bras tendus', text: 'Poulie réglée à hauteur du visage, corde en main. Recule d’un pas, bras presque tendus vers la poulie, coudes déjà à hauteur d’épaules.', warn: [W('hand', 'Charge légère', 6, 26)], pose: { h: [108, 103], a: -3, w: [162, 38], wz: 10, f: [112, 182], f2: [94, 181], fz: 9, ep: [-0.1, 0.7, 1] } },
+        { label: 'Tirer', text: 'Tire la corde vers ton front en écartant les mains. Les coudes restent hauts et partent sur les côtés.', warn: [W('elbow', 'Coudes hauts, sur les côtés', -4, -8)], pose: { h: [108, 103], a: -3, w: [136, 33], wz: 20, f: [112, 182], f2: [94, 181], fz: 9, ep: [-0.1, 0.7, 1] } },
+        { label: 'Vers le front', text: 'Mains de chaque côté du front, coudes au moins à hauteur d’épaules. Marque une seconde, puis reviens doucement.', warn: [W('elbow', 'Coudes au moins à hauteur d’épaules', -4, -8), W('back', 'Buste droit, sans te pencher', 26, 16)], pose: { h: [108, 103], a: -3, w: [110, 27], wz: 28, f: [112, 182], f2: [94, 181], fz: 9, ep: [-0.1, 0.7, 1] } }
       ],
-      cues: ['Prends une charge légère : l’important est de contrôler le mouvement.', 'Les coudes restent au moins à hauteur des épaules.'],
+      cues: ['Prends une charge légère : l’important est de contrôler le mouvement.', 'Les coudes restent au moins à hauteur des épaules. S’ils descendent, baisse la charge.', 'Si un élan du buste devient nécessaire pour finir la répétition, la charge est trop lourde.'],
       errors: ['Tirer trop lourd en se penchant en arrière.', 'Laisser tomber les coudes.'] },
     { id: 'farmer', name: 'Marche du fermier', match: /fermier/i, prim: ['forearm', 'trap'], sec: ['abs', 'oblique', 'lower'], view: { az: 40, el: 8 },
       why: 'Elle travaille directement la prise et le gainage en marchant.',
@@ -1590,7 +1611,7 @@ const EX = (() => {
         { label: 'Ouvrir', text: 'Écarte les bras en arc de cercle, sans plier davantage les coudes.', warn: [W('hand', 'Arc de cercle, sans à-coup', 8, -26)], pose: { h: [100, 128], a: 0, w: [141, 80], wz: 59, f: [142, 180], t: [155, 186], fz: 14, kp: [1, 1, 0.1], ep: [-0.6, -0.5, 0.5] } },
         { label: 'Bras écartés', text: 'Va jusqu’à ce que les bras soient à peu près dans le prolongement des épaules, marque une seconde, puis reviens lentement.', warn: [W('back', 'Poitrine contre le coussin', 16, -30)], pose: { h: [100, 128], a: 0, w: [104, 80], wz: 76, f: [142, 180], t: [155, 186], fz: 14, kp: [1, 1, 0.1], ep: [-0.6, -0.5, 0.5] } }
       ],
-      cues: ['Sans machine : penché en avant, dos droit, un haltère léger dans chaque main, même mouvement.', 'Prends une charge que tu contrôles : si tu dois donner de l’élan, baisse.', 'Note la charge affichée à la machine, ou le poids d’un seul haltère.'],
+      cues: ['Note la charge affichée à la machine, au total.', 'Prends une charge que tu contrôles : si tu dois donner de l’élan, baisse.', 'Sans machine : penché en avant, dos droit, un haltère léger dans chaque main, même mouvement. Note alors le poids d’un seul haltère.'],
       errors: ['Hausser les épaules vers les oreilles.', 'Plier les coudes pour pousser avec les bras.', 'Se décoller du coussin pour lancer la charge.'] },
     { id: 'lunge', name: 'Fentes marchées ou step-ups', match: /fentes? march|step.?up/i, prim: ['quad', 'glute'], sec: ['ham', 'calf'], view: { az: 30, el: 8 },
       why: 'Elles ajoutent du travail pour les cuisses et les fessiers, une jambe à la fois, sans charger lourd le dos.',
@@ -2302,7 +2323,7 @@ function renderView(){
     return;
   }
   const resume = S.run && !S.showRun ? `<button class="banner" style="--c:${col(S.run.tid)}" data-a="resume"><span><span class="eyebrow" style="color:inherit">Séance en cours</span><br><b>${esc(tplName(S.run.tid))}</b></span><b>Reprendre ›</b></button>` : '';
-  const upd = S.updateReady ? `<div class="alert"><span>Une nouvelle version de l’app est prête. Tes données ne changent pas.${S.run ? ' Ta séance en cours sera conservée.' : ''}</span><button data-a="reload">Mettre à jour</button></div>` : '';
+  const upd = S.updateReady ? `<div class="alert"><span>Une nouvelle version de l’app est prête. Tes données ne changent pas. ${S.run ? 'Elle s’installera toute seule à la fin de ta séance.' : 'Elle s’installera toute seule dès que tu auras fini ce que tu fais.'}</span><button data-a="reload">Mettre à jour</button></div>` : '';
   v.classList.toggle('enter', S.lastTab !== S.tab); S.lastTab = S.tab;
   v.innerHTML = upd + resume + ({ today: viewToday, cal: viewCal, prog: viewProg, plan: viewPlan, info: viewInfo, claude: viewClaude })[S.tab]();
   if (S.tab === 'prog') afterProg();
@@ -2922,7 +2943,7 @@ async function keepAwake(on){
 }
 document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible' && S.run && S.showRun) { keepAwake(true); renderSession(); } });
 
-function persistRun(){ if (S.run) LS.set('run', S.run); else { LS.del('run'); setTimeout(runMigration, 0); } }
+function persistRun(){ if (S.run) LS.set('run', S.run); else { LS.del('run'); setTimeout(() => { runMigration(); autoUpdate(); }, 300); } }
 function runExercises(t){ return exOrder(t).filter(ex => L.unitOf(ex) !== 'km' && L.unitOf(ex) !== 'min'); }
 function hasRun(t){ return exOrder(t).some(ex => L.unitOf(ex) === 'km'); }
 /* Prépare la séance : séries proposées, ou séries déjà notées ce jour-là */
@@ -3212,7 +3233,7 @@ document.addEventListener('click', ev => {
     case 'noticeok': S.programNotice = null; LS.del('programNotice'); renderAll(true); return;
     case 'reload': persistRun(); saveCache(); location.reload(); return;
     case 'impbak': { const raw = localStorage.getItem('carnet.db.avant-maj'); if (!raw) return; const d = JSON.parse(raw); d._name = 'copie d’avant la dernière mise à jour'; d.settings = { ...(d.settings || {}), program: { version: L.PROGRAM_VERSION } }; S.pendingImport = d; S.importStep = 1; renderAll(true); return; }
-    case 'tab': S.tab = v; LS.set('tab', v); S.edit = null; S.confirm = {}; S.msgs = {}; S.infoName = null; renderAll(true); window.scrollTo(0, 0); return;
+    case 'tab': S.tab = v; LS.set('tab', v); S.edit = null; S.confirm = {}; S.msgs = {}; S.infoName = null; renderAll(true); window.scrollTo(0, 0); setTimeout(autoUpdate, 0); return;
     case 'goday': { S.tab = 'cal'; S.sel = v; const d = L.parse(v); S.view = new Date(d.getFullYear(), d.getMonth(), 1); S.confirm = {}; S.panelMsg = ''; renderAll(true); $('daypanel')?.scrollIntoView({ block: 'start' }); return; }
     case 'sel': S.sel = v; S.confirm = {}; S.panelMsg = ''; renderAll(true); if (window.innerWidth < 700) $('daypanel')?.scrollIntoView({ behavior: 'smooth', block: 'start' }); return;
     case 'month': S.view.setMonth(S.view.getMonth() + +v); renderAll(true); return;
@@ -3448,7 +3469,19 @@ document.addEventListener('change', ev => {
 });
 
 /* ======================= Démarrage ======================= */
-window.carnetUpdateReady = () => { S.updateReady = true; renderAll(); };
+/* Nouvelle version : elle s'installe toute seule dès que rien n'est en cours, jamais pendant une séance ou une saisie.
+   Les données restent dans carnet.db : une mise à jour n'y touche pas, et en garde une copie (carnet.db.avant-maj). */
+function autoUpdate(){
+  if (!S.updateReady) return false;
+  if (S.run || S.edit || S.pendingImport || S.asking || S.tab === 'claude' || /INPUT|TEXTAREA|SELECT/.test(document.activeElement?.tagName || '')) return false;
+  try {
+    if (Date.now() - (+sessionStorage.getItem('carnet.autoReload') || 0) < 60000) return false;
+    sessionStorage.setItem('carnet.autoReload', String(Date.now()));
+  } catch {}
+  saveCache(); location.reload(); return true;
+}
+document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible') autoUpdate(); });
+window.carnetUpdateReady = () => { S.updateReady = true; if (!autoUpdate()) renderAll(); };
 if (S.run && !S.templates[S.run.tid]) { S.run = null; persistRun(); }
 renderAll(true);
 (async () => {
