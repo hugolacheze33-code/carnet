@@ -13,11 +13,11 @@
 <script>
 window.CARNET_MODE = 'pwa';
 window.CARNET_THREE_URL = 'three.min.js';
-window.CARNET_VERSION = '2026-11-06 09:43';
+window.CARNET_VERSION = '2026-11-06 10:02';
 /* Base locale : même interface que la base claude.ai, stockée sur le téléphone */
 (function(){
   const KEY = 'carnet.db';
-  const seed = {"templates":{"A":{"exercises":[{"main":true,"name":"Soulevé de terre","reps":"1 série lourde de 4, puis 2 séries de 6","scheme":[{"label":"Lourde","reps":4},{"label":"Série 2","reps":6},{"label":"Série 3","reps":6}],"sets":"3","step":2.5,"tip":"Repos de 3 à 5 min. Les deux paumes vers toi. Prise mixte seulement sur la série lourde, en changeant de main à chaque séance.","unit":"kg"},{"loadAt":12,"main":true,"name":"Tractions pronation","reps":"max −1","sets":"3","tip":"Mains un peu plus larges que les épaules. Coudes vers le bas et légèrement vers l’extérieur. Indique le lest : 0 si tu n’en mets pas.","unit":"kg"},{"loadAt":12,"main":true,"name":"Tractions supination","reps":"max −1","sets":"2","tip":"Indique le lest : 0 si tu n’en mets pas.","unit":"kg"},{"name":"Rowing barre","reps":"6-8","sets":"2","tip":"Buste immobile, dos droit.","unit":"kg"},{"name":"Face pull","reps":"12-15","sets":"2","tip":"Poulie à hauteur du visage. Tire vers le front, coudes hauts et sur les côtés. Charge légère.","unit":"kg"},{"name":"Extensions lombaires","sets":"2","reps":"10-12","unit":"kg","step":2.5,"rest":90,"tip":"Sur un banc à lombaires. Commence au poids du corps et note 0. Remonte jusqu’à l’alignement jambes-buste, pas au-delà."},{"name":"Suspension à la barre","sets":"2","reps":"45-60 s","unit":"s","main":true,"rest":90,"tip":"Tiens jusqu’à ce que la prise soit sur le point de lâcher. Dès 60 s aux 2 séries, ajoute du lest et note-le dans la remarque."},{"name":"Marche du fermier","reps":"30-40 m","sets":"2","tip":"Note le poids d’une seule main. Dès 40 m sur les 2 séries, ajoute 2 kg par main.","unit":"kg","step":2},{"name":"Curl marteau","sets":"2","reps":"8-12","unit":"kg","step":2,"tip":"Note le poids d’un seul haltère. Coudes le long du corps."}],"name":"Dos · tirage","order":1,"short":"A · Dos"},"B":{"exercises":[{"main":true,"name":"Développé couché","reps":"1 série lourde de 4, puis 2 séries de 6","scheme":[{"label":"Lourde","reps":4},{"label":"Série 2","reps":6},{"label":"Série 3","reps":6}],"sets":"3","step":2.5,"tip":"Premier exercice lourd de la séance. Repos de 3 à 4 min. Avant-bras à peu près verticaux quand la barre touche la poitrine.","unit":"kg","double":true},{"loadAt":10,"main":true,"name":"Dips","reps":"6-10","sets":"2","tip":"Indique le lest : 0 si tu n’en mets pas. Arrête la descente si l’avant de l’épaule te gêne.","unit":"kg"},{"name":"Développé militaire haltères","reps":"8-10","sets":"2","tip":"Note le poids d’un seul haltère. Fessiers serrés, sans te pencher en arrière.","unit":"kg","step":2},{"name":"Extension triceps à la poulie","sets":"2","reps":"10-12","unit":"kg","tip":"Coudes immobiles, le long du corps."},{"name":"Reverse fly","reps":"8-12","sets":"2","tip":"À la machine, poitrine contre le coussin. Coudes légèrement fléchis, épaules basses. Note la charge affichée, au total.","unit":"kg","step":2.5,"rest":90}],"name":"Poussée","order":2,"short":"B · Poussée"},"C":{"exercises":[{"name":"Sauts en longueur ou sur box","reps":"3 sauts","sets":"4","tip":"Après 5 à 8 min de cardio facile et de mobilité. Récupère 1 à 2 min entre les séries. Note la distance sautée ou la hauteur de la box.","unit":"cm","rest":90},{"main":true,"name":"Squat","reps":"1 série lourde de 4, puis 2 séries de 6","scheme":[{"label":"Lourde","reps":4},{"label":"Série 2","reps":6},{"label":"Série 3","reps":6}],"sets":"3","step":2.5,"tip":"Repos de 3 à 5 min. Règle les sécurités du rack sous ta position basse.","unit":"kg"},{"name":"Fentes bulgares","reps":"8-10 par jambe","sets":"3","tip":"Note le poids d’un seul haltère. Fais toutes les répétitions d’une jambe, puis change.","unit":"kg"},{"name":"Leg curl ou Nordic curl","reps":"6-10","sets":"2","tip":"Retour lent, en 2 à 3 secondes.","unit":"kg"},{"name":"Mollets debout ou assis","reps":"10-15","sets":"3","tip":"Une séance debout, la suivante assis. Mouvement lent, sans rebond.","unit":"kg"},{"name":"Développé couché pause","reps":"5","sets":"3","tip":"Rappel pour ton point faible, en fin de séance. Charge proposée : 80 % de ta série lourde. Marque 1 seconde sur la poitrine, sans rebond. Il doit te rester au moins 3 répétitions possibles.","unit":"kg"},{"name":"Planche latérale","reps":"30-45 s par côté","sets":"2","unit":"s","tip":"Corps aligné de la tête aux pieds. Fais le temps indiqué de chaque côté."}],"name":"Jambes · athlétisme","order":3,"short":"C · Jambes"},"D":{"exercises":[{"main":true,"name":"Distance","reps":"Facile : 45 à 70 min. Soutenue : 4 fois 1 km, ou 3 fois 8 min.","sets":"1","tip":"Une seule course soutenue par semaine, jamais la veille de la séance C.","unit":"km"},{"name":"Durée","reps":"Temps total de la course","sets":"1","unit":"min"}],"name":"Course","order":4,"short":"D · Course"}},"settings":{"cycle":{"start":"2026-10-05","weeks":7},"program":{"version":5}}};
+  const seed = {"templates":{"A":{"exercises":[{"main":true,"name":"Soulevé de terre","reps":"1 série lourde de 4, puis 2 séries de 6","scheme":[{"label":"Lourde","reps":4},{"label":"Série 2","reps":6},{"label":"Série 3","reps":6}],"sets":"3","step":2.5,"tip":"Repos de 3 à 5 min. Les deux paumes vers toi. Prise mixte seulement sur la série lourde, en changeant de main à chaque séance.","unit":"kg"},{"loadAt":12,"main":true,"name":"Tractions pronation","reps":"max −1","sets":"3","tip":"Mains un peu plus larges que les épaules. Coudes vers le bas et légèrement vers l’extérieur. Indique le lest : 0 si tu n’en mets pas.","unit":"kg"},{"loadAt":12,"main":true,"name":"Tractions supination","reps":"max −1","sets":"2","tip":"Indique le lest : 0 si tu n’en mets pas.","unit":"kg"},{"name":"Rowing barre","reps":"6-8","sets":"2","tip":"Buste immobile, dos droit.","unit":"kg"},{"name":"Face pull","reps":"12-15","sets":"2","tip":"Poulie à hauteur du visage. Tire vers le front, coudes hauts et sur les côtés. Charge légère.","unit":"kg"},{"name":"Extensions lombaires","sets":"2","reps":"10-12","unit":"kg","step":2.5,"rest":90,"tip":"Sur un banc à lombaires. Commence au poids du corps et note 0. Remonte jusqu’à l’alignement jambes-buste, pas au-delà."},{"name":"Suspension à la barre","sets":"2","reps":"45-60 s","unit":"s","main":true,"rest":90,"tip":"Tiens jusqu’à ce que la prise soit sur le point de lâcher. Dès 60 s aux 2 séries, ajoute du lest et note-le dans la remarque.","alt":"prise"},{"name":"Marche du fermier","reps":"30-40 m","sets":"2","tip":"Note le poids d’une seule main. Dès 40 m sur les 2 séries, ajoute 2 kg par main.","unit":"kg","step":2,"alt":"prise"},{"name":"Curl marteau","sets":"2","reps":"8-12","unit":"kg","step":2,"tip":"Note le poids d’un seul haltère. Coudes le long du corps."}],"name":"Dos · tirage","order":1,"short":"A · Dos"},"B":{"exercises":[{"main":true,"name":"Développé couché","reps":"1 série lourde de 4, puis 2 séries de 6","scheme":[{"label":"Lourde","reps":4},{"label":"Série 2","reps":6},{"label":"Série 3","reps":6}],"sets":"3","step":2.5,"tip":"Premier exercice lourd de la séance. Repos de 3 à 4 min. Avant-bras à peu près verticaux quand la barre touche la poitrine.","unit":"kg","double":true},{"loadAt":10,"main":true,"name":"Dips","reps":"6-10","sets":"2","tip":"Indique le lest : 0 si tu n’en mets pas. Arrête la descente si l’avant de l’épaule te gêne.","unit":"kg"},{"name":"Développé militaire haltères","reps":"8-10","sets":"2","tip":"Note le poids d’un seul haltère. Fessiers serrés, sans te pencher en arrière.","unit":"kg","step":2},{"name":"Extension triceps à la poulie","sets":"2","reps":"10-12","unit":"kg","tip":"Coudes immobiles, le long du corps."},{"name":"Reverse fly","reps":"8-12","sets":"2","tip":"À la machine, poitrine contre le coussin. Coudes légèrement fléchis, épaules basses. Note la charge affichée, au total.","unit":"kg","step":2.5,"rest":90}],"name":"Poussée","order":2,"short":"B · Poussée"},"C":{"exercises":[{"name":"Sauts en longueur ou sur box","reps":"3 sauts","sets":"4","tip":"Après 5 à 8 min de cardio facile et de mobilité. Récupère 1 à 2 min entre les séries. Note la distance sautée ou la hauteur de la box.","unit":"cm","rest":90},{"main":true,"name":"Squat","reps":"1 série lourde de 4, puis 2 séries de 6","scheme":[{"label":"Lourde","reps":4},{"label":"Série 2","reps":6},{"label":"Série 3","reps":6}],"sets":"3","step":2.5,"tip":"Repos de 3 à 5 min. Règle les sécurités du rack sous ta position basse.","unit":"kg"},{"name":"Fentes bulgares","reps":"8-10 par jambe","sets":"3","tip":"Note le poids d’un seul haltère. Fais toutes les répétitions d’une jambe, puis change.","unit":"kg"},{"name":"Leg curl ou Nordic curl","reps":"6-10","sets":"2","tip":"Retour lent, en 2 à 3 secondes.","unit":"kg"},{"name":"Mollets debout ou assis","reps":"10-15","sets":"3","tip":"Une séance debout, la suivante assis. Mouvement lent, sans rebond.","unit":"kg"},{"name":"Développé couché pause","reps":"5","sets":"3","tip":"Rappel pour ton point faible, en fin de séance. Charge proposée : 80 % de ta série lourde. Marque 1 seconde sur la poitrine, sans rebond. Il doit te rester au moins 3 répétitions possibles.","unit":"kg"},{"name":"Planche latérale","reps":"30-45 s par côté","sets":"2","unit":"s","tip":"Corps aligné de la tête aux pieds. Fais le temps indiqué de chaque côté."}],"name":"Jambes · athlétisme","order":3,"short":"C · Jambes"},"D":{"exercises":[{"main":true,"name":"Distance","reps":"Facile : 45 à 70 min. Soutenue : 4 fois 1 km, ou 3 fois 8 min.","sets":"1","tip":"Une seule course soutenue par semaine, jamais la veille de la séance C.","unit":"km"},{"name":"Durée","reps":"Temps total de la course","sets":"1","unit":"min"}],"name":"Course","order":4,"short":"D · Course"}},"settings":{"cycle":{"start":"2026-10-05","weeks":7},"program":{"version":6}}};
   let store; try { store = JSON.parse(localStorage.getItem(KEY) || 'null'); } catch (e) { store = null; }
   if (!store) store = { templates: seed.templates, settings: seed.settings, logs: {}, weights: {}, goals: {} };
   const subs = new Set();
@@ -531,6 +531,20 @@ input,select,textarea{background:var(--steel);border:0;border-radius:10px}
 .scale button{border:0;background:var(--steel);font-family:var(--body);font-weight:700;font-size:1.25rem;min-height:50px}
 .scale button.on{background:var(--acc);color:#fff}
 .figtag{font-family:var(--body);font-weight:600;letter-spacing:0;font-size:.78rem}
+.nav .in{grid-template-columns:repeat(5,1fr)}
+.prev{font-size:.95rem;color:var(--dim);margin-top:-6px}
+.prev b{color:var(--chalk);font-weight:600}
+.rir{display:grid;gap:6px}
+.rir .chips button{min-width:56px;justify-content:center}
+.memo{display:grid;gap:6px}
+.memo textarea{min-height:64px}
+.tools button svg{width:20px;height:20px;display:block;margin:auto}
+.card .list button{background:var(--steel)}
+.hv{display:flex;align-items:baseline;gap:8px}
+.hv b{font-size:2rem;font-weight:700;letter-spacing:-.02em}
+.nutf{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.nutf input,.nutf select{width:100%}
+.lift[data-a]{cursor:pointer}
 </style>
 
 <div class="app" id="app">
@@ -690,7 +704,7 @@ const L = (() => {
     if (!e.sets) return e;
     const out = {};
     if (e.targets) out.targets = e.targets.slice();
-    const sets = e.sets.map(s => s || {}).map(s => ({ val: isNum(s.val) ? +s.val : '', reps: isNum(s.reps) ? +s.reps : '' }));
+    const sets = e.sets.map(s => s || {}).map(s => ({ val: isNum(s.val) ? +s.val : '', reps: isNum(s.reps) ? +s.reps : '', ...(isNum(s.rir) ? { rir: +s.rir } : {}) }));
     out.sets = sets;
     const done = sets.filter(s => isNum(s.reps) || isNum(s.val));
     if (!done.length) return out;
@@ -723,11 +737,15 @@ const L = (() => {
         return { sets: [{ label: ex.scheme[0].label, val: heavy, reps: T[0], target: T[0] }, { label: ex.scheme[1]?.label || 'Série 2', val: back, reps: T[1] ?? T[0], target: T[1] ?? T[0] }], targets: [T[0], T[1] ?? T[0]], note: 'Semaine d’allègement : charge réduite de 10 %, 2 séries seulement. Arrête-toi quand il te reste 3 à 4 répétitions possibles.', kindNote: 'deload' };
       }
       const plus = lastT.some((t, i) => t > base[i]);
-      const r0 = +e?.sets?.[0]?.reps;
-      /* Série lourde dépassée d'au moins 2 répétitions : la charge était trop légère. On vise la charge qui laisse environ 1 répétition en réserve. */
-      if (met && isNum(r0) && r0 >= lastT[0] + 2) {
-        heavy = Math.max(heavyLast + step, roundTo(e1rm(heavyLast, r0) / (1 + (base[0] + 1) / 30), step)); T = base;
-        note = `Dernière fois, ${r0} répétitions à la série lourde au lieu de ${lastT[0]} : la charge était trop légère, passe à ${frNum(heavy)} kg.`; kn = 'up';
+      const r0 = +e?.sets?.[0]?.reps, q0 = e?.sets?.[0]?.rir, hasQ = isNum(q0);
+      /* Série lourde trop facile : 2 répétitions de plus que prévu, ou 3 en réserve ou plus. Sans réserve notée, on suppose 1.
+         On vise la charge qui laisse environ 1 répétition en réserve. */
+      if (met && isNum(r0) && (hasQ ? r0 + +q0 : r0 + 1) >= lastT[0] + 3) {
+        heavy = Math.max(heavyLast + step, roundTo(e1rm(heavyLast, hasQ ? r0 + +q0 : r0) / (1 + (base[0] + 1) / 30), step)); T = base;
+        note = r0 >= lastT[0] + 2
+          ? `Dernière fois, ${r0} répétitions à la série lourde au lieu de ${lastT[0]} : la charge était trop légère, passe à ${frNum(heavy)} kg.`
+          : `Dernière fois, il te restait ${q0} répétitions en réserve à la série lourde : la charge était trop légère, passe à ${frNum(heavy)} kg.`;
+        kn = 'up';
       } else if (met) {
         if (ex.double && !plus) { T = base.map(r => r + 1); note = 'Dernière fois, tu as fait toutes les répétitions : garde la même charge et fais 1 répétition de plus par série.'; kn = 'reps'; }
         else { heavy = heavyLast + step; T = base; note = `Dernière fois, tu as fait toutes les répétitions : ajoute ${frNum(step)} kg.`; kn = 'up'; }
@@ -758,10 +776,10 @@ const L = (() => {
     let note = '';
     if (hasVal && deload && unitOf(ex) === 'kg') { val = roundTo(lastVal * 0.9, step); note = 'Semaine d’allègement : charge réduite de 10 %, moitié moins de séries.'; }
     else if (deload) note = 'Semaine d’allègement : moitié moins de séries.';
-    else if (met && ru === 'reps' && ls.every(s => +s.reps >= top + 3)) {
-      const minR = Math.min(...ls.map(s => +s.reps));
+    else if (met && ru === 'reps' && ls.every(s => +s.reps + (isNum(s.rir) ? +s.rir : 0) >= top + 3)) {
+      const minR = Math.min(...ls.map(s => +s.reps + (isNum(s.rir) ? +s.rir : 0))), withQ = ls.some(s => isNum(s.rir));
       val = Math.max(lastVal + step, roundTo(e1rm(lastVal, minR) / (1 + top / 30), step));
-      note = `${minR} répétitions ou plus pour un objectif de ${String(ex.reps).replace(/(\d)\s*-\s*(\d)/, '$1 à $2')} : la charge était trop légère, passe à ${frNum(val)} kg.`;
+      note = `${minR} répétitions ${withQ ? 'possibles' : 'ou plus'} pour un objectif de ${String(ex.reps).replace(/(\d)\s*-\s*(\d)/, '$1 à $2')} : la charge était trop légère, passe à ${frNum(val)} kg.`;
     }
     else if (met) { val = lastVal + step; note = ru === 'm' ? `Tu as tenu ${top} m à chaque série : ajoute ${frNum(step)} kg par main.` : `Tu as atteint le haut de ton objectif de répétitions : ajoute ${frNum(step)} kg.`; }
     const sets = Array.from({ length: n }, (_, j) => ({ label: `Série ${j + 1}`, val, reps: ru ? (met ? '' : (ls[j]?.reps ?? ls[ls.length - 1]?.reps ?? '')) : '' }));
@@ -927,7 +945,9 @@ const L = (() => {
   /* Durée approximative : séries × (effort + repos), changement d'exercice et échauffement compris */
   function estimateMinutes(tpl) {
     let sec = 8 * 60;
+    const alts = new Set();
     for (const ex of tpl?.exercises || []) {
+      if (ex.alt) { if (alts.has(ex.alt)) continue; alts.add(ex.alt); }
       const u = unitOf(ex);
       if (u === 'km' || u === 'min') return null;
       const effort = /par (côté|jambe)/i.test(String(ex.reps)) ? 90 : 45;
@@ -969,6 +989,52 @@ const L = (() => {
     return { pace: run.pace, tooFast: run.pace < fast - 5, tooSlow: run.pace > slow + 30, zone: zones.easy };
   }
 
+  /* Exercices en alternance (même champ alt) : un seul par séance, celui fait le moins récemment.
+     Ce qui est déjà noté ce jour-là reste affiché, pour ne jamais cacher une série faite. */
+  function activeExercises(tpl, logs, dateIso) {
+    const xs = tpl?.exercises || [], groups = {};
+    for (const ex of xs) if (ex.alt) (groups[ex.alt] = groups[ex.alt] || []).push(ex);
+    if (!Object.keys(groups).length) return xs;
+    const keep = new Set(xs.filter(ex => !ex.alt));
+    const lastDone = ex => { const h = history(logs, ex.name).filter(x => x.date < dateIso); return h.length ? h[h.length - 1].date : ''; };
+    for (const list of Object.values(groups)) {
+      const noted = list.filter(ex => { const e = logs?.[dateIso]?.entries?.[ex.name]; return e && !e.skipped; });
+      if (noted.length) { noted.forEach(ex => keep.add(ex)); continue; }
+      keep.add(list.reduce((a, b) => lastDone(b) < lastDone(a) ? b : a, list[0]));
+    }
+    return xs.filter(ex => keep.has(ex));
+  }
+  /* Dernière note laissée sur un exercice (réglage de machine, sensation) */
+  function lastMemo(logs, exName, dateIso) {
+    const k = Object.keys(logs || {}).filter(d => d < dateIso && logs[d].entries?.[exName]?.memo).sort().pop();
+    return k ? { date: k, text: logs[k].entries[exName].memo } : null;
+  }
+
+  /* ---------- Nutrition ----------
+     Besoins estimés : métabolisme de base (Mifflin-St Jeor) × activité, puis l'objectif.
+     Protéines 1,6 g/kg : au-delà, les gains de muscle n'augmentent plus en moyenne (Morton 2018).
+     Lipides 25 % des calories, glucides le reste. Ce sont des estimations : le poids dit s'il faut ajuster. */
+  const ACTIVITY = { faible: 1.375, modere: 1.55, eleve: 1.725 };
+  const GOAL_KCAL = { prise: 250, maintien: 0, seche: -400 };
+  function nutritionTargets(p, weightKg) {
+    if (!p || !isNum(p.age) || !isNum(p.height) || !isNum(weightKg) || !p.sex) return null;
+    const w = +weightKg, bmr = 10 * w + 6.25 * +p.height - 5 * +p.age + (p.sex === 'F' ? -161 : 5);
+    const tdee = bmr * (ACTIVITY[p.activity] || ACTIVITY.modere);
+    const kcal = Math.round((tdee + (GOAL_KCAL[p.goal] ?? GOAL_KCAL.prise)) / 10) * 10;
+    const protein = Math.round(1.6 * w), fat = Math.round(kcal * 0.25 / 9), carbs = Math.max(0, Math.round((kcal - protein * 4 - fat * 9) / 4));
+    return { bmr: Math.round(bmr), tdee: Math.round(tdee), kcal, protein, fat, carbs };
+  }
+  /* Repère d'ajustement d'après l'évolution du poids sur 4 semaines */
+  function calorieAdvice(weights, goal) {
+    const ws = weightStats(weights);
+    if (!ws || ws.d4 == null) return 'Pèse-toi 2 à 3 fois par semaine, le matin : après 4 semaines, l’app te dira s’il faut ajuster les calories.';
+    const d = ws.d4, f = v => `${v > 0 ? '+' : ''}${frNum(r1(v))} kg`;
+    const [lo, hi] = { prise: [0.4, 1.6], maintien: [-0.8, 0.8], seche: [-3, -0.8] }[goal] || [-0.8, 0.8];
+    if (d < lo) return `${f(d)} en 4 semaines : moins que visé, ajoute environ 150 kcal par jour.`;
+    if (d > hi) return `${f(d)} en 4 semaines : plus que visé, retire environ 150 kcal par jour.`;
+    return `${f(d)} en 4 semaines : dans la cible, garde ces apports.`;
+  }
+
   /* Plus longue course des N derniers jours (repère de prudence, étude Frandsen 2025) */
   function longestRun(logs, tpl, dateIso, days = 30) {
     let best = 0;
@@ -996,7 +1062,7 @@ const L = (() => {
   /* ---------- Évolution du programme ----------
      Appliquée une seule fois sur un téléphone déjà installé. Ne remplace jamais un texte
      que l'utilisateur a changé : seules les anciennes valeurs connues sont mises à jour. */
-  const PROGRAM_VERSION = 5;
+  const PROGRAM_VERSION = 6;
   const PROG2 = {
     rename: [['Développé couché léger', 'Développé couché pause']],
     add: {
@@ -1129,6 +1195,13 @@ const L = (() => {
       if (FLY.test(ex.name)) editFields(ex, PROG4.flyEdit);
     }
   }
+  /* Version 6 : suspension et marche du fermier en alternance, pour raccourcir la séance A (choix de l'utilisateur) */
+  const PROG6 = { 'Suspension à la barre': 'prise', 'Marche du fermier': 'prise' };
+  function step6(out) {
+    const A = out.A; if (!A) return;
+    if (!Object.keys(PROG6).every(n => A.exercises.some(x => x.name === n))) return;
+    for (const ex of A.exercises) if (PROG6[ex.name] && ex.alt === undefined) ex.alt = PROG6[ex.name];
+  }
   /* Le message affiché une fois : uniquement ce qui a réellement changé, en clair */
   function programDiff(before, after, renames) {
     const map = tpls => { const m = {}; for (const [id, t] of tplList(tpls)) for (const ex of t.exercises || []) m[ex.name] = { id, ex }; return m; };
@@ -1145,6 +1218,9 @@ const L = (() => {
       if (o.id !== v.id) out.push(`${name} passe de ${lab(before, o.id)} à ${lab(after, v.id)}`);
       if (String(o.ex.sets) !== String(v.ex.sets)) out.push(`${lab(after, v.id)} : ${name} passe à ${v.ex.sets} séries`);
     }
+    const alts = {};
+    for (const [name, v] of Object.entries(B)) { const o = A[oldNames[name] || name]; if (v.ex.alt && o && !o.ex.alt) (alts[v.id] = alts[v.id] || []).push(name); }
+    for (const [id, list] of Object.entries(alts)) out.push(`${lab(after, id)} : ${list.join(' et ')} en alternance, une par séance`);
     const reordered = [];
     for (const [id, t] of tplList(after)) {
       const now = (t.exercises || []).map(x => x.name).filter(n => A[oldNames[n] || n]?.id === id);
@@ -1159,6 +1235,7 @@ const L = (() => {
     if (from < 2) step2(out, renames);
     if (from < 3) step3(out, renames);
     if (from < 4) step4(out, from);
+    if (from < 6) step6(out);
     return { templates: out, renames, changes: programDiff(templates || {}, out, renames) };
   }
 
@@ -1244,7 +1321,7 @@ const L = (() => {
   }
 
   /* ---------- Demander à Claude ---------- */
-  const EX_FIELDS = ['name', 'sets', 'reps', 'unit', 'main', 'step', 'scheme', 'loadAt', 'tip', 'rest', 'double'];
+  const EX_FIELDS = ['name', 'sets', 'reps', 'unit', 'main', 'step', 'scheme', 'loadAt', 'tip', 'rest', 'double', 'alt'];
   const UNITS = ['kg', 'km', 'min', 's', 'cm', 'reps'];
   function cleanExercise(x) {
     if (!x || typeof x !== 'object' || typeof x.name !== 'string' || !x.name.trim()) return null;
@@ -1260,6 +1337,7 @@ const L = (() => {
     }
     if (isNum(x.loadAt) && +x.loadAt > 0 && +x.loadAt < 60) ex.loadAt = parseInt(x.loadAt, 10);
     if (x.tip) ex.tip = String(x.tip).slice(0, 160);
+    if (typeof x.alt === 'string' && x.alt.trim()) ex.alt = x.alt.trim().slice(0, 20);
     if (isNum(x.rest) && +x.rest >= 15 && +x.rest <= 900) ex.rest = Math.round(+x.rest);
     if (x.double) ex.double = true;
     return ex;
@@ -1418,7 +1496,7 @@ Champs d'un exercice : name, sets (texte), reps (texte), unit (kg, km, min, s, c
     parseDur, fmtDur, fmtPace, cycleInfo, deloadStart, tplList, unitOf, exDef, kind, repsUnit, valStep, defaultRest, nSets,
     history, lastBefore, missing, metric, describe, finalize, suggest, platesPerSide, warmup, scoreSet, bestOf, newPRs, prLabel,
     runOf, riegel, paceZones, bestRunRef, runPRs, sequenceAlerts, suggestNext,goalMetric, currentFor, plan, weightStats,
-    repsTarget, repsPlain, progressRule, estimateMinutes, sessionStats, longestRun, PROGRAM_VERSION, migrateProgram, exInfo, entryRows, repairLogs, hasData, muscleSets, easyCheck, MUSCLE_GROUPS,
+    repsTarget, repsPlain, progressRule, estimateMinutes, sessionStats, longestRun, PROGRAM_VERSION, migrateProgram, exInfo, entryRows, repairLogs, hasData, muscleSets, easyCheck, MUSCLE_GROUPS, activeExercises, lastMemo, nutritionTargets, calorieAdvice,
     cleanExercise, validateChanges, applyTemplateChange, describeChange, exSummary, buildClaudeContext, buildClaudePrompt, buildMailReport, sessionLine };
 })();
 
@@ -2446,7 +2524,7 @@ const LS = {
 /* ======================= État ======================= */
 const cache = LS.get('cache', null);
 const S = {
-  templates: cache?.templates || {}, logs: cache?.logs || {}, weights: cache?.weights || {}, goals: cache?.goals || {}, profile: cache?.profile || '',
+  templates: cache?.templates || {}, logs: cache?.logs || {}, weights: cache?.weights || {}, goals: cache?.goals || {}, profile: cache?.profile || '', nutrition: cache?.nutrition || null, histName: null,
   cycle: cache?.cycle || { start: '2026-10-05', weeks: 7 },
   db: null, online: 'wait', loaded: !!cache,
   tab: LS.get('tab', 'today'), sel: today(), view: null, confirm: {}, edit: null, panelMsg: '',
@@ -2458,10 +2536,10 @@ let outbox = LS.get('outbox', {});
 const ctx = () => ({ templates: S.templates, logs: S.logs, weights: S.weights, goals: S.goals, cycle: S.cycle, today: today(), profile: S.profile || PROFILE, rules: RULES });
 const bw = () => L.weightStats(S.weights)?.last || 75;
 
-function saveCache(){ LS.set('cache', { templates: S.templates, logs: S.logs, weights: S.weights, goals: S.goals, cycle: S.cycle, profile: S.profile }); }
+function saveCache(){ LS.set('cache', { templates: S.templates, logs: S.logs, weights: S.weights, goals: S.goals, cycle: S.cycle, profile: S.profile, nutrition: S.nutrition }); }
 function applyLocal(path, data){
   const [c, id] = path.split('/');
-  if (c === 'settings') { if (id === 'cycle' && data) S.cycle = { ...S.cycle, ...data }; if (id === 'profile') S.profile = data?.text || ''; if (id === 'program') S.programVersion = +data?.version || 1; return; }
+  if (c === 'settings') { if (id === 'cycle' && data) S.cycle = { ...S.cycle, ...data }; if (id === 'profile') S.profile = data?.text || ''; if (id === 'program') S.programVersion = +data?.version || 1; if (id === 'nutrition') S.nutrition = data || null; return; }
   if (!['templates','logs','weights','goals'].includes(c)) return;
   if (data == null) delete S[c][id]; else S[c][id] = data;
 }
@@ -2502,9 +2580,10 @@ const ICONS = {
   info: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.5"/></svg>',
   claude: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v18M3 12h18M5.6 5.6l12.8 12.8M18.4 5.6 5.6 18.4"/></svg>'
 };
-const TABS = [['today','Aujourd’hui'],['cal','Calendrier'],['prog','Progrès'],['plan','Programme'],['info','Info'],['claude','Coach']];
+const TABS = [['today','Aujourd’hui'],['cal','Calendrier'],['prog','Progrès'],['plan','Programme'],['info','Info']];
+const TITLES = { ...Object.fromEntries(TABS), claude: 'Coach' };
 function renderNav(){
-  const t = $('ptitle'); if (t) t.textContent = (TABS.find(([id]) => id === S.tab) || TABS[0])[1];
+  const t = $('ptitle'); if (t) t.textContent = TITLES[S.tab] || TITLES.today;
   $('nav').innerHTML = TABS.map(([id, label]) => `<button data-a="tab" data-v="${id}" class="${S.tab===id?'on':''} ${id==='claude'?'cl':''}" aria-current="${S.tab===id?'page':'false'}">${ICONS[id]}<span>${label}</span></button>`).join('');
 }
 function renderSync(){
@@ -2713,6 +2792,7 @@ function viewToday(){
       <div class="tplpick">${L.tplList(S.templates).map(([id, tp]) => `<button data-a="planday" data-v="${id}" data-d="${k}" style="--c:${col(id)}"><span class="disc sm" style="--c:${col(id)}" aria-hidden="true">${esc(id)}</span><b>${esc((tp.short || tp.name).replace(/^\w\s*·\s*/, ''))}</b><span>${esc(hasRun(tp) ? 'Facile ou soutenue' : (tp.exercises||[]).filter(x => x.main).slice(0,2).map(x=>x.name).join(', '))}</span></button>`).join('')}</div>
       <p class="small dim">Jour de repos ? Rien à faire : la journée reste vide dans le calendrier.</p></section>`;
   }
+  h += nutTodayCard();
   h += alerts;
   const done = wk.filter(d => S.logs[d]?.status === 'faite').length, planned = wk.filter(d => S.logs[d]).length;
   h += `<section class="card"><div class="between"><h3>Cette semaine</h3><span class="small dim">${done} faite${done>1?'s':''} sur ${planned} prévue${planned>1?'s':''}</span></div>${weekStrip(wk)}</section>`;
@@ -2722,7 +2802,7 @@ function viewToday(){
 }
 function todayCard(k, log, t){
   const c = L.cycleInfo(k, S.cycle), id = log.templateId;
-  const rows = exOrder(t).map(ex => {
+  const rows = L.activeExercises(t, S.logs, k).map(ex => {
     if (L.unitOf(ex) === 'km' || L.unitOf(ex) === 'min') return '';
     const s = suggestFor(ex, k), first = s.sets[0];
     const what = L.kind(ex) === 'barre' ? (L.isNum(first?.val) ? `${L.frNum(first.val)} kg × ${first.reps}` : esc(ex.scheme.map(s => s.reps).join(', ')) + ' répétitions') : L.kind(ex) === 'pdc' ? `${shortReps(ex, s.sets.length)}${+first?.val>0?` · +${L.frNum(first.val)} kg`:''}` : shortReps(ex, s.sets.length);
@@ -2840,7 +2920,7 @@ function dayPanel(k){
   if (t) {
     const done = l.status === 'faite';
     const anyData = Object.values(l.entries || {}).some(e => e && !e.skipped && L.isNum(e.val));
-    h += `<div class="exl">${L.entryRows(l, t, S.templates).map(({ ex, e, planned }) => { const d = L.describe(ex, e); if (!d && (!planned || (done && anyData))) return ''; return `<div class="r"><b>${esc(ex.name)}</b><span>${esc(d || (done ? 'à noter' : L.repsPlain(ex)))}</span></div>`; }).join('')}</div>`;
+    h += `<div class="exl">${L.entryRows(l, t && { ...t, exercises: L.activeExercises(t, S.logs, k) }, S.templates).map(({ ex, e, planned }) => { const d = L.describe(ex, e); if (!d && (!planned || (done && anyData))) return ''; return `<div class="r"><b>${esc(ex.name)}</b><span>${esc(d || (done ? 'à noter' : L.repsPlain(ex)))}</span></div>`; }).join('')}</div>`;
     if (l.templateId === 'D') { const r = L.runOf(l, t); if (r?.pace) h += `<p class="small">Allure <b class="num">${L.fmtPace(r.pace)} /km</b>${r.hr ? ` · fréquence cardiaque ${r.hr}` : ''}${r.treadmill ? ' · tapis' : ''}</p>`; }
     h += feelLine(l);
     h += `<div class="stack">`;
@@ -2881,6 +2961,7 @@ function weekTiles(){
     ${runLines}`;
 }
 function viewProg(){
+  if (S.histName) return histDetail(S.histName, 'histclose');
   const w = bw(), todo = [];
   const lifts = mainLifts().map(({ id, ex }) => {
     const hist = L.history(S.logs, ex.name), h = hist.map(x => ({ m: L.metric(ex, x.e), e: x.e })).filter(x => x.m != null);
@@ -2889,7 +2970,7 @@ function viewProg(){
     const unit = k === 'barre' ? 'kg, max estimé' : k === 'pdc' ? (last?.m > 1 ? 'répétitions' : 'répétition') : L.unitOf(ex);
     if (!last) { todo.push(ex.name); return ''; }
     const gain = h.length > 1 ? last.m - h[0].m : 0;
-    return `<div class="lift" style="--c:${col(id)}"><div class="eyebrow" style="color:${col(id)}">${esc(id)}</div><b>${esc(ex.name)}</b>
+    return `<div class="lift" style="--c:${col(id)}" data-a="hist" data-v="${esc(ex.name)}" role="button" tabindex="0"><div class="eyebrow" style="color:${col(id)}">${esc(id)}</div><b>${esc(ex.name)}</b>
       ${last ? `<div class="v num" style="font-family:var(--display)">${L.frNum(L.r1(last.m))} <span class="small dim" style="font-family:var(--body);font-weight:500">${unit}</span></div>
       <div class="small dim">${esc(L.describe(ex, last.e))}</div>
       ${gain > 0 ? `<div class="small delta">+${L.frNum(L.r1(gain))} depuis le ${L.fr(hist[0].date)}</div>` : ''}
@@ -2898,6 +2979,7 @@ function viewProg(){
   }).join('');
   return `<section class="card"><h3>Cette semaine</h3>${weekTiles()}</section>
     <section class="card"><h2>Records et progression</h2>${lifts ? `<p class="small dim">Barre : max estimé sur 1 répétition. Tractions et dips : meilleur nombre de répétitions.</p><div class="lifts">${lifts}</div>` : '<p class="dim">Note ta première séance : tes courbes et tes records apparaîtront ici.</p>'}${todo.length ? `<p class="small dim">Pas encore noté : ${esc(todo.join(', '))}.</p>` : ''}</section>
+    ${histListHtml()}
     ${runCard()}
     <section class="card"><h2>Objectifs</h2>
       <p class="small dim">Le verdict est une estimation prudente pour quelqu’un qui s’entraîne depuis plusieurs années, pas une promesse.</p>
@@ -2976,8 +3058,8 @@ function viewPlan(){
     exOrder(t).forEach((ex, i) => {
       const editing = S.edit && S.edit.tid === id && S.edit.i === i;
       const rule = L.progressRule(ex), run = L.unitOf(ex) === 'km' || L.unitOf(ex) === 'min';
-      h += editing ? editSheet() : `<div class="exrow"><div class="t"><b>${esc(ex.name)}</b><span class="main">${esc(L.repsPlain(ex))}</span>${run ? '' : `<span>Repos ${L.fmtDur(L.defaultRest(ex))}${rule ? ' · ' + esc(rule) : ''}</span>`}</div>
-        <div class="tools">${EX.find(ex.name) ? `<button data-a="infoex" data-v="${esc(ex.name)}" aria-label="Comment faire : ${esc(ex.name)}">?</button>` : ''}<button data-a="exedit" data-t="${id}" data-i="${i}" aria-label="Modifier ${esc(ex.name)}">✎</button></div></div>`;
+      h += editing ? editSheet() : `<div class="exrow"><div class="t"><b>${esc(ex.name)}</b><span class="main">${esc(L.repsPlain(ex))}</span>${run ? '' : `<span>Repos ${L.fmtDur(L.defaultRest(ex))}${rule ? ' · ' + esc(rule) : ''}</span>`}${ex.alt ? `<span>Une séance sur deux, en alternance avec ${esc(exOrder(t).filter(o => o.alt === ex.alt && o !== ex).map(o => o.name).join(', '))}</span>` : ''}</div>
+        <div class="tools"><button data-a="hist" data-v="${esc(ex.name)}" aria-label="Historique : ${esc(ex.name)}">${ICONS.prog}</button>${EX.find(ex.name) ? `<button data-a="infoex" data-v="${esc(ex.name)}" aria-label="Comment faire : ${esc(ex.name)}">?</button>` : ''}<button data-a="exedit" data-t="${id}" data-i="${i}" aria-label="Modifier ${esc(ex.name)}">✎</button></div></div>`;
     });
     if (S.edit && S.edit.tid === id && S.edit.i === -1) h += editSheet();
     else h += `<button class="btn sm ghost" data-a="exadd" data-t="${id}">Ajouter un exercice</button>`;
@@ -2990,7 +3072,8 @@ function viewPlan(){
     <section class="card"><h3>Ton profil pour le coach</h3><p class="small dim">Ce que Claude saura de toi quand tu lui poseras une question : taille, poids, niveau, objectifs, matériel. Ce texte reste sur ce téléphone jusqu’à ce que tu le copies pour Claude.</p>
       <form class="stack" id="profform"><label for="p-text" class="eyebrow">Profil</label><textarea id="p-text" style="min-height:160px">${esc(S.profile || PROFILE)}</textarea>
       <button class="btn sm" type="submit">Enregistrer</button></form><p class="small dim" id="pstatus" role="status">${esc(S.msgs.pstatus || '')}</p></section>
-    ${MODE === 'pwa' ? `<section class="card"><h3>Envoyer à Claude</h3><p class="small dim">Envoie tes séances récentes par mail, puis écris simplement à Claude « lis mes séances ». Ce n’est pas une sauvegarde complète.</p>${mailBlock()}</section>` : ''}
+    ${MODE === 'pwa' ? `<section class="card"><h2>Claude</h2><p class="small dim">Envoie tes séances récentes par mail, puis écris simplement à Claude « lis mes séances ». Ce n’est pas une sauvegarde complète.</p>${mailBlock()}<button class="btn wide" data-a="tab" data-v="claude">Poser une question au coach</button></section>` : ''}
+    ${nutritionCard()}
     <section class="card"><h3>Sauvegarde</h3><p class="small dim">${MODE === 'pwa' ? 'Tes données sont uniquement sur ce téléphone. Exporte-les régulièrement vers Fichiers, iCloud Drive ou ta messagerie : si tu perds le téléphone, cette sauvegarde sera ta seule copie.' : 'Télécharge toutes tes données (séances types, séances, pesées, objectifs, réglages) dans un fichier JSON.'}</p>
       <button class="btn wide" data-a="export">Exporter mes données</button><p class="small dim" id="xstatus" role="status">${esc(S.msgs.xstatus || '')}</p>
       <label class="btn wide ghost" for="importfile" style="text-align:center;display:grid;place-items:center">Restaurer une sauvegarde</label><input type="file" id="importfile" accept=".json,application/json" hidden>
@@ -3052,7 +3135,7 @@ function saveTemplate(tid, exercises){ write('templates/' + tid, { ...S.template
 const QUICK = ['Mon développé couché stagne : que changer ?', 'Fais le bilan de mes 2 dernières semaines.', 'Je suis fatigué cette semaine : dois-je alléger ?', 'Comment préparer un 10 km en 50 min sans perdre ma force ?'];
 /* Web app : pas d'appel direct à Claude, on passe par l'app Claude en copier-coller */
 function viewClaudePaste(){
-  let h = `<section class="card"><p class="small dim">Le coach est le seul endroit qui demande ton compte Claude. Tout le reste de l’app fonctionne sans compte et sans réseau.</p><p class="small dim">1. Écris ta question.<br>2. Touche « Copier pour Claude », ouvre Claude (connecte-toi s’il te le demande) et colle le texte.<br>3. Copie la réponse de Claude et colle-la ici. Tu verras ses conseils et ses propositions. Rien ne change sans ton accord.</p>
+  let h = `<div><button class="btn sm ghost" data-a="tab" data-v="plan">‹ Programme</button></div><section class="card"><p class="small dim">Le coach est le seul endroit qui demande ton compte Claude. Tout le reste de l’app fonctionne sans compte et sans réseau.</p><p class="small dim">1. Écris ta question.<br>2. Touche « Copier pour Claude », ouvre Claude (connecte-toi s’il te le demande) et colle le texte.<br>3. Copie la réponse de Claude et colle-la ici. Tu verras ses conseils et ses propositions. Rien ne change sans ton accord.</p>
     <div class="suggest">${QUICK.map(q => `<button data-a="quick" data-v="${esc(q)}">${esc(q)}</button>`).join('')}</div>
     <label for="ask" class="eyebrow">Ta question</label><textarea id="ask" placeholder="Mes épaules tirent au couché, que faire ?">${esc(S.askDraft || '')}</textarea>
     <button class="btn claude wide" data-a="pcopy">Copier pour Claude</button>
@@ -3183,18 +3266,19 @@ async function keepAwake(on){
 document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible' && S.run && S.showRun) { keepAwake(true); renderSession(); } });
 
 function persistRun(){ if (S.run) LS.set('run', S.run); else { LS.del('run'); setTimeout(() => { runMigration(); autoUpdate(); }, 300); } }
-function runExercises(t){ return exOrder(t).filter(ex => L.unitOf(ex) !== 'km' && L.unitOf(ex) !== 'min'); }
+/* Exercices de la séance : ceux en alternance ne comptent qu'une fois (le moins récent), sans jamais cacher une série déjà notée */
+function runExercises(t, date){ return L.activeExercises(t, S.logs, date || S.run?.date || today()).filter(ex => L.unitOf(ex) !== 'km' && L.unitOf(ex) !== 'min'); }
 function hasRun(t){ return exOrder(t).some(ex => L.unitOf(ex) === 'km'); }
 /* Prépare la séance : séries proposées, ou séries déjà notées ce jour-là */
 function buildRun(k, noTimer){
   const log = S.logs[k], tid = log.templateId, t = S.templates[tid], c = L.cycleInfo(k, S.cycle);
   const ex = {};
-  for (const x of runExercises(t)) {
+  for (const x of runExercises(t, k)) {
     const saved = log.entries?.[x.name], sg = suggestFor(x, k);
     let sets = sg.sets.map(s => ({ val: s.val, reps: s.reps, label: s.label, target: s.target, done: false, auto: true }));
-    if (saved?.sets?.length) saved.sets.forEach((s, j) => { if (!s) return; const has = L.isNum(s.val) || L.isNum(s.reps); if (!sets[j]) sets[j] = { label: `Série ${j + 1}` }; if (has) sets[j] = { ...sets[j], val: s.val, reps: s.reps, done: true, auto: false }; });
+    if (saved?.sets?.length) saved.sets.forEach((s, j) => { if (!s) return; const has = L.isNum(s.val) || L.isNum(s.reps); if (!sets[j]) sets[j] = { label: `Série ${j + 1}` }; if (has) sets[j] = { ...sets[j], val: s.val, reps: s.reps, ...(L.isNum(s.rir) ? { rir: s.rir } : {}), done: true, auto: false }; });
     else if (saved && L.isNum(saved.val)) sets[0] = { ...sets[0], val: saved.val, reps: saved.reps, done: true, auto: false };
-    ex[x.name] = { sets, targets: saved?.targets || sg.targets || null, note: sg.note, kindNote: sg.kindNote, skipped: !!saved?.skipped, last: sg.last ? { date: sg.last.date, txt: L.describe(x, sg.last.e) } : null };
+    ex[x.name] = { sets, targets: saved?.targets || sg.targets || null, note: sg.note, kindNote: sg.kindNote, skipped: !!saved?.skipped, last: sg.last ? { date: sg.last.date, txt: L.describe(x, sg.last.e), sets: sg.last.e?.sets || null } : null, memo: saved?.memo || '' };
   }
   let runData = null;
   if (hasRun(t)) {
@@ -3243,9 +3327,10 @@ function logFromRun(status){
     const e = R.ex[x.name]; if (!e) continue;
     if (e.skipped) { entries[x.name] = { skipped: true }; continue; }
     if (!e.sets.some(s => s.done)) { if (status === 'faite') entries[x.name] = { skipped: true }; continue; }
-    const raw = { sets: e.sets.map(s => s.done ? { val: s.val, reps: s.reps } : { val: '', reps: '' }) };
+    const raw = { sets: e.sets.map(s => s.done ? { val: s.val, reps: s.reps, ...(L.isNum(s.rir) ? { rir: s.rir } : {}) } : { val: '', reps: '' }) };
     if (L.kind(x) === 'barre' && e.targets) raw.targets = e.targets;
     entries[x.name] = L.finalize(x, raw);
+    if (e.memo) entries[x.name].memo = e.memo;
   }
   const out = { ...base, templateId: R.tid, status, entries, date: R.date, note: R.note || '' };
   if (R.runData && (R.runData.done || status === 'faite')) {
@@ -3285,7 +3370,7 @@ function setDone(){
   if (!L.isNum(s.val) && L.unitOf(x) === 'kg' && L.kind(x) !== 'pdc') { R.toast = 'Indique la charge avant de valider la série.'; renderSession(); return; }
   if (L.repsUnit(x) && !L.isNum(s.reps)) { R.toast = 'Indique le nombre de répétitions faites.'; renderSession(); return; }
   if (!L.repsUnit(x) && !L.isNum(s.val)) { R.toast = 'Indique ce que tu as réalisé avant de valider.'; renderSession(); return; }
-  s.done = true; s.auto = false; R.toast = '';
+  s.done = true; s.auto = false; R.toast = ''; R.lastSet = { name: x.name, j: R.j };
   const prs = L.newPRs(x, { sets: e.sets.filter(o => o.done) }, prevHist(x.name, R.date), bw()).filter(p => !R.prs.some(q => q.ex === x.name));
   prs.forEach(p => R.prs.push({ ex: x.name, label: p }));
   const prMsg = prs.length ? `Nouveau record ! ${prs[0]}` : '';
@@ -3294,6 +3379,73 @@ function setDone(){
   else { R.restFor = x.name; R.i = nx.i; R.j = nx.j; if (R.noTimer) R.phase = 'ex'; else { R.phase = 'rest'; R.restTotal = rest; R.restEnd = Date.now() + rest * 1000; R.signaled = false; R.lastTick = null; } R.toast = prMsg || `Série enregistrée : ${describeSet(x, s)}.`; }
   if (prs.length) { beep(1047, .12); beep(1319, .2, .14); }
   persistRun(); syncRun(); renderSession();
+}
+/* La même série à la séance précédente */
+function prevHtml(x, e, j){
+  const p = e.last?.sets?.[j];
+  if (!p || !(L.isNum(p.val) || L.isNum(p.reps))) return '';
+  return `<p class="prev">Précédent : <b class="num">${esc(describeSet(x, p))}</b>${L.isNum(p.rir) ? ` · réserve ${p.rir}` : ''}</p>`;
+}
+/* Pendant le repos : combien de répétitions restaient en réserve sur la série qui vient d'être faite (facultatif) */
+function rirHtml(R){
+  const ls = R.lastSet, x = ls && L.exInfo(S.templates, ls.name), s = ls && R.ex[ls.name]?.sets?.[ls.j];
+  if (!s || !s.done || L.repsUnit(x) !== 'reps') return '';
+  return `<div class="rir"><span class="small dim">Il te restait combien de répétitions ?</span><div class="chips">${[0, 1, 2, 3].map(n => `<button class="chip ${s.rir === n ? 'on' : ''}" data-a="rir" data-v="${n}" aria-pressed="${s.rir === n}">${n === 3 ? '3 ou +' : n}</button>`).join('')}</div></div>`;
+}
+/* Note sur l'exercice : réglage de machine, sensation. La dernière note s'affiche à la séance suivante. */
+function memoHtml(x, e){
+  const prev = L.lastMemo(S.logs, x.name, S.run.date), open = e.memoOpen || e.memo;
+  return `<div class="memo">${prev && !e.memo ? `<p class="small"><span class="dim">Ta note du ${L.fr(prev.date)} :</span> ${esc(prev.text)}</p>` : ''}${open ? `<label class="small dim" for="in-memo">Note sur cet exercice (réglage, sensation)</label><textarea id="in-memo" maxlength="300" placeholder="Siège au cran 4…">${esc(e.memo || '')}</textarea>` : `<div><button class="btn sm ghost" data-a="memo">${prev ? 'Nouvelle note' : 'Ajouter une note'}</button></div>`}</div>`;
+}
+/* Historique d'un exercice : courbe, record et toutes les séances */
+function histDetail(name, back){
+  const ex = L.exInfo(S.templates, name), hist = L.history(S.logs, name), k = L.kind(ex);
+  const ms = hist.map(x => L.metric(ex, x.e)).filter(v => v != null);
+  const unit = k === 'barre' ? 'kg, max estimé' : k === 'pdc' ? 'répétitions' : ({ kg: 'kg', s: 's', cm: 'cm', km: 'km', min: 'min', reps: '' }[L.unitOf(ex)] ?? '');
+  const best = L.bestOf(ex, hist, bw());
+  const setTxt = e => (e.sets || []).filter(s => s && (L.isNum(s.val) || L.isNum(s.reps))).map(s => describeSet(ex, s) + (L.isNum(s.rir) ? ` (réserve ${s.rir})` : '')).join(' · ') || L.describe(ex, e);
+  const rows = hist.slice().reverse().map(x => `<div class="r"><b>${L.fr(x.date)}</b><span class="num">${esc(setTxt(x.e))}</span></div>${x.e.memo ? `<p class="small dim">« ${esc(x.e.memo)} »</p>` : ''}`).join('');
+  return `<section class="card"><div><button class="btn sm ghost" data-a="${back}">‹ Retour</button></div><h2>${esc(name)}</h2>
+    ${ms.length ? `<div class="hv"><b class="num">${L.frNum(L.r1(ms[ms.length - 1]))}</b><span class="small dim">${unit}</span></div>${ms.length > 1 ? `<div style="color:var(--acc)">${spark(ms, 90)}</div>` : ''}` : ''}
+    ${best ? `<p class="small pr">Record : ${esc(L.prLabel(ex, best.set, best.score).replace(/^Max estimé : /, ''))} (${L.fr(best.date)})</p>` : ''}
+    ${rows ? `<div class="exl">${rows}</div>` : '<p class="dim">Pas encore de séance notée pour cet exercice.</p>'}</section>`;
+}
+function histListHtml(){
+  const names = [], seen = new Set(), add = n => { if (!seen.has(n)) { seen.add(n); names.push(n); } };
+  for (const [, t] of L.tplList(S.templates)) for (const ex of exOrder(t)) if (!['km', 'min'].includes(L.unitOf(ex))) add(ex.name);
+  for (const l of Object.values(S.logs)) for (const n of Object.keys(l.entries || {})) if (!['Distance', 'Durée'].includes(n)) add(n);
+  const rows = names.map(n => ({ n, h: L.history(S.logs, n) })).filter(x => x.h.length);
+  if (!rows.length) return '';
+  return `<section class="card"><h2>Historique par exercice</h2><div class="list">${rows.map(({ n, h }) => { const last = h[h.length - 1]; return `<button data-a="hist" data-v="${esc(n)}"><span><b>${esc(n)}</b><br><span class="small dim">${L.fr(last.date)} · ${esc(L.describe(L.exInfo(S.templates, n), last.e))}</span></span><span class="dim" aria-hidden="true">›</span></button>`; }).join('')}</div></section>`;
+}
+/* ---------- Nutrition : besoins du jour et compteur de protéines ---------- */
+function nutTargets(){ const w = L.weightStats(S.weights)?.last ?? null; return { w, t: L.nutritionTargets(S.nutrition, w) }; }
+function nutTodayCard(){
+  const { t } = nutTargets(); if (!t) return '';
+  const got = +(S.nutrition?.days?.[today()] || 0), pct = Math.min(100, Math.round(got / t.protein * 100));
+  return `<section class="card"><div class="between"><h3>Protéines aujourd’hui</h3><span class="num"><b>${got}</b> / ${t.protein} g</span></div>
+    <div class="meter"><i style="width:${pct}%;background:var(--acc)"></i></div>
+    <div class="row">${[10, 20, 30].map(n => `<button class="btn sm" data-a="prot" data-v="${n}">+${n} g</button>`).join('')}<button class="btn sm ghost" data-a="prot" data-v="-10">−10 g</button></div>
+    <p class="small dim">Objectif du jour : ${L.frNum(t.kcal)} kcal, dont ${t.protein} g de protéines, ${t.fat} g de lipides et ${t.carbs} g de glucides.</p></section>`;
+}
+function nutritionCard(){
+  const n = S.nutrition || {}, v = { sex: n.sex || 'H', activity: n.activity || 'modere', goal: n.goal || 'prise' }, { w, t } = nutTargets();
+  const opt = (k, val, label) => `<option value="${val}" ${v[k] === val ? 'selected' : ''}>${label}</option>`;
+  return `<section class="card"><h2>Nutrition</h2><p class="small dim">Tes besoins estimés pour la journée. Ces informations restent sur ce téléphone.</p>
+    <div class="nutf">
+      <div class="field"><label for="n-sex">Sexe</label><select id="n-sex">${opt('sex', 'H', 'Homme')}${opt('sex', 'F', 'Femme')}</select></div>
+      <div class="field"><label for="n-age">Âge</label><input id="n-age" inputmode="numeric" value="${esc(n.age ?? '')}"></div>
+      <div class="field"><label for="n-height">Taille (cm)</label><input id="n-height" inputmode="numeric" value="${esc(n.height ?? '')}"></div>
+      <div class="field"><label for="n-act">Activité</label><select id="n-act">${opt('activity', 'faible', '2 à 3 séances')}${opt('activity', 'modere', '4 à 5 séances')}${opt('activity', 'eleve', '6 ou plus')}</select></div>
+      <div class="field" style="grid-column:1/-1"><label for="n-goal">Objectif</label><select id="n-goal">${opt('goal', 'prise', 'Prendre du muscle (léger surplus)')}${opt('goal', 'maintien', 'Garder mon poids')}${opt('goal', 'seche', 'Perdre du gras')}</select></div>
+    </div>
+    <button class="btn wide" data-a="nutsave">${t ? 'Mettre à jour' : 'Calculer'}</button><p class="small dim" id="nstatus" role="status">${esc(S.msgs.nstatus || '')}</p>
+    ${w == null ? '<p class="small" style="color:var(--warn)">Ajoute d’abord une pesée dans Progrès : le calcul part de ton poids.</p>' : ''}
+    ${t ? `<div class="tiles"><div class="tile"><b>${L.frNum(t.kcal)}</b><span>kcal</span></div><div class="tile"><b>${t.protein} g</b><span>protéines</span></div><div class="tile"><b>${t.carbs} g</b><span>glucides</span></div></div>
+      <p class="small dim">Lipides : ${t.fat} g. Calcul fait avec ${L.frNum(w)} kg.</p>
+      <p class="small">${esc(L.calorieAdvice(S.weights, n.goal))}</p>
+      <p class="small dim">Protéines : 1,6 g par kg, le niveau au-delà duquel les gains de muscle n’augmentent plus en moyenne. Les calories sont une estimation : c’est l’évolution de ton poids qui dit s’il faut ajuster.</p>` : ''}
+  </section>`;
 }
 function describeSet(x, s){
   if (L.kind(x) === 'pdc') return `${+s.val > 0 ? '+' + L.frNum(s.val) + ' kg' : 'sans lest'} × ${s.reps}`;
@@ -3330,6 +3482,10 @@ function renderSession(){
   const xs = runExercises(t);
   let h = '';
   if (S.toastMain) { h += `<div class="toast">${esc(S.toastMain)}</div>`; S.toastMain = ''; }
+  if (R.hist) {
+    el.classList.remove('rest');
+    el.innerHTML = `<div class="in">${histDetail(R.hist, 'histclose')}</div>`; return;
+  }
   if (R.info && EX.find(R.info)) {
     el.classList.remove('rest');
     el.innerHTML = `<div class="in">${infoDetail(EX.find(R.info), 'infoclose')}</div>`;
@@ -3364,6 +3520,7 @@ function renderSession(){
         <div class="drain"><i id="drain" style="width:${Math.max(0, Math.min(100, (R.restEnd - Date.now()) / (R.restTotal * 10)))}%"></i></div>
         <div class="rbtns"><button data-a="rplus">+30 s</button><button data-a="rskip">Passer</button></div>
         ${R.toast ? `<div class="toast ${/record/i.test(R.toast) ? 'pr' : ''}">${esc(R.toast)}</div>` : ''}
+        ${rirHtml(R)}
         <div class="push"><div class="next"><span class="eyebrow">Ensuite · ${esc(x.name)} · ${esc(s.label || 'Série ' + (R.j + 1))}</span><span class="n">${esc(describeSet(x, s))}</span>
         ${isBarbell(x) && L.isNum(s.val) && L.platesPerSide(s.val).side.length ? `<span class="small dim">Par côté : ${L.platesPerSide(s.val).side.map(L.frNum).join(' + ')}</span>` : ''}</div>
         <button class="btn main" data-a="rskip" id="restgo">Série suivante</button></div>`;
@@ -3374,7 +3531,8 @@ function renderSession(){
       const warm = k === 'barre' && R.j === 0 && !s.done && !R.noTimer ? L.warmup(+s.val, { fromFloor: /terre/i.test(x.name) }) : [];
       h += sessHead(R, t, `Exercice ${R.i + 1}/${xs.length}`) + `<h1>${esc(x.name)}</h1>
         <div class="settag"><span class="t">${esc(s.label || 'Série ' + (R.j + 1))}</span><span class="small dim">Série ${R.j + 1} sur ${total} · ${tgtTxt}</span></div>
-        <div><button class="btn sm ghost" data-a="infoex" data-v="${esc(x.name)}">Comment faire cet exercice ?</button></div>
+        ${prevHtml(x, e, R.j)}
+        <div class="row"><button class="btn sm ghost" data-a="infoex" data-v="${esc(x.name)}">Comment faire ?</button><button class="btn sm ghost" data-a="hist" data-v="${esc(x.name)}">Historique</button></div>
         ${x.tip ? `<p class="small dim">${esc(x.tip)}</p>` : ''}
         ${warm.length ? `<p class="small"><b>Échauffe-toi d’abord :</b> <span class="dim">${warm.map(w => `${L.frNum(w.val)} kg × ${w.reps}`).join(', puis ')}</span></p>` : ''}
         <div class="stepper"><button data-a="st" data-f="val" data-d="-1" aria-label="Moins ${L.frNum(L.valStep(x))}">−</button><div class="val"><input id="in-val" class="${S.pop === 'val' ? 'pop' : ''}" inputmode="decimal" aria-label="${valLabel}" value="${L.isNum(s.val) ? L.frNum(s.val) : ''}" placeholder="—"><span class="u">${valLabel}</span></div><button data-a="st" data-f="val" data-d="1" aria-label="Plus ${L.frNum(L.valStep(x))}">+</button></div>
@@ -3382,6 +3540,7 @@ function renderSession(){
         ${isBarbell(x) && L.isNum(s.val) ? platesHtml(+s.val) : ''}
         ${e.sets.some(o => o.done) ? `<div class="done-sets">${e.sets.map((o, j) => `<button data-a="sset" data-v="${j}" class="${o.done ? 'ok' : ''} ${j === R.j ? 'cur' : ''}">${o.done ? '✓ ' + esc(describeSet(x, o)) : esc(o.label || 'Série ' + (j + 1))}</button>`).join('')}</div>` : ''}
         <div class="hintline">${e.last ? `<span>Dernière fois (${L.fr(e.last.date)}) : <b class="num">${esc(e.last.txt)}</b></span>` : ''}${e.note ? `<span class="${e.kindNote === 'up' ? 'up' : e.kindNote === 'deload' ? 'dlw' : ''}">${esc(e.note)}</span>` : ''}</div>
+        ${memoHtml(x, e)}
         ${R.toast ? `<div class="toast">${esc(R.toast)}</div>` : ''}
         <div class="push"><button class="btn main" data-a="sdone">${s.done ? 'Corriger la série' : 'Série faite'}</button>
         <div class="row"><button class="btn sm ghost" data-a="sskip">Passer l’exercice</button>${!s.done && e.sets.length > 1 && R.j === e.sets.length - 1 ? '<button class="btn sm ghost" data-a="sdrop">Retirer cette série</button>' : ''}${e.sets.every(o => o.done) ? '' : '<button class="btn sm ghost" data-a="sadd">+ 1 série</button>'}</div></div>`;
@@ -3466,6 +3625,19 @@ document.addEventListener('click', ev => {
   const R = S.run;
   switch (a) {
     case 'infoex': if (S.run && S.showRun) { S.run.info = v; renderSession(); $('sess').scrollTo(0, 0); } else { S.tab = 'info'; S.infoName = v; renderAll(true); window.scrollTo(0, 0); } return;
+    case 'hist': if (S.run && S.showRun) { S.run.hist = v; renderSession(); $('sess').scrollTo(0, 0); } else { S.histBack = S.tab === 'prog' && !S.histName ? 'prog' : S.tab; S.tab = 'prog'; S.histName = v; renderAll(true); window.scrollTo(0, 0); } return;
+    case 'histclose': if (S.run && S.showRun && S.run.hist) { S.run.hist = null; renderSession(); $('sess').scrollTo(0, 0); } else { S.histName = null; S.tab = S.histBack || 'prog'; renderAll(true); window.scrollTo(0, 0); } return;
+    case 'rir': { const ls = S.run?.lastSet, s = ls && S.run.ex[ls.name]?.sets?.[ls.j]; if (s) { s.rir = s.rir === +v ? undefined : +v; persistRun(); syncRun(); renderSession(); } return; }
+    case 'memo': { const R2 = S.run, x = R2 && runExercises(S.templates[R2.tid])[R2.i]; if (x) { R2.ex[x.name].memoOpen = true; persistRun(); renderSession(); setTimeout(() => $('in-memo')?.focus(), 0); } return; }
+    case 'prot': { const k = today(), days = {}; for (const [d, g] of Object.entries(S.nutrition?.days || {})) if (L.dayDiff(d, k) <= 60) days[d] = g; days[k] = Math.max(0, (+days[k] || 0) + +v); write('settings/nutrition', { ...(S.nutrition || {}), days }); renderAll(true); return; }
+    case 'nutsave': {
+      const num = id => { const r = $(id)?.value.trim().replace(',', '.'); return r ? Number(r) : NaN; };
+      const age = Math.round(num('n-age')), height = Math.round(num('n-height'));
+      if (!(age >= 14 && age <= 90) || !(height >= 130 && height <= 220)) { msg('nstatus', 'Indique ton âge (14 à 90 ans) et ta taille en cm (130 à 220).'); return; }
+      write('settings/nutrition', { ...(S.nutrition || {}), sex: $('n-sex').value, age, height, activity: $('n-act').value, goal: $('n-goal').value });
+      S.msgs.nstatus = L.weightStats(S.weights) ? 'Calculé. Ton objectif de protéines apparaît aussi sur l’accueil.' : 'Enregistré. Ajoute une pesée dans Progrès pour obtenir le calcul.';
+      renderAll(true); return;
+    }
     case 'infoclose': if (S.run && S.showRun && S.run.info) { S.run.info = null; renderSession(); $('sess').scrollTo(0, 0); } else { S.infoName = null; renderAll(true); window.scrollTo(0, 0); } return;
     case 'figplay': FIG.play = !FIG.play; figDraw(); if (FIG.play) figKick(); return;
     case 'figstep': FIG.t = +v; FIG.play = false; figDraw(); return;
@@ -3474,7 +3646,7 @@ document.addEventListener('click', ev => {
     case 'noticeok': S.programNotice = null; LS.del('programNotice'); renderAll(true); return;
     case 'reload': persistRun(); saveCache(); location.reload(); return;
     case 'impbak': { const raw = localStorage.getItem('carnet.db.avant-maj'); if (!raw) return; const d = JSON.parse(raw); d._name = 'copie d’avant la dernière mise à jour'; d.settings = { ...(d.settings || {}), program: { version: L.PROGRAM_VERSION } }; S.pendingImport = d; S.importStep = 1; renderAll(true); return; }
-    case 'tab': S.tab = v; LS.set('tab', v); S.edit = null; S.confirm = {}; S.msgs = {}; S.infoName = null; renderAll(true); window.scrollTo(0, 0); setTimeout(autoUpdate, 0); return;
+    case 'tab': S.tab = v; LS.set('tab', v); S.histName = null; S.edit = null; S.confirm = {}; S.msgs = {}; S.infoName = null; renderAll(true); window.scrollTo(0, 0); setTimeout(autoUpdate, 0); return;
     case 'goday': { S.tab = 'cal'; S.sel = v; const d = L.parse(v); S.view = new Date(d.getFullYear(), d.getMonth(), 1); S.confirm = {}; S.panelMsg = ''; renderAll(true); $('daypanel')?.scrollIntoView({ block: 'start' }); return; }
     case 'sel': S.sel = v; S.confirm = {}; S.panelMsg = ''; renderAll(true); if (window.innerWidth < 700) $('daypanel')?.scrollIntoView({ behavior: 'smooth', block: 'start' }); return;
     case 'month': S.view.setMonth(S.view.getMonth() + +v); renderAll(true); return;
@@ -3583,7 +3755,8 @@ function readSessInputs(){
   const R = S.run; if (!R) return;
   const note = $('in-note'); if (note) R.note = note.value.trim();
   const t = S.templates[R.tid], x = runExercises(t)[R.i]; if (!x || R.phase !== 'ex') return;
-  const s = R.ex[x.name].sets[R.j], iv = $('in-val'), ir = $('in-reps');
+  const s = R.ex[x.name].sets[R.j], iv = $('in-val'), ir = $('in-reps'), im = $('in-memo');
+  if (im) R.ex[x.name].memo = im.value.trim();
   const num = el => { const r = el.value.trim().replace(',', '.'); return r === '' ? '' : Number(r); };
   if (iv) { const n = num(iv); if (n === '' || !isNaN(n)) { if (n !== s.val) s.auto = false; s.val = n; } }
   if (ir) { const n = num(ir); if (n === '' || !isNaN(n)) s.reps = n === '' ? '' : Math.round(n); }
@@ -3611,6 +3784,7 @@ document.addEventListener('change', ev => {
     persistRun(); renderSession(); return;
   }
   if (S.run && ['in-km', 'in-dur', 'in-hr'].includes(id)) { readRunInputs(); persistRun(); renderSession(); return; }
+  if (S.run && id === 'in-memo') { const R2 = S.run, x = runExercises(S.templates[R2.tid])[R2.i]; if (x) { R2.ex[x.name].memo = ev.target.value.trim(); persistRun(); syncRun(); } return; }
   if (S.run && id === 'in-note') { S.run.note = ev.target.value.trim(); persistRun(); }
 });
 document.addEventListener('focusin', ev => { if (ev.target.matches?.('.stepper input')) setTimeout(() => ev.target.select?.(), 0); });
@@ -3658,7 +3832,7 @@ document.addEventListener('submit', ev => {
 function msg(id, text){ S.msgs[id] = text; const el = $(id); if (el) el.textContent = text; }
 async function exportData(){
   if (!S.downloads) { msg('xstatus', 'L’export n’est pas disponible dans cette vue. Ouvre la page depuis claude.ai.'); return; }
-  const settings = { cycle: S.cycle, program: { version: S.programVersion || 1 } }; if (S.profile) settings.profile = { text: S.profile };
+  const settings = { cycle: S.cycle, program: { version: S.programVersion || 1 } }; if (S.profile) settings.profile = { text: S.profile }; if (S.nutrition) settings.nutrition = S.nutrition;
   const data = JSON.stringify({ app: 'Carnet de séances', version: 5, exportedAt: new Date().toISOString(), templates: S.templates, logs: S.logs, weights: S.weights, goals: S.goals, settings }, null, 2);
   try { await S.downloads.save({ filename: `carnet-seances-${today()}.json`, data }); LS.set('lastExport', today()); msg('xstatus', 'Sauvegarde enregistrée.'); }
   catch (e) { msg('xstatus', e?.code === 'declined' ? 'Export annulé.' : 'L’export a échoué. Réessaie.'); }
@@ -3713,6 +3887,7 @@ function doImport(){
   }
   if (P.settings?.cycle) write('settings/cycle', P.settings.cycle);
   if (P.settings?.profile) write('settings/profile', P.settings.profile);
+  if (P.settings?.nutrition) write('settings/nutrition', P.settings.nutrition);
   write('settings/program', P.settings?.program || { version: 1 });
   S.pendingImport = null; S.importStep = 0; S.run = null; persistRun();
   runMigration(); renderAll(true); msg('xstatus', 'Sauvegarde restaurée.');
@@ -3767,6 +3942,7 @@ renderAll(true);
   ['templates', 'logs', 'weights', 'goals'].forEach(watch);
   db.doc('settings/cycle').onSnapshot(d => { if (d.exists && !outbox['settings/cycle']) S.cycle = { ...S.cycle, ...d.data() }; saveCache(); renderAll(); }, () => {});
   db.doc('settings/program').onSnapshot(d => { S.programVersion = d.exists ? (+d.data()?.version || 1) : 1; setTimeout(runMigration, 0); }, () => {});
+  db.doc('settings/nutrition').onSnapshot(d => { if (!outbox['settings/nutrition']) S.nutrition = d.exists ? d.data() : null; saveCache(); renderAll(); }, () => {});
   db.doc('settings/profile').onSnapshot(d => { if (!outbox['settings/profile']) S.profile = d.exists ? (d.data()?.text || '') : S.profile; saveCache(); renderAll(); }, () => {});
   flush();
 })();
