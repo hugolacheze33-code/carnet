@@ -13,7 +13,7 @@
 <script>
 window.CARNET_MODE = 'pwa';
 window.CARNET_THREE_URL = 'three.min.js';
-window.CARNET_VERSION = '2026-11-06 17:20';
+window.CARNET_VERSION = '2026-11-06 19:05';
 /* Base locale : même interface que la base claude.ai, stockée sur le téléphone */
 (function(){
   const KEY = 'carnet.db';
@@ -145,13 +145,6 @@ p{margin:0}
 .dlw{color:var(--deload);font-weight:600}
 .pr{color:var(--ok);font-weight:700}
 /* semaine */
-.week{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:5px;text-align:center}
-.week .d{font-family:var(--display);font-weight:800;font-size:.8rem;color:var(--dim)}
-.week button{border:0;height:46px;border-radius:9px;background:var(--steel);font-family:var(--display);font-weight:900;font-size:1.2rem;color:var(--ink);position:relative;padding:0}
-.week button.p{background:transparent;border:2px dashed var(--c);color:var(--c)}
-.week button.f{background:var(--c)}
-.week button.today{box-shadow:0 0 0 2px var(--chalk)}
-.week button .w{position:absolute;top:3px;right:4px;width:7px;height:7px;border-radius:50%;background:var(--warn)}
 /* calendrier */
 .calhead{display:flex;justify-content:space-between;align-items:center}
 .calhead button{width:48px;height:48px;border:0;border-radius:10px;background:var(--steel);font-size:1.4rem}
@@ -377,12 +370,6 @@ body{background-image:radial-gradient(color-mix(in srgb,var(--chalk) 5%,transpar
 @keyframes pop{0%{transform:scale(1)}40%{transform:scale(1.09)}100%{transform:scale(1)}}
 @keyframes beat{50%{transform:scale(1.5)}}
 /* la semaine : des disques enfilés sur une barre */
-.week{background:linear-gradient(var(--bar),var(--bar)) no-repeat 0 calc(100% - 19px)/100% 4px;row-gap:6px}
-.week button{height:auto;aspect-ratio:1;border-radius:50%;width:100%;max-width:42px;justify-self:center;background:radial-gradient(circle,var(--steel) 0 34%,transparent 36%);padding:0}
-.week button.f{background:var(--c);box-shadow:inset 0 0 0 3px color-mix(in srgb,var(--c) 68%,#000)}
-.week button.p{background:var(--rubber);border:2px dashed var(--c);color:var(--c)}
-.week button.today{box-shadow:0 0 0 2px var(--chalk)}
-.week button.f.today{box-shadow:inset 0 0 0 3px color-mix(in srgb,var(--c) 68%,#000),0 0 0 2px var(--chalk)}
 .figctl{display:grid;grid-template-columns:auto minmax(0,1fr);gap:12px;align-items:center}
 .figctl input{width:100%;padding:0;border:0;background:transparent;accent-color:var(--c,var(--chalk));height:44px}
 .figtext{background:var(--steel);border-radius:10px;padding:12px;min-height:5.4em}
@@ -404,12 +391,18 @@ body{background-image:radial-gradient(color-mix(in srgb,var(--chalk) 5%,transpar
   --acc:#e07a4f; --on-acc:#141312;
   --pA:#6fb5a3; --pB:#86a2e6; --pC:#d38fb8; --pD:#cfb487;
   --deload:#b6a6e8; --warn:#e9c46a; --warn-bg:rgba(233,196,106,.12); --ok:#8cc084; --bad:#ef6f5e; --claude:#d97757;
-  --display:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
-  --body:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --display:"Archivo",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --body:"Archivo",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
   --mono:var(--body);
+  --wide:112%;
 }
+/* Archivo, police libre (© 2020 The Archivo Project Authors, SIL Open Font License 1.1, voir OFL-Archivo.txt).
+   Hébergée avec l'app (gardée hors ligne par le service worker). Un seul fichier : graisses 100 à 900, largeurs 62 à 125 %.
+   Titres et gros chiffres en largeur étendue (--wide), le reste en largeur normale. */
+@font-face{font-family:"Archivo";src:url(archivo-latin.woff2) format("woff2");font-weight:100 900;font-stretch:62% 125%;font-style:normal;font-display:swap;
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
 body{background-image:none;font-size:17px;line-height:1.4;letter-spacing:-.01em}
-h1,h2,h3,.eyebrow,.brand,.btn,.chip,.tplpick b,.banner b,.week .d,.dowh,.stepper .u,.settag .t,.rbtns button,.next .n,.pill,.figtag,.toast.pr,.hday,.hmon{text-transform:none!important;letter-spacing:normal}
+h1,h2,h3,.eyebrow,.brand,.btn,.chip,.tplpick b,.banner b,.dowh,.stepper .u,.settag .t,.rbtns button,.next .n,.pill,.figtag,.toast.pr,.hday,.hmon{text-transform:none!important;letter-spacing:normal}
 h1,h2,h3{font-weight:700;line-height:1.15;letter-spacing:-.02em}
 h2{font-size:1.4rem} h3{font-size:1.1rem;font-weight:600}
 .eyebrow{font-weight:600;font-size:.82rem;color:var(--dim)}
@@ -462,12 +455,6 @@ input,select,textarea{background:var(--steel);border:0;border-radius:10px}
 .pill{font-weight:600}
 .toast.pr{font-family:var(--body);font-weight:700;font-size:1.1rem}
 /* semaine et calendrier : pastilles teintées */
-.week{background:none}
-.week .d{font-family:var(--body);font-weight:600}
-.week button{border-radius:10px;aspect-ratio:1;max-width:40px;background:var(--steel);font-family:var(--body);font-weight:700;font-size:1rem;color:var(--dim);box-shadow:none}
-.week button.f{background:color-mix(in srgb,var(--c) 26%,transparent);color:var(--c);box-shadow:none}
-.week button.p{background:transparent;border:1.5px dashed var(--c);color:var(--c)}
-.week button.today,.week button.f.today{box-shadow:0 0 0 2px var(--acc)}
 .dowh{font-family:var(--body);font-weight:600}
 .day{border-radius:10px;border-width:1.5px}
 .day .n{font-family:var(--body);font-variant-numeric:tabular-nums}
@@ -525,9 +512,14 @@ input,select,textarea{background:var(--steel);border:0;border-radius:10px}
 
 /* ===================== ATLAS : composants =====================*/
 .nav .ind{display:none}
-body{background:var(--floor)}
-.ltitle{font-size:2.3rem;font-weight:800;letter-spacing:-.035em}
-h2{letter-spacing:-.025em}
+body{background:var(--floor);letter-spacing:0}
+/* typographie : titres et chiffres larges et serrés (esprit affiche de sport), texte courant sobre */
+.ltitle,h1,h2,h3,.stepper input,.clock,.tile b,.lift .v,.hv b,.msets div b,.pace,.stat .v,.zone b,.btn.main,.next .n,.disc{font-stretch:var(--wide)}
+.ltitle{font-size:2.25rem;font-weight:800;letter-spacing:-.03em}
+h1,h2{font-weight:750;letter-spacing:-.025em}
+h3{font-weight:650;letter-spacing:-.015em}
+.eyebrow{letter-spacing:.01em}
+.nav button{letter-spacing:.01em}
 .card{border-radius:16px;box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--chalk) 4%,transparent)}
 .btn{border-radius:14px}
 .btn.main{font-weight:700;min-height:56px;border-radius:14px;letter-spacing:-.01em}
@@ -547,7 +539,9 @@ h2{letter-spacing:-.025em}
 .rring .track{stroke:var(--steel)}
 .rring .val{stroke:var(--acc);stroke-linecap:round;transition:stroke-dashoffset .25s linear}
 .rring .val.end{stroke-opacity:0}
-.rring .clock{position:relative;font-size:min(20vw,88px);color:var(--chalk);letter-spacing:-.05em}
+.rring .rtime{position:relative;display:grid;justify-items:center;gap:4px}
+.rring .clock{font-size:min(19vw,84px);color:var(--chalk);letter-spacing:-.04em;line-height:1}
+.rring .rtot{font-size:.92rem;color:var(--dim);font-variant-numeric:tabular-nums}
 .sess.flash .rring .clock{color:var(--acc)}
 /* Accueil : la statue de marbre sort par la droite de l'écran, les cartes passent devant */
 .app{position:relative}
@@ -564,7 +558,8 @@ h2{letter-spacing:-.025em}
 /* KAIROS : une place réservée dans la page, le personnage (un seul pour toute l'app) vient s'y poser */
 .kspot{display:inline-block;flex:none;height:64px;aspect-ratio:251/329}
 .kspot.lg{height:104px;margin-top:6px}
-.khead{display:flex;justify-content:space-between;align-items:flex-end;gap:10px}
+.khead{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.khead .kspot{height:46px;margin:-8px 0 -6px}
 .kline{display:flex;align-items:center;gap:12px}
 .kairos{position:absolute;left:0;top:0;z-index:3;pointer-events:none;background:url(kairos.webp) no-repeat;background-size:600% 100%;background-position:calc(var(--p,0) * 20%) 0;transition:transform .6s cubic-bezier(.45,0,.2,1);will-change:transform}
 .kairos.still{transition:none}
@@ -2657,6 +2652,7 @@ function renderSync(){
   const n = Object.keys(outbox).length, el = $('sync');
   const st = !S.db ? (S.online === 'off' ? 'off' : 'wait') : n ? 'wait' : 'ok';
   el.className = 'sync ' + st;
+  el.hidden = MODE === 'pwa' && st === 'ok';   // sur le téléphone tout est enregistré : on ne le signale que s'il y a un souci
   el.lastElementChild.textContent = !S.db ? (S.online === 'off' ? (n ? `Hors ligne · ${n} en attente` : 'Hors ligne') : 'Connexion…') : n ? `${n} modification${n>1?'s':''} en attente` : MODE === 'pwa' ? 'Enregistré' : 'Synchronisé';
 }
 let pendingRender = false;
@@ -2796,7 +2792,7 @@ function infoDetail(sheet, back){
 function viewInfo(){
   const open = S.infoName && EX.find(S.infoName);
   if (open) return infoDetail(open, 'infoclose');
-  let h = `<section class="card"><div class="kline">${kairosSpot('point')}<p class="small dim">Touche un exercice pour voir le mouvement et les muscles travaillés.</p></div><button class="inforow" data-a="tab" data-v="plan"><span class="nm">Les consignes de ton programme</span><span aria-hidden="true">›</span></button></section>`;
+  let h = `<section class="card"><div class="kline">${kairosSpot('point')}<p class="small dim">Touche un exercice pour voir le mouvement et les muscles travaillés.</p></div></section>`;
   for (const [id, t] of L.tplList(S.templates)) {
     const seen = new Set(), rows = [];
     for (const x of exOrder(t)) {
@@ -2842,7 +2838,7 @@ function cycleBlock(k){
   const bars = Array.from({ length: c.n }, (_, i) => `<i class="${i+1===c.n?'dl ':''}${i+1<=c.pos?'on':''}"></i>`).join('');
   const dl = L.deloadStart(k, S.cycle), left = c.n - c.pos;
   return `<div class="stack"><div class="cycle" style="--n:${c.n}" aria-hidden="true">${bars}</div>
-    <p class="small ${c.deload?'dlw':'dim'}">${c.deload ? 'Semaine d’allègement : charges réduites de 10 %, moitié moins de séries, et arrête-toi quand il te reste 3 à 4 répétitions possibles. Si tu te sens en forme, tu peux alléger un peu moins.' : `Semaine d’allègement (plus facile) le ${L.fr(dl)}.`}</p></div>`;
+    <p class="small ${c.deload?'dlw':'dim'}">${c.deload ? 'Semaine d’allègement en cours.' : `Semaine d’allègement le ${L.fr(dl)}.`}</p></div>`;
 }
 function missingAlerts(){
   return Object.keys(S.logs).filter(k => k <= today() && !(S.run && S.run.date === k) && L.missing(S.logs[k], S.templates[S.logs[k].templateId], today(), k)).sort().slice(-4)
@@ -2857,7 +2853,7 @@ function viewToday(){
   let h = heroHtml(k, c, dd);
   const wk = weekDays(k);
   let alerts = seqAlertHtml(L.sequenceAlerts(S.logs, wk[0], L.addDays(wk[6], 7)).filter(a => (a.next || a.date) >= k));
-  if (S.programNotice?.length) h += `<div class="notice"><b>Ton programme a évolué</b><ul>${S.programNotice.map(x => `<li>${esc(x)}</li>`).join('')}</ul><p class="small dim">Ton historique est conservé. Les consignes sont dans l’onglet Programme.</p><div class="row"><button class="btn sm" data-a="noticeok">Compris</button><button class="btn sm ghost" data-a="tab" data-v="plan">Voir le programme</button></div></div>`;
+  const notice = !S.programNotice?.length ? '' : `<div class="notice"><b>Ton programme a évolué</b><ul>${S.programNotice.map(x => `<li>${esc(x)}</li>`).join('')}</ul><p class="small dim">Ton historique est conservé. Les consignes sont dans l’onglet Programme.</p><div class="row"><button class="btn sm" data-a="noticeok">Compris</button><button class="btn sm ghost" data-a="tab" data-v="plan">Voir le programme</button></div></div>`;
   alerts += missingAlerts();
   if (MODE === 'pwa') {
     const lx = LS.get('lastExport', null), days = lx ? L.dayDiff(lx, k) : null, n = Object.keys(S.logs).length;
@@ -2879,12 +2875,10 @@ function viewToday(){
       <div class="tplpick">${L.tplList(S.templates).map(([id, tp]) => `<button data-a="planday" data-v="${id}" data-d="${k}" style="--c:${col(id)}"><span class="disc sm" style="--c:${col(id)}" aria-hidden="true">${esc(id)}</span><b>${esc((tp.short || tp.name).replace(/^\w\s*·\s*/, ''))}</b><span>${esc(hasRun(tp) ? 'Facile ou soutenue' : (tp.exercises||[]).filter(x => x.main).slice(0,2).map(x=>x.name).join(', '))}</span></button>`).join('')}</div>
       <p class="small dim">Jour de repos ? Rien à faire : la journée reste vide dans le calendrier.</p></section>`;
   }
+  /* la séance du jour d'abord ; la semaine est dans Calendrier, les records dans Progrès */
+  h += notice;
   h += nutTodayCard();
   h += alerts;
-  const done = wk.filter(d => S.logs[d]?.status === 'faite').length, planned = wk.filter(d => S.logs[d]).length;
-  h += `<section class="card"><div class="between"><h3>Cette semaine</h3><span class="small dim">${done} faite${done>1?'s':''} sur ${planned} prévue${planned>1?'s':''}</span></div>${weekStrip(wk)}</section>`;
-  const recent = recentPRs();
-  if (recent.length) h += `<section class="card"><h3>Derniers records</h3><div class="exl">${recent.map(r => `<div class="r"><b>${esc(r.ex)}</b><span class="pr">${esc(r.label)} (${L.fr(r.date)})</span></div>`).join('')}</div></section>`;
   return h;
 }
 function todayCard(k, log, t){
@@ -2944,14 +2938,6 @@ function shortReps(ex, n){ return /max/i.test(String(ex.reps)) ? `${n} × (ton m
 function typeChips(k, log){
   const ty = log?.run?.type || 'facile';
   return `<div class="chips" role="group" aria-label="Type de course">${['facile','soutenue'].map(x => `<button class="chip ${ty===x?'on':''}" style="--c:var(--pD)" data-a="runtype" data-v="${x}" data-d="${k}">${x}</button>`).join('')}</div>`;
-}
-function weekStrip(days){
-  const alerts = L.sequenceAlerts(S.logs, days[0], days[6]);
-  return `<div class="week">${days.map(d => `<span class="d">${DOWS[L.dow(d)][0]}</span>`).join('')}${days.map(d => {
-    const l = S.logs[d], id = l?.templateId;
-    const warn = alerts.some(a => a.date === d || a.next === d);
-    return `<button data-a="goday" data-v="${d}" class="${l ? (l.status==='faite'?'f':'p') : ''} ${d===today()?'today':''}" style="--c:${col(id)}" aria-label="${dayLabel(d)}${l?' : '+esc(tplName(id))+' '+l.status:''}">${l ? esc(id) : ''}${warn?'<i class="w"></i>':''}</button>`;
-  }).join('')}</div>`;
 }
 function feelLine(log){
   const f = log.feel; if (!f) return '';
@@ -3060,7 +3046,6 @@ function viewProg(){
     const gain = h.length > 1 ? last.m - h[0].m : 0;
     return `<div class="lift" style="--c:${col(id)}" data-a="hist" data-v="${esc(ex.name)}" role="button" tabindex="0"><div class="eyebrow" style="color:${col(id)}">${esc(id)}</div><b>${esc(ex.name)}</b>
       ${last ? `<div class="v num" style="font-family:var(--display)">${L.frNum(L.r1(last.m))} <span class="small dim" style="font-family:var(--body);font-weight:500">${unit}</span></div>
-      <div class="small dim">${esc(L.describe(ex, last.e))}</div>
       ${gain > 0 ? `<div class="small delta">+${L.frNum(L.r1(gain))} depuis le ${L.fr(hist[0].date)}</div>` : ''}
       ${best ? `<div class="small pr">Record : ${esc(L.prLabel(ex, best.set, best.score).replace(/^Max estimé : /, ''))}</div>` : ''}
       <div style="color:${col(id)}">${spark(h.map(x => x.m), 46, gm)}</div>` : `<div class="small dim">Rien de noté pour l’instant.</div>`}</div>`;
@@ -3649,12 +3634,11 @@ function renderSession(){
     if (!x) { R.phase = 'end'; return renderSession(); }
     const e = R.ex[x.name], s = e.sets[R.j] || e.sets[0], k = L.kind(x), ru = L.repsUnit(x);
     if (R.phase === 'rest') {
-      h += sessHead(R, t, `Repos · ${esc(R.restFor || '')}`) + `<div class="between"><span class="eyebrow">Repos de ${L.fmtDur(R.restTotal)}</span><button class="btn sm ghost" style="border-color:currentColor;color:inherit;min-height:40px" data-a="sound">${S.sound ? 'Son activé' : 'Son coupé'}</button></div>
-        <div class="rring">${restRing(R)}<div class="clock num" id="clock">${R.restEnd > Date.now() ? L.fmtDur(Math.ceil((R.restEnd - Date.now()) / 1000)) : 'GO'}</div></div>
-        <div class="rbtns"><button data-a="rplus">+30 s</button><button data-a="rskip">Passer</button></div>
+      h += sessHead(R, t, `Repos · ${esc(R.restFor || '')}`) + `        <div class="rring">${restRing(R)}<div class="rtime"><div class="clock num" id="clock">${R.restEnd > Date.now() ? L.fmtDur(Math.ceil((R.restEnd - Date.now()) / 1000)) : 'GO'}</div><span class="rtot">sur ${L.fmtDur(R.restTotal)}</span></div></div>
+        <div class="rbtns"><button data-a="rplus">+30 s</button><button data-a="sound" aria-pressed="${!!S.sound}">${S.sound ? 'Son activé' : 'Son coupé'}</button></div>
         ${R.toast ? `<div class="toast ${/record/i.test(R.toast) ? 'pr' : ''}">${esc(R.toast)}</div>` : ''}
         ${rirHtml(R)}
-        <div class="push"><div class="next"><span class="eyebrow">Ensuite · ${esc(x.name)} · ${esc(s.label || 'Série ' + (R.j + 1))}</span><span class="n">${esc(describeSet(x, s))}</span>
+        <div class="push"><div class="next"><span class="eyebrow">Ensuite${x.name === R.restFor ? '' : ' · ' + esc(x.name)} · ${esc(s.label || 'Série ' + (R.j + 1))}</span><span class="n">${esc(describeSet(x, s))}</span>
         ${isBarbell(x) && L.isNum(s.val) && L.platesPerSide(s.val).side.length ? `<span class="small dim">Par côté : ${L.platesPerSide(s.val).side.map(L.frNum).join(' + ')}</span>` : ''}</div>
         <button class="btn main" data-a="rskip" id="restgo">Série suivante</button></div>`;
     } else {
@@ -3672,7 +3656,7 @@ function renderSession(){
         ${ru ? `<div class="stepper"><button data-a="st" data-f="reps" data-d="-1" aria-label="Moins 1">−</button><div class="val"><input id="in-reps" class="${S.pop === 'reps' ? 'pop' : ''}" inputmode="numeric" aria-label="${ru === 'm' ? 'mètres' : 'répétitions'}" value="${L.isNum(s.reps) ? s.reps : ''}" placeholder="${tgt ?? '—'}"><span class="u">${ru === 'm' ? 'mètres' : 'répétitions'}</span></div><button data-a="st" data-f="reps" data-d="1" aria-label="Plus 1">+</button></div>` : ''}
         ${isBarbell(x) && L.isNum(s.val) ? platesHtml(+s.val) : ''}
         ${e.sets.some(o => o.done) ? `<div class="done-sets">${e.sets.map((o, j) => `<button data-a="sset" data-v="${j}" class="${o.done ? 'ok' : ''} ${j === R.j ? 'cur' : ''}">${o.done ? '✓ ' + esc(describeSet(x, o)) : esc(o.label || 'Série ' + (j + 1))}</button>`).join('')}</div>` : ''}
-        <div class="hintline">${e.last ? `<span>Dernière fois (${L.fr(e.last.date)}) : <b class="num">${esc(e.last.txt)}</b></span>` : ''}${e.note ? `<span class="${e.kindNote === 'up' ? 'up' : e.kindNote === 'deload' ? 'dlw' : ''}">${esc(e.note)}</span>` : ''}</div>
+        <div class="hintline">${e.note ? `<span class="${e.kindNote === 'up' ? 'up' : e.kindNote === 'deload' ? 'dlw' : ''}">${esc(e.note)}</span>` : ''}</div>
         ${memoHtml(x, e)}
         ${R.toast ? `<div class="toast">${esc(R.toast)}</div>` : ''}
         <div class="push"><button class="btn main" data-a="sdone">${s.done ? 'Corriger la série' : 'Série faite'}</button>
