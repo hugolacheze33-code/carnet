@@ -13,7 +13,7 @@
 <script>
 window.CARNET_MODE = 'pwa';
 window.CARNET_THREE_URL = 'three.min.js';
-window.CARNET_VERSION = '2026-11-06 15:12';
+window.CARNET_VERSION = '2026-11-06 16:02';
 /* Base locale : même interface que la base claude.ai, stockée sur le téléphone */
 (function(){
   const KEY = 'carnet.db';
@@ -731,102 +731,6 @@ input,select,textarea{background:var(--steel);border:0;border-radius:10px}
 @keyframes minirise{from{opacity:0;transform:translateY(14px) scale(.97)}}
 @keyframes minipulse{50%{box-shadow:0 0 0 2px var(--c,var(--acc)),0 10px 26px rgba(0,0,0,.3)}}
 
-/* ---------- Les 12 travaux : constellation (tous les habillages) ---------- */
-.trav svg{width:100%;max-width:420px;height:auto;display:block;margin:0 auto;overflow:visible;-webkit-tap-highlight-color:transparent}
-.trav .geo{fill:none;stroke:var(--line);stroke-width:.8}
-.trav .geo.d{stroke-dasharray:2 5}
-.trav .bg{fill:var(--dim);opacity:.32}
-.trav .ln{stroke:var(--dim);stroke-opacity:.35;stroke-width:1;stroke-dasharray:2 4}
-.trav .ln.on{stroke:var(--acc);stroke-opacity:.8;stroke-dasharray:none;stroke-width:1.3}
-.trav .st{cursor:pointer;outline:none}
-.trav .st .hit{fill:transparent}
-.trav .st .halo{fill:transparent;transform-box:fill-box;transform-origin:center}
-.trav .st .core{fill:var(--rubber);stroke:var(--dim);stroke-width:1.2}
-.trav .st .pg{fill:none;stroke:var(--acc);stroke-width:1.6;stroke-linecap:round;opacity:.75}
-.trav .st.on .core{fill:var(--acc);stroke:none}
-.trav .st.on .halo{fill:var(--acc);opacity:.2}
-.trav .st.sel .core{stroke:var(--chalk);stroke-width:2}
-.trav .st.sel .hit{fill:color-mix(in srgb,var(--acc) 12%,transparent)}
-.trav .st:focus-visible .hit{stroke:var(--acc);stroke-width:1.5}
-.trav .rn{font-size:10.5px;fill:var(--dim);font-family:var(--serif,ui-serif,Georgia,serif);text-anchor:middle;font-weight:600;letter-spacing:.04em}
-.trav .st.on .rn,.trav .st.sel .rn{fill:var(--chalk)}
-@media (prefers-reduced-motion:no-preference){
-  .trav .st.on .halo{animation:twinkle 3.4s ease-in-out infinite;animation-delay:var(--d,0s)}
-  .trav .st.new .halo{animation:newstar 1.5s ease-out 4}
-}
-@keyframes twinkle{50%{opacity:.06;transform:scale(.8)}}
-@keyframes newstar{0%{opacity:.7;transform:scale(.5)}100%{opacity:0;transform:scale(2.4)}}
-.trav-d{display:grid;gap:10px;border-top:.5px solid var(--line);padding-top:12px}
-.trav-h{display:flex;gap:12px;align-items:flex-start}
-.trav-n{font-family:var(--serif,ui-serif,Georgia,serif);font-size:1.55rem;font-weight:600;color:var(--acc);min-width:2.3em;line-height:1.05;flex:none}
-.trav-h b{font-size:1.1rem;line-height:1.25}
-.trav-m{font-style:italic;margin:3px 0 0}
-.tmeta{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;margin:0;font-size:.95rem}
-.tmeta dt{color:var(--dim);font-size:.82rem;padding-top:2px}
-.tmeta dd{margin:0}
-.trav .drain{height:6px;border-radius:3px;overflow:hidden}
-.trav .drain i{display:block;height:100%;border-radius:3px;background:var(--acc)}
-.trav-won{display:flex;gap:12px;align-items:center;padding:12px 14px;border-radius:14px;background:color-mix(in srgb,var(--acc) 13%,var(--rubber));box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--acc) 38%,transparent)}
-@media (prefers-reduced-motion:no-preference){.trav-won{animation:rise .5s cubic-bezier(.2,.8,.2,1) both}}
-.sw-olympe{background:#0f0d0a;box-shadow:inset 0 0 0 1px #3a3226}.sw-olympe i{background:#18150f;box-shadow:inset 0 0 0 1px #3a3226}.sw-olympe i:first-child{background:radial-gradient(circle at 38% 40%,#e2b866 0 2.5px,transparent 3.5px),radial-gradient(circle at 66% 62%,#e2b866 0 2px,transparent 3px),radial-gradient(circle at 52% 22%,#e2b866 0 1.5px,transparent 2.5px),#18150f}
-
-/* ---------- 4. Olympe : encre, bronze et constellations ----------
-   Repris des sites étudiés : capitales romaines et serif d'édition (Symphony of Vines), géométrie fine et
-   étiquettes à chasse fixe (Mythic Codex), grain de papier (Ponpon Mania). Une seule couleur d'accent : le bronze. */
-:root[data-skin="olympe"],:root[data-skin="olympe"]:not([data-theme="dark"]){
-  --floor:#0e0c09; --rubber:#17140f; --steel:#221e17; --line:#3a3227; --chalk:#efe6d4; --dim:#a69b86; --ink:#0e0c09;
-  --acc:#d6ab5c; --pA:#e07b62; --pB:#93a9d6; --pC:#d6ab5c; --pD:#9cc49a; --warn:#e8b95c; --warn-bg:rgba(232,185,92,.12); --ok:#9cc49a; --bad:#e07b62; --deload:#b9a7d6;
-  --serif:ui-serif,"New York","Iowan Old Style","Palatino Linotype",Georgia,serif; --label:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,monospace;
-  --grain:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1 0 0 0 0 .92 0 0 0 0 .78 0 0 0 .07 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
-  color-scheme:dark;
-}
-@media (prefers-color-scheme:light){:root[data-skin="olympe"]:not([data-theme="dark"]){
-  --floor:#0e0c09; --rubber:#17140f; --steel:#221e17; --line:#3a3227; --chalk:#efe6d4; --dim:#a69b86; --ink:#0e0c09;
-  --acc:#d6ab5c; --pA:#e07b62; --pB:#93a9d6; --pC:#d6ab5c; --pD:#9cc49a; --warn:#e8b95c; --warn-bg:rgba(232,185,92,.12); --ok:#9cc49a; --bad:#e07b62; color-scheme:dark}}
-[data-skin="olympe"] body{background:var(--grain),radial-gradient(120% 60% at 50% -10%,#221b12,transparent 60%),var(--floor)}
-[data-skin="olympe"] .ltitle{font-family:var(--serif);font-weight:500;font-size:2.35rem;letter-spacing:-.01em}
-[data-skin="olympe"] h1,[data-skin="olympe"] h2,[data-skin="olympe"] h3{font-family:var(--serif);font-weight:600;letter-spacing:-.005em}
-[data-skin="olympe"] .eyebrow,[data-skin="olympe"] .tmeta dt{font-family:var(--label);text-transform:uppercase!important;letter-spacing:.13em!important;font-size:.64rem;font-weight:500}
-[data-skin="olympe"] .card{border-radius:8px;background:var(--grain),var(--rubber);border:1px solid var(--line);box-shadow:inset 0 0 0 3px var(--rubber),inset 0 0 0 4px color-mix(in srgb,var(--acc) 20%,transparent)}
-[data-skin="olympe"] .tile b,[data-skin="olympe"] .lift .v,[data-skin="olympe"] .hv b,[data-skin="olympe"] .stepper input,[data-skin="olympe"] .clock,[data-skin="olympe"] .pace,[data-skin="olympe"] .next .n{font-family:var(--serif);font-weight:600;letter-spacing:-.02em;font-variant-numeric:lining-nums tabular-nums}
-[data-skin="olympe"] .btn{border-radius:6px;background:transparent;color:var(--acc);box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--acc) 45%,transparent)}
-[data-skin="olympe"] .btn.main{background:linear-gradient(180deg,#e4bd70,#b98a3e);color:#1a1307;box-shadow:inset 0 1px 0 rgba(255,240,200,.45),0 8px 22px rgba(214,171,92,.18);letter-spacing:.01em}
-[data-skin="olympe"] .btn.ghost{box-shadow:none}
-[data-skin="olympe"] .btn.danger{box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--bad) 45%,transparent)}
-[data-skin="olympe"] .chip{border-radius:6px;background:var(--steel)}
-[data-skin="olympe"] .chip.on{background:color-mix(in srgb,var(--c,var(--acc)) 16%,transparent);color:var(--c,var(--acc));box-shadow:inset 0 0 0 1px var(--c,var(--acc))}
-[data-skin="olympe"] .disc{border-radius:50%;background:transparent;color:var(--c);box-shadow:inset 0 0 0 1.5px var(--c);font-family:var(--serif);font-weight:600}
-[data-skin="olympe"] .tile,[data-skin="olympe"] .lift,[data-skin="olympe"] .msets div,[data-skin="olympe"] .tplpick button,[data-skin="olympe"] .inforow,[data-skin="olympe"] .skin{border-radius:6px}
-[data-skin="olympe"] .lift{background:transparent;box-shadow:inset 0 0 0 1px var(--line)}
-[data-skin="olympe"] .week button{border-radius:50%}
-[data-skin="olympe"] .week button.f{background:transparent;box-shadow:inset 0 0 0 1.5px var(--c);color:var(--c)}
-[data-skin="olympe"] .nav{background:color-mix(in srgb,var(--floor) 90%,transparent);border-top:1px solid color-mix(in srgb,var(--acc) 22%,transparent)}
-[data-skin="olympe"] .nav .in{position:relative}
-[data-skin="olympe"] .nav .ind{display:block;position:absolute;top:-4px;left:0;width:calc(100% / 5);height:0;transform:translateX(calc(var(--i,0) * 100%));transition:transform .5s cubic-bezier(.65,0,.25,1)}
-[data-skin="olympe"] .nav .ind::after{content:"";position:absolute;left:50%;top:-4px;width:7px;height:7px;margin-left:-3.5px;background:var(--acc);transform:rotate(45deg);box-shadow:0 0 10px rgba(214,171,92,.55)}
-[data-skin="olympe"] .nav.noind .ind{opacity:0}
-[data-skin="olympe"] .nav button.on{color:var(--acc)}
-[data-skin="olympe"] .mini button{border-radius:8px;background:color-mix(in srgb,var(--rubber) 94%,transparent);box-shadow:0 0 0 1px var(--line),inset 0 0 0 3px var(--rubber),inset 0 0 0 4px color-mix(in srgb,var(--acc) 22%,transparent),0 10px 26px rgba(0,0,0,.4)}
-[data-skin="olympe"] .sess{background:var(--grain),var(--floor)}
-[data-skin="olympe"] .sess h1{font-family:var(--serif);font-weight:600;font-size:2rem}
-[data-skin="olympe"] .stepper{background:transparent;box-shadow:inset 0 0 0 1px var(--line);border-radius:8px}
-[data-skin="olympe"] .stepper > button{border-radius:6px;color:var(--acc)}
-[data-skin="olympe"] .clock{color:var(--acc);text-shadow:0 0 30px rgba(214,171,92,.25)}
-[data-skin="olympe"] .drain i{background:linear-gradient(90deg,#b98a3e,#e4bd70)}
-[data-skin="olympe"] .settag .t{background:transparent;box-shadow:inset 0 0 0 1px var(--c);border-radius:4px}
-[data-skin="olympe"] .segs i.cur{background:var(--acc)}
-[data-skin="olympe"] .scale button.on{background:var(--acc);color:#1a1307}
-[data-skin="olympe"] .trav .st.on .core{fill:#f1d08c}
-[data-skin="olympe"] .trav .st.on .halo{fill:#d6ab5c;opacity:.28}
-[data-skin="olympe"] .trav-m{font-family:var(--serif);font-size:.95rem}
-[data-skin="olympe"] .ohero{display:grid;gap:10px}
-[data-skin="olympe"] .o-date{font-family:var(--serif);font-style:italic;font-size:1.15rem;color:var(--dim);margin:-4px 0 0}
-[data-skin="olympe"] .o-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-[data-skin="olympe"] .o-k{display:grid;gap:4px;padding:10px 0 10px 12px;border-left:1px solid var(--line)}
-[data-skin="olympe"] .o-k:first-child{border-left:0;padding-left:0}
-[data-skin="olympe"] .o-k b{font-family:var(--serif);font-size:1.9rem;font-weight:500;line-height:1;color:var(--chalk);letter-spacing:.02em;font-variant-numeric:lining-nums}
-[data-skin="olympe"] .o-k b small{font-size:.5em;color:var(--dim);letter-spacing:0}
-[data-skin="olympe"] .cycle i.on{background:var(--acc)}
 </style>
 
 <div class="app" id="app">
@@ -1775,73 +1679,7 @@ Champs d'un exercice : name, sets (texte), reps (texte), unit (kg, km, min, s, c
     return `${CLAUDE_FORMAT}\n\n=== MES DONNÉES ===\n${buildClaudeContext(ctx)}\n\n=== MA QUESTION ===\n${question}`;
   }
 
-  /* ---------- Les 12 travaux d'Héraclès : des étapes calculées à partir des séances notées ----------
-     Aucun champ ajouté aux données. Chaque travail suit un repère du programme : régularité,
-     progression sur les gros exercices (dont le développé couché, point faible), prise, course. */
-  const ROMAN = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI', 'XII'];
-  const LABOURS = [
-    { key: 'lion', name: 'Le lion de Némée', myth: 'Aucune arme ne perçait sa peau : Héraclès l’a vaincu à mains nues.', goal: 'Note 10 séances.', unit: 'séances', target: 10 },
-    { key: 'hydre', name: 'L’hydre de Lerne', myth: 'Pour chaque tête coupée, deux repoussaient : il a fallu revenir à la charge.', goal: '4 semaines de suite avec au moins 3 séances.', unit: 'semaines', target: 4 },
-    { key: 'biche', name: 'La biche de Cérynie', myth: 'Héraclès l’a poursuivie pendant un an avant de l’attraper.', goal: 'Note 10 courses.', unit: 'courses', target: 10 },
-    { key: 'sanglier', name: 'Le sanglier d’Érymanthe', myth: 'Il l’a épuisé dans la neige profonde, puis ramené vivant.', goal: 'Squat : +10 kg de max estimé depuis ta première séance.', unit: 'kg', target: 10, ex: 'Squat' },
-    { key: 'augias', name: 'Les écuries d’Augias', myth: 'Des années de fumier nettoyées en un jour, en détournant deux fleuves.', goal: '10 séances de muscu menées au bout : aucun exercice passé, aucune série laissée.', unit: 'séances', target: 10 },
-    { key: 'stymphale', name: 'Les oiseaux du lac Stymphale', myth: 'Il les a fait s’envoler au son de crotales de bronze, puis abattus à l’arc.', goal: 'Note ta réserve (répétitions encore possibles) sur 50 séries.', unit: 'séries', target: 50 },
-    { key: 'taureau', name: 'Le taureau de Crète', myth: 'Il l’a maîtrisé seul et ramené en Grèce.', goal: 'Soulevé de terre : +10 kg de max estimé depuis ta première séance.', unit: 'kg', target: 10, ex: 'Soulevé de terre' },
-    { key: 'diomede', name: 'Les juments de Diomède', myth: 'Des juments mangeuses d’hommes, qu’il a domptées.', goal: 'Bats 10 records.', unit: 'records', target: 10 },
-    { key: 'hippolyte', name: 'La ceinture d’Hippolyte', myth: 'La reine des Amazones la portait : il devait la rapporter.', goal: 'Développé couché, ton point faible : +5 kg de max estimé depuis ta première séance.', unit: 'kg', target: 5, ex: 'Développé couché' },
-    { key: 'geryon', name: 'Les bœufs de Géryon', myth: 'Le plus long voyage : jusqu’au bout du monde connu, et retour.', goal: 'Un cycle complet, allègement compris, avec au moins 2 séances chaque semaine.', unit: 'semaines', target: 7 },
-    { key: 'hesperides', name: 'Les pommes des Hespérides', myth: 'Pour les obtenir, Héraclès a porté le ciel à la place d’Atlas.', goal: 'Suspension à la barre : tiens 30 s de plus que la première fois.', unit: 's', target: 30, ex: 'Suspension à la barre' },
-    { key: 'cerbere', name: 'Cerbère', myth: 'Le dernier travail : ramener des Enfers le chien à trois têtes.', goal: 'Note 50 séances.', unit: 'séances', target: 50 }
-  ];
-  function labours(logs, templates, cycle, bw = 75, todayIso) {
-    logs = logs || {};
-    const ks = Object.keys(logs).sort().filter(k => logs[k]?.status === 'faite');
-    const today = todayIso || ks[ks.length - 1] || iso(new Date());
-    const isRunLog = k => logs[k].templateId === 'D' || !!logs[k].run;
-    const strength = ks.filter(k => !isRunLog(k));
-    const res = {};
-    const byCount = (key, dates) => { const t = LABOURS.find(x => x.key === key).target; res[key] = { cur: dates.length, date: dates.length >= t ? dates[t - 1] : null }; };
-    byCount('lion', ks); byCount('cerbere', ks); byCount('biche', ks.filter(isRunLog));
-    /* II : semaines (lundi-dimanche) d'au moins 3 séances, à la suite */
-    { const perW = {}; let streak = 0, prevW = null, date = null;
-      for (const k of ks) { const w = weekStart(k); perW[w] = (perW[w] || 0) + 1;
-        if (perW[w] === 3) { streak = prevW && dayDiff(prevW, w) === 7 ? streak + 1 : 1; prevW = w; if (streak >= 4 && !date) date = k; } }
-      const live = prevW && dayDiff(prevW, weekStart(today)) <= 7 ? streak : 0;
-      res.hydre = { cur: date ? 4 : live, date }; }
-    /* V : séances de muscu sans exercice passé ni série vide */
-    byCount('augias', strength.filter(k => { const es = Object.values(logs[k].entries || {});
-      return es.length > 0 && es.every(e => e && !e.skipped && (e.sets?.length ? e.sets.every(s => isNum(s.val) || isNum(s.reps)) : isNum(e.val))); }));
-    /* VI : séries où la réserve a été notée */
-    { const ds = []; for (const k of ks) for (const e of Object.values(logs[k].entries || {})) for (const s of e?.sets || []) if (isNum(s?.rir)) ds.push(k); byCount('stymphale', ds); }
-    /* VIII : records battus, tous exercices suivis (un par exercice et par séance au plus) */
-    { const ds = [], seen = new Set();
-      for (const [, t] of tplList(templates)) for (const ex of t.exercises || []) {
-        if (seen.has(ex.name) || ['km', 'min'].includes(unitOf(ex))) continue; seen.add(ex.name);
-        const h = history(logs, ex.name).filter(x => x.log.status === 'faite');
-        for (let i = 1; i < h.length; i++) if (newPRs(ex, h[i].e, h.slice(0, i), bw).length) ds.push(h[i].date);
-      }
-      byCount('diomede', ds.sort()); }
-    /* IV, VII, IX, XI : gain sur la mesure suivie depuis la première séance notée */
-    for (const L0 of LABOURS.filter(x => x.ex)) {
-      const ex = exDef(templates, L0.ex)?.ex || RETIRED[L0.ex];
-      const h = ex ? history(logs, L0.ex).filter(x => x.log.status === 'faite').map(x => ({ date: x.date, m: metric(ex, x.e) })).filter(x => x.m != null) : [];
-      let gain = 0, date = null;
-      for (const x of h) { const g = x.m - h[0].m; if (g > gain) gain = g; if (!date && g >= L0.target - 1e-6) date = x.date; }
-      res[L0.key] = { cur: r1(gain), date, start: h.length ? r1(h[0].m) : null };
-    }
-    /* X : un cycle entier, semaine d'allègement comprise, à 2 séances ou plus chaque semaine */
-    { const n = +cycle?.weeks || 7, per = {}, done = {}; let date = null;
-      if (cycle?.start) for (const k of ks) { const c = cycleInfo(k, cycle); if (!c) continue; const id = c.cycleNo + '-' + c.pos; per[id] = (per[id] || 0) + 1;
-        if (per[id] === 2) { done[c.cycleNo] = (done[c.cycleNo] || 0) + 1; if (!date && c.pos === n && done[c.cycleNo] === n) date = k; } }
-      const cn = cycle?.start ? cycleInfo(today, cycle) : null;
-      let cur = 0; if (cn) for (let p = 1; p <= cn.pos && (per[cn.cycleNo + '-' + p] || 0) >= 2; p++) cur = p;
-      const broken = cn && !date && cur < cn.pos - 1;   // une semaine passée du cycle en cours a manqué : rendez-vous au cycle suivant
-      res.geryon = { cur: date ? n : broken ? 0 : cur, date, target: n, next: broken ? addDays(cycle.start, cn.cycleNo * n * 7) : null }; }
-    return LABOURS.map((x, i) => { const r = res[x.key] || { cur: 0, date: null }, target = r.target || x.target;
-      return { n: i + 1, roman: ROMAN[i], key: x.key, name: x.name, myth: x.myth, goal: x.goal, unit: x.unit, target, cur: Math.min(r.cur, target), done: !!r.date, date: r.date, start: r.start ?? null, next: r.next || null }; });
-  }
-
-  return { BW, pad, iso, parse, addDays, dayDiff, weeksBetween, dow, weekStart, fr, frY, isNum, r1, roundTo, e1rm, frNum, topOf, labours, LABOURS,
+  return { BW, pad, iso, parse, addDays, dayDiff, weeksBetween, dow, weekStart, fr, frY, isNum, r1, roundTo, e1rm, frNum, topOf,
     parseDur, fmtDur, fmtPace, cycleInfo, deloadStart, tplList, unitOf, exDef, kind, repsUnit, valStep, defaultRest, nSets,
     history, lastBefore, missing, metric, describe, finalize, suggest, platesPerSide, warmup, scoreSet, bestOf, newPRs, prLabel,
     runOf, riegel, paceZones, bestRunRef, runPRs, sequenceAlerts, suggestNext,goalMetric, currentFor, plan, weightStats,
@@ -3336,49 +3174,6 @@ function weekTiles(){
     <p class="small dim">Séries notées, par muscle principal. Repère : plus de séries va avec plus de muscle, au moins jusqu’à une dizaine par semaine.</p>` : ''}
     ${runLines}`;
 }
-/* ---------- Les 12 travaux : une constellation qui s'allume au fil des séances ----------
-   Figure librement inspirée de la constellation d'Hercule : un torse en trapèze, la tête, la massue levée, un genou à terre. */
-const STARS = [[150,112],[188,106],[192,152],[146,158],[170,62],[228,78],[254,38],[108,92],[216,198],[240,240],[122,204],[84,222]];
-const STAR_LINES = [[0,1],[1,2],[2,3],[3,0],[0,4],[4,1],[1,5],[5,6],[0,7],[2,8],[8,9],[3,10],[10,11]];
-const SKY = Array.from({ length: 46 }, (_, i) => { const a = Math.sin(i * 12.9898 + 4.1) * 43758.5453, b = Math.sin(i * 78.233 + 1.7) * 12543.853; return [((a - Math.floor(a)) * 320).toFixed(1), ((b - Math.floor(b)) * 270).toFixed(1), i % 5 ? .7 : 1.2]; });
-function toRoman(n){ let s = ''; for (const [v, r] of [[1000,'M'],[900,'CM'],[500,'D'],[400,'CD'],[100,'C'],[90,'XC'],[50,'L'],[40,'XL'],[10,'X'],[9,'IX'],[5,'V'],[4,'IV'],[1,'I']]) while (n >= v) { s += r; n -= v; } return s; }
-function labourList(logs){ return L.labours(logs || S.logs, S.templates, S.cycle, bw(), today()); }
-function labourProgress(x){
-  const nf = v => L.frNum(L.r1(v));
-  if (x.done) return `Accompli le ${L.fr(x.date)}`;
-  if (x.unit === 'kg' || x.unit === 's') {
-    const u = x.unit === 'kg' ? ' kg' : ' s';
-    return x.start == null ? 'Pas encore noté' : `+${nf(x.cur)}${u} sur +${x.target}${u} · départ ${nf(x.start)}${u}`;
-  }
-  if (x.key === 'geryon' && x.next) return `Une semaine du cycle a manqué : prochain départ le ${L.fr(x.next)}`;
-  return `${x.cur} ${x.unit} sur ${x.target}`;
-}
-function travCard(){
-  const W = labourList(), seen = LS.get('travaux', []), fresh = W.filter(x => x.done && !seen.includes(x.key));
-  const nDone = W.filter(x => x.done).length;
-  if (S.travSel == null || !W[S.travSel]) {
-    const open = W.filter(x => !x.done), ratio = x => x.cur / x.target;
-    S.travSel = (fresh[0] || open.slice().sort((a, b) => ratio(b) - ratio(a))[0] || W[0]).n - 1;
-  }
-  const sel = W[S.travSel], P = i => STARS[i];
-  const sky = SKY.map(([x, y, r]) => `<circle class="bg" cx="${x}" cy="${y}" r="${r}"/>`).join('');
-  const lines = STAR_LINES.map(([a, b]) => `<line class="ln ${W[a].done && W[b].done ? 'on' : ''}" x1="${P(a)[0]}" y1="${P(a)[1]}" x2="${P(b)[0]}" y2="${P(b)[1]}"/>`).join('');
-  const stars = W.map((x, i) => {
-    const [cx, cy] = P(i), pct = Math.round(x.cur / x.target * 100);
-    return `<g class="st ${x.done ? 'on' : ''} ${i === S.travSel ? 'sel' : ''} ${fresh.includes(x) ? 'new' : ''}" style="--d:${(i * .37 % 3).toFixed(2)}s" data-a="trav" data-v="${i}" role="button" tabindex="0" aria-pressed="${i === S.travSel}" aria-label="${x.roman}, ${esc(x.name)} : ${x.done ? 'accompli' : esc(labourProgress(x))}">
-      <circle class="hit" cx="${cx}" cy="${cy}" r="17"/><circle class="halo" cx="${cx}" cy="${cy}" r="11"/>
-      ${!x.done && pct > 0 ? `<circle class="pg" cx="${cx}" cy="${cy}" r="8" pathLength="100" stroke-dasharray="${pct} 100" transform="rotate(-90 ${cx} ${cy})"/>` : ''}
-      <circle class="core" cx="${cx}" cy="${cy}" r="${x.done ? 4.6 : 3.2}"/><text class="rn" x="${cx}" y="${cy + 21}">${x.roman}</text></g>`;
-  }).join('');
-  if (fresh.length) LS.set('travaux', W.filter(x => x.done).map(x => x.key));   // vus une fois : l'étoile ne clignote plus ensuite
-  return `<section class="card trav" id="trav"><div class="between"><h2>Les 12 travaux</h2><span class="small dim">${nDone} sur 12</span></div>
-    <svg viewBox="0 0 320 270" role="group" aria-label="Constellation des 12 travaux">
-      <circle class="geo" cx="170" cy="140" r="122"/><path class="geo" d="M170 18 292 140 170 262 48 140Z"/><circle class="geo d" cx="170" cy="140" r="78"/>
-      ${sky}${lines}${stars}</svg>
-    <div class="trav-d" aria-live="polite"><div class="trav-h"><span class="trav-n">${sel.roman}</span><div><b>${esc(sel.name)}</b><p class="small dim trav-m">${esc(sel.myth)}</p></div></div>
-      <dl class="tmeta"><dt>Épreuve</dt><dd>${esc(sel.goal)}</dd><dt>${sel.done ? 'État' : 'Avancée'}</dt><dd>${esc(labourProgress(sel))}</dd></dl>
-      ${sel.done ? '' : `<div class="drain" aria-hidden="true"><i style="width:${Math.round(sel.cur / sel.target * 100)}%"></i></div>`}</div></section>`;
-}
 function viewProg(){
   if (S.histName) return histDetail(S.histName, 'histclose');
   const w = bw(), todo = [];
@@ -3397,7 +3192,6 @@ function viewProg(){
       <div style="color:${col(id)}">${spark(h.map(x => x.m), 46, gm)}</div>` : `<div class="small dim">Rien de noté pour l’instant.</div>`}</div>`;
   }).join('');
   return `<section class="card"><h3>Cette semaine</h3>${weekTiles()}</section>
-    ${travCard()}
     <section class="card"><h2>Records et progression</h2>${lifts ? `<p class="small dim">Barre : max estimé sur 1 répétition. Tractions et dips : meilleur nombre de répétitions.</p><div class="lifts">${lifts}</div>` : '<p class="dim">Note ta première séance : tes courbes et tes records apparaîtront ici.</p>'}${todo.length ? `<p class="small dim">Pas encore noté : ${esc(todo.join(', '))}.</p>` : ''}</section>
     ${histListHtml()}
     ${runCard()}
@@ -3801,7 +3595,7 @@ function setDone(){
   persistRun(); syncRun(); renderSession();
 }
 /* ---------- Habillages ---------- */
-const SKINS = [['', 'Natif', 'Sobre, comme une appli iPhone'], ['verre', 'Verre', 'Transparence et mouvements fluides, façon iOS 26'], ['arene', 'Arène', 'Sport éditorial : gros chiffres, une couleur signal'], ['pulse', 'Pulse', 'Tableau de bord : anneaux et données'], ['olympe', 'Olympe', 'Encre, bronze et constellations : la touche mythologie']];
+const SKINS = [['', 'Natif', 'Sobre, comme une appli iPhone'], ['verre', 'Verre', 'Transparence et mouvements fluides, façon iOS 26'], ['arene', 'Arène', 'Sport éditorial : gros chiffres, une couleur signal'], ['pulse', 'Pulse', 'Tableau de bord : anneaux et données']];
 function currentSkin(){ return document.documentElement.dataset.skin || ''; }
 function setSkin(v){
   const ok = SKINS.some(([id]) => id === v) ? v : '';
@@ -3841,12 +3635,6 @@ function heroHtml(k, c, dd){
       ${t ? `<div class="ah-k"><span class="eyebrow">Protéines</span><b><span data-count="${got}">${got}</span><small>g</small></b></div>` : `<div class="ah-k"><span class="eyebrow">Cycle</span><b><span data-count="${c?.cycleNo || 0}">${c?.cycleNo || '–'}</span></b></div>`}
       </div><div class="ah-bar" aria-hidden="true"><i style="width:${Math.round(done / target * 100)}%"></i></div>
       <p class="hsub">${date}${c?.deload ? ' · semaine d’allègement' : dl ? ` · allègement le ${L.fr(dl)}` : ''}</p></div>`;
-  }
-  if (skin === 'olympe') {
-    const won = labourList().filter(x => x.done).length;
-    return `<div class="ohero"><p class="o-date">${date}</p>
-      ${c ? `<div class="o-row"><div class="o-k"><span class="eyebrow">Cycle</span><b>${toRoman(c.cycleNo)}</b></div><div class="o-k"><span class="eyebrow">Semaine</span><b>${toRoman(c.pos)}<small> / ${toRoman(c.n)}</small></b></div><div class="o-k"><span class="eyebrow">Travaux</span><b><span data-count="${won}">${won}</span><small> / 12</small></b></div></div>` : ''}
-      ${c?.deload ? '<p class="small dim">Semaine d’allègement.</p>' : ''}${cycleBlock(k)}</div>`;
   }
   const fo = formeScore(k);
   return `<div class="phero"><p class="hsub"><span class="today-dot" aria-hidden="true"></span>${date}${cyc ? ' · ' + cyc : ''}</p><div class="rings">
@@ -4068,16 +3856,12 @@ function endScreen(R, t){
   const st = L.sessionStats(logFromRun('faite'), t, S.templates);
   const lg = logFromRun('faite'), lift = xs.find(x => L.kind(x) === 'barre' && L.metric(x, lg.entries?.[x.name]) != null);
   const liftM = lift ? L.metric(lift, lg.entries[lift.name]) : null;
-  /* travaux accomplis grâce à cette séance (la séance en cours n'est comptée qu'une fois enregistrée) */
-  const before = labourList(), won = labourList({ ...S.logs, [R.date]: lg }).filter((x, i) => x.done && !before[i].done);
-  const wonH = won.map(x => `<div class="trav-won"><span class="trav-n">${x.roman}</span><span class="stack" style="gap:2px"><span class="eyebrow">Travail accompli</span><b>${esc(x.name)}</b><span class="small dim">${esc(x.goal)}</span></span></div>`).join('');
   const tile2 = R.runData?.done ? `<div class="tile"><b>${L.frNum(R.runData.km)}</b><span>km</span></div>`
     : liftM != null ? `<div class="tile"><b>${L.frNum(L.r1(liftM))}</b><span>kg max estimé, ${esc(lift.name.toLowerCase())}</span></div>`
     : `<div class="tile"><b>${R.prs.length}</b><span>record${R.prs.length > 1 ? 's' : ''}</span></div>`;
   return sessHead(R, t, 'Fin de séance') + `<h1>${R.noTimer ? 'Résumé' : 'Séance terminée'}</h1>
     ${R.noTimer ? '' : `<div class="tiles"><div class="tile"><b>${mins}</b><span>minutes</span></div>${tile2}<div class="tile"><b>${st.sets || (R.runData?.done ? 1 : 0)}</b><span>${R.runData?.done && !st.sets ? 'course' : 'séries'}</span></div></div>`}
     ${R.prs.length ? `<div class="toast pr">${R.prs.length > 1 ? R.prs.length + ' nouveaux records' : 'Nouveau record'}</div><div class="stack">${R.prs.map(p => `<span class="pr">${esc(p.ex)} : ${esc(p.label)}</span>`).join('')}</div>` : ''}
-    ${wonH}
     <div class="exl">${runL}${lines}</div>
     ${open ? `<p class="small" style="color:var(--warn)">${open} exercice${open > 1 ? 's' : ''} pas terminé${open > 1 ? 's' : ''}. <button class="btn sm ghost" data-a="slist">Reprendre</button></p>` : ''}
     <div class="stack"><span class="eyebrow">Difficulté de la séance</span>${scaleHtml('rpe', 1, 5, 'facile', 'à bloc')}</div>
@@ -4169,7 +3953,6 @@ document.addEventListener('click', ev => {
     case 'start': openSession(v, false); return;
     case 'enter': if (!S.logs[v]) return; openSession(v, v !== today() || S.logs[v].status === 'faite'); return;
     case 'resume': S.showRun = true; unlockAudio(); keepAwake(true); renderAll(true); return;
-    case 'trav': { S.travSel = +v; const c = $('trav'); if (c) { c.outerHTML = travCard(); $('trav')?.querySelector(`[data-v="${+v}"]`)?.focus({ preventScroll: true }); } return; }
     case 'gdel': S.confirm['g' + v] = 1; renderAll(true); return;
     case 'gdel2': S.confirm['g' + v] = 2; renderAll(true); return;
     case 'gno': delete S.confirm['g' + v]; renderAll(true); return;
