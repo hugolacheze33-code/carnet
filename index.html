@@ -13,7 +13,7 @@
 <script>
 window.CARNET_MODE = 'pwa';
 window.CARNET_THREE_URL = 'three.min.js';
-window.CARNET_VERSION = '2026-11-04 12:35';
+window.CARNET_VERSION = '2026-11-06 08:23';
 /* Base locale : même interface que la base claude.ai, stockée sur le téléphone */
 (function(){
   const KEY = 'carnet.db';
@@ -361,6 +361,11 @@ textarea{width:100%;min-height:90px;resize:vertical}
 .guide ul{margin:0 0 10px;padding-left:18px;display:grid;gap:6px;font-size:.92rem}
 /* tuiles de bilan */
 .tiles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.tile b small{font-size:.55em;color:var(--dim);margin-left:2px}
+.msets{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin-top:10px}
+.msets div{background:var(--steel);border-radius:10px;padding:8px 10px;display:flex;justify-content:space-between;align-items:baseline;gap:6px;font-size:.88rem}
+.msets div b{font-family:var(--display);font-size:1.25rem}
+.msets div.zero{opacity:.55}
 .tile{background:var(--steel);border-radius:12px;padding:10px 6px;text-align:center;display:grid;gap:2px;min-width:0}
 .sess .tile{background:var(--rubber)}
 .tile b{font-family:var(--display);font-weight:900;font-size:1.75rem;line-height:1}
@@ -597,11 +602,18 @@ const L = (() => {
         return { sets: [{ label: ex.scheme[0].label, val: heavy, reps: T[0], target: T[0] }, { label: ex.scheme[1]?.label || 'Série 2', val: back, reps: T[1] ?? T[0], target: T[1] ?? T[0] }], targets: [T[0], T[1] ?? T[0]], note: 'Semaine d’allègement : charge réduite de 10 %, 2 séries seulement. Arrête-toi quand il te reste 3 à 4 répétitions possibles.', kindNote: 'deload' };
       }
       const plus = lastT.some((t, i) => t > base[i]);
-      if (met) {
+      const r0 = +e?.sets?.[0]?.reps;
+      /* Série lourde dépassée d'au moins 2 répétitions : la charge était trop légère. On vise la charge qui laisse environ 1 répétition en réserve. */
+      if (met && isNum(r0) && r0 >= lastT[0] + 2) {
+        heavy = Math.max(heavyLast + step, roundTo(e1rm(heavyLast, r0) / (1 + (base[0] + 1) / 30), step)); T = base;
+        note = `Dernière fois, ${r0} répétitions à la série lourde au lieu de ${lastT[0]} : la charge était trop légère, passe à ${frNum(heavy)} kg.`; kn = 'up';
+      } else if (met) {
         if (ex.double && !plus) { T = base.map(r => r + 1); note = 'Dernière fois, tu as fait toutes les répétitions : garde la même charge et fais 1 répétition de plus par série.'; kn = 'reps'; }
         else { heavy = heavyLast + step; T = base; note = `Dernière fois, tu as fait toutes les répétitions : ajoute ${frNum(step)} kg.`; kn = 'up'; }
       } else note = 'Garde la même charge jusqu’à réussir toutes les répétitions prévues.';
-      const back = roundTo(heavy * 0.9, 2.5);
+      /* Séries suivantes : environ 90 % de la lourde, sans redescendre sous une charge déjà réussie */
+      const lastBack = isNum(e?.sets?.[1]?.val) ? +e.sets[1].val : 0;
+      const back = met ? Math.max(roundTo(heavy * 0.9, 2.5), Math.min(lastBack, heavy)) : roundTo(heavy * 0.9, 2.5);
       return { sets: ex.scheme.map((s, i) => ({ label: s.label, val: i === 0 ? heavy : back, reps: T[i], target: T[i] })), targets: T, note, kindNote: kn };
     }
     let n = nSets(ex);
@@ -625,6 +637,11 @@ const L = (() => {
     let note = '';
     if (hasVal && deload && unitOf(ex) === 'kg') { val = roundTo(lastVal * 0.9, step); note = 'Semaine d’allègement : charge réduite de 10 %, moitié moins de séries.'; }
     else if (deload) note = 'Semaine d’allègement : moitié moins de séries.';
+    else if (met && ru === 'reps' && ls.every(s => +s.reps >= top + 3)) {
+      const minR = Math.min(...ls.map(s => +s.reps));
+      val = Math.max(lastVal + step, roundTo(e1rm(lastVal, minR) / (1 + top / 30), step));
+      note = `${minR} répétitions ou plus pour un objectif de ${String(ex.reps).replace(/(\d)\s*-\s*(\d)/, '$1 à $2')} : la charge était trop légère, passe à ${frNum(val)} kg.`;
+    }
     else if (met) { val = lastVal + step; note = ru === 'm' ? `Tu as tenu ${top} m à chaque série : ajoute ${frNum(step)} kg par main.` : `Tu as atteint le haut de ton objectif de répétitions : ajoute ${frNum(step)} kg.`; }
     const sets = Array.from({ length: n }, (_, j) => ({ label: `Série ${j + 1}`, val, reps: ru ? (met ? '' : (ls[j]?.reps ?? ls[ls.length - 1]?.reps ?? '')) : '' }));
     return { sets, note, kindNote: deload ? 'deload' : met ? 'up' : 'same' };
@@ -809,6 +826,28 @@ const L = (() => {
     }
     return { tonnage: Math.round(tonnage), sets, km: runOf(log, tpl)?.km || 0 };
   }
+  /* Séries notées par groupe de muscles (muscles principaux de chaque exercice) : un repère de volume, plus parlant que le tonnage */
+  const MUSCLE_GROUPS = [['Pectoraux', ['pec']], ['Dos', ['lat', 'midback', 'trap', 'lower']], ['Épaules', ['deltF', 'deltB']], ['Bras', ['bicep', 'tricep', 'forearm']], ['Jambes', ['quad', 'ham', 'glute', 'calf']], ['Tronc', ['abs', 'oblique']]];
+  function muscleSets(logs, dates, templates, findSheet) {
+    const out = MUSCLE_GROUPS.map(([name]) => ({ name, sets: 0 }));
+    for (const d of dates) {
+      const log = logs?.[d]; if (!log || log.status !== 'faite') continue;
+      for (const { ex, e } of entryRows(log, templates?.[log.templateId], templates)) {
+        if (!e || e.skipped || ['km', 'min'].includes(unitOf(ex))) continue;
+        const n = (e.sets || []).filter(s => s && (isNum(s.val) || isNum(s.reps))).length || (isNum(e.val) ? 1 : 0);
+        const prim = findSheet(ex.name)?.prim || [];
+        MUSCLE_GROUPS.forEach(([, ids], i) => { if (ids.some(m => prim.includes(m))) out[i].sets += n; });
+      }
+    }
+    return out;
+  }
+  /* Une course « facile » plus rapide que la zone facile n'est plus vraiment facile */
+  function easyCheck(run, zones) {
+    if (!run?.pace || !zones?.easy) return null;
+    const [fast, slow] = zones.easy;
+    return { pace: run.pace, tooFast: run.pace < fast - 5, tooSlow: run.pace > slow + 30, zone: zones.easy };
+  }
+
   /* Plus longue course des N derniers jours (repère de prudence, étude Frandsen 2025) */
   function longestRun(logs, tpl, dateIso, days = 30) {
     let best = 0;
@@ -1258,7 +1297,7 @@ Champs d'un exercice : name, sets (texte), reps (texte), unit (kg, km, min, s, c
     parseDur, fmtDur, fmtPace, cycleInfo, deloadStart, tplList, unitOf, exDef, kind, repsUnit, valStep, defaultRest, nSets,
     history, lastBefore, missing, metric, describe, finalize, suggest, platesPerSide, warmup, scoreSet, bestOf, newPRs, prLabel,
     runOf, riegel, paceZones, bestRunRef, runPRs, sequenceAlerts, suggestNext,goalMetric, currentFor, plan, weightStats,
-    repsTarget, repsPlain, progressRule, estimateMinutes, sessionStats, longestRun, PROGRAM_VERSION, migrateProgram, exInfo, entryRows, repairLogs, hasData,
+    repsTarget, repsPlain, progressRule, estimateMinutes, sessionStats, longestRun, PROGRAM_VERSION, migrateProgram, exInfo, entryRows, repairLogs, hasData, muscleSets, easyCheck, MUSCLE_GROUPS,
     cleanExercise, validateChanges, applyTemplateChange, describeChange, exSummary, buildClaudeContext, buildClaudePrompt, buildMailReport, sessionLine };
 })();
 
@@ -2707,10 +2746,18 @@ function spark(vals, H = 46, goal = null){
     <circle cx="${X(vals.length - 1)}" cy="${Y(vals[vals.length - 1])}" r="4" fill="currentColor"/></svg>`;
 }
 const mainLifts = () => { const out = []; L.tplList(S.templates).forEach(([id, t]) => exOrder(t).filter(ex => ex.main).forEach(ex => out.push({ id, ex }))); return out; };
+/* Cette semaine : régularité, records, volume par muscle et respect de l'allure facile */
 function weekTiles(){
-  let n = 0, ton = 0, km = 0;
-  for (const d of weekDays(today())) { const l = S.logs[d]; if (l?.status !== 'faite') continue; n++; const st = L.sessionStats(l, S.templates[l.templateId], S.templates); ton += st.tonnage; km += st.km; }
-  return `<div class="tiles"><div class="tile"><b>${n}</b><span>séance${n > 1 ? 's' : ''} faite${n > 1 ? 's' : ''}</span></div><div class="tile"><b>${L.frNum(L.r1(ton / 1000))} t</b><span>soulevées</span></div><div class="tile"><b>${L.frNum(L.r1(km))}</b><span>km courus</span></div></div>`;
+  const wk = weekDays(today()), done = wk.filter(d => S.logs[d]?.status === 'faite'), planned = wk.filter(d => S.logs[d]).length;
+  const prs = recentPRs().filter(p => wk.includes(p.date)).length;
+  const groups = L.muscleSets(S.logs, wk, S.templates, EX.find), sets = groups.reduce((a, g) => a + g.sets, 0);
+  const z = L.paceZones(L.bestRunRef(S.logs, S.templates, RUN_BASE, today()));
+  const runs = done.filter(d => S.logs[d].templateId === 'D' && (S.logs[d].run?.type || 'facile') === 'facile').map(d => ({ d, c: L.easyCheck(L.runOf(S.logs[d], S.templates.D), z), hr: S.logs[d].run?.hr })).filter(x => x.c);
+  const runLines = runs.map(({ d, c, hr }) => `<p class="small ${c.tooFast ? '' : 'dim'}"${c.tooFast ? ' style="color:var(--warn)"' : ''}>Course facile du ${L.fr(d)} : ${L.fmtPace(c.pace)} /km${hr ? `, fréquence cardiaque ${hr}` : ''}. ${c.tooFast ? `Plus rapide que ta zone facile (${L.fmtPace(c.zone[0])}-${L.fmtPace(c.zone[1])}) : ralentis pour qu’elle reste facile.` : 'Dans ta zone facile.'}</p>`).join('');
+  return `<div class="tiles"><div class="tile"><b>${done.length}<small>/${Math.max(planned, done.length)}</small></b><span>séance${done.length > 1 ? 's' : ''} faite${done.length > 1 ? 's' : ''}</span></div><div class="tile"><b>${prs}</b><span>record${prs > 1 ? 's' : ''}</span></div><div class="tile"><b>${sets}</b><span>séries de muscu</span></div></div>
+    ${sets ? `<div class="msets" role="list">${groups.map(g => `<div role="listitem" class="${g.sets ? '' : 'zero'}"><span>${esc(g.name)}</span><b class="num">${g.sets}</b></div>`).join('')}</div>
+    <p class="small dim">Séries notées, pour les muscles principaux de chaque exercice. Repère : une méta-analyse associe davantage de séries par semaine à davantage de muscle, au moins jusqu’à une dizaine par muscle.</p>` : ''}
+    ${runLines}`;
 }
 function viewProg(){
   const w = bw(), todo = [];
@@ -3253,9 +3300,11 @@ function endScreen(R, t){
   const open = xs.filter(x => { const e = R.ex[x.name]; return !e.skipped && e.sets.some(s => !s.done); }).length;
   const conf = R.abandon || 0;
   const st = L.sessionStats(logFromRun('faite'), t, S.templates);
-  const prevK = Object.keys(S.logs).filter(d => d < R.date && S.logs[d].templateId === R.tid && S.logs[d].status === 'faite').sort().pop();
-  const prevTon = prevK ? L.sessionStats(S.logs[prevK], t, S.templates).tonnage : 0, gain = prevTon && st.tonnage ? Math.round((st.tonnage - prevTon) / prevTon * 100) : null;
-  const tile2 = R.runData?.done ? `<div class="tile"><b>${L.frNum(R.runData.km)}</b><span>km</span></div>` : `<div class="tile"><b>${L.frNum(L.r1(st.tonnage / 1000))} t</b><span>soulevées${gain != null ? ` (${gain >= 0 ? '+' : ''}${gain} %)` : ''}</span></div>`;
+  const lg = logFromRun('faite'), lift = xs.find(x => L.kind(x) === 'barre' && L.metric(x, lg.entries?.[x.name]) != null);
+  const liftM = lift ? L.metric(lift, lg.entries[lift.name]) : null;
+  const tile2 = R.runData?.done ? `<div class="tile"><b>${L.frNum(R.runData.km)}</b><span>km</span></div>`
+    : liftM != null ? `<div class="tile"><b>${L.frNum(L.r1(liftM))}</b><span>kg max estimé, ${esc(lift.name.toLowerCase())}</span></div>`
+    : `<div class="tile"><b>${R.prs.length}</b><span>record${R.prs.length > 1 ? 's' : ''}</span></div>`;
   return sessHead(R, t, 'Fin de séance') + `<h1>${R.noTimer ? 'Résumé' : 'Séance terminée'}</h1>
     ${R.noTimer ? '' : `<div class="tiles"><div class="tile"><b>${mins}</b><span>minutes</span></div>${tile2}<div class="tile"><b>${st.sets || (R.runData?.done ? 1 : 0)}</b><span>${R.runData?.done && !st.sets ? 'course' : 'séries'}</span></div></div>`}
     ${R.prs.length ? `<div class="toast pr">${R.prs.length > 1 ? R.prs.length + ' nouveaux records' : 'Nouveau record'}</div><div class="stack">${R.prs.map(p => `<span class="pr">${esc(p.ex)} : ${esc(p.label)}</span>`).join('')}</div>` : ''}
