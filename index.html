@@ -13,7 +13,7 @@
 <script>
 window.CARNET_MODE = 'pwa';
 window.CARNET_THREE_URL = 'three.min.js';
-window.CARNET_VERSION = '2026-11-06 08:23';
+window.CARNET_VERSION = '2026-11-06 09:43';
 /* Base locale : même interface que la base claude.ai, stockée sur le téléphone */
 (function(){
   const KEY = 'carnet.db';
@@ -56,9 +56,6 @@ window.CARNET_VERSION = '2026-11-06 08:23';
 </script>
 </head><body>
 <title>Carnet de séances</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap">
 <style>
 /* Sol de salle : fond caoutchouc, texte craie, couleurs de disques olympiques comme code des séances.
    Colonne unique pensée pour le pouce (max 560 px), barre d'onglets en bas, mode séance plein écran. */
@@ -410,11 +407,135 @@ body{background-image:radial-gradient(color-mix(in srgb,var(--chalk) 5%,transpar
 .gloss p{margin-top:6px}
 .alert .row button{justify-self:auto}
 [hidden]{display:none!important}
+
+/* ===================== Design v2 : style natif iPhone =====================
+   Inspiré des applis de référence (Strong, Hevy, JEFIT, Nike Training Club) : police système,
+   titres en minuscules, une seule couleur d'accent, listes sobres, la couleur des séances réservée aux badges. */
+:root{
+  --floor:#000; --rubber:#1c1c1e; --steel:#2c2c2e; --line:#38383a;
+  --chalk:#fff; --dim:#8e8e93; --ink:#000;
+  --acc:#0a84ff;
+  --pA:#ff453a; --pB:#7d7aff; --pC:#ff9f0a; --pD:#30d158;
+  --deload:#bf5af2; --warn:#ffd60a; --warn-bg:rgba(255,214,10,.13); --ok:#30d158; --bad:#ff453a; --claude:#d97757;
+  --display:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --body:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:var(--body);
+}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]){
+  --floor:#f2f2f7; --rubber:#fff; --steel:#e9e9ee; --line:#d8d8dd; --chalk:#000; --dim:#6c6c70; --ink:#fff;
+  --acc:#007aff; --pA:#d70015; --pB:#5856d6; --pC:#c45500; --pD:#248a3d;
+  --deload:#8944ab; --warn:#8a5a00; --warn-bg:#fff4d6; --ok:#248a3d; --bad:#d70015; --claude:#b85a3a}}
+:root[data-theme="light"]{
+  --floor:#f2f2f7; --rubber:#fff; --steel:#e9e9ee; --line:#d8d8dd; --chalk:#000; --dim:#6c6c70; --ink:#fff;
+  --acc:#007aff; --pA:#d70015; --pB:#5856d6; --pC:#c45500; --pD:#248a3d;
+  --deload:#8944ab; --warn:#8a5a00; --warn-bg:#fff4d6; --ok:#248a3d; --bad:#d70015; --claude:#b85a3a}
+body{background-image:none;font-size:17px;line-height:1.4;letter-spacing:-.01em}
+h1,h2,h3,.eyebrow,.brand,.btn,.chip,.tplpick b,.banner b,.week .d,.dowh,.stepper .u,.settag .t,.rbtns button,.next .n,.pill,.figtag,.toast.pr,.hday,.hmon{text-transform:none!important;letter-spacing:normal}
+h1,h2,h3{font-weight:700;line-height:1.15;letter-spacing:-.02em}
+h2{font-size:1.4rem} h3{font-size:1.1rem;font-weight:600}
+.eyebrow{font-weight:600;font-size:.82rem;color:var(--dim)}
+.num,.exl .num{font-family:var(--body);font-variant-numeric:tabular-nums}
+/* en-tête : un grand titre par onglet, comme les applis iPhone */
+.top{align-items:flex-end;padding-top:6px}
+.ltitle{font-size:2.15rem;font-weight:700;letter-spacing:-.03em;line-height:1.05;margin:0}
+.sync{padding-bottom:6px}
+.hero{gap:8px;padding-top:0}
+.hsub{font-size:1rem;color:var(--dim);font-weight:500;margin-top:-6px}
+.cycle{gap:3px}
+.cycle i{height:4px;border-radius:2px}
+.cycle i.on{background:var(--acc)}
+/* cartes et listes */
+.card{border-radius:14px;padding:14px 16px;gap:12px;box-shadow:none}
+.card.plate{border-top:0}
+.chead{gap:12px}
+.chead h2{font-size:1.3rem}
+.disc{--s:44px;border-radius:12px;box-shadow:none;background:color-mix(in srgb,var(--c) 20%,transparent);color:var(--c);font-family:var(--body);font-weight:700;font-size:calc(var(--s)*.46)}
+.disc.sm{--s:30px;border-radius:8px}
+.exl{gap:0}
+.exl .r{padding:9px 0;border-top:.5px solid var(--line);font-size:.95rem}
+.exl .r:first-child{border-top:0}
+.exl .r b{font-weight:500;flex:1 1 60%}
+.exl .r span{flex:0 1 auto}
+.lift{border-top:0;background:var(--steel)}
+.lift .v,.stat .v,.tile b,.zone b,.pace,.msets div b{font-family:var(--body);font-weight:700;letter-spacing:-.02em}
+.lift .v{font-size:1.6rem}
+.tile b{font-size:1.45rem}
+.tile span{font-size:.75rem}
+.tplpick button{border-radius:12px;min-height:84px}
+.tplpick b{font-family:var(--body);font-weight:600;font-size:1.05rem;line-height:1.2}
+/* boutons : plein pour l'action principale, teinté sinon, texte seul pour les actions secondaires */
+.btn{font-family:var(--body);font-weight:600;font-size:1.02rem;border-radius:12px;min-height:50px;padding:12px 16px;background:color-mix(in srgb,var(--acc) 15%,transparent);color:var(--acc)}
+.btn.main{background:var(--acc);color:#fff;font-size:1.1rem;min-height:54px}
+.btn.ghost{background:transparent;border:0;color:var(--acc);padding-inline:4px}
+.btn.danger{border:0;background:color-mix(in srgb,var(--bad) 14%,transparent);color:var(--bad)}
+.btn.sm{font-size:.95rem;min-height:40px;padding:8px 12px;border-radius:10px}
+.btn.claude{background:var(--claude);color:#fff}
+.chip{font-family:var(--body);font-weight:600;font-size:.95rem;border:0;background:var(--steel);min-height:40px;border-radius:10px;padding:6px 12px}
+.chip.on{background:color-mix(in srgb,var(--c,var(--acc)) 22%,transparent);color:var(--c,var(--acc));border:0;box-shadow:inset 0 0 0 1.5px var(--c,var(--acc))}
+.banner{background:color-mix(in srgb,var(--c,var(--acc)) 18%,var(--rubber));color:var(--chalk);border-radius:14px}
+.banner b{font-family:var(--body);font-weight:600;font-size:1.05rem}
+.alert{background:var(--warn-bg);color:var(--chalk);border-radius:12px;font-weight:400;font-size:.93rem;box-shadow:inset 3px 0 0 var(--warn)}
+.alert button{border:0;background:var(--steel);color:var(--chalk);font-weight:600}
+.alert.soft{box-shadow:none}
+.confirm{background:var(--warn-bg);color:var(--chalk);font-weight:400}
+.notice{border:0;background:var(--rubber);box-shadow:inset 3px 0 0 var(--acc)}
+input,select,textarea{background:var(--steel);border:0;border-radius:10px}
+.pill{font-weight:600}
+.toast.pr{font-family:var(--body);font-weight:700;font-size:1.1rem}
+/* semaine et calendrier : pastilles teintées */
+.week{background:none}
+.week .d{font-family:var(--body);font-weight:600}
+.week button{border-radius:10px;aspect-ratio:1;max-width:40px;background:var(--steel);font-family:var(--body);font-weight:700;font-size:1rem;color:var(--dim);box-shadow:none}
+.week button.f{background:color-mix(in srgb,var(--c) 26%,transparent);color:var(--c);box-shadow:none}
+.week button.p{background:transparent;border:1.5px dashed var(--c);color:var(--c)}
+.week button.today,.week button.f.today{box-shadow:0 0 0 2px var(--acc)}
+.dowh{font-family:var(--body);font-weight:600}
+.day{border-radius:10px;border-width:1.5px}
+.day .n{font-family:var(--body);font-variant-numeric:tabular-nums}
+.day.today .n{background:var(--acc);color:#fff}
+.day.sel{border-color:var(--acc)}
+.day .c{font-family:var(--body);font-weight:700;font-size:.85rem;background:color-mix(in srgb,var(--c) 26%,transparent);color:var(--c)}
+.calhead button{background:var(--steel);color:var(--acc)}
+/* barre d'onglets façon iPhone */
+.nav{background:color-mix(in srgb,var(--rubber) 86%,transparent);-webkit-backdrop-filter:saturate(180%) blur(20px);backdrop-filter:saturate(180%) blur(20px);border-top:.5px solid var(--line);padding-top:4px}
+.nav button{font-size:.66rem;font-weight:500;min-height:50px;gap:2px}
+.nav button.on{color:var(--acc);background:transparent}
+.nav button.on::before{display:none}
+.nav button.cl{color:var(--dim)}
+.nav button.cl.on{color:var(--acc)}
+/* mode séance */
+.sess h1{font-size:1.9rem;line-height:1.1;font-weight:700;letter-spacing:-.02em}
+.settag .t{font-family:var(--body);font-weight:600;font-size:.85rem;background:color-mix(in srgb,var(--c) 22%,transparent);color:var(--c)}
+.shead button{background:var(--steel);border-radius:50%;width:40px;height:40px;font-size:1rem}
+.segs i{height:4px}
+.segs i.on{background:var(--c)}
+.segs i.cur{background:var(--acc)}
+.stepper{background:var(--rubber);border-radius:14px}
+.stepper > button{background:var(--steel);height:64px;font-size:1.9rem;color:var(--acc)}
+.stepper input{font-family:var(--body);font-weight:700;font-size:3.2rem;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.stepper .u{font-family:var(--body);font-weight:600;font-size:.78rem}
+.done-sets button{font-family:var(--body);font-variant-numeric:tabular-nums;border-radius:8px}
+.done-sets button.cur{box-shadow:0 0 0 2px var(--acc)}
+.done-sets button.ok{background:color-mix(in srgb,var(--ok) 22%,var(--steel))}
+.sess.rest{background:var(--floor);color:var(--chalk)}
+.sess.rest .eyebrow{color:var(--dim)}
+.sess.rest .shead button{background:var(--steel);color:var(--chalk)}
+.clock{font-family:var(--body);font-weight:700;font-variant-numeric:tabular-nums;letter-spacing:-.05em;color:var(--c,var(--chalk))}
+.drain{background:var(--steel);height:8px}
+.drain i{background:var(--c,var(--acc))}
+.rbtns button{font-family:var(--body);font-weight:600;font-size:1.1rem;background:var(--steel);color:var(--chalk);min-height:56px}
+.next{background:var(--rubber);color:var(--chalk)}
+.next .n{font-family:var(--body);font-weight:700;font-size:1.3rem}
+.sess.rest .btn.main{background:var(--acc);color:#fff}
+.sess.rest .toast.pr{background:var(--rubber);color:var(--chalk)}
+.scale button{border:0;background:var(--steel);font-family:var(--body);font-weight:700;font-size:1.25rem;min-height:50px}
+.scale button.on{background:var(--acc);color:#fff}
+.figtag{font-family:var(--body);font-weight:600;letter-spacing:0;font-size:.78rem}
 </style>
 
 <div class="app" id="app">
   <header class="top">
-    <span class="brand"><svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="15" fill="var(--pA)"/><circle cx="16" cy="16" r="11.5" fill="none" stroke="rgba(0,0,0,.28)" stroke-width="1.6"/><circle cx="16" cy="16" r="4" fill="var(--floor)"/><circle cx="16" cy="16" r="2" fill="var(--bar)"/></svg>Carnet de séances</span>
+    <h1 class="ltitle" id="ptitle">Aujourd’hui</h1>
     <span class="sync" id="sync"><i></i><span>Connexion…</span></span>
   </header>
   <main class="view" id="view">
@@ -2383,6 +2504,7 @@ const ICONS = {
 };
 const TABS = [['today','Aujourd’hui'],['cal','Calendrier'],['prog','Progrès'],['plan','Programme'],['info','Info'],['claude','Coach']];
 function renderNav(){
+  const t = $('ptitle'); if (t) t.textContent = (TABS.find(([id]) => id === S.tab) || TABS[0])[1];
   $('nav').innerHTML = TABS.map(([id, label]) => `<button data-a="tab" data-v="${id}" class="${S.tab===id?'on':''} ${id==='claude'?'cl':''}" aria-current="${S.tab===id?'page':'false'}">${ICONS[id]}<span>${label}</span></button>`).join('');
 }
 function renderSync(){
@@ -2508,7 +2630,7 @@ function infoDetail(sheet, back){
 function viewInfo(){
   const open = S.infoName && EX.find(S.infoName);
   if (open) return infoDetail(open, 'infoclose');
-  let h = `<section class="card"><h2>Info</h2><p class="small dim">Touche un exercice pour voir l’animation, les points d’attention et les muscles ciblés.</p><button class="inforow" data-a="tab" data-v="plan"><span class="nm">Les consignes de ton programme</span><span aria-hidden="true">›</span></button></section>`;
+  let h = `<section class="card"><p class="small dim">Touche un exercice pour voir le mouvement et les muscles travaillés.</p><button class="inforow" data-a="tab" data-v="plan"><span class="nm">Les consignes de ton programme</span><span aria-hidden="true">›</span></button></section>`;
   for (const [id, t] of L.tplList(S.templates)) {
     const seen = new Set(), rows = [];
     for (const x of exOrder(t)) {
@@ -2554,7 +2676,7 @@ function cycleBlock(k){
   const bars = Array.from({ length: c.n }, (_, i) => `<i class="${i+1===c.n?'dl ':''}${i+1<=c.pos?'on':''}"></i>`).join('');
   const dl = L.deloadStart(k, S.cycle), left = c.n - c.pos;
   return `<div class="stack"><div class="cycle" style="--n:${c.n}" aria-hidden="true">${bars}</div>
-    <p class="small ${c.deload?'dlw':'dim'}">${c.deload ? 'Semaine d’allègement : charges réduites de 10 %, moitié moins de séries, et arrête-toi quand il te reste 3 à 4 répétitions possibles. Si tu te sens en forme, tu peux alléger un peu moins.' : `Prochaine semaine d’allègement (plus facile) : le ${L.fr(dl)}, dans ${left===1?'1 semaine':left+' semaines'}.`}</p></div>`;
+    <p class="small ${c.deload?'dlw':'dim'}">${c.deload ? 'Semaine d’allègement : charges réduites de 10 %, moitié moins de séries, et arrête-toi quand il te reste 3 à 4 répétitions possibles. Si tu te sens en forme, tu peux alléger un peu moins.' : `Semaine d’allègement (plus facile) le ${L.fr(dl)}.`}</p></div>`;
 }
 function missingAlerts(){
   return Object.keys(S.logs).filter(k => k <= today() && !(S.run && S.run.date === k) && L.missing(S.logs[k], S.templates[S.logs[k].templateId], today(), k)).sort().slice(-4)
@@ -2566,8 +2688,7 @@ function seqAlertHtml(list){ return list.map(a => `<div class="alert"><span>${es
 function viewToday(){
   const k = today(), log = S.logs[k], t = log && S.templates[log.templateId], c = L.cycleInfo(k, S.cycle);
   const dd = L.parse(k);
-  let h = `<div class="hero"><div class="hdate"><span class="hnum">${dd.getDate()}</span><span class="hside"><span class="hday">${DOWS[L.dow(k)]}</span><span class="hmon">${MONTHS[dd.getMonth()]}</span></span></div>
-    <div class="stack"><div class="eyebrow">${c ? `Cycle ${c.cycleNo} · semaine ${c.pos} sur ${c.n}` : 'Avant le premier cycle'}</div>${cycleBlock(k)}</div></div>`;
+  let h = `<div class="hero"><p class="hsub">${DOWS[L.dow(k)]} ${dd.getDate()} ${MONTHS[dd.getMonth()]}${c ? ` · cycle ${c.cycleNo}, semaine ${c.pos} sur ${c.n}` : ''}</p>${cycleBlock(k)}</div>`;
   const wk = weekDays(k);
   let alerts = seqAlertHtml(L.sequenceAlerts(S.logs, wk[0], L.addDays(wk[6], 7)).filter(a => (a.next || a.date) >= k));
   if (S.programNotice?.length) h += `<div class="notice"><b>Ton programme a évolué</b><ul>${S.programNotice.map(x => `<li>${esc(x)}</li>`).join('')}</ul><p class="small dim">Ton historique est conservé. Les consignes sont dans l’onglet Programme.</p><div class="row"><button class="btn sm" data-a="noticeok">Compris</button><button class="btn sm ghost" data-a="tab" data-v="plan">Voir le programme</button></div></div>`;
@@ -2756,7 +2877,7 @@ function weekTiles(){
   const runLines = runs.map(({ d, c, hr }) => `<p class="small ${c.tooFast ? '' : 'dim'}"${c.tooFast ? ' style="color:var(--warn)"' : ''}>Course facile du ${L.fr(d)} : ${L.fmtPace(c.pace)} /km${hr ? `, fréquence cardiaque ${hr}` : ''}. ${c.tooFast ? `Plus rapide que ta zone facile (${L.fmtPace(c.zone[0])}-${L.fmtPace(c.zone[1])}) : ralentis pour qu’elle reste facile.` : 'Dans ta zone facile.'}</p>`).join('');
   return `<div class="tiles"><div class="tile"><b>${done.length}<small>/${Math.max(planned, done.length)}</small></b><span>séance${done.length > 1 ? 's' : ''} faite${done.length > 1 ? 's' : ''}</span></div><div class="tile"><b>${prs}</b><span>record${prs > 1 ? 's' : ''}</span></div><div class="tile"><b>${sets}</b><span>séries de muscu</span></div></div>
     ${sets ? `<div class="msets" role="list">${groups.map(g => `<div role="listitem" class="${g.sets ? '' : 'zero'}"><span>${esc(g.name)}</span><b class="num">${g.sets}</b></div>`).join('')}</div>
-    <p class="small dim">Séries notées, pour les muscles principaux de chaque exercice. Repère : une méta-analyse associe davantage de séries par semaine à davantage de muscle, au moins jusqu’à une dizaine par muscle.</p>` : ''}
+    <p class="small dim">Séries notées, par muscle principal. Repère : plus de séries va avec plus de muscle, au moins jusqu’à une dizaine par semaine.</p>` : ''}
     ${runLines}`;
 }
 function viewProg(){
@@ -2776,7 +2897,7 @@ function viewProg(){
       <div style="color:${col(id)}">${spark(h.map(x => x.m), 46, gm)}</div>` : `<div class="small dim">Rien de noté pour l’instant.</div>`}</div>`;
   }).join('');
   return `<section class="card"><h3>Cette semaine</h3>${weekTiles()}</section>
-    <section class="card"><h2>Records et progression</h2>${lifts ? `<p class="small dim">Barre : ta charge maximale estimée sur 1 répétition, calculée depuis ta meilleure série. Tractions et dips : ton meilleur nombre de répétitions. Ligne verte : ton objectif.</p><div class="lifts">${lifts}</div>` : '<p class="dim">Note ta première séance : tes courbes et tes records apparaîtront ici.</p>'}${todo.length ? `<p class="small dim">Pas encore noté : ${esc(todo.join(', '))}.</p>` : ''}</section>
+    <section class="card"><h2>Records et progression</h2>${lifts ? `<p class="small dim">Barre : max estimé sur 1 répétition. Tractions et dips : meilleur nombre de répétitions.</p><div class="lifts">${lifts}</div>` : '<p class="dim">Note ta première séance : tes courbes et tes records apparaîtront ici.</p>'}${todo.length ? `<p class="small dim">Pas encore noté : ${esc(todo.join(', '))}.</p>` : ''}</section>
     ${runCard()}
     <section class="card"><h2>Objectifs</h2>
       <p class="small dim">Le verdict est une estimation prudente pour quelqu’un qui s’entraîne depuis plusieurs années, pas une promesse.</p>
@@ -2849,13 +2970,13 @@ function weightsHtml(){
 
 /* ======================= Programme (éditeur) ======================= */
 function viewPlan(){
-  let h = `<section class="card"><h2>Programme</h2><p class="small dim">Touche une consigne pour l’ouvrir.</p><div>${guideHtml()}</div></section>`;
+  let h = `<section class="card"><h2>Consignes</h2><div>${guideHtml()}</div></section>`;
   for (const [id, t] of L.tplList(S.templates)) {
     h += `<section class="card plate" style="--c:${col(id)}">${cardHead(id, 'Séance ' + id, t.name, metaOf(t))}`;
     exOrder(t).forEach((ex, i) => {
       const editing = S.edit && S.edit.tid === id && S.edit.i === i;
       const rule = L.progressRule(ex), run = L.unitOf(ex) === 'km' || L.unitOf(ex) === 'min';
-      h += editing ? editSheet() : `<div class="exrow"><div class="t"><b>${esc(ex.name)}</b><span class="main">${esc(L.repsPlain(ex))}</span>${run ? '' : `<span>Minuteur de repos : ${L.fmtDur(L.defaultRest(ex))}</span>`}${rule ? `<span>${esc(rule)}</span>` : ''}${ex.tip ? `<span>${esc(ex.tip)}</span>` : ''}</div>
+      h += editing ? editSheet() : `<div class="exrow"><div class="t"><b>${esc(ex.name)}</b><span class="main">${esc(L.repsPlain(ex))}</span>${run ? '' : `<span>Repos ${L.fmtDur(L.defaultRest(ex))}${rule ? ' · ' + esc(rule) : ''}</span>`}</div>
         <div class="tools">${EX.find(ex.name) ? `<button data-a="infoex" data-v="${esc(ex.name)}" aria-label="Comment faire : ${esc(ex.name)}">?</button>` : ''}<button data-a="exedit" data-t="${id}" data-i="${i}" aria-label="Modifier ${esc(ex.name)}">✎</button></div></div>`;
     });
     if (S.edit && S.edit.tid === id && S.edit.i === -1) h += editSheet();
@@ -2931,7 +3052,7 @@ function saveTemplate(tid, exercises){ write('templates/' + tid, { ...S.template
 const QUICK = ['Mon développé couché stagne : que changer ?', 'Fais le bilan de mes 2 dernières semaines.', 'Je suis fatigué cette semaine : dois-je alléger ?', 'Comment préparer un 10 km en 50 min sans perdre ma force ?'];
 /* Web app : pas d'appel direct à Claude, on passe par l'app Claude en copier-coller */
 function viewClaudePaste(){
-  let h = `<section class="card"><h2>Coach</h2><p class="small dim">Le coach est le seul endroit qui demande ton compte Claude. Tout le reste de l’app fonctionne sans compte et sans réseau.</p><p class="small dim">1. Écris ta question.<br>2. Touche « Copier pour Claude », ouvre Claude (connecte-toi s’il te le demande) et colle le texte.<br>3. Copie la réponse de Claude et colle-la ici. Tu verras ses conseils et ses propositions. Rien ne change sans ton accord.</p>
+  let h = `<section class="card"><p class="small dim">Le coach est le seul endroit qui demande ton compte Claude. Tout le reste de l’app fonctionne sans compte et sans réseau.</p><p class="small dim">1. Écris ta question.<br>2. Touche « Copier pour Claude », ouvre Claude (connecte-toi s’il te le demande) et colle le texte.<br>3. Copie la réponse de Claude et colle-la ici. Tu verras ses conseils et ses propositions. Rien ne change sans ton accord.</p>
     <div class="suggest">${QUICK.map(q => `<button data-a="quick" data-v="${esc(q)}">${esc(q)}</button>`).join('')}</div>
     <label for="ask" class="eyebrow">Ta question</label><textarea id="ask" placeholder="Mes épaules tirent au couché, que faire ?">${esc(S.askDraft || '')}</textarea>
     <button class="btn claude wide" data-a="pcopy">Copier pour Claude</button>
@@ -2956,8 +3077,8 @@ function parseReply(txt){
 }
 function viewClaude(){
   if (MODE === 'pwa') return viewClaudePaste();
-  if (S.sample === null) return `<section class="card"><h2>Coach</h2><p class="dim">Claude n’est pas disponible dans cette vue. Ouvre la page depuis claude.ai, connecté à ton compte.</p></section>`;
-  let h = `<section class="card"><h2>Coach</h2><p class="small dim">Claude reçoit ton profil, ton programme, tes 8 dernières semaines, tes records et tes objectifs. S’il propose des changements, tu les vois avant / après et rien n’est enregistré sans ton accord. Chaque question utilise ton forfait Claude.</p>`;
+  if (S.sample === null) return `<section class="card"><p class="dim">Claude n’est pas disponible dans cette vue. Ouvre la page depuis claude.ai, connecté à ton compte.</p></section>`;
+  let h = `<section class="card"><p class="small dim">Claude reçoit ton profil, ton programme, tes 8 dernières semaines, tes records et tes objectifs. S’il propose des changements, tu les vois avant / après et rien n’est enregistré sans ton accord. Chaque question utilise ton forfait Claude.</p>`;
   if (!S.chat.length) h += `<div class="suggest">${QUICK.map(q => `<button data-a="quick" data-v="${esc(q)}">${esc(q)}</button>`).join('')}</div>`;
   h += `</section>`;
   S.chat.forEach((m, mi) => {
@@ -3176,8 +3297,8 @@ function setDone(){
 }
 function describeSet(x, s){
   if (L.kind(x) === 'pdc') return `${+s.val > 0 ? '+' + L.frNum(s.val) + ' kg' : 'sans lest'} × ${s.reps}`;
-  const ru = L.repsUnit(x);
-  return ru ? `${L.frNum(s.val)}${L.unitOf(x) === 'kg' ? ' kg' : ''} × ${s.reps}${ru === 'm' ? ' m' : ''}` : `${L.frNum(s.val)} ${L.unitOf(x) === 'reps' ? 'sauts' : L.unitOf(x)}`;
+  const ru = L.repsUnit(x), v = L.isNum(s.val) ? L.frNum(s.val) : '?';   // « ? » : charge encore à choisir, jamais un faux 0
+  return ru ? `${v}${L.unitOf(x) === 'kg' ? ' kg' : ''} × ${s.reps}${ru === 'm' ? ' m' : ''}` : `${v} ${L.unitOf(x) === 'reps' ? 'sauts' : L.unitOf(x)}`;
 }
 function platesHtml(total){
   const p = L.platesPerSide(total);
