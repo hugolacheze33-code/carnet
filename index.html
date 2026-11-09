@@ -13,7 +13,7 @@
 <script>
 window.CARNET_MODE = 'pwa';
 window.CARNET_THREE_URL = 'three.min.js';
-window.CARNET_VERSION = '2026-11-06 19:05';
+window.CARNET_VERSION = '2026-11-09 13:06';
 /* Base locale : même interface que la base claude.ai, stockée sur le téléphone */
 (function(){
   const KEY = 'carnet.db';
@@ -346,7 +346,7 @@ textarea{width:100%;min-height:90px;resize:vertical}
 .sess .tile{background:var(--rubber)}
 .tile b{font-family:var(--display);font-weight:900;font-size:1.75rem;line-height:1}
 .tile span{font-size:.72rem;color:var(--dim)}
-.delta{color:var(--ok);font-weight:600}
+.delta{color:var(--acc);font-weight:600}
 .notice{border:2px solid var(--ok);border-radius:14px;padding:14px;display:grid;gap:8px;background:var(--rubber)}
 .notice ul{margin:0;padding-left:18px;display:grid;gap:3px;font-size:.9rem}
 .alert.soft{background:var(--steel);color:var(--chalk)}
@@ -575,6 +575,21 @@ h3{font-weight:650;letter-spacing:-.015em}
 .mini .go{color:var(--acc);font-weight:600;font-size:.95rem;flex:none}
 .mini.done .mt small{color:var(--c,var(--acc));font-weight:700}
 .app.hasmini{padding-bottom:calc(164px + env(safe-area-inset-bottom,0px))}
+/* Séries : un groupe charge × répétitions ne se coupe pas, le retour à la ligne se fait entre deux groupes */
+.set{white-space:nowrap}
+.set.long{white-space:normal}
+.sep{font-style:normal}
+.exl .r b{flex:1 1 40%}
+.exl .r .sets{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:2px 12px}
+.exl .r .sets .sep{display:none}
+/* Cartes de records : progression et courbe en terre cuite, record en ivoire, objectif en gris */
+.lift .pr{color:var(--chalk);font-weight:500}
+.lift .eyebrow{justify-self:start;padding:1px 7px;border-radius:6px;background:color-mix(in srgb,currentColor 14%,transparent)}
+.lift svg .goal{stroke:var(--dim)}
+.lift svg .area{fill-opacity:.1}
+.lift svg .curve{stroke-width:2}
+/* Séance active indiquée dans le Calendrier */
+.runnow{color:var(--acc);font-weight:600}
 @media (prefers-reduced-motion:no-preference){
   .mini.enter button{animation:minirise .42s cubic-bezier(.2,.8,.2,1) both}
   .mini.done button{animation:minipulse 1.1s ease-in-out 4}
@@ -2854,24 +2869,24 @@ function viewToday(){
   const wk = weekDays(k);
   let alerts = seqAlertHtml(L.sequenceAlerts(S.logs, wk[0], L.addDays(wk[6], 7)).filter(a => (a.next || a.date) >= k));
   const notice = !S.programNotice?.length ? '' : `<div class="notice"><b>Ton programme a évolué</b><ul>${S.programNotice.map(x => `<li>${esc(x)}</li>`).join('')}</ul><p class="small dim">Ton historique est conservé. Les consignes sont dans l’onglet Programme.</p><div class="row"><button class="btn sm" data-a="noticeok">Compris</button><button class="btn sm ghost" data-a="tab" data-v="plan">Voir le programme</button></div></div>`;
-  alerts += missingAlerts();
+  if (!S.run) alerts += missingAlerts();
   if (MODE === 'pwa') {
     const lx = LS.get('lastExport', null), days = lx ? L.dayDiff(lx, k) : null, n = Object.keys(S.logs).length;
     if (n >= 3 && (days == null || days >= 14)) alerts += `<div class="alert soft"><span>${days == null ? 'Tes séances sont enregistrées uniquement sur ce téléphone.' : `Dernière sauvegarde il y a ${days} jours.`} Fais une sauvegarde pour ne rien perdre.</span><button data-a="tab" data-v="plan">Sauvegarder</button></div>`;
   }
   if (log && t && log.status === 'faite') {
     h += `<section class="card plate" style="--c:${col(log.templateId)}">${cardHead(log.templateId, 'Séance faite ✓', t.name)}
-      <div class="exl">${L.entryRows(log, t, S.templates).map(({ ex, e }) => { const d = L.describe(ex, e); return d ? `<div class="r"><b>${esc(ex.name)}</b><span class="num">${esc(d)}</span></div>` : ''; }).join('')}</div>
+      <div class="exl">${L.entryRows(log, t, S.templates).map(({ ex, e }) => { const d = L.describe(ex, e); return d ? `<div class="r"><b>${esc(ex.name)}</b><span class="num sets">${setsHtml(esc(d))}</span></div>` : ''; }).join('')}</div>
       ${feelLine(log)}
-      <div class="row"><button class="btn sm ghost" data-a="enter" data-v="${k}">Modifier les charges</button></div>${MODE === 'pwa' ? mailBlock() : ''}</section>`;
+      ${S.run ? (S.run.date === k ? '' : otherRunHtml(k)) : `<div class="row"><button class="btn sm ghost" data-a="enter" data-v="${k}">Modifier les charges</button></div>`}${MODE === 'pwa' ? mailBlock() : ''}</section>`;
   } else if (log && t) {
     h += todayCard(k, log, t);
   } else {
     const sg = L.suggestNext(S.logs, k), st = S.templates[sg.id];
     if (st) h += `<section class="card plate" style="--c:${col(sg.id)}">${cardHead(sg.id, sg.rotation ? 'Suggestion du jour' : 'Suggestion adaptée à ta semaine', st.name + (sg.type ? ` ${sg.type}` : ''), metaOf(st))}
       <p class="small dim">${esc(hasRun(st) ? (sg.type === 'soutenue' ? 'Ta course soutenue de la semaine : 4 × 1 km ou 3 × 8 min.' : 'Sortie facile, à une allure où tu peux parler.') : (st.exercises || []).filter(x => x.main).map(x => x.name).join(' · '))}</p>
-      <button class="btn main" data-a="planstart" data-v="${sg.id}" data-t="${sg.type || ''}">Démarrer ${esc(st.short || sg.id)}</button></section>`;
-    h += `<section class="card"><h3>Ou choisis ta séance</h3>
+      ${S.run ? otherRunHtml(k) : `<button class="btn main" data-a="planstart" data-v="${sg.id}" data-t="${sg.type || ''}">Démarrer ${esc(st.short || sg.id)}</button>`}</section>`;
+    if (S.run?.date !== k) h += `<section class="card"><h3>Ou choisis ta séance</h3>
       <div class="tplpick">${L.tplList(S.templates).map(([id, tp]) => `<button data-a="planday" data-v="${id}" data-d="${k}" style="--c:${col(id)}"><span class="disc sm" style="--c:${col(id)}" aria-hidden="true">${esc(id)}</span><b>${esc((tp.short || tp.name).replace(/^\w\s*·\s*/, ''))}</b><span>${esc(hasRun(tp) ? 'Facile ou soutenue' : (tp.exercises||[]).filter(x => x.main).slice(0,2).map(x=>x.name).join(', '))}</span></button>`).join('')}</div>
       <p class="small dim">Jour de repos ? Rien à faire : la journée reste vide dans le calendrier.</p></section>`;
   }
@@ -2881,13 +2896,24 @@ function viewToday(){
   h += alerts;
   return h;
 }
+/* Séries à l'affichage : reçoit un texte déjà échappé, coupe seulement entre deux groupes. L.describe (mail, export) ne change pas. */
+function setsHtml(txt, after = ''){
+  const parts = String(txt).split(' · ');
+  return parts.map((p, i) => `<span class="set${p.length > 26 ? ' long' : ''}">${p}${i < parts.length - 1 ? '<i class="sep"> ·</i>' : after}</span>`).join(' ');
+}
+/* Séance active : le mini-lecteur est le seul accès pour la reprendre ; « En cours » seulement sur le jour et le modèle vraiment actifs */
+const runIsHere = (k, id) => !!S.run && S.run.date === k && S.run.tid === id;
+function runNowLabel(){ const R = S.run, state = miniState(R.phase === 'rest' ? { ...R, phase: 'ex' } : R); return state ? `En cours · ${state}` : 'En cours'; }
+/* Confirmation du Calendrier : visible dès le toucher, au moins 16 px au-dessus du mini-lecteur (ou des onglets s'il est absent), sans défilement inutile. 17 absorbe les arrondis. */
+function showDayConfirm(){ const b = document.querySelector('#daypanel .confirm'), m = $('mini'), o = m && !m.hidden ? m : document.querySelector('.nav'); if (b && o) scrollBy(0, Math.max(0, b.getBoundingClientRect().bottom + 17 - o.getBoundingClientRect().top)); }
+function otherRunHtml(k){ const R = S.run; return `<p class="small dim">Autre séance en cours : ${esc(tplName(R.tid))}${R.date === k ? '' : ` du ${L.fr(R.date)}`}.</p>`; }
 function todayCard(k, log, t){
-  const c = L.cycleInfo(k, S.cycle), id = log.templateId;
+  const c = L.cycleInfo(k, S.cycle), id = log.templateId, here = runIsHere(k, id);
   const rows = L.activeExercises(t, S.logs, k).map(ex => {
     if (L.unitOf(ex) === 'km' || L.unitOf(ex) === 'min') return '';
     const s = suggestFor(ex, k), first = s.sets[0];
     const what = L.kind(ex) === 'barre' ? (L.isNum(first?.val) ? `${L.frNum(first.val)} kg × ${first.reps}` : esc(ex.scheme.map(s => s.reps).join(', ')) + ' répétitions') : L.kind(ex) === 'pdc' ? `${shortReps(ex, s.sets.length)}${+first?.val>0?` · +${L.frNum(first.val)} kg`:''}` : shortReps(ex, s.sets.length);
-    return `<div class="r"><b>${esc(ex.name)}</b><span>${what}${s.kindNote==='up'?' <span class="up">↑</span>':''}</span></div>`;
+    return `<div class="r"><b>${esc(ex.name)}</b><span class="sets">${setsHtml(what, s.kindNote==='up'?' <span class="up">↑</span>':'')}</span></div>`;
   }).join('');
   const isRun = exOrder(t).some(ex => L.unitOf(ex) === 'km');
   const z = L.paceZones(L.bestRunRef(S.logs, S.templates, RUN_BASE, today()));
@@ -2895,17 +2921,18 @@ function todayCard(k, log, t){
   const far = isRun ? L.longestRun(S.logs, t, k) : 0;
   const farLine = far ? `<p class="small dim">Ta plus longue sortie des 30 derniers jours : ${L.frNum(L.r1(far))} km. Essaie de rester sous ${L.frNum(L.r1(far * 1.1))} km.</p>` : '';
   return `<section class="card plate" style="--c:${col(id)}">
-    ${cardHead(id, 'Prévue aujourd’hui', t.name, metaOf(t))}
+    ${cardHead(id, here ? runNowLabel() : 'Prévue aujourd’hui', t.name, metaOf(t), here ? 'var(--acc)' : '')}
+    ${S.run && !here ? otherRunHtml(k) : ''}
     ${c?.deload ? '<p class="dlw small">Allègement : charges déjà réduites de 10 % et moitié des séries.</p>' : ''}
-    ${isRun ? typeChips(k, log) : ''}
+    ${isRun && !here ? typeChips(k, log) : ''}
     <div class="exl">${runLine}${rows}</div>${farLine}
-    <button class="btn main" data-a="start" data-v="${k}">Démarrer la séance</button>
-    <div class="row"><button class="btn sm ghost" data-a="goday" data-v="${k}">Changer de séance</button></div>
+    ${S.run ? '' : `<button class="btn main" data-a="start" data-v="${k}">Démarrer la séance</button>
+    <div class="row"><button class="btn sm ghost" data-a="goday" data-v="${k}">Changer de séance</button></div>`}
   </section>`;
 }
 /* En-tête de carte : la séance représentée par un disque de sa couleur */
-function cardHead(id, label, title, meta){
-  return `<div class="chead"><span class="disc" style="--c:${col(id)}" aria-hidden="true">${esc(id)}</span><div class="stack" style="gap:4px"><div class="eyebrow" style="color:${col(id)}">${esc(label)}</div><h2>${esc(title)}</h2>${meta ? `<div class="meta">${esc(meta)}</div>` : ''}</div></div>`;
+function cardHead(id, label, title, meta, labelColor){
+  return `<div class="chead"><span class="disc" style="--c:${col(id)}" aria-hidden="true">${esc(id)}</span><div class="stack" style="gap:4px"><div class="eyebrow" style="color:${labelColor || col(id)}">${esc(label)}</div><h2>${esc(title)}</h2>${meta ? `<div class="meta">${esc(meta)}</div>` : ''}</div></div>`;
 }
 /* Envoi à Claude par mail : l'adresse reste sur le téléphone, jamais dans le code public */
 function mailBlock(){
@@ -2986,7 +3013,7 @@ function dayPanel(k){
   const kz = l?.status === 'faite' ? 'bravo' : t && hasRun(t) ? 'run' : c?.deload ? 'rest' : 'wait';
   let h = `<section class="card ${t?'plate':''}" id="daypanel" style="--c:${col(id)}"><div class="khead"><div class="stack" style="gap:4px"><div class="eyebrow">${dayLabel(k)}${c?` · cycle ${c.cycleNo}, sem. ${c.pos}/${c.n}${c.deload?' · allègement':''}`:''}</div>
     <h2>${t ? esc(t.name) : 'Repos'}</h2></div>${kairosSpot(kz)}</div>`;
-  if (!l || l.status !== 'faite') {
+  if ((!l || l.status !== 'faite') && S.run?.date !== k) {
     h += `<div class="chips" role="group" aria-label="Séance de ce jour">${L.tplList(S.templates).map(([tid, tp]) => `<button class="chip ${id===tid?'on':''}" style="--c:${col(tid)}" data-a="planday" data-v="${tid}" data-d="${k}">${esc(tp.short || tid)}</button>`).join('')}</div>`;
     if (id === 'D') h += typeChips(k, l);
   }
@@ -2994,14 +3021,15 @@ function dayPanel(k){
   if (t) {
     const done = l.status === 'faite';
     const anyData = Object.values(l.entries || {}).some(e => e && !e.skipped && L.isNum(e.val));
-    h += `<div class="exl">${L.entryRows(l, t && { ...t, exercises: L.activeExercises(t, S.logs, k) }, S.templates).map(({ ex, e, planned }) => { const d = L.describe(ex, e); if (!d && (!planned || (done && anyData))) return ''; return `<div class="r"><b>${esc(ex.name)}</b><span>${esc(d || (done ? 'à noter' : L.repsPlain(ex)))}</span></div>`; }).join('')}</div>`;
+    h += `<div class="exl">${L.entryRows(l, t && { ...t, exercises: L.activeExercises(t, S.logs, k) }, S.templates).map(({ ex, e, planned }) => { const d = L.describe(ex, e); if (!d && (!planned || (done && anyData))) return ''; return `<div class="r"><b>${esc(ex.name)}</b><span class="sets">${setsHtml(esc(d || (done ? 'à noter' : L.repsPlain(ex))))}</span></div>`; }).join('')}</div>`;
     if (l.templateId === 'D') { const r = L.runOf(l, t); if (r?.pace) h += `<p class="small">Allure <b class="num">${L.fmtPace(r.pace)} /km</b>${r.hr ? ` · fréquence cardiaque ${r.hr}` : ''}${r.treadmill ? ' · tapis' : ''}</p>`; }
     h += feelLine(l);
     h += `<div class="stack">`;
-    if (k === today() && !done) h += `<button class="btn main" data-a="start" data-v="${k}">Démarrer la séance</button>`;
+    if (S.run) h += runIsHere(k, id) ? `<p class="small runnow">${esc(runNowLabel())}</p>` : k <= today() ? otherRunHtml(k) : '';
+    else if (k === today() && !done) h += `<button class="btn main" data-a="start" data-v="${k}">Démarrer la séance</button>`;
     else if (k <= today()) h += `<button class="btn wide" data-a="enter" data-v="${k}">${done ? 'Modifier les charges' : 'Noter les charges'}</button>`;
     h += `<button class="btn sm danger" data-a="del" data-v="${k}">Supprimer</button></div>`;
-    if (S.confirm.day === k + ':1') h += `<div class="confirm"><span>Es-tu sûr de vouloir supprimer la séance suivante : ${esc(t.name)} du ${L.fr(k)} ?</span><div class="row"><button class="btn sm danger" data-a="del2" data-v="${k}">Oui</button><button class="btn sm ghost" data-a="nodel">Annuler</button></div></div>`;
+    if (S.confirm.day === k + ':1') h += `<div class="confirm"><span>Es-tu sûr de vouloir supprimer la séance suivante : ${esc(t.name)} du ${L.fr(k)} ?</span>${S.run?.date === k ? '<span>Cette séance est en cours. La supprimer effacera définitivement ce jour et ses données, y compris les séries déjà saisies, et arrêtera le chronomètre. Pour arrêter la séance en conservant les séries saisies, utilise “Abandonner”.</span>' : ''}<div class="row"><button class="btn sm danger" data-a="del2" data-v="${k}">Oui</button><button class="btn sm ghost" data-a="nodel">Annuler</button></div></div>`;
     if (S.confirm.day === k + ':2') h += `<div class="confirm"><span>Dernière confirmation : supprimer définitivement ${esc(t.name)} du ${L.fr(k)} et ses charges ?</span><div class="row"><button class="btn sm danger" data-a="del3" data-v="${k}">Supprimer</button><button class="btn sm ghost" data-a="nodel">Annuler</button></div></div>`;
   } else h += `<p class="dim small">Choisis une séance pour la prévoir ce jour-là.</p>`;
   if (S.panelMsg) h += `<p class="small dim" role="status">${esc(S.panelMsg)}</p>`;
@@ -3015,9 +3043,9 @@ function spark(vals, H = 46, goal = null){
   const min = Math.min(...all), max = Math.max(...all), rng = (max - min) || 1;
   const X = i => p + i * (W - 2 * p) / (vals.length - 1), Y = v => H - p - (v - min) * (H - 2 * p) / rng;
   const line = vals.map((v, i) => `${i ? 'L' : 'M'}${X(i).toFixed(1)},${Y(v).toFixed(1)}`).join('');
-  const g = goal != null ? `<line x1="${p}" x2="${W - p}" y1="${Y(goal)}" y2="${Y(goal)}" stroke="var(--ok)" stroke-dasharray="4 3" stroke-width="1.5" vector-effect="non-scaling-stroke"/>` : '';
+  const g = goal != null ? `<line class="goal" x1="${p}" x2="${W - p}" y1="${Y(goal)}" y2="${Y(goal)}" stroke="var(--ok)" stroke-dasharray="4 3" stroke-width="1.5" vector-effect="non-scaling-stroke"/>` : '';
   return `<svg viewBox="0 0 ${W} ${H}" style="height:${H}px" preserveAspectRatio="none" aria-hidden="true">${g}
-    <path d="${line}L${X(vals.length - 1)},${H - p}L${X(0)},${H - p}Z" fill="currentColor" fill-opacity=".14"/><path d="${line}" fill="none" stroke="currentColor" stroke-width="2.5" vector-effect="non-scaling-stroke"/>
+    <path class="area" d="${line}L${X(vals.length - 1)},${H - p}L${X(0)},${H - p}Z" fill="currentColor" fill-opacity=".14"/><path class="curve" d="${line}" fill="none" stroke="currentColor" stroke-width="2.5" vector-effect="non-scaling-stroke"/>
     <circle cx="${X(vals.length - 1)}" cy="${Y(vals[vals.length - 1])}" r="4" fill="currentColor"/></svg>`;
 }
 const mainLifts = () => { const out = []; L.tplList(S.templates).forEach(([id, t]) => exOrder(t).filter(ex => ex.main).forEach(ex => out.push({ id, ex }))); return out; };
@@ -3048,7 +3076,7 @@ function viewProg(){
       ${last ? `<div class="v num" style="font-family:var(--display)">${L.frNum(L.r1(last.m))} <span class="small dim" style="font-family:var(--body);font-weight:500">${unit}</span></div>
       ${gain > 0 ? `<div class="small delta">+${L.frNum(L.r1(gain))} depuis le ${L.fr(hist[0].date)}</div>` : ''}
       ${best ? `<div class="small pr">Record : ${esc(L.prLabel(ex, best.set, best.score).replace(/^Max estimé : /, ''))}</div>` : ''}
-      <div style="color:${col(id)}">${spark(h.map(x => x.m), 46, gm)}</div>` : `<div class="small dim">Rien de noté pour l’instant.</div>`}</div>`;
+      <div style="color:var(--acc)">${spark(h.map(x => x.m), 46, gm)}</div>` : `<div class="small dim">Rien de noté pour l’instant.</div>`}</div>`;
   }).join('');
   return `<section class="card"><div class="khead"><h3>Cette semaine</h3>${kairosSpot(recentPRs().some(p => weekDays(today()).includes(p.date)) ? 'bravo' : 'idle')}</div>${weekTiles()}</section>
     <section class="card"><h2>Records et progression</h2>${lifts ? `<p class="small dim">Barre : max estimé sur 1 répétition. Tractions et dips : meilleur nombre de répétitions.</p><div class="lifts">${lifts}</div>` : '<p class="dim">Note ta première séance : tes courbes et tes records apparaîtront ici.</p>'}${todo.length ? `<p class="small dim">Pas encore noté : ${esc(todo.join(', '))}.</p>` : ''}</section>
@@ -3523,7 +3551,7 @@ function histDetail(name, back){
   const unit = k === 'barre' ? 'kg, max estimé' : k === 'pdc' ? 'répétitions' : ({ kg: 'kg', s: 's', cm: 'cm', km: 'km', min: 'min', reps: '' }[L.unitOf(ex)] ?? '');
   const best = L.bestOf(ex, hist, bw());
   const setTxt = e => (e.sets || []).filter(s => s && (L.isNum(s.val) || L.isNum(s.reps))).map(s => describeSet(ex, s) + (L.isNum(s.rir) ? ` (réserve ${s.rir})` : '')).join(' · ') || L.describe(ex, e);
-  const rows = hist.slice().reverse().map(x => `<div class="r"><b>${L.fr(x.date)}</b><span class="num">${esc(setTxt(x.e))}</span></div>${x.e.memo ? `<p class="small dim">« ${esc(x.e.memo)} »</p>` : ''}`).join('');
+  const rows = hist.slice().reverse().map(x => `<div class="r"><b>${L.fr(x.date)}</b><span class="num sets">${setsHtml(esc(setTxt(x.e)))}</span></div>${x.e.memo ? `<p class="small dim">« ${esc(x.e.memo)} »</p>` : ''}`).join('');
   return `<section class="card"><div><button class="btn sm ghost" data-a="${back}">‹ Retour</button></div><h2>${esc(name)}</h2>
     ${ms.length ? `<div class="hv"><b class="num">${L.frNum(L.r1(ms[ms.length - 1]))}</b><span class="small dim">${unit}</span></div>${ms.length > 1 ? `<div style="color:var(--acc)">${spark(ms, 90)}</div>` : ''}` : ''}
     ${best ? `<p class="small pr">Record : ${esc(L.prLabel(ex, best.set, best.score).replace(/^Max estimé : /, ''))} (${L.fr(best.date)})</p>` : ''}
@@ -3535,7 +3563,7 @@ function histListHtml(){
   for (const l of Object.values(S.logs)) for (const n of Object.keys(l.entries || {})) if (!['Distance', 'Durée'].includes(n)) add(n);
   const rows = names.map(n => ({ n, h: L.history(S.logs, n) })).filter(x => x.h.length);
   if (!rows.length) return '';
-  return `<section class="card"><h2>Historique par exercice</h2><div class="list">${rows.map(({ n, h }) => { const last = h[h.length - 1]; return `<button data-a="hist" data-v="${esc(n)}"><span><b>${esc(n)}</b><br><span class="small dim">${L.fr(last.date)} · ${esc(L.describe(L.exInfo(S.templates, n), last.e))}</span></span><span class="dim" aria-hidden="true">›</span></button>`; }).join('')}</div></section>`;
+  return `<section class="card"><h2>Historique par exercice</h2><div class="list">${rows.map(({ n, h }) => { const last = h[h.length - 1]; return `<button data-a="hist" data-v="${esc(n)}"><span><b>${esc(n)}</b><br><span class="small dim">${L.fr(last.date)} · ${setsHtml(esc(L.describe(L.exInfo(S.templates, n), last.e)))}</span></span><span class="dim" aria-hidden="true">›</span></button>`; }).join('')}</div></section>`;
 }
 /* ---------- Nutrition : besoins du jour et compteur de protéines ---------- */
 function nutTargets(){ const w = L.weightStats(S.weights)?.last ?? null; return { w, t: L.nutritionTargets(S.nutrition, w) }; }
@@ -3692,8 +3720,8 @@ function runScreen(R, t){
 }
 function endScreen(R, t){
   const xs = runExercises(t), mins = Math.round((Date.now() - R.startedAt) / 60000);
-  const lines = xs.map(x => { const e = R.ex[x.name]; const d = e.skipped ? 'passé' : e.sets.filter(s => s.done).map(s => describeSet(x, s)).join(' · '); return `<div class="r"><b>${esc(x.name)}</b><span class="num">${esc(d || '—')}</span></div>`; }).join('');
-  const runL = R.runData?.done ? `<div class="r"><b>Course</b><span class="num">${L.frNum(R.runData.km)} km · ${L.fmtDur(R.runData.sec)} · ${L.fmtPace(R.runData.sec / R.runData.km)} /km</span></div>` : '';
+  const lines = xs.map(x => { const e = R.ex[x.name]; const d = e.skipped ? 'passé' : e.sets.filter(s => s.done).map(s => describeSet(x, s)).join(' · '); return `<div class="r"><b>${esc(x.name)}</b><span class="num sets">${setsHtml(esc(d || '—'))}</span></div>`; }).join('');
+  const runL = R.runData?.done ? `<div class="r"><b>Course</b><span class="num sets">${setsHtml(`${L.frNum(R.runData.km)} km · ${L.fmtDur(R.runData.sec)} · ${L.fmtPace(R.runData.sec / R.runData.km)} /km`)}</span></div>` : '';
   const open = xs.filter(x => { const e = R.ex[x.name]; return !e.skipped && e.sets.some(s => !s.done); }).length;
   const conf = R.abandon || 0;
   const st = L.sessionStats(logFromRun('faite'), t, S.templates);
@@ -3773,7 +3801,7 @@ document.addEventListener('click', ev => {
     case 'figplay': FIG.play = !FIG.play; figDraw(); if (FIG.play) figKick(); return;
     case 'figstep': FIG.t = +v; FIG.play = false; figDraw(); return;
     case 'figview': FIG3D.setView(v); return;
-    case 'notdone': { S.tab = 'cal'; S.sel = v; const d = L.parse(v); S.view = new Date(d.getFullYear(), d.getMonth(), 1); S.confirm = { day: v + ':1' }; S.panelMsg = ''; renderAll(true); $('daypanel')?.scrollIntoView({ block: 'start' }); return; }
+    case 'notdone': { S.tab = 'cal'; S.sel = v; const d = L.parse(v); S.view = new Date(d.getFullYear(), d.getMonth(), 1); S.confirm = { day: v + ':1' }; S.panelMsg = ''; renderAll(true); $('daypanel')?.scrollIntoView({ block: 'start' }); showDayConfirm(); return; }
     case 'noticeok': S.programNotice = null; LS.del('programNotice'); renderAll(true); return;
     case 'reload': persistRun(); saveCache(); location.reload(); return;
     case 'impbak': { const raw = localStorage.getItem('carnet.db.avant-maj'); if (!raw) return; const d = JSON.parse(raw); d._name = 'copie d’avant la dernière mise à jour'; d.settings = { ...(d.settings || {}), program: { version: L.PROGRAM_VERSION } }; S.pendingImport = d; S.importStep = 1; renderAll(true); return; }
@@ -3796,8 +3824,8 @@ document.addEventListener('click', ev => {
       write('logs/' + k, l); openSession(k, false); return;
     }
     case 'runtype': { const k = b.dataset.d, l = S.logs[k]; if (!l) return; write('logs/' + k, { ...l, run: { ...(l.run || {}), type: v } }); renderAll(true); return; }
-    case 'del': S.confirm = { day: v + ':1' }; renderAll(true); return;
-    case 'del2': S.confirm = { day: v + ':2' }; renderAll(true); return;
+    case 'del': S.confirm = { day: v + ':1' }; renderAll(true); showDayConfirm(); return;
+    case 'del2': S.confirm = { day: v + ':2' }; renderAll(true); showDayConfirm(); return;
     case 'nodel': S.confirm = {}; renderAll(true); return;
     case 'del3': { const name = tplName(S.logs[v]?.templateId); write('logs/' + v, null); if (S.run?.date === v) { S.run = null; persistRun(); } S.confirm = {}; S.panelMsg = `Séance ${name} du ${L.fr(v)} supprimée.`; renderAll(true); return; }
     case 'start': openSession(v, false); return;
