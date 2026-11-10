@@ -13,7 +13,7 @@
 <script>
 window.CARNET_MODE = 'pwa';
 window.CARNET_THREE_URL = 'three.min.js';
-window.CARNET_VERSION = '2026-11-10 10:53';
+window.CARNET_VERSION = '2026-11-10 12:59';
 /* Base locale : même interface que la base claude.ai, stockée sur le téléphone */
 (function(){
   const KEY = 'carnet.db';
@@ -1607,10 +1607,12 @@ Champs d'un exercice : name, sets (texte), reps (texte), unit (kg, km, min, s, c
   }
   /* Champ visé par un message de validation, null pour tout autre message */
   function problemField(msg) { return msg === SET_MSG.reps ? 'reps' : msg === SET_MSG.load || msg === SET_MSG.done ? 'val' : null; }
+  /* Réserve de répétitions (RIR) : n'a de sens qu'après au moins 1 répétition faite */
+  function rirApplies(s) { return !!s && isNum(s.reps) && +s.reps > 0; }
 
   return { BW, pad, iso, parse, addDays, dayDiff, weeksBetween, dow, weekStart, fr, frY, isNum, r1, roundTo, e1rm, frNum, topOf,
     parseDur, fmtDur, fmtPace, cycleInfo, deloadStart, tplList, unitOf, exDef, kind, repsUnit, valStep, defaultRest, nSets,
-    history, lastBefore, missing, metric, describe, finalize, suggest, platesPerSide, setProblem, problemField, warmup, scoreSet, bestOf, newPRs, prLabel,
+    history, lastBefore, missing, metric, describe, finalize, suggest, platesPerSide, setProblem, problemField, rirApplies, warmup, scoreSet, bestOf, newPRs, prLabel,
     runOf, riegel, paceZones, bestRunRef, runPRs, sequenceAlerts, suggestNext,goalMetric, currentFor, plan, weightStats,
     repsTarget, repsPlain, progressRule, estimateMinutes, sessionStats, longestRun, PROGRAM_VERSION, migrateProgram, exInfo, entryRows, repairLogs, hasData, muscleSets, easyCheck, MUSCLE_GROUPS, activeExercises, lastMemo, nutritionTargets, calorieAdvice,
     cleanExercise, validateChanges, applyTemplateChange, describeChange, exSummary, buildClaudeContext, buildClaudePrompt, buildMailReport, sessionLine };
@@ -3428,7 +3430,9 @@ async function keepAwake(on){
 }
 document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible' && S.run && S.showRun) { keepAwake(true); renderSession(); } });
 
-function persistRun(){ if (S.run) LS.set('run', S.run); else { LS.del('run'); setTimeout(() => { runMigration(); autoUpdate(); }, 300); } }
+/* Une réserve n'a de sens qu'après au moins 1 répétition : retirée dès qu'une série passe à 0, correction comprise. Les autres séries ne bougent pas. */
+function dropStaleRir(R){ for (const e of Object.values(R.ex || {})) for (const s of e?.sets || []) if (s && 'rir' in s && !L.rirApplies(s)) delete s.rir; }
+function persistRun(){ if (S.run) { dropStaleRir(S.run); LS.set('run', S.run); } else { LS.del('run'); setTimeout(() => { runMigration(); autoUpdate(); }, 300); } }
 /* Exercices de la séance : ceux en alternance ne comptent qu'une fois (le moins récent), sans jamais cacher une série déjà notée */
 function runExercises(t, date){ return L.activeExercises(t, S.logs, date || S.run?.date || today()).filter(ex => L.unitOf(ex) !== 'km' && L.unitOf(ex) !== 'min'); }
 function hasRun(t){ return exOrder(t).some(ex => L.unitOf(ex) === 'km'); }
@@ -3490,7 +3494,7 @@ function logFromRun(status){
     const e = R.ex[x.name]; if (!e) continue;
     if (e.skipped) { entries[x.name] = { skipped: true }; continue; }
     if (!e.sets.some(s => s.done)) { if (status === 'faite') entries[x.name] = { skipped: true }; continue; }
-    const raw = { sets: e.sets.map(s => s.done ? { val: s.val, reps: s.reps, ...(L.isNum(s.rir) ? { rir: s.rir } : {}) } : { val: '', reps: '' }) };
+    const raw = { sets: e.sets.map(s => s.done ? { val: s.val, reps: s.reps, ...(L.isNum(s.rir) && L.rirApplies(s) ? { rir: s.rir } : {}) } : { val: '', reps: '' }) };
     if (L.kind(x) === 'barre' && e.targets) raw.targets = e.targets;
     entries[x.name] = L.finalize(x, raw);
     if (e.memo) entries[x.name].memo = e.memo;
@@ -3708,7 +3712,7 @@ function prevHtml(x, e, j){
 /* Pendant le repos : combien de répétitions restaient en réserve sur la série qui vient d'être faite (facultatif) */
 function rirHtml(R){
   const ls = R.lastSet, x = ls && L.exInfo(S.templates, ls.name), s = ls && R.ex[ls.name]?.sets?.[ls.j];
-  if (!s || !s.done || L.repsUnit(x) !== 'reps') return '';
+  if (!s || !s.done || L.repsUnit(x) !== 'reps' || !L.rirApplies(s)) return '';
   return `<div class="rir"><span class="small dim">Il te restait combien de répétitions ?</span><div class="chips">${[0, 1, 2, 3].map(n => `<button class="chip ${s.rir === n ? 'on' : ''}" data-a="rir" data-v="${n}" aria-pressed="${s.rir === n}">${n === 3 ? '3 ou +' : n}</button>`).join('')}</div></div>`;
 }
 /* Note sur l'exercice : réglage de machine, sensation. La dernière note s'affiche à la séance suivante. */
