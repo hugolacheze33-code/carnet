@@ -13,7 +13,7 @@
 <script>
 window.CARNET_MODE = 'pwa';
 window.CARNET_THREE_URL = 'three.min.js';
-window.CARNET_VERSION = '2026-11-10 12:59';
+window.CARNET_VERSION = '2026-11-10 15:15';
 /* Base locale : même interface que la base claude.ai, stockée sur le téléphone */
 (function(){
   const KEY = 'carnet.db';
@@ -543,21 +543,58 @@ h3{font-weight:650;letter-spacing:-.015em}
 .rring .clock{font-size:min(19vw,84px);color:var(--chalk);letter-spacing:-.04em;line-height:1}
 .rring .rtot{font-size:.92rem;color:var(--dim);font-variant-numeric:tabular-nums}
 .sess.flash .rring .clock{color:var(--acc)}
-/* Accueil : la statue de marbre sort par la droite de l'écran, les cartes passent devant */
 .app{position:relative}
 .top{position:relative;z-index:2}
 .view > *{position:relative}
-.vitrine{min-height:236px;padding-top:2px;gap:0}
-.vitrine .statue{position:absolute;z-index:0;top:-14px;right:-16px;width:min(52vw,270px);height:330px;pointer-events:none;
-  background:url(atlas-statue.webp) 50% 0/100% auto no-repeat;
-  -webkit-mask-image:linear-gradient(180deg,#000 58%,transparent 96%);mask-image:linear-gradient(180deg,#000 58%,transparent 96%)}
-.vitrine .vt{position:relative;z-index:1;width:min(52%,280px);display:grid;gap:6px;align-content:start}
-.vitrine .hsub{font-size:1.12rem;font-weight:600;color:var(--chalk);margin:0}
-.vitrine .cyc{font-size:.9rem;color:var(--dim);margin-top:-4px}
-.vitrine .stack{gap:6px}
+/* ===================== Accueil : le socle =====================
+   La scène (date, buste coupé net par l'arête, KAIROS debout dessus), l'arête (frise du cycle), puis le socle bord à bord.
+   Un seul élément racine .acc : l'espacement de #view ne s'applique pas à l'intérieur. Tout est fluide, sans media query de largeur.
+   --sc : hauteur de la scène, réglable après l'essai sur iPhone (constante 628). */
+.acc{--sc:clamp(130px,calc(100vh - 628px),262px);display:grid;gap:0}
+.acc-scene{position:relative;margin:0 -16px;height:var(--sc)}
+#view > .acc:first-child .acc-scene{margin-top:-8px}
+.acc-scene::before{content:"";position:absolute;z-index:0;inset:0;background:radial-gradient(62% 62% at 80% 62%,#2a2724 0,rgba(42,39,36,0) 100%);pointer-events:none}
+#view > .acc:first-child .acc-scene::before{top:-66px}
+.acc-scene::after{content:"";position:absolute;left:0;right:0;bottom:0;height:40px;background:linear-gradient(180deg,rgba(20,19,18,0),rgba(20,19,18,.55));pointer-events:none}
+/* la statue sort par la droite : l'image est dessinée 22 px plus large que sa boîte, qui reste dans l'écran (pas de défilement horizontal).
+   Sur un écran large et bas (375 × 667), sa largeur suit aussi la hauteur de la scène, pour en montrer au moins 34 %. */
+.acc-scene .statue{position:absolute;z-index:0;top:-6px;bottom:0;right:0;width:calc(min(66vw,290px,(var(--sc) + 6px) * 1.65) - 22px);pointer-events:none;background:url(atlas-statue.webp) 0 0/calc(100% + 22px) auto no-repeat}
+.acc-date{position:relative;z-index:1;margin:0 16px;font-size:clamp(15px,4.6vw,17px);font-weight:600;color:var(--chalk);white-space:nowrap}
+.acc-scene .kspot.lg{position:absolute;left:16px;bottom:0;margin:0;height:clamp(84px,calc(100vh - 484px),104px)}
+.acc-socle{position:relative;display:grid;gap:0;align-content:start;background:var(--rubber);margin:0 -16px calc(-96px - env(safe-area-inset-bottom,0px));padding:0 16px calc(104px + env(safe-area-inset-bottom,0px));min-height:calc(100vh - 66px - var(--sc))}
+.app.hasmini .acc-socle{margin-bottom:calc(-164px - env(safe-area-inset-bottom,0px));padding-bottom:calc(172px + env(safe-area-inset-bottom,0px))}
+.acc-frise{display:grid;grid-template-columns:repeat(var(--n,7),1fr);gap:3px;margin:0 -16px;height:5px}
+.acc-frise i{background:var(--line)}
+.acc-frise i.on{background:var(--acc)}
+.acc-frise i.dl{background:repeating-linear-gradient(135deg,var(--deload) 0 3px,transparent 3px 6px)}
+.acc-frise i.dl.on{background:var(--deload)}
+.acc-cycle{display:flex;flex-wrap:wrap;justify-content:space-between;gap:2px 8px;margin:10px 0 0;font-size:14px;line-height:19px;color:var(--dim)}
+.acc-cycle b{color:var(--chalk);font-weight:600}
+.acc-cycle .dlw{color:var(--deload)}
+.acc-seance{display:grid;gap:0;padding:18px 0 14px}
+.acc-etat{display:flex;align-items:center;gap:8px;min-height:26px}
+.acc-etat .disc.sm{--s:26px;border-radius:7px;font-size:13px}
+.acc-etat .eyebrow{font-size:14px;line-height:19px;font-weight:600;color:var(--dim)}
+/* nom de la séance : jamais tronqué (un nom personnalisé très long prend les lignes qu'il faut) */
+.acc-nom{font-size:clamp(32px,10.2vw,44px);line-height:1.08;font-weight:750;font-stretch:var(--wide);letter-spacing:-.025em;margin:8px 0 0;text-wrap:balance;overflow-wrap:anywhere}
+.acc-nom.long{font-size:clamp(28px,8.75vw,36px);line-height:1.143}
+.acc-nom.xlong{font-size:clamp(22px,6.9vw,28px);line-height:1.18}
+.acc-meta{margin:6px 0 0;font-size:14px;line-height:19px;color:var(--dim)}
+.acc-seance .btn.main{margin-top:16px;height:56px;min-height:56px;border-radius:12px;font-size:18px}
+.acc-seance .chips{margin-top:12px}
+.acc-seance > .small,.acc-seance > .dlw{margin:12px 0 0;font-size:14px;line-height:19px}
+.acc-seance .exl{margin-top:12px}
+.acc-seance .exl .r{min-height:44px;align-items:center;padding:8px 0}
+.acc-seance .row{margin-top:2px}
+.acc-seance h3{margin:20px 0 10px;padding-top:18px;border-top:1px solid var(--line)}
+/* sections secondaires à plat ; rappels et programme modifié gardent leur encadré (ce sont des alertes) */
+.acc-socle > .card{background:none;border-radius:0;box-shadow:none;padding:18px 0;border-top:1px solid var(--line)}
+.acc-socle > .alert,.acc-socle > .notice{margin:6px 0 12px;background:var(--steel)}
+.acc-socle .btn.sm,.acc-socle .chip,.acc-socle .alert button,.acc-socle .notice button,#view > .alert:has(+ .acc) button{min-height:44px}
+.acc-socle .small,.acc-seance .tplpick span{font-size:14px}
 /* KAIROS : une place réservée dans la page, le personnage (un seul pour toute l'app) vient s'y poser */
 .kspot{display:inline-block;flex:none;height:64px;aspect-ratio:251/329}
-.kspot.lg{height:104px;margin-top:6px}
+.kspot.lg{height:104px}
 .khead{display:flex;justify-content:space-between;align-items:center;gap:10px}
 .khead .kspot{height:46px;margin:-8px 0 -6px}
 .kline{display:flex;align-items:center;gap:12px}
@@ -2911,13 +2948,14 @@ function suggestFor(ex, date){
 function seqAlertsAround(k){ return L.sequenceAlerts(S.logs, L.addDays(k, -8), L.addDays(k, 8)); }
 function weekDays(k){ const s = L.weekStart(k); return Array.from({ length: 7 }, (_, i) => L.addDays(s, i)); }
 
+/* Accueil, l'arête : la frise du cycle sur toute la largeur (le dernier segment est l'allègement), puis sa légende */
 function cycleBlock(k){
   const c = L.cycleInfo(k, S.cycle);
-  if (!c) return `<p class="dim">Le cycle commence le ${L.fr(S.cycle.start)}.</p>`;
-  const bars = Array.from({ length: c.n }, (_, i) => `<i class="${i+1===c.n?'dl ':''}${i+1<=c.pos?'on':''}"></i>`).join('');
-  const dl = L.deloadStart(k, S.cycle), left = c.n - c.pos;
-  return `<div class="stack"><div class="cycle" style="--n:${c.n}" aria-hidden="true">${bars}</div>
-    <p class="small ${c.deload?'dlw':'dim'}">${c.deload ? 'Semaine d’allègement en cours.' : `Semaine d’allègement le ${L.fr(dl)}.`}</p></div>`;
+  if (!c) return `<p class="acc-cycle"><span>Le cycle commence le ${L.fr(S.cycle.start)}.</span></p>`;
+  const bars = Array.from({ length: c.n }, (_, i) => `<i class="${i+1===c.n?'dl ':''}${i+1<=c.pos?'on':''}${i+1===c.pos?' cur':''}"></i>`).join('');
+  const dl = L.deloadStart(k, S.cycle);
+  return `<div class="acc-frise" style="--n:${c.n}" aria-hidden="true">${bars}</div>
+    <p class="acc-cycle"><b>Cycle ${c.cycleNo} · semaine ${c.pos} sur ${c.n}</b><span${c.deload ? ' class="dlw"' : ''}>${c.deload ? 'Semaine d’allègement en cours' : `Allègement le ${L.fr(dl)}`}</span></p>`;
 }
 function missingAlerts(){
   return Object.keys(S.logs).filter(k => k <= today() && !(S.run && S.run.date === k) && L.missing(S.logs[k], S.templates[S.logs[k].templateId], today(), k)).sort().slice(-4)
@@ -2926,10 +2964,11 @@ function missingAlerts(){
 function seqAlertHtml(list){ return list.map(a => `<div class="alert"><span>${esc(a.text)}</span>${a.code === 'same-twice' ? `<button data-a="notdone" data-v="${a.next}">Retirer celle du ${L.fr(a.next)}</button>` : `<button data-a="goday" data-v="${a.date}">Voir le ${L.fr(a.date)}</button>`}</div>`).join(''); }
 
 /* ======================= Aujourd'hui ======================= */
+/* Le socle, dans l'ordre : cycle, bloc séance (statut, nom, durée, action, puis la liste), programme modifié, protéines, rappels */
 function viewToday(){
   const k = today(), log = S.logs[k], t = log && S.templates[log.templateId], c = L.cycleInfo(k, S.cycle);
   const dd = L.parse(k);
-  let h = heroHtml(k, c, dd);
+  let h = '';
   const wk = weekDays(k);
   let alerts = seqAlertHtml(L.sequenceAlerts(S.logs, wk[0], L.addDays(wk[6], 7)).filter(a => (a.next || a.date) >= k));
   const notice = !S.programNotice?.length ? '' : `<div class="notice"><b>Ton programme a évolué</b><ul>${S.programNotice.map(x => `<li>${esc(x)}</li>`).join('')}</ul><p class="small dim">Ton historique est conservé. Les consignes sont dans l’onglet Programme.</p><div class="row"><button class="btn sm" data-a="noticeok">Compris</button><button class="btn sm ghost" data-a="tab" data-v="plan">Voir le programme</button></div></div>`;
@@ -2939,26 +2978,25 @@ function viewToday(){
     if (n >= 3 && (days == null || days >= 14)) alerts += `<div class="alert soft"><span>${days == null ? 'Tes séances sont enregistrées uniquement sur ce téléphone.' : `Dernière sauvegarde il y a ${days} jours.`} Fais une sauvegarde pour ne rien perdre.</span><button data-a="tab" data-v="plan">Sauvegarder</button></div>`;
   }
   if (log && t && log.status === 'faite') {
-    h += `<section class="card plate" style="--c:${col(log.templateId)}">${cardHead(log.templateId, 'Séance faite ✓', t.name)}
+    h = `<section class="acc-seance">${accHead(log.templateId, 'Séance faite ✓', t.name)}
       <div class="exl">${L.entryRows(log, t, S.templates).map(({ ex, e }) => { const d = L.describe(ex, e); return d ? `<div class="r"><b>${esc(ex.name)}</b><span class="num sets">${setsHtml(esc(d))}</span></div>` : ''; }).join('')}</div>
       ${feelLine(log)}
       ${S.run ? (S.run.date === k ? '' : otherRunHtml(k)) : `<div class="row"><button class="btn sm ghost" data-a="enter" data-v="${k}">Modifier les charges</button></div>`}${MODE === 'pwa' ? mailBlock() : ''}</section>`;
   } else if (log && t) {
-    h += todayCard(k, log, t);
+    h = todayCard(k, log, t);
   } else {
+    /* aucune séance : la suggestion, son action, puis le choix manuel (gardé quand la séance active est d'un autre jour) */
     const sg = L.suggestNext(S.logs, k), st = S.templates[sg.id];
-    if (st) h += `<section class="card plate" style="--c:${col(sg.id)}">${cardHead(sg.id, sg.rotation ? 'Suggestion du jour' : 'Suggestion adaptée à ta semaine', st.name + (sg.type ? ` ${sg.type}` : ''), metaOf(st))}
-      <p class="small dim">${esc(hasRun(st) ? (sg.type === 'soutenue' ? 'Ta course soutenue de la semaine : 4 × 1 km ou 3 × 8 min.' : 'Sortie facile, à une allure où tu peux parler.') : (st.exercises || []).filter(x => x.main).map(x => x.name).join(' · '))}</p>
-      ${S.run ? otherRunHtml(k) : `<button class="btn main" data-a="planstart" data-v="${sg.id}" data-t="${sg.type || ''}">Démarrer ${esc(st.short || sg.id)}</button>`}</section>`;
-    if (S.run?.date !== k) h += `<section class="card"><h3>Ou choisis ta séance</h3>
+    if (st) h += `${accHead(sg.id, sg.rotation ? 'Suggestion du jour' : 'Suggestion adaptée à ta semaine', st.name + (sg.type ? ` ${sg.type}` : ''), metaOf(st))}
+      ${S.run ? otherRunHtml(k) : `<button class="btn main" data-a="planstart" data-v="${sg.id}" data-t="${sg.type || ''}">Démarrer ${esc(st.short || sg.id)}</button>`}
+      <p class="small dim">${esc(hasRun(st) ? (sg.type === 'soutenue' ? 'Ta course soutenue de la semaine : 4 × 1 km ou 3 × 8 min.' : 'Sortie facile, à une allure où tu peux parler.') : (st.exercises || []).filter(x => x.main).map(x => x.name).join(' · '))}</p>`;
+    if (S.run?.date !== k) h += `<h3>Ou choisis ta séance</h3>
       <div class="tplpick">${L.tplList(S.templates).map(([id, tp]) => `<button data-a="planday" data-v="${id}" data-d="${k}" style="--c:${col(id)}"><span class="disc sm" style="--c:${col(id)}" aria-hidden="true">${esc(id)}</span><b>${esc((tp.short || tp.name).replace(/^\w\s*·\s*/, ''))}</b><span>${esc(hasRun(tp) ? 'Facile ou soutenue' : (tp.exercises||[]).filter(x => x.main).slice(0,2).map(x=>x.name).join(', '))}</span></button>`).join('')}</div>
-      <p class="small dim">Jour de repos ? Rien à faire : la journée reste vide dans le calendrier.</p></section>`;
+      <p class="small dim">Jour de repos ? Rien à faire : la journée reste vide dans le calendrier.</p>`;
+    if (h) h = `<section class="acc-seance">${h}</section>`;
   }
   /* la séance du jour d'abord ; la semaine est dans Calendrier, les records dans Progrès */
-  h += notice;
-  h += nutTodayCard();
-  h += alerts;
-  return h;
+  return `<div class="acc">${heroHtml(k, c, dd)}<div class="acc-socle">${cycleBlock(k)}${h}${notice}${nutTodayCard()}${alerts}</div></div>`;
 }
 /* Séries à l'affichage : reçoit un texte déjà échappé, coupe seulement entre deux groupes. L.describe (mail, export) ne change pas. */
 function setsHtml(txt, after = ''){
@@ -2984,15 +3022,23 @@ function todayCard(k, log, t){
   const runLine = isRun ? `<div class="r"><b>Course ${esc(log.run?.type || 'facile')}</b><span class="num">${log.run?.type==='soutenue' ? `4 fois 1 km à ${L.fmtPace(z.interval)} /km, ou 3 fois 8 min à ${L.fmtPace(z.tempo)} /km` : `45 à 70 min à ${L.fmtPace(z.easy[0])}-${L.fmtPace(z.easy[1])} /km`}</span></div>` : '';
   const far = isRun ? L.longestRun(S.logs, t, k) : 0;
   const farLine = far ? `<p class="small dim">Ta plus longue sortie des 30 derniers jours : ${L.frNum(L.r1(far))} km. Essaie de rester sous ${L.frNum(L.r1(far * 1.1))} km.</p>` : '';
-  return `<section class="card plate" style="--c:${col(id)}">
-    ${cardHead(id, here ? runNowLabel() : 'Prévue aujourd’hui', t.name, metaOf(t), here ? 'var(--acc)' : '')}
+  /* l'action avant la liste ; « Changer de séance » après. Séance en cours : ni l'un ni l'autre, le mini-lecteur est le seul accès. */
+  return `<section class="acc-seance">
+    ${accHead(id, here ? runNowLabel() : 'Prévue aujourd’hui', t.name, metaOf(t), here ? 'var(--acc)' : '')}
     ${S.run && !here ? otherRunHtml(k) : ''}
-    ${c?.deload ? '<p class="dlw small">Allègement : charges déjà réduites de 10 % et moitié des séries.</p>' : ''}
     ${isRun && !here ? typeChips(k, log) : ''}
+    ${S.run ? '' : `<button class="btn main" data-a="start" data-v="${k}">Démarrer la séance</button>`}
+    ${c?.deload ? '<p class="dlw small">Allègement : charges déjà réduites de 10 % et moitié des séries.</p>' : ''}
     <div class="exl">${runLine}${rows}</div>${farLine}
-    ${S.run ? '' : `<button class="btn main" data-a="start" data-v="${k}">Démarrer la séance</button>
-    <div class="row"><button class="btn sm ghost" data-a="goday" data-v="${k}">Changer de séance</button></div>`}
+    ${S.run ? '' : `<div class="row"><button class="btn sm ghost" data-a="goday" data-v="${k}">Changer de séance</button></div>`}
   </section>`;
+}
+/* En-tête du bloc séance de l'accueil : statut, nom en grand, durée. Le statut est gris (« En cours » en terre cuite).
+   Taille du nom selon sa longueur affichée ; le nom enregistré ne change pas, seule l'espace avant « · » devient insécable à l'écran. */
+function accHead(id, label, title, meta, labelColor){
+  const n = String(title).length;
+  return `<div class="acc-etat"><span class="disc sm" style="--c:${col(id)}" aria-hidden="true">${esc(id)}</span><span class="eyebrow"${labelColor ? ` style="color:${labelColor}"` : ''}>${esc(label)}</span></div>
+    <h2 class="acc-nom${n > 24 ? ' xlong' : n > 12 ? ' long' : ''}">${esc(title).replace(/ · /g, ' · ')}</h2>${meta ? `<p class="acc-meta">${esc(meta)}</p>` : ''}`;
 }
 /* En-tête de carte : la séance représentée par un disque de sa couleur */
 function cardHead(id, label, title, meta, labelColor){
@@ -3657,10 +3703,10 @@ function setDone(){
   persistRun(); syncRun(); renderSession();
   return true;
 }
-/* Accueil : la statue à droite, la date, le cycle et KAIROS à gauche */
+/* Accueil, la scène : la date, le buste de la statue coupé net par l'arête, la place de KAIROS sur l'arête (hors du flux) */
 function heroHtml(k, c, dd){
-  const date = `${DOWS[L.dow(k)]} ${dd.getDate()} ${MONTHS[dd.getMonth()]}`, cyc = c ? `Cycle ${c.cycleNo} · semaine ${c.pos} sur ${c.n}` : '';
-  return `<div class="hero vitrine"><span class="statue" aria-hidden="true"></span><div class="vt"><p class="hsub">${date}</p>${cyc ? `<p class="cyc">${cyc}</p>` : ''}${cycleBlock(k)}${kairosSpot(kairosToday(k, c), 'lg')}</div></div>`;
+  const date = `${DOWS[L.dow(k)]} ${dd.getDate()} ${MONTHS[dd.getMonth()]}`;
+  return `<div class="acc-scene"><span class="statue" aria-hidden="true"></span><p class="acc-date">${date}</p>${kairosSpot(kairosToday(k, c), 'lg')}</div>`;
 }
 /* ---------- KAIROS, la mascotte ----------
    Chaque onglet lui réserve une place (data-kairos = sa pose) ; quand on change d'onglet, il y court.
