@@ -13,7 +13,7 @@
 <script>
 window.CARNET_MODE = 'pwa';
 window.CARNET_THREE_URL = 'three.min.js';
-window.CARNET_VERSION = '2026-11-09 13:06';
+window.CARNET_VERSION = '2026-11-10 10:53';
 /* Base locale : même interface que la base claude.ai, stockée sur le téléphone */
 (function(){
   const KEY = 'carnet.db';
@@ -596,6 +596,57 @@ h3{font-weight:650;letter-spacing:-.015em}
 }
 @keyframes minirise{from{opacity:0;transform:translateY(14px) scale(.97)}}
 @keyframes minipulse{50%{box-shadow:0 0 0 2px var(--c,var(--acc)),0 10px 26px rgba(0,0,0,.3)}}
+
+/* ===================== Saisie d'une série : socle pleine largeur, bande fixe =====================*/
+#sess.e6{overflow-anchor:none}
+#sess.e6 .in{gap:0;padding-block:8px 96px}
+#sess.e6 .in > .toast:first-child{margin-bottom:8px}
+#sess.e6 .shead{height:44px;flex:none}
+#sess.e6 .shead button{width:44px;height:44px;background:var(--steel);box-shadow:none}
+#sess.e6 h1{font-size:26px;line-height:30px;font-weight:700;font-stretch:var(--wide);letter-spacing:-.015em;margin:8px 0 0;overflow-wrap:anywhere}
+#sess.e6 .settag{margin-top:8px;gap:8px;row-gap:2px}
+#sess.e6 .settag .small{font-size:14px;line-height:19px}
+#sess.e6 .settag .t{font-size:13px;line-height:18px;padding:1px 8px}
+#sess.e6 .prev{margin:8px 0 0;font-size:14px;line-height:19px;color:var(--dim)}
+#sess.e6 .prev b{color:var(--chalk)}
+#sess.e6 .e6-links{display:flex;flex-wrap:wrap;column-gap:16px;margin:0}
+#sess.e6 .e6-links button{height:44px;min-width:44px;padding:0;background:none;border:0;box-shadow:none;font-size:14px;line-height:19px;font-weight:600;color:var(--acc);font-stretch:100%}
+#sess.e6 .e6-tip,#sess.e6 .e6-warm{margin:0;font-size:14px;line-height:19px;color:var(--dim)}
+#sess.e6 .e6-warm{margin-top:8px}
+#sess.e6 .e6-warm b{color:var(--chalk);font-weight:650}
+#sess.e6 .e6-warm .dim{color:var(--dim)}
+#sess.e6 .e6-warm .nb{white-space:nowrap}
+#sess.e6 .e6-inst{margin:12px -16px 0;padding:8px 16px;background:linear-gradient(180deg,#201e1b,#1a1917);border-block:1px solid var(--line);display:grid;grid-template-columns:minmax(0,1fr);gap:0}
+#sess.e6 .stepper{height:74px;padding:0;background:transparent;grid-template-columns:62px minmax(0,1fr) 62px;gap:8px;border-radius:0}
+#sess.e6 .stepper > button{width:62px;height:62px;border-radius:50%;background:var(--steel);box-shadow:none;font-size:30px;color:var(--chalk);transition:transform 90ms ease-out}
+#sess.e6 .stepper > button:active{transform:scale(.95);background:var(--line)}
+#sess.e6 .stepper .val{height:74px;align-content:start}
+/* Le champ dépasse de sa ligne pour garder tous les glyphes ; le libellé passe au-dessus du champ suivant : chaque ligne répond à son seul champ */
+#sess.e6 .stepper input{font-family:var(--body);font-size:var(--dig,64px);font-weight:750;height:68px;line-height:68px;margin:-8px 0 -2px;border-radius:0;font-stretch:var(--wide);font-variant-numeric:tabular-nums;font-feature-settings:'tnum' 1;letter-spacing:-.02em;color:var(--chalk);touch-action:manipulation}
+#sess.e6 .stepper input:focus,#sess.e6 .stepper.e6-bad input{outline:0;background:linear-gradient(var(--acc),var(--acc)) no-repeat center calc(100% - 2px)/100% 2px}
+#sess.e6 .stepper .u{position:relative;z-index:1;display:block;justify-self:stretch;width:100%;text-align:center;font-size:13px;line-height:16px;font-weight:500;color:var(--dim);-webkit-user-select:none;user-select:none;touch-action:manipulation}
+#sess.e6 .barviz{height:64px;background:transparent;padding:0;margin-top:8px;border-radius:0}
+#sess.e6 .barviz .sl{height:7px;flex-shrink:999}
+#sess.e6 .barviz .sh{height:4px;flex-shrink:999}
+#sess.e6 .barviz .co{height:16px}
+#sess.e6 .barviz .pl{flex:0 1 auto;min-width:3px}
+#sess.e6 .e6-side{font-size:14px;line-height:19px;text-align:center;color:var(--dim);margin:0}
+#sess.e6 .e6-side b{color:var(--chalk);font-weight:650}
+#sess.e6 .e6-warn{margin:8px 0 0;font-size:14px;line-height:19px;text-align:center;color:var(--warn)}
+#sess.e6 .done-sets{margin-top:12px;gap:8px}
+#sess.e6 .done-sets button{min-height:44px;font-size:14px;padding:0 12px}
+#sess.e6 .hintline{margin-top:12px;font-size:14px;line-height:19px;color:var(--dim)}
+#sess.e6 .e6-more{margin-top:12px;padding-top:8px;border-top:1px solid var(--line);display:grid;gap:0}
+#sess.e6 .memo button,#sess.e6 .e6-more .row button{height:44px;min-height:44px;padding:0;background:none;border:0;box-shadow:none;font-size:14px;font-weight:600;color:var(--acc);font-stretch:100%}
+#sess.e6 .e6-more .row{display:flex;flex-wrap:wrap;column-gap:16px;margin:0}
+#sess.e6 .memo p{font-size:14px;line-height:19px;margin:8px 0 0}
+#sess.e6 .e6-cta{position:fixed;left:0;right:0;bottom:var(--kb,0px);z-index:5;background:var(--floor);padding:12px 16px calc(12px + var(--kbsafe,env(safe-area-inset-bottom,0px)));box-shadow:0 -1px 0 var(--line)}
+#sess.e6.e6-nob .e6-cta{visibility:hidden}
+#sess.e6 .e6-cta .toast{margin:0 auto 8px;max-width:528px;padding:8px 12px;font-size:14px;line-height:19px;font-weight:600;background:var(--steel);color:var(--chalk);border-radius:12px}
+#sess.e6 .e6-cta .toast.e6-err{box-shadow:inset 0 0 0 1px var(--acc)}
+#sess.e6 .e6-cta .btn.main{display:block;width:100%;max-width:528px;margin:0 auto;height:56px;min-height:56px;padding:0;border:0;border-radius:12px;background:var(--acc);color:var(--on-acc);font-size:18px;font-weight:700;font-stretch:var(--wide);box-shadow:none;transition:transform 90ms ease-out}
+#sess.e6 .e6-cta .btn.main:active{transform:scale(.985)}
+@media (prefers-reduced-motion:reduce){#sess.e6 .stepper > button,#sess.e6 .e6-cta .btn.main{transition:none}#sess.e6 .stepper > button:active,#sess.e6 .e6-cta .btn.main:active{transform:none}}
 
 </style>
 
@@ -1546,9 +1597,20 @@ Champs d'un exercice : name, sets (texte), reps (texte), unit (kg, km, min, s, c
     return `${CLAUDE_FORMAT}\n\n=== MES DONNÉES ===\n${buildClaudeContext(ctx)}\n\n=== MA QUESTION ===\n${question}`;
   }
 
+  /* Validation d'une série : champ à corriger et message, null si la série peut être validée */
+  const SET_MSG = { load: 'Indique la charge avant de valider la série.', reps: 'Indique le nombre de répétitions faites.', done: 'Indique ce que tu as réalisé avant de valider.' };
+  function setProblem(x, s) {
+    if (!isNum(s.val) && unitOf(x) === 'kg' && kind(x) !== 'pdc') return { field: 'val', msg: SET_MSG.load };
+    if (repsUnit(x) && !isNum(s.reps)) return { field: 'reps', msg: SET_MSG.reps };
+    if (!repsUnit(x) && !isNum(s.val)) return { field: 'val', msg: SET_MSG.done };
+    return null;
+  }
+  /* Champ visé par un message de validation, null pour tout autre message */
+  function problemField(msg) { return msg === SET_MSG.reps ? 'reps' : msg === SET_MSG.load || msg === SET_MSG.done ? 'val' : null; }
+
   return { BW, pad, iso, parse, addDays, dayDiff, weeksBetween, dow, weekStart, fr, frY, isNum, r1, roundTo, e1rm, frNum, topOf,
     parseDur, fmtDur, fmtPace, cycleInfo, deloadStart, tplList, unitOf, exDef, kind, repsUnit, valStep, defaultRest, nSets,
-    history, lastBefore, missing, metric, describe, finalize, suggest, platesPerSide, warmup, scoreSet, bestOf, newPRs, prLabel,
+    history, lastBefore, missing, metric, describe, finalize, suggest, platesPerSide, setProblem, problemField, warmup, scoreSet, bestOf, newPRs, prLabel,
     runOf, riegel, paceZones, bestRunRef, runPRs, sequenceAlerts, suggestNext,goalMetric, currentFor, plan, weightStats,
     repsTarget, repsPlain, progressRule, estimateMinutes, sessionStats, longestRun, PROGRAM_VERSION, migrateProgram, exInfo, entryRows, repairLogs, hasData, muscleSets, easyCheck, MUSCLE_GROUPS, activeExercises, lastMemo, nutritionTargets, calorieAdvice,
     cleanExercise, validateChanges, applyTemplateChange, describeChange, exSummary, buildClaudeContext, buildClaudePrompt, buildMailReport, sessionLine };
@@ -2579,7 +2641,7 @@ const RUN_BASE = { km: 4.23, sec: 1228 };
 const MODE = window.CARNET_MODE === 'pwa' ? 'pwa' : 'claude';
 const ZONES = ['Épaule G','Épaule D','Coude','Poignet','Bas du dos','Hanche','Genou','Cheville','Autre'];
 const COLORS = { A:'var(--pA)', B:'var(--pB)', C:'var(--pC)', D:'var(--pD)' };
-const PLATE_STYLE = { 20:['var(--plate20)',74,15], 10:['var(--plate10)',62,12], 5:['var(--plate5)',48,10], 2.5:['var(--plate25)',36,8], 1.25:['var(--plate125)',28,7] };
+const PLATE_STYLE = { 20:['var(--plate20)',54,15], 10:['var(--plate10)',45,12], 5:['var(--plate5)',35,10], 2.5:['var(--plate25)',26,8], 1.25:['var(--plate125)',20,7] };
 const DOWS = ['Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi','Dimanche'];
 const MONTHS = ['janvier','février','mars','avril','mai','juin','juillet','août','septembre','octobre','novembre','décembre'];
 const BW = L.BW;
@@ -2780,7 +2842,7 @@ function figLoop(now){
   FIG.raf = setTimeout(() => figLoop(performance.now()), 33);
 }
 function figKick(){ if (!FIG.raf) { FIG.prev = performance.now(); FIG.raf = setTimeout(() => figLoop(performance.now()), 33); } }
-document.addEventListener('input', ev => { if (ev.target.id === 'figrange') { FIG.t = +ev.target.value; FIG.play = false; figDraw(); } });
+document.addEventListener('input', ev => { if (ev.target.id === 'figrange') { FIG.t = +ev.target.value; FIG.play = false; figDraw(); } else if (S.run && (ev.target.id === 'in-val' || ev.target.id === 'in-reps')) entryTyped(ev.target); });
 function muscleList(ids){ return (ids || []).map(id => `<li>${esc(EX.MUSCLE_NAMES[id] || id)}</li>`).join(''); }
 function infoDetail(sheet, back){
   const hasGuide = (sheet.gear || []).some(g => g.t === 'guide');
@@ -3449,15 +3511,125 @@ function syncRun(){ clearTimeout(syncT); syncT = setTimeout(() => { if (S.run) w
 
 function stepVal(f, d){
   const R = S.run, t = S.templates[R.tid], x = runExercises(t)[R.i], e = R.ex[x.name], s = e.sets[R.j];
-  if (f === 'val') {
-    const step = L.valStep(x);
-    s.val = L.isNum(s.val) ? Math.max(0, L.roundTo(+s.val + d * step, step < 1 ? 0.05 : 0.25)) : startVal(x);
-    if (L.kind(x) === 'barre' && R.j === 0) e.sets.forEach((o, k) => { if (k > 0 && !o.done && o.auto) o.val = L.roundTo(s.val * 0.9, 2.5); });
-  } else {
-    const step = L.repsUnit(x) === 'm' ? 5 : 1, cur = L.isNum(s.reps) ? +s.reps : (s.target || (step === 5 ? 25 : (L.topOf(x.reps) || 1) - 1));
-    s.reps = Math.max(0, cur + d * step);
+  anchored(() => {
+    if (f === 'val') {
+      const step = L.valStep(x);
+      s.val = L.isNum(s.val) ? Math.max(0, L.roundTo(+s.val + d * step, step < 1 ? 0.05 : 0.25)) : startVal(x);
+      if (L.kind(x) === 'barre' && R.j === 0) e.sets.forEach((o, k) => { if (k > 0 && !o.done && o.auto) o.val = L.roundTo(s.val * 0.9, 2.5); });
+    } else {
+      const step = L.repsUnit(x) === 'm' ? 5 : 1, cur = L.isNum(s.reps) ? +s.reps : (s.target || (step === 5 ? 25 : (L.topOf(x.reps) || 1) - 1));
+      s.reps = Math.max(0, cur + d * step);
+    }
+    s.auto = false; persistRun(); updateEntry();
+    const i = $(f === 'val' ? 'in-val' : 'in-reps');
+    if (i) { i.classList.remove('pop'); void i.offsetWidth; i.classList.add('pop'); }
+  });
+}
+/* Écran de série : réserve de page et cale au-dessus du socle. État passager, jamais enregistré, remis à zéro à chaque série */
+const SLACK = { key: '', min: 0, hold: 0 };
+function setHold(h){ SLACK.hold = h > .5 ? h : 0; const z = $('e6-hold'); if (z) z.style.height = SLACK.hold + 'px'; }
+function applySlack(R){
+  const key = [R.date, R.tid, R.i, R.j].join(':');
+  if (SLACK.key !== key) { SLACK.key = key; SLACK.min = 0; SLACK.hold = 0; }
+  if (SLACK.min) $('sess').querySelector('.in').style.minHeight = SLACK.min + 'px';
+  setHold(SLACK.hold);
+}
+/* Garde le socle sous le doigt quand le texte du dessus change de hauteur, sans animation */
+function anchored(fn){
+  const el = $('sess'), y0 = $('e6-inst')?.getBoundingClientRect().top;
+  fn();
+  const m = $('e6-inst'); if (y0 == null || !m) return;
+  let d = m.getBoundingClientRect().top - y0;
+  if (Math.abs(d) < .5) return;
+  if (d > 0 && SLACK.hold) { const u = Math.min(d, SLACK.hold); setHold(SLACK.hold - u); d -= u; }
+  if (d > 0) {
+    const inn = el.querySelector('.in'), short = el.scrollTop + d - (el.scrollHeight - el.clientHeight);
+    if (short > 0) { SLACK.min = Math.ceil(inn.getBoundingClientRect().height + short); inn.style.minHeight = SLACK.min + 'px'; }
+    el.scrollTop += d;
+  } else if (d < 0) {
+    const up = Math.min(el.scrollTop, -d); el.scrollTop -= up;
+    if (el.scrollTop < .5 && SLACK.min) { SLACK.min = 0; el.querySelector('.in').style.minHeight = ''; }
+    if (-d - up > .5) setHold(SLACK.hold - d - up);
   }
-  s.auto = false; S.pop = f; persistRun(); renderSession(); S.pop = null;
+}
+/* Échauffement de la 1re série lourde, groupes insécables */
+function warmHtml(x, s, R){
+  const warm = L.kind(x) === 'barre' && R.j === 0 && !s.done && !R.noTimer ? L.warmup(+s.val, { fromFloor: /terre/i.test(x.name) }) : [];
+  return warm.length ? `<p class="small e6-warm"><b>Échauffe-toi d’abord :</b> <span class="dim">${warm.map(w => `<span class="nb">${L.frNum(w.val)} kg × ${w.reps}</span>`).join(', puis ')}</span></p>` : '';
+}
+/* Réduit le chiffre seulement s'il ne tient pas : jamais tronqué, largeur réelle mesurée */
+function fitDigits(){
+  const inputs = document.querySelectorAll('#sess.e6 .stepper input'); if (!inputs.length) return;
+  const m = document.createElement('span'); m.style.cssText = 'position:absolute;visibility:hidden;white-space:pre'; document.body.append(m);
+  for (const i of inputs) {
+    i.style.removeProperty('--dig');
+    if (!i.value) continue;
+    const c = getComputedStyle(i);
+    for (const p of ['fontFamily', 'fontSize', 'fontWeight', 'fontStretch', 'letterSpacing', 'fontFeatureSettings', 'fontVariantNumeric']) m.style[p] = c[p];
+    m.textContent = i.value;
+    const w = m.getBoundingClientRect().width, room = i.clientWidth - 2;
+    if (w > room) i.style.setProperty('--dig', Math.floor(64 * room / w) + 'px');
+  }
+  m.remove();
+}
+/* Bande fixe : réserve en bas de page, position au-dessus du clavier, masquée pendant une note ou si elle cache les champs */
+let kbOpen = false;
+function layoutBand(){
+  const el = $('sess'), cta = $('e6-cta');
+  if (!cta || !el.classList.contains('e6')) { kbOpen = false; return; }
+  const a = document.activeElement, vv = window.visualViewport, note = a?.id === 'in-memo', typing = note || !!a?.matches?.('#sess .stepper input');
+  const kb = typing && vv ? Math.max(0, Math.round(innerHeight - vv.height - vv.offsetTop)) : 0;
+  kbOpen = kb > 0;
+  const need = cta.offsetHeight + [...el.querySelectorAll('.stepper')].reduce((n, q) => n + q.offsetHeight, 0) + 16;
+  const hide = kbOpen && (note || vv.height < need);
+  el.classList.toggle('e6-nob', hide);
+  el.style.setProperty('--kb', kb + 'px');
+  if (kbOpen) el.style.setProperty('--kbsafe', '0px'); else el.style.removeProperty('--kbsafe');
+  el.querySelector('.in').style.paddingBottom = (hide ? 0 : cta.offsetHeight) + kb + 16 + 'px';
+}
+/* Défile du strict nécessaire pour garder box visible au-dessus de la bande ou du clavier */
+function revealBox(box){
+  const el = $('sess'), cta = $('e6-cta'); if (!box || !cta) return;
+  const vv = window.visualViewport, vTop = vv ? vv.offsetTop : 0, vBot = vv ? vTop + vv.height : innerHeight;
+  const low = el.classList.contains('e6-nob') ? vBot : Math.min(vBot, cta.getBoundingClientRect().top);
+  const high = vTop + (parseFloat(getComputedStyle(el).paddingTop) || 0) + 8;
+  const r = box.getBoundingClientRect(), d = r.bottom - (low - 8);
+  if (d > 0) el.scrollBy(0, d); else if (r.top < high) el.scrollBy(0, r.top - high);
+}
+function clearError(){
+  const el = $('sess');
+  S.run.toast = ''; persistRun();
+  $('e6-msg')?.remove();
+  el.querySelector('.stepper.e6-bad')?.classList.remove('e6-bad');
+  el.querySelector('[aria-describedby="e6-msg"]')?.removeAttribute('aria-describedby');
+  layoutBand();
+}
+/* Met à jour ce qui dépend des valeurs sans reconstruire l'écran : un bouton détruit entre l'appui et le relâchement perdrait la touche */
+function updateEntry(){
+  const R = S.run, x = runExercises(S.templates[R.tid])[R.i], s = R.ex[x.name].sets[R.j], iv = $('in-val'), ir = $('in-reps'), f = L.problemField(R.toast);
+  if (iv) iv.value = L.isNum(s.val) ? L.frNum(s.val) : '';
+  if (ir) ir.value = L.isNum(s.reps) ? s.reps : '';
+  if (f && L.isNum(s[f])) clearError();
+  const wz = $('e6-warm'), pz = $('e6-plates');
+  if (wz) wz.innerHTML = warmHtml(x, s, R);
+  if (pz) pz.innerHTML = isBarbell(x) && L.isNum(s.val) ? platesHtml(+s.val) : '';
+  if (s.done) { const c = $('sess').querySelector('.done-sets button.cur'); if (c) c.textContent = '✓ ' + describeSet(x, s); }
+  fitDigits(); layoutBand();
+}
+/* Fin de saisie d'un champ (sortie du champ, ou bouton touché sans que le champ perde le focus) */
+function commitEntry(id){
+  anchored(() => {
+    readSessInputs();
+    const R = S.run, t = S.templates[R.tid], x = runExercises(t)[R.i], e = R.ex[x.name];
+    if (id === 'in-val' && L.kind(x) === 'barre' && R.j === 0 && L.isNum(e.sets[0].val)) e.sets.forEach((o, k) => { if (k > 0 && !o.done && o.auto) o.val = L.roundTo(e.sets[0].val * 0.9, 2.5); });
+    persistRun(); updateEntry();
+  });
+}
+/* Frappe dans un champ : rien n'est reconstruit, le clavier et la valeur restent en place */
+function entryTyped(i){
+  fitDigits();
+  const f = L.problemField(S.run.toast);
+  if (f && (f === 'val' ? 'in-val' : 'in-reps') === i.id && L.isNum(fieldNum(i))) anchored(clearError);
 }
 /* Première valeur quand rien n'est encore noté pour cet exercice */
 function startVal(x){
@@ -3468,9 +3640,8 @@ function startVal(x){
 }
 function setDone(){
   const R = S.run, t = S.templates[R.tid], xs = runExercises(t), x = xs[R.i], e = R.ex[x.name], s = e.sets[R.j];
-  if (!L.isNum(s.val) && L.unitOf(x) === 'kg' && L.kind(x) !== 'pdc') { R.toast = 'Indique la charge avant de valider la série.'; renderSession(); return; }
-  if (L.repsUnit(x) && !L.isNum(s.reps)) { R.toast = 'Indique le nombre de répétitions faites.'; renderSession(); return; }
-  if (!L.repsUnit(x) && !L.isNum(s.val)) { R.toast = 'Indique ce que tu as réalisé avant de valider.'; renderSession(); return; }
+  const pb = L.setProblem(x, s);
+  if (pb) { R.toast = pb.msg; renderSession(); return false; }
   s.done = true; s.auto = false; R.toast = ''; R.lastSet = { name: x.name, j: R.j };
   const prs = L.newPRs(x, { sets: e.sets.filter(o => o.done) }, prevHist(x.name, R.date), bw()).filter(p => !R.prs.some(q => q.ex === x.name));
   prs.forEach(p => R.prs.push({ ex: x.name, label: p }));
@@ -3480,6 +3651,7 @@ function setDone(){
   else { R.restFor = x.name; R.i = nx.i; R.j = nx.j; if (R.noTimer) R.phase = 'ex'; else { R.phase = 'rest'; R.restTotal = rest; R.restEnd = Date.now() + rest * 1000; R.signaled = false; R.lastTick = null; } R.toast = prMsg || `Série enregistrée : ${describeSet(x, s)}.`; }
   if (prs.length) { beep(1047, .12); beep(1319, .2, .14); }
   persistRun(); syncRun(); renderSession();
+  return true;
 }
 /* Accueil : la statue à droite, la date, le cycle et KAIROS à gauche */
 function heroHtml(k, c, dd){
@@ -3601,12 +3773,12 @@ function describeSet(x, s){
 }
 function platesHtml(total){
   const p = L.platesPerSide(total);
-  if (p.under) return `<div class="plates small dim" style="text-align:center">Moins que la barre (20 kg) : prends des haltères ou une barre plus légère.</div>`;
-  const one = w => { const [c, h, wd] = PLATE_STYLE[w] || ['var(--steel)', 30, 6]; return `<span class="pl" style="height:${h}px;width:${wd}px;background:${c}"></span>`; };
+  if (p.under) return `<div class="plates small dim e6-side">Moins que la barre (20 kg) : prends des haltères ou une barre plus légère.</div>`;
+  const one = w => { const [c, h, wd] = PLATE_STYLE[w] || ['var(--steel)', 22, 6]; return `<span class="pl" style="height:${h}px;width:${wd}px;background:${c}"></span>`; };
   const inner = p.side.map(one), outer = [...inner].reverse();
   /* barre vue de face, chargée des deux côtés : disques lourds à l'intérieur */
   return `<div class="barviz" aria-hidden="true"><span class="sl"></span>${outer.join('')}<span class="co"></span><span class="sh"></span><span class="co"></span>${inner.join('')}<span class="sl"></span></div>
-    <div class="small" style="text-align:center">${p.side.length ? `Par côté : <b>${p.side.map(L.frNum).join(' + ')}</b>` : 'Barre seule'}${p.ok ? '' : ` · <span style="color:var(--warn)">${L.frNum(total)} kg impossible avec tes disques (reste ${L.frNum(p.rest)} kg par côté)</span>`}</div>`;
+    <div class="small e6-side">${p.side.length ? `Par côté : <b>${p.side.map(L.frNum).join(' + ')}</b>` : 'Barre seule'}</div>${p.ok ? '' : `<p class="e6-warn">${L.frNum(total)} kg impossible avec tes disques (reste ${L.frNum(p.rest)} kg par côté)</p>`}`;
 }
 function sessHead(R, t, label){
   const xs = runExercises(t), segs = xs.map((x, i) => { const e = R.ex[x.name]; const full = e.skipped || e.sets.every(s => s.done); return `<i class="${i === R.i && R.phase !== 'end' ? 'cur' : full ? 'on' : ''}"></i>`; }).join('');
@@ -3624,10 +3796,11 @@ function renderSession(){
   el.hidden = false; document.body.classList.add('locked');
   el.style.setProperty('--c', col(R.tid));
   el.classList.toggle('rest', R.phase === 'rest');
+  el.classList.remove('e6');
   if (R.phase !== 'rest') el.classList.remove('flash');
   reconcileRun(R, t);
   const xs = runExercises(t);
-  let h = '';
+  let h = '', entry = false;
   if (S.toastMain) { h += `<div class="toast">${esc(S.toastMain)}</div>`; S.toastMain = ''; }
   if (R.hist) {
     el.classList.remove('rest');
@@ -3673,25 +3846,34 @@ function renderSession(){
       const total = e.sets.length, tgt = s.target ?? (k === 'barre' ? x.scheme?.[R.j]?.reps : null);
       const tgtTxt = k === 'barre' ? `objectif ${tgt} répétitions` : `objectif ${esc(L.repsTarget(x))}`;
       const valLabel = k === 'pdc' ? 'kg de lest' : L.unitOf(x) === 'kg' ? 'kg' : ({ s: 'secondes', cm: 'cm', min: 'min', reps: 'sauts' }[L.unitOf(x)] || L.unitOf(x));
-      const warm = k === 'barre' && R.j === 0 && !s.done && !R.noTimer ? L.warmup(+s.val, { fromFloor: /terre/i.test(x.name) }) : [];
+      /* Une erreur dont le champ est redevenu valide n'est plus affichée */
+      const was = L.problemField(R.toast);
+      if (was && L.isNum(s[was])) { R.toast = ''; persistRun(); }
+      const bad = L.problemField(R.toast), lab = String(s.label || 'Série ' + (R.j + 1)).trim();
+      const inputAttr = f => bad === f ? ' aria-describedby="e6-msg"' : '', stepCls = f => bad === f ? 'stepper e6-bad' : 'stepper';
+      entry = true;
       h += sessHead(R, t, `Exercice ${R.i + 1}/${xs.length}`) + `<h1>${esc(x.name)}</h1>
-        <div class="settag"><span class="t">${esc(s.label || 'Série ' + (R.j + 1))}</span><span class="small dim">Série ${R.j + 1} sur ${total} · ${tgtTxt}</span></div>
+        <div class="settag">${lab === 'Série ' + (R.j + 1) ? '' : `<span class="t">${esc(lab)}</span>`}<span class="small dim">Série ${R.j + 1} sur ${total} · ${tgtTxt}</span></div>
         ${prevHtml(x, e, R.j)}
-        <div class="row"><button class="btn sm ghost" data-a="infoex" data-v="${esc(x.name)}">Comment faire ?</button><button class="btn sm ghost" data-a="hist" data-v="${esc(x.name)}">Historique</button></div>
-        ${x.tip ? `<p class="small dim">${esc(x.tip)}</p>` : ''}
-        ${warm.length ? `<p class="small"><b>Échauffe-toi d’abord :</b> <span class="dim">${warm.map(w => `${L.frNum(w.val)} kg × ${w.reps}`).join(', puis ')}</span></p>` : ''}
-        <div class="stepper"><button data-a="st" data-f="val" data-d="-1" aria-label="Moins ${L.frNum(L.valStep(x))}">−</button><div class="val"><input id="in-val" class="${S.pop === 'val' ? 'pop' : ''}" inputmode="decimal" aria-label="${valLabel}" value="${L.isNum(s.val) ? L.frNum(s.val) : ''}" placeholder="—"><span class="u">${valLabel}</span></div><button data-a="st" data-f="val" data-d="1" aria-label="Plus ${L.frNum(L.valStep(x))}">+</button></div>
-        ${ru ? `<div class="stepper"><button data-a="st" data-f="reps" data-d="-1" aria-label="Moins 1">−</button><div class="val"><input id="in-reps" class="${S.pop === 'reps' ? 'pop' : ''}" inputmode="numeric" aria-label="${ru === 'm' ? 'mètres' : 'répétitions'}" value="${L.isNum(s.reps) ? s.reps : ''}" placeholder="${tgt ?? '—'}"><span class="u">${ru === 'm' ? 'mètres' : 'répétitions'}</span></div><button data-a="st" data-f="reps" data-d="1" aria-label="Plus 1">+</button></div>` : ''}
-        ${isBarbell(x) && L.isNum(s.val) ? platesHtml(+s.val) : ''}
+        <div class="e6-links"><button class="btn sm ghost" data-a="infoex" data-v="${esc(x.name)}">Comment faire ?</button><button class="btn sm ghost" data-a="hist" data-v="${esc(x.name)}">Historique</button></div>
+        ${x.tip ? `<p class="small dim e6-tip">${esc(x.tip)}</p>` : ''}
+        <div id="e6-warm">${warmHtml(x, s, R)}</div>
+        <div id="e6-hold"></div>
+        <div class="e6-inst" id="e6-inst">
+        <div class="${stepCls('val')}"><button data-a="st" data-f="val" data-d="-1" aria-label="Moins ${L.frNum(L.valStep(x))}">−</button><div class="val"><input id="in-val" inputmode="decimal" aria-label="${valLabel}"${inputAttr('val')} value="${L.isNum(s.val) ? L.frNum(s.val) : ''}" placeholder="—"><label class="u" for="in-val">${valLabel}</label></div><button data-a="st" data-f="val" data-d="1" aria-label="Plus ${L.frNum(L.valStep(x))}">+</button></div>
+        ${ru ? `<div class="${stepCls('reps')}"><button data-a="st" data-f="reps" data-d="-1" aria-label="Moins 1">−</button><div class="val"><input id="in-reps" inputmode="numeric" aria-label="${ru === 'm' ? 'mètres' : 'répétitions'}"${inputAttr('reps')} value="${L.isNum(s.reps) ? s.reps : ''}" placeholder="${tgt ?? '—'}"><label class="u" for="in-reps">${ru === 'm' ? 'mètres' : 'répétitions'}</label></div><button data-a="st" data-f="reps" data-d="1" aria-label="Plus 1">+</button></div>` : ''}
+        <div id="e6-plates">${isBarbell(x) && L.isNum(s.val) ? platesHtml(+s.val) : ''}</div>
+        </div>
         ${e.sets.some(o => o.done) ? `<div class="done-sets">${e.sets.map((o, j) => `<button data-a="sset" data-v="${j}" class="${o.done ? 'ok' : ''} ${j === R.j ? 'cur' : ''}">${o.done ? '✓ ' + esc(describeSet(x, o)) : esc(o.label || 'Série ' + (j + 1))}</button>`).join('')}</div>` : ''}
-        <div class="hintline">${e.note ? `<span class="${e.kindNote === 'up' ? 'up' : e.kindNote === 'deload' ? 'dlw' : ''}">${esc(e.note)}</span>` : ''}</div>
-        ${memoHtml(x, e)}
-        ${R.toast ? `<div class="toast">${esc(R.toast)}</div>` : ''}
-        <div class="push"><button class="btn main" data-a="sdone">${s.done ? 'Corriger la série' : 'Série faite'}</button>
-        <div class="row"><button class="btn sm ghost" data-a="sskip">Passer l’exercice</button>${!s.done && e.sets.length > 1 && R.j === e.sets.length - 1 ? '<button class="btn sm ghost" data-a="sdrop">Retirer cette série</button>' : ''}${e.sets.every(o => o.done) ? '' : '<button class="btn sm ghost" data-a="sadd">+ 1 série</button>'}</div></div>`;
+        ${e.note ? `<div class="hintline"><span class="${e.kindNote === 'up' ? 'up' : e.kindNote === 'deload' ? 'dlw' : ''}">${esc(e.note)}</span></div>` : ''}
+        <div class="e6-more">${memoHtml(x, e)}
+        <div class="row"><button class="btn sm ghost" data-a="sskip">Passer l’exercice</button>${!s.done && e.sets.length > 1 && R.j === e.sets.length - 1 ? '<button class="btn sm ghost" data-a="sdrop">Retirer cette série</button>' : ''}${e.sets.every(o => o.done) ? '' : '<button class="btn sm ghost" data-a="sadd">+ 1 série</button>'}</div></div>
+        <div class="e6-cta" id="e6-cta">${R.toast ? `<div ${bad ? 'class="toast e6-err" id="e6-msg" role="alert"' : 'class="toast"'}>${esc(R.toast)}</div>` : ''}<button class="btn main" data-a="sdone">${s.done ? 'Corriger la série' : 'Série faite'}</button></div>`;
     }
   }
+  el.classList.toggle('e6', entry);
   el.innerHTML = `<div class="in">${h}</div>`;
+  if (entry) { applySlack(R); fitDigits(); layoutBand(); }
   if (R.phase === 'rest') startTicker(); else stopTicker();
 }
 function feelAdvice(f){
@@ -3780,14 +3962,21 @@ document.addEventListener('keydown', ev => {
 document.addEventListener('click', ev => {
   const b = ev.target.closest('[data-a]'); if (!b) return;
   const a = b.dataset.a, v = b.dataset.v;
-  if ($('sess').contains(b)) unlockAudio();
+  if ($('sess').contains(b)) {
+    unlockAudio();
+    /* Le champ peut rester actif sur iPhone quand on touche un bouton : la valeur tapée compte quand même */
+    const fid = document.activeElement?.id;
+    if (S.run?.phase === 'ex' && (fid === 'in-val' || fid === 'in-reps') && $('sess').classList.contains('e6')) commitEntry(fid);
+    /* Quitter les + et − libère la cale, une fois la touche prise en compte */
+    if (a !== 'st' && SLACK.hold) setHold(0);
+  }
   const R = S.run;
   switch (a) {
     case 'infoex': if (S.run && S.showRun) { S.run.info = v; renderSession(); $('sess').scrollTo(0, 0); } else { S.tab = 'info'; S.infoName = v; renderAll(true); window.scrollTo(0, 0); } return;
     case 'hist': if (S.run && S.showRun) { S.run.hist = v; renderSession(); $('sess').scrollTo(0, 0); } else { S.histBack = S.tab === 'prog' && !S.histName ? 'prog' : S.tab; S.tab = 'prog'; S.histName = v; renderAll(true); window.scrollTo(0, 0); } return;
     case 'histclose': if (S.run && S.showRun && S.run.hist) { S.run.hist = null; renderSession(); $('sess').scrollTo(0, 0); } else { S.histName = null; S.tab = S.histBack || 'prog'; renderAll(true); window.scrollTo(0, 0); } return;
     case 'rir': { const ls = S.run?.lastSet, s = ls && S.run.ex[ls.name]?.sets?.[ls.j]; if (s) { s.rir = s.rir === +v ? undefined : +v; persistRun(); syncRun(); renderSession(); } return; }
-    case 'memo': { const R2 = S.run, x = R2 && runExercises(S.templates[R2.tid])[R2.i]; if (x) { R2.ex[x.name].memoOpen = true; persistRun(); renderSession(); setTimeout(() => $('in-memo')?.focus(), 0); } return; }
+    case 'memo': { const R2 = S.run, x = R2 && runExercises(S.templates[R2.tid])[R2.i]; if (x) { R2.ex[x.name].memoOpen = true; persistRun(); renderSession(); const m = $('in-memo'); revealBox(m); m?.focus({ preventScroll: true }); layoutBand(); } return; }
     case 'prot': { const k = today(), days = {}; for (const [d, g] of Object.entries(S.nutrition?.days || {})) if (L.dayDiff(d, k) <= 60) days[d] = g; days[k] = Math.max(0, (+days[k] || 0) + +v); write('settings/nutrition', { ...(S.nutrition || {}), days }); renderAll(true); return; }
     case 'nutsave': {
       const num = id => { const r = $(id)?.value.trim().replace(',', '.'); return r ? Number(r) : NaN; };
@@ -3891,7 +4080,7 @@ document.addEventListener('click', ev => {
     case 'zone': { const z = new Set(R.feel.zones || []); z.has(v) ? z.delete(v) : z.add(v); R.feel.zones = [...z]; persistRun(); renderSession(); return; }
     case 'sbegin': R.startedAt = Date.now(); R.phase = R.runData && !R.runData.done ? 'run' : (firstOpen(R, t) ? 'ex' : 'end'); persistRun(); syncRun(); renderSession(); $('sess').scrollTo(0, 0); return;
     case 'st': stepVal(b.dataset.f, +b.dataset.d); return;
-    case 'sdone': readSessInputs(); setDone(); $('sess').scrollTo(0, 0); return;
+    case 'sdone': readSessInputs(); if (setDone()) { SLACK.key = ''; $('sess').scrollTo(0, 0); } else revealBox($('sess').querySelector('.stepper.e6-bad')); return;
     case 'sset': R.j = +v; R.toast = ''; persistRun(); renderSession(); return;
     case 'sskip': { const x = runExercises(t)[R.i], e = R.ex[x.name]; if (!e.sets.some(s => s.done)) e.skipped = true; else e.sets = e.sets.filter(s => s.done); const nx = nextOpen(R, t); if (nx) { R.i = nx.i; R.j = nx.j; R.phase = 'ex'; } else R.phase = 'end'; R.toast = ''; persistRun(); syncRun(); renderSession(); return; }
     case 'sadd': { const e = R.ex[runExercises(t)[R.i].name], last = e.sets[e.sets.length - 1]; e.sets.push({ ...last, label: `Série ${e.sets.length + 1}`, done: false, auto: false }); persistRun(); renderSession(); return; }
@@ -3910,15 +4099,15 @@ document.addEventListener('click', ev => {
     case 'sabandon2': clearTimeout(syncT); if (S.run && S.templates[R.tid]) write('logs/' + R.date, logFromRun(S.logs[R.date]?.status === 'faite' ? 'faite' : 'prévue')); S.run = null; S.showRun = false; persistRun(); keepAwake(false); stopTicker(); renderAll(true); return;
   }
 });
+const fieldNum = el => { const r = el.value.trim().replace(',', '.'); return r === '' ? '' : Number(r); };
 function readSessInputs(){
   const R = S.run; if (!R) return;
   const note = $('in-note'); if (note) R.note = note.value.trim();
   const t = S.templates[R.tid], x = runExercises(t)[R.i]; if (!x || R.phase !== 'ex') return;
   const s = R.ex[x.name].sets[R.j], iv = $('in-val'), ir = $('in-reps'), im = $('in-memo');
   if (im) R.ex[x.name].memo = im.value.trim();
-  const num = el => { const r = el.value.trim().replace(',', '.'); return r === '' ? '' : Number(r); };
-  if (iv) { const n = num(iv); if (n === '' || !isNaN(n)) { if (n !== s.val) s.auto = false; s.val = n; } }
-  if (ir) { const n = num(ir); if (n === '' || !isNaN(n)) s.reps = n === '' ? '' : Math.round(n); }
+  if (iv) { const n = fieldNum(iv); if (n === '' || !isNaN(n)) { if (n !== s.val) s.auto = false; s.val = n; } }
+  if (ir) { const n = fieldNum(ir); if (n === '' || !isNaN(n)) s.reps = n === '' ? '' : Math.round(n); }
 }
 function readRunInputs(){
   const d = S.run?.runData; if (!d) return;
@@ -3937,16 +4126,32 @@ document.addEventListener('change', ev => {
     renderAll(true); return;
   }
   if (S.run && ['in-val', 'in-reps'].includes(id)) {
-    readSessInputs();
-    const R = S.run, t = S.templates[R.tid], x = runExercises(t)[R.i], e = R.ex[x.name];
-    if (id === 'in-val' && L.kind(x) === 'barre' && R.j === 0 && L.isNum(e.sets[0].val)) e.sets.forEach((o, k) => { if (k > 0 && !o.done && o.auto) o.val = L.roundTo(e.sets[0].val * 0.9, 2.5); });
-    persistRun(); renderSession(); return;
+    commitEntry(id);
+    return;
   }
   if (S.run && ['in-km', 'in-dur', 'in-hr'].includes(id)) { readRunInputs(); persistRun(); renderSession(); return; }
   if (S.run && id === 'in-memo') { const R2 = S.run, x = runExercises(S.templates[R2.tid])[R2.i]; if (x) { R2.ex[x.name].memo = ev.target.value.trim(); persistRun(); syncRun(); } return; }
   if (S.run && id === 'in-note') { S.run.note = ev.target.value.trim(); persistRun(); }
 });
-document.addEventListener('focusin', ev => { if (ev.target.matches?.('.stepper input')) setTimeout(() => ev.target.select?.(), 0); });
+document.addEventListener('focusin', ev => { if (ev.target.matches?.('.stepper input')) setTimeout(() => ev.target.select?.(), 0); if (S.run) layoutBand(); });
+document.addEventListener('focusout', () => { if (S.run) setTimeout(layoutBand, 0); });
+/* Clavier : la bande suit la zone visible ; à l'ouverture, le champ actif reste au-dessus */
+if (window.visualViewport) for (const type of ['resize', 'scroll']) visualViewport.addEventListener(type, () => {
+  if (!S.run) return;
+  const was = kbOpen; layoutBand();
+  if (type === 'resize' && kbOpen && !was) { const a = document.activeElement; revealBox(a?.id === 'in-memo' ? a : a?.closest?.('.stepper')); }
+});
+window.addEventListener('resize', () => { if (S.run) { fitDigits(); layoutBand(); } });
+document.fonts?.ready?.then(fitDigits);
+/* Défilement manuel vers le bas : la cale se résorbe avec le doigt, sans saut. Un simple toucher (moins de 10 px) ne la change pas */
+let dragFrom = null, dragY = null;
+document.addEventListener('touchstart', ev => { dragFrom = dragY = $('sess').contains(ev.target) ? ev.touches[0]?.clientY ?? null : null; }, { passive: true });
+document.addEventListener('touchmove', ev => {
+  const y = ev.touches[0]?.clientY;
+  if (!SLACK.hold || dragY == null || y == null) { dragY = y ?? dragY; return; }
+  if (Math.abs(y - dragFrom) > 10 && y < dragY) setHold(SLACK.hold - (dragY - y));
+  dragY = y;
+}, { passive: true });
 document.addEventListener('submit', ev => {
   ev.preventDefault();
   const f = ev.target;
