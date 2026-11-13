@@ -1,6 +1,6 @@
 {
-  "name": "Carnet de séances",
-  "short_name": "Carnet",
+  "name": "ATLAS",
+  "short_name": "ATLAS",
   "lang": "fr",
   "start_url": "./",
   "scope": "./",
@@ -18,7 +18,7 @@
       "src": "icon-512.png",
       "sizes": "512x512",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
     }
   ]
 }

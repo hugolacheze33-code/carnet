@@ -4,7 +4,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
-<meta name="apple-mobile-web-app-title" content="Carnet">
+<meta name="apple-mobile-web-app-title" content="ATLAS">
 <meta name="theme-color" content="#141312">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="apple-touch-icon" href="icon-180.png">
@@ -13,7 +13,7 @@
 <script>
 window.CARNET_MODE = 'pwa';
 window.CARNET_THREE_URL = 'three.min.js';
-window.CARNET_VERSION = '2026-11-10 15:15';
+window.CARNET_VERSION = '2026-11-13 10:56';
 /* Base locale : même interface que la base claude.ai, stockée sur le téléphone */
 (function(){
   const KEY = 'carnet.db';
@@ -55,7 +55,7 @@ window.CARNET_VERSION = '2026-11-10 15:15';
 })();
 </script>
 </head><body>
-<title>Carnet de séances</title>
+<title>ATLAS</title>
 <style>
 /* Sol de salle : fond caoutchouc, texte craie, couleurs de disques olympiques comme code des séances.
    Colonne unique pensée pour le pouce (max 560 px), barre d'onglets en bas, mode séance plein écran. */
@@ -361,12 +361,10 @@ body{background-image:radial-gradient(color-mix(in srgb,var(--chalk) 5%,transpar
 @media (prefers-reduced-motion:no-preference){
   button,.chip,.btn,label.btn{transition:transform .08s ease,background-color .15s ease,border-color .15s ease}
   button:active,.btn:active{transform:scale(.97)}
-  .view.enter>*{animation:rise .24s ease-out both}
   .stepper input.pop{animation:pop .2s ease-out}
   .toast.pr{animation:pop .35s ease-out}
   .m-dot{animation:beat 1s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
 }
-@keyframes rise{from{opacity:.55;transform:translateY(6px)}to{opacity:1;transform:none}}
 @keyframes pop{0%{transform:scale(1)}40%{transform:scale(1.09)}100%{transform:scale(1)}}
 @keyframes beat{50%{transform:scale(1.5)}}
 /* la semaine : des disques enfilés sur une barre */
@@ -598,8 +596,15 @@ h3{font-weight:650;letter-spacing:-.015em}
 .khead{display:flex;justify-content:space-between;align-items:center;gap:10px}
 .khead .kspot{height:46px;margin:-8px 0 -6px}
 .kline{display:flex;align-items:center;gap:12px}
-.kairos{position:absolute;left:0;top:0;z-index:3;pointer-events:none;background:url(kairos.webp) no-repeat;background-size:600% 100%;background-position:calc(var(--p,0) * 20%) 0;transition:transform .6s cubic-bezier(.45,0,.2,1);will-change:transform}
+.kairos{position:absolute;left:0;top:0;z-index:3;pointer-events:none;transition:transform .6s cubic-bezier(.45,0,.2,1);will-change:transform}
+/* le dessin est porté par ::after, pour que l'arrivée (léger tassement) ne touche pas à la position */
+.kairos::after,.kz{background:url(kairos.webp) no-repeat;background-size:600% 100%;background-position:calc(var(--p,0) * 20%) 0;transform-origin:50% 100%}
+.kairos::after{content:"";position:absolute;inset:0}
 .kairos.still{transition:none}
+/* KAIROS dans un écran de séance (repos seulement) : un dessin fixe, sans course */
+.kz{display:block;flex:none;aspect-ratio:251/329;pointer-events:none}
+.next.haskz{position:relative;padding-right:66px}
+.next .kz{position:absolute;right:10px;bottom:8px;height:58px;max-height:calc(100% - 12px)}
 /* Fiches : la statue sur un fond de salle sombre, éclairée par le haut */
 .figbox{background:radial-gradient(75% 65% at 50% 40%,#25221f 0,var(--floor) 100%)}
 
@@ -684,6 +689,49 @@ h3{font-weight:650;letter-spacing:-.015em}
 #sess.e6 .e6-cta .btn.main{display:block;width:100%;max-width:528px;margin:0 auto;height:56px;min-height:56px;padding:0;border:0;border-radius:12px;background:var(--acc);color:var(--on-acc);font-size:18px;font-weight:700;font-stretch:var(--wide);box-shadow:none;transition:transform 90ms ease-out}
 #sess.e6 .e6-cta .btn.main:active{transform:scale(.985)}
 @media (prefers-reduced-motion:reduce){#sess.e6 .stepper > button,#sess.e6 .e6-cta .btn.main{transition:none}#sess.e6 .stepper > button:active,#sess.e6 .e6-cta .btn.main:active{transform:none}}
+
+/* ===================== Mouvement ATLAS (bloc A, 2026-11-12) =====================
+   Un seul langage : le nouvel écran arrive en relief, par couches (0,17 s chacune, décalées de 15 ms), le tout en 0,2 s au plus ;
+   la barre des onglets ne bouge pas. Seul le remplissage de l'anneau du repos dure 0,3 s (le chiffre est lisible dès le début).
+   L'écran est rendu et actif tout de suite : seules sa position et son opacité de départ s'animent, rien n'attend la fin.
+   - onglets : le titre et le contenu glissent depuis le côté de l'onglet choisi (--dx, réglé par viewMotion) ; la statue de l'accueil
+     ne parcourt que 40 % du trajet (profondeur) ;
+   - fiche ou historique ouverts : léger rapprochement ; retour à la liste : léger recul ;
+   - séance (sessMotion) : l'écran suivant arrive par couches, l'en-tête reste en place, l'anneau du repos se remplit puis se vide ;
+     l'écran de saisie d'une série ne fait qu'un fondu : sa bande fixe et le socle sous le doigt ne bougent jamais.
+   Animations réduites : aucun de ces mouvements. */
+@media (prefers-reduced-motion:no-preference){
+  .view.enter>*,.ltitle.enter{animation:atl-in .17s cubic-bezier(.2,.7,.2,1) both}
+  .view.enter>:nth-child(2){animation-delay:15ms}
+  .view.enter>:nth-child(n+3){animation-delay:30ms}
+  .view.enter .acc-scene .statue{animation:atl-par .17s cubic-bezier(.2,.7,.2,1) both}
+  .view.deep>*{animation:atl-deep .17s cubic-bezier(.2,.7,.2,1) both}
+  .view.back>*{animation:atl-back .16s cubic-bezier(.2,.7,.2,1) both}
+  .nav button.on svg{animation:atl-tab .18s cubic-bezier(.2,.7,.2,1)}
+  #sess.mv:not(.e6) .in>*{animation:atl-in .17s cubic-bezier(.2,.7,.2,1) both}
+  #sess.mv:not(.e6) .in>:nth-child(n+3){animation-delay:15ms}
+  #sess.mv:not(.e6) .in>:nth-child(n+5){animation-delay:30ms}
+  #sess.mv.deep:not(.e6) .in>*{animation-name:atl-deep}
+  #sess.mv.back:not(.e6) .in>*{animation-name:atl-back}
+  #sess.mv:not(.e6) .in>.shead{animation:none}
+  #sess.mv:not(.e6) .in>.rring{animation:atl-ring .2s cubic-bezier(.2,.7,.2,1) both}
+  #sess.mv .rring .val{animation:atl-fill .3s cubic-bezier(.2,.7,.2,1) both}
+  #sess.mv.e6 .in{animation:atl-fade .14s ease-out both}
+  #sess.mv .next .kz{animation:kz-sit .24s 60ms cubic-bezier(.2,.7,.2,1) both}
+  .next .kz.up{animation:kz-up .32s cubic-bezier(.3,.7,.3,1)}
+  .kairos.land::after{animation:kz-land .26s cubic-bezier(.3,.7,.3,1)}
+}
+@keyframes atl-in{from{opacity:.4;transform:translate3d(var(--dx,0px),var(--dy,8px),0)}}
+@keyframes atl-par{from{transform:translate3d(calc(var(--dx,0px) * -.6),0,0)}}
+@keyframes atl-deep{from{opacity:.4;transform:translateY(10px) scale(.985)}}
+@keyframes atl-back{from{opacity:.5;transform:translateX(-10px)}}
+@keyframes atl-tab{from{transform:translateY(3px) scale(.88)}}
+@keyframes atl-ring{from{opacity:.5;transform:scale(.96)}}
+@keyframes atl-fill{from{stroke-dashoffset:578.05}}
+@keyframes atl-fade{from{opacity:.5}}
+@keyframes kz-sit{from{opacity:0;transform:translateY(6px)}}
+@keyframes kz-up{40%{transform:translateY(-5px)}}
+@keyframes kz-land{35%{transform:scale(1.05,.93)}}
 
 </style>
 
@@ -2768,7 +2816,10 @@ function renderSync(){
   const n = Object.keys(outbox).length, el = $('sync');
   const st = !S.db ? (S.online === 'off' ? 'off' : 'wait') : n ? 'wait' : 'ok';
   el.className = 'sync ' + st;
+  const wasHidden = el.hidden;
   el.hidden = MODE === 'pwa' && st === 'ok';   // sur le téléphone tout est enregistré : on ne le signale que s'il y a un souci
+  /* l'en-tête change de hauteur : KAIROS se recale sur sa place, après le rendu en cours et jamais pendant sa course */
+  if (el.hidden !== wasHidden) { clearTimeout(renderSync.t); renderSync.t = setTimeout(() => { if (!$('kairos')?._t) placeKairos(false); }, 0); }
   el.lastElementChild.textContent = !S.db ? (S.online === 'off' ? (n ? `Hors ligne · ${n} en attente` : 'Hors ligne') : 'Connexion…') : n ? `${n} modification${n>1?'s':''} en attente` : MODE === 'pwa' ? 'Enregistré' : 'Synchronisé';
 }
 let pendingRender = false;
@@ -2809,10 +2860,27 @@ function renderView(){
   }
   const resume = '';   // la séance réduite s'affiche dans le mini-lecteur, au-dessus des onglets
   const upd = S.updateReady ? `<div class="alert"><span>Une nouvelle version de l’app est prête. Tes données ne changent pas. ${S.run ? 'Elle s’installera toute seule à la fin de ta séance.' : 'Elle s’installera toute seule dès que tu auras fini ce que tu fais.'}</span><button data-a="reload">Mettre à jour</button></div>` : '';
-  v.classList.toggle('enter', S.lastTab !== S.tab); S.lastTab = S.tab;
-  v.innerHTML = upd + resume + ({ today: viewToday, cal: viewCal, prog: viewProg, plan: viewPlan, info: viewInfo, claude: viewClaude })[S.tab]();
+  viewMotion(v);
+  v.innerHTML = upd + resume +({ today: viewToday, cal: viewCal, prog: viewProg, plan: viewPlan, info: viewInfo, claude: viewClaude })[S.tab]();
   if (S.tab === 'prog') afterProg();
   if (S.tab === 'info' && S.infoName && EX.find(S.infoName)) figMount(EX.find(S.infoName));
+}
+/* Mouvement d'un nouveau rendu de #view (bloc « Mouvement ATLAS » du CSS). Seulement si l'écran change :
+   onglet (glissé depuis le côté de l'onglet choisi), fiche ou historique ouverts (rapprochement) ou refermés (recul).
+   Les autres rendus (saisie, protéines, confirmations…) ne bougent pas. */
+function viewMotion(v){
+  const detail = S.tab === 'info' ? S.infoName || '' : S.tab === 'prog' ? S.histName || '' : '';
+  let mv = '', dir = 0;
+  if (S.viewAnim || S.lastTab !== S.tab) {
+    mv = 'enter';
+    const a = TABS.findIndex(([id]) => id === S.lastTab), b = TABS.findIndex(([id]) => id === S.tab);
+    if (!S.viewAnim && a >= 0 && b >= 0) dir = Math.sign(b - a);
+  } else if (detail !== (S.lastDetail || '')) mv = detail ? 'deep' : 'back';
+  S.viewAnim = false; S.lastTab = S.tab; S.lastDetail = detail;
+  v.classList.remove('enter', 'deep', 'back'); if (mv) v.classList.add(mv);
+  const app = $('app'); app.style.setProperty('--dx', dir * 14 + 'px'); app.style.setProperty('--dy', dir ? '0px' : '8px');
+  const t = $('ptitle');
+  if (t) { t.classList.remove('enter'); if (mv === 'enter') { void t.offsetWidth; t.classList.add('enter'); } }
 }
 
 /* Les consignes du programme, en clair */
@@ -3709,9 +3777,12 @@ function heroHtml(k, c, dd){
   return `<div class="acc-scene"><span class="statue" aria-hidden="true"></span><p class="acc-date">${date}</p>${kairosSpot(kairosToday(k, c), 'lg')}</div>`;
 }
 /* ---------- KAIROS, la mascotte ----------
-   Chaque onglet lui réserve une place (data-kairos = sa pose) ; quand on change d'onglet, il y court.
+   Chaque onglet lui réserve une place (data-kairos = sa pose) ; quand on change d'onglet, il y court
+   (durée selon la distance, léger tassement à l'arrivée).
    Pas de slogan : sa pose suffit (pouce levé après un record, assis en allègement, en course les jours de course).
-   Jamais pendant une séance, même réduite. */
+   Pendant une séance, même réduite : jamais, sauf assis dans la carte « Ensuite » de l'écran de repos (exception du bloc A,
+   2026-11-12), où il se relève quand le repos est fini. Une séance enregistrée aujourd'hui : il revient en courant
+   depuis le bord gauche jusqu'à sa place de l'accueil (S.kzJoin). */
 const POSES = { idle: 0, point: 1, bravo: 2, rest: 3, run: 4, wait: 5 };
 function kairosSpot(pose, size = ''){ return `<span class="kspot ${size}" data-kairos="${pose}" aria-hidden="true"></span>`; }
 function kairosToday(k, c){
@@ -3729,22 +3800,30 @@ function placeKairos(moved){
   const spot = document.querySelector('#view [data-kairos]');
   if (!spot || S.run) { k.hidden = true; kzAt = null; return; }
   const { x, y } = offsetIn(spot, $('app')), pose = POSES[spot.dataset.kairos] ?? 0;
-  const still = !moved || !kzAt || k.hidden || window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+  const reduce = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+  const join = S.kzJoin && !reduce; S.kzJoin = false;
+  const from = join ? { x: -spot.offsetWidth - 8, y } : kzAt;
+  const still = !join && (!moved || !kzAt || k.hidden || reduce);
   k.style.width = spot.offsetWidth + 'px'; k.style.height = spot.offsetHeight + 'px';
-  clearTimeout(k._t);
+  clearTimeout(k._t); k.classList.remove('land');
   /* une seule transformation (position puis sens), posée sans animation sauf pendant la course */
   const put = (px, py, flip, anim) => {
     k.classList.toggle('still', !anim);
     k.style.transform = `translate(${px}px,${py}px) scaleX(${flip ? -1 : 1})`;
     if (!anim) { void k.offsetWidth; k.classList.remove('still'); }
   };
-  const arrive = () => { k.style.setProperty('--p', pose); put(x, y, false, false); };
-  if (still || Math.abs(x - kzAt.x) + Math.abs(y - kzAt.y) <= 4) { k.hidden = false; arrive(); }
+  /* à l'arrivée, sa place est relue : la page a pu bouger pendant la course */
+  const arrive = landed => {
+    k._t = null; const sp = spot.isConnected ? spot : document.querySelector('#view [data-kairos]'), p = sp ? offsetIn(sp, $('app')) : { x, y };
+    k.style.setProperty('--p', pose); put(p.x, p.y, false, false); kzAt = p; if (landed) k.classList.add('land');
+  };
+  if (still || Math.abs(x - from.x) + Math.abs(y - from.y) <= 4) { k.hidden = false; arrive(false); }
   else {
-    /* il se tourne dans le sens du déplacement, court jusqu'à sa nouvelle place, puis prend sa pose */
-    const flip = x < kzAt.x - 4;
-    k.style.setProperty('--p', POSES.run); put(kzAt.x, kzAt.y, flip, false);
-    put(x, y, flip, true); k._t = setTimeout(arrive, 620);
+    /* il se tourne dans le sens du déplacement, court jusqu'à sa nouvelle place (plus vite si elle est proche), puis prend sa pose */
+    const flip = x < from.x - 4, dur = Math.round(Math.min(620, Math.max(380, 240 + Math.hypot(x - from.x, y - from.y) * .9)));
+    k.hidden = false; k.style.transitionDuration = dur + 'ms';
+    k.style.setProperty('--p', POSES.run); put(from.x, from.y, flip, false);
+    put(x, y, flip, true); k._t = setTimeout(() => arrive(true), dur);
   }
   kzAt = { x, y };
 }
@@ -3843,6 +3922,7 @@ function renderSession(){
   if (!R) { el.hidden = true; return; }
   const t = S.templates[R.tid];
   if (!t) { el.hidden = false; el.innerHTML = `<div class="in"><h2>Séance introuvable</h2><button class="btn main" data-a="sabandon2">Fermer</button></div>`; return; }
+  const opening = el.hidden;
   el.hidden = false; document.body.classList.add('locked');
   el.style.setProperty('--c', col(R.tid));
   el.classList.toggle('rest', R.phase === 'rest');
@@ -3852,6 +3932,7 @@ function renderSession(){
   const xs = runExercises(t);
   let h = '', entry = false;
   if (S.toastMain) { h += `<div class="toast">${esc(S.toastMain)}</div>`; S.toastMain = ''; }
+  sessMotion(el, R, opening);
   if (R.hist) {
     el.classList.remove('rest');
     el.innerHTML = `<div class="in">${histDetail(R.hist, 'histclose')}</div>`; return;
@@ -3889,8 +3970,8 @@ function renderSession(){
         <div class="rbtns"><button data-a="rplus">+30 s</button><button data-a="sound" aria-pressed="${!!S.sound}">${S.sound ? 'Son activé' : 'Son coupé'}</button></div>
         ${R.toast ? `<div class="toast ${/record/i.test(R.toast) ? 'pr' : ''}">${esc(R.toast)}</div>` : ''}
         ${rirHtml(R)}
-        <div class="push"><div class="next"><span class="eyebrow">Ensuite${x.name === R.restFor ? '' : ' · ' + esc(x.name)} · ${esc(s.label || 'Série ' + (R.j + 1))}</span><span class="n">${esc(describeSet(x, s))}</span>
-        ${isBarbell(x) && L.isNum(s.val) && L.platesPerSide(s.val).side.length ? `<span class="small dim">Par côté : ${L.platesPerSide(s.val).side.map(L.frNum).join(' + ')}</span>` : ''}</div>
+        <div class="push"><div class="next haskz"><span class="eyebrow">Ensuite${x.name === R.restFor ? '' : ' · ' + esc(x.name)} · ${esc(s.label || 'Série ' + (R.j + 1))}</span><span class="n">${esc(describeSet(x, s))}</span>
+        ${isBarbell(x) && L.isNum(s.val) && L.platesPerSide(s.val).side.length ? `<span class="small dim">Par côté : ${L.platesPerSide(s.val).side.map(L.frNum).join(' + ')}</span>` : ''}<span class="kz" id="kzrest" style="--p:${R.restEnd > Date.now() ? POSES.rest : POSES.idle}" aria-hidden="true"></span></div>
         <button class="btn main" data-a="rskip" id="restgo">Série suivante</button></div>`;
     } else {
       const total = e.sets.length, tgt = s.target ?? (k === 'barre' ? x.scheme?.[R.j]?.reps : null);
@@ -3925,6 +4006,15 @@ function renderSession(){
   el.innerHTML = `<div class="in">${h}</div>`;
   if (entry) { applySlack(R); fitDigits(); layoutBand(); }
   if (R.phase === 'rest') startTicker(); else stopTicker();
+}
+/* Mouvement d'un nouvel écran de séance (bloc « Mouvement ATLAS » du CSS) : à l'ouverture, puis seulement quand l'écran change
+   (phase, exercice, série, fiche, historique, liste). Les rendus du même écran (+30 s, son, réserve, erreur de saisie) ne bougent pas. */
+function sessMotion(el, R, opening){
+  const sub = R.hist ? 'h' : R.info ? 'i' : R.list ? 'l' : '';
+  const key = [R.phase, R.i, R.j, sub, R.hist || R.info || ''].join('|'), was = opening ? {} : el._mv || {};
+  const mv = opening ? 'mv' : key === was.key ? '' : sub && !was.sub ? 'mv deep' : !sub && was.sub ? 'mv back' : 'mv';
+  el._mv = { key, sub };
+  el.classList.remove('mv', 'deep', 'back'); if (mv) el.classList.add(...mv.split(' '));
 }
 function feelAdvice(f){
   if (f.pain >= 3) return `<p class="alert">Douleur ${f.pain}/5 : allège ou remplace les exercices qui chargent ${f.zones?.length ? 'la zone ' + esc(f.zones.join(', ').toLowerCase()) : 'cette zone'}. Une douleur articulaire qui augmente pendant la séance est un signal d’arrêt.</p>`;
@@ -3997,6 +4087,7 @@ function startTicker(){
       beep(988, .18); beep(988, .18, .25); beep(1319, .45, .5);
       const el = $('sess'); el.classList.remove('flash'); void el.offsetWidth; el.classList.add('flash');
       const g = $('restgo'); if (g) g.textContent = 'C’est reparti';
+      const kz = $('kzrest'); if (kz) { kz.style.setProperty('--p', POSES.idle); kz.classList.add('up'); }   // KAIROS se relève
       if (c) c.textContent = 'GO';
       const mi = $('mini'); if (mi && !mi.hidden) mi.classList.add('done');
     }
@@ -4142,11 +4233,11 @@ document.addEventListener('click', ev => {
     case 'rtread': R.runData.treadmill = !R.runData.treadmill; persistRun(); renderSession(); return;
     case 'rst': readRunInputs(); { const d = R.runData, n = +b.dataset.d; if (b.dataset.f === 'km') d.km = Math.max(0, Math.round((d.km + n * 0.1) * 100) / 100); else d.sec = Math.max(0, d.sec + n * 60); } persistRun(); renderSession(); return;
     case 'rdone': readRunInputs(); if (!(R.runData.km > 0) || !(R.runData.sec > 0)) { S.toastMain = 'Indique la distance et la durée.'; renderSession(); return; } R.runData.done = true; { const prev = Object.keys(S.logs).filter(d => d < R.date && S.logs[d].templateId === 'D' && S.logs[d].status === 'faite').map(d => L.runOf(S.logs[d], t)).filter(x => x?.km); L.runPRs({ km: R.runData.km, pace: R.runData.sec / R.runData.km }, prev).forEach(p => { if (!R.prs.some(q => q.label === p)) R.prs.push({ ex: 'Course', label: p }); }); } R.phase = firstOpen(R, t) ? 'ex' : 'end'; persistRun(); syncRun(); renderSession(); return;
-    case 'sfinish': { readSessInputs(); const l = logFromRun('faite'); clearTimeout(syncT); write('logs/' + R.date, l); S.run = null; S.showRun = false; persistRun(); keepAwake(false); stopTicker(); S.tab = R.date === today() ? 'today' : 'cal'; renderAll(true); window.scrollTo(0, 0); return; }
+    case 'sfinish': { readSessInputs(); const l = logFromRun('faite'); clearTimeout(syncT); write('logs/' + R.date, l); S.run = null; S.showRun = false; persistRun(); keepAwake(false); stopTicker(); S.tab = R.date === today() ? 'today' : 'cal'; S.viewAnim = true; S.kzJoin = !R.noTimer && R.date === today(); renderAll(true); window.scrollTo(0, 0); return; }
     case 'sabandon': R.abandon = 1; renderSession(); return;
     case 'sabandon1': R.abandon = 2; renderSession(); return;
     case 'sabandonx': R.abandon = 0; renderSession(); return;
-    case 'sabandon2': clearTimeout(syncT); if (S.run && S.templates[R.tid]) write('logs/' + R.date, logFromRun(S.logs[R.date]?.status === 'faite' ? 'faite' : 'prévue')); S.run = null; S.showRun = false; persistRun(); keepAwake(false); stopTicker(); renderAll(true); return;
+    case 'sabandon2': clearTimeout(syncT); if (S.run && S.templates[R.tid]) write('logs/' + R.date, logFromRun(S.logs[R.date]?.status === 'faite' ? 'faite' : 'prévue')); S.run = null; S.showRun = false; persistRun(); keepAwake(false); stopTicker(); S.viewAnim = true; renderAll(true); return;
   }
 });
 const fieldNum = el => { const r = el.value.trim().replace(',', '.'); return r === '' ? '' : Number(r); };

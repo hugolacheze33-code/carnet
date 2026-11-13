@@ -1,6 +1,6 @@
 // Ouverture immédiate depuis le cache, même avec un mauvais réseau ; la mise à jour arrive en arrière-plan pour l'ouverture suivante
-const V = 'carnet-mwau09pw';
-const CORE = ['./', 'index.html', 'manifest.webmanifest', 'icon-180.png', 'icon-192.png', 'icon-512.png', 'three.min.js', 'atlas-statue.webp', 'kairos.webp', 'archivo-latin.woff2'];
+const V = 'carnet-mwev301n';
+const CORE = ['./', 'index.html', 'manifest.webmanifest', 'icon-180.png', 'icon-192.png', 'three.min.js', 'atlas-statue.webp', 'kairos.webp', 'archivo-latin.woff2'];
 self.addEventListener('install', e => e.waitUntil(caches.open(V).then(c => c.addAll(CORE.map(u => new Request(u, { cache: 'reload' })))).then(() => self.skipWaiting())));
 self.addEventListener('activate', e => e.waitUntil(caches.keys().then(ks => Promise.all(ks.filter(k => k !== V).map(k => caches.delete(k)))).then(() => self.clients.claim())));
 self.addEventListener('fetch', e => {
